@@ -1,9 +1,11 @@
 import React from 'react';
+import '../css/loadPage.css';
+import Load from "../components/Load";
 
 function LoadPage() {
     return (
-        <div className="load">
-
+        <div>
+            <Load/>
         </div>
     );
 }

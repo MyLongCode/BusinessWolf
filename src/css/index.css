@@ -1,0 +1,36 @@
+@import "colors.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Enthalpy 298', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+button {
+  border-radius: 10px;
+  color: var(--White);
+  line-height: 200%;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 12px 0;
+  width: 100%;
+  border: none;
+  background-color: var(--Main);
+}
+
+button:disabled {
+  background-color: var(--Gray);
+}
