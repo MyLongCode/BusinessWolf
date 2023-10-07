@@ -21,7 +21,7 @@ function Load() {
 
     return (
         <div>
-            <div className={loaded ? "loaded" : "loading"}>
+            <div className={`${loaded ? "loaded" : "loading"} centered`}>
                 <div className="load_container_left">
                     {!loaded && <p className="load_subtitle">Бизнес школа</p>}
                     <h1 className="load_title">{title}</h1>
