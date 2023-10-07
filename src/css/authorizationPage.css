@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 260px;
+    max-width: 600px;
 }
 
 .authorize_form button {
@@ -16,10 +18,12 @@
 .authorize_form h1 {
     font-size: 39px;
     margin-bottom: 62px;
+    white-space: nowrap;
 }
 
 .authorize_form .restore_password {
     margin-top: 24px;
+    white-space: nowrap;
 }
 
 .authorize_form p a{
@@ -28,10 +32,10 @@
 }
 
 .password_show {
-    width: 18px;
+    width: 24px;
     position: absolute;
     right: 15px;
-    transform: translateY(19px);
+    transform: translateY(16px);
     cursor: pointer;
 }
 
