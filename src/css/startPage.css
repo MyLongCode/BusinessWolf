@@ -1,17 +1,5 @@
 @import "colors.css";
 
-.start a {
-    border-radius: 10px;
-    color: var(--White);
-    line-height: 200%;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 12px 85pt;
-    border: none;
-    background-color: var(--Main);
-    text-decoration: none;
-}
-
 .start {
     display: flex;
     justify-content: center;
@@ -20,22 +8,33 @@
     color: var(--White);
 }
 
-.load_container_left {
+.start_container_left {
     width: 30%;
     color: var(--Black);
 }
 
-.load_text {
+.start_button {
+    border-radius: 10px;
+    color: var(--White);
+    line-height: 200%;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 12px 85pt;
+    border: none;
+    width: 70%;
+}
+
+.start_text {
     margin-bottom: 48px;
 }
 
-.load_title {
+.start_title {
     font-size: 58px;
     margin-bottom: 20px;
     white-space: nowrap;
 }
 
-.load_wolf {
+.start_wolf {
     width: 662px;
     height: auto;
     position: relative;

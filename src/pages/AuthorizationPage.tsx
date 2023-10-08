@@ -4,8 +4,11 @@ import '../css/authorizationPage.css';
 import useInput from "../hooks/useInput";
 import CustomInput from "../components/CustomInput";
 import {motion} from 'framer-motion';
+import {useNavigate} from "react-router-dom";
 
 function AuthorizationPage() {
+    const navigate = useNavigate()
+
     const login = useInput(
         '',
         {
@@ -28,10 +31,16 @@ function AuthorizationPage() {
             minLengthError: "Длина пароля должна быть больше 6 символов"
         })
 
+    const submitHandler = async (event: React.FormEvent) => {
+        event.preventDefault()
+        navigate('/main')
+    }
+
     const formValid = login.isValid && password.isValid
 
     return (
         <motion.form
+            onSubmit={submitHandler}
             className="authorize_form centered"
             initial={{opacity: 0.1}}
             animate={{opacity: 1}}
