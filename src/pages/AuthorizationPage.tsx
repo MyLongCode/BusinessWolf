@@ -3,6 +3,7 @@ import logo from '../images/Logo.svg';
 import '../css/authorizationPage.css';
 import useInput from "../hooks/useInput";
 import CustomInput from "../components/CustomInput";
+import {motion} from 'framer-motion';
 
 function AuthorizationPage() {
     const login = useInput(
@@ -30,7 +31,13 @@ function AuthorizationPage() {
     const formValid = login.isValid && password.isValid
 
     return (
-        <form className="authorize_form centered">
+        <motion.form
+            className="authorize_form centered"
+            initial={{opacity: 0.1}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            transition={{duration: 0.5}}
+        >
             <img src={logo} alt="Логотип" className="auth_logo"/>
             <h1>Бизнес волчонок</h1>
             <CustomInput
@@ -57,7 +64,7 @@ function AuthorizationPage() {
             <p className="restore_password">
                 Забыли пароль? <a rel="noreferrer" href="https://telegram.org" target="_blank">Напишите боту</a>
             </p>
-        </form>
+        </motion.form>
     );
 }
 

@@ -27,17 +27,18 @@ function CustomInput(props: ICustomInput) {
                 id="login"
                 autoComplete="login"
                 maxLength={16}
-                className={(props.validation ? "filled" : "unfilled") + (props.validation.errorMessage ? " input_error" : "")}
+                className={(props.validation.value ? "filled" : "unfilled") +
+                    ((props.validation.isDirty && props.validation.errorMessage) ? " input_error" : "")}
             />
             {(props.validation.isDirty && props.validation.errorMessage) &&
                 <p className="error_text">{props.validation.errorMessage}</p>}
-            {props.isPassword && props.validation.isDirty &&
-                    <img
-                        src={eye}
-                        alt="Показать пароль"
-                        className="password_show"
-                        onClick={() => setPasswordShown(!passwordShown)}
-                    />}
+            {props.isPassword && props.validation.isDirty && props.validation.value &&
+                <img
+                    src={eye}
+                    alt="Показать пароль"
+                    className="password_show"
+                    onClick={() => setPasswordShown(!passwordShown)}
+                />}
         </div>
     );
 }
