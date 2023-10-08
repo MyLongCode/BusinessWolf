@@ -1,6 +1,6 @@
 @import "colors.css";
 
-.loaded a {
+.start a {
     border-radius: 10px;
     color: var(--White);
     line-height: 200%;
@@ -12,7 +12,7 @@
     text-decoration: none;
 }
 
-.loading, .loaded {
+.start {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,40 +21,18 @@
 }
 
 .load_container_left {
-    width: 55%;
-}
-
-.loaded .load_container_left {
     width: 30%;
-}
-
-.loaded .load_container_left {
     color: var(--Black);
 }
 
-.loaded .load_text {
+.load_text {
     margin-bottom: 48px;
 }
 
 .load_title {
-    font-size: 82px;
-    margin-bottom: 32px;
-    white-space: nowrap;
-}
-
-.loaded .load_title {
     font-size: 58px;
     margin-bottom: 20px;
-}
-
-.load_subtitle {
-    color: var(--Black);
-    font-family: 'Sweet Mavka Script', sans-serif;
-    font-size: 25px;
-    font-weight: 500;
-    line-height: normal;
-    transform: rotate(-6.866deg);
-    margin-bottom: 5%;
+    white-space: nowrap;
 }
 
 .load_wolf {
