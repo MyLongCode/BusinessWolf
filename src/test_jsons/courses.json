@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Крутой курс",
+    "description": "Описание крутого курса",
+    "id": 1
+  },
+  {
+    "title": "Полезный курс",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt aliquam lorem nec ultrices. Aenean sit amet nunc non nulla ornare mattis. Vestibulum volutpat nunc elit.",
+    "id": 2
+  }
+]

@@ -7,11 +7,11 @@ import '../css/mainHeader.css'
 function MainHeader() {
     return (
         <header className="main_header">
-            <img src={logo} alt="Логотип" className="logo"/>
+            <a href='/main'><img src={logo} alt="Логотип" className="logo"/></a>
             <p className="logo_text">Бизнес<br/>волчонок</p>
             <div className='token_container'>
                 <img src={token} alt="Монеты" className='token_img'/>
-                <p className='token_count'>5</p>
+                <span className='token_count'>5</span>
             </div>
             <img src={avatar} alt="Аватар пользователя" className='user_avatar'/>
         </header>

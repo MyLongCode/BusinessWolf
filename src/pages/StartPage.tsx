@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/startPage.css';
-import wolf_festive from '../images/Festive_wolf.png';
+import wolf_festive from '../images/Festive_wolf(shadow).png';
 import { motion } from 'framer-motion';
 import {useNavigate} from "react-router-dom";
 

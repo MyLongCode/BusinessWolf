@@ -32,7 +32,7 @@ function CustomInput(props: ICustomInput) {
             />
             {(props.validation.isDirty && props.validation.errorMessage) &&
                 <p className="error_text">{props.validation.errorMessage}</p>}
-            {props.isPassword && props.validation.isDirty && props.validation.value &&
+            {props.isPassword && props.validation.value &&
                 <img
                     src={eye}
                     alt="Показать пароль"
