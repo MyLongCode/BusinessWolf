@@ -1,0 +1,12 @@
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "lms-base",
+        "USER": "postgres",
+        "PASSWORD": "dev",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
+    }
+}
+
+cd
