@@ -1,6 +1,4 @@
 .course {
-    width: auto;
-    height: 30vh;
     background-color: var(--Main);
     overflow: hidden;
     border-radius: 35px;

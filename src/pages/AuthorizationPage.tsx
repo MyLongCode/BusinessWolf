@@ -54,7 +54,7 @@ function AuthorizationPage() {
                 type='text'
                 name='login'
                 id='login'
-                autoComplete='login'
+                autoComplete='username'
                 maxLength={16}
                 validation={login}
                 isPassword={false}

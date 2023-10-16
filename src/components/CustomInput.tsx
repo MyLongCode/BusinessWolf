@@ -16,17 +16,18 @@ function CustomInput(props: ICustomInput) {
     const [passwordShown, setPasswordShown] = useState(false)
 
     return (
-        <div className="input_container">
-            <p className="input_title">{props.title}</p>
+        <label className="input_container">
+            <span className="input_title">{props.title}</span>
             <input
                 onBlur={() => props.validation.onBlur()}
                 onChange={e => props.validation.onChange(e)}
                 value={props.validation.value}
                 type={props.isPassword ? (passwordShown ? "text" : "password") : props.type}
-                name="login"
-                id="login"
-                autoComplete="login"
+                name={props.name}
+                id={props.id}
+                autoComplete={props.autoComplete}
                 maxLength={16}
+                placeholder=''
                 className={(props.validation.value ? "filled" : "unfilled") +
                     ((props.validation.isDirty && props.validation.errorMessage) ? " input_error" : "")}
             />
@@ -39,7 +40,7 @@ function CustomInput(props: ICustomInput) {
                     className="password_show"
                     onClick={() => setPasswordShown(!passwordShown)}
                 />}
-        </div>
+        </label>
     );
 }
 
