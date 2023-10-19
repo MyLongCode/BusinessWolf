@@ -20,7 +20,7 @@ function MainPage() {
                 <ul className='courses_container'>
                     {courses.map(course => {
                         return (
-                            <Course title={course.title} description={course.description} id={course.id}/>
+                            <Course title={course.title} description={course.description} id={course.id} key={course.id}/>
                         )
                     })}
                 </ul>

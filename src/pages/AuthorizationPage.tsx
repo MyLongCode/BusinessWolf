@@ -31,7 +31,7 @@ function AuthorizationPage() {
             minLengthError: "Длина пароля должна быть больше 6 символов"
         })
 
-    const submitHandler = async (event: React.FormEvent) => {
+    const submitHandler = (event: any) => {
         event.preventDefault()
         navigate('/main')
     }
