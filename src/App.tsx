@@ -9,16 +9,21 @@ import MainHeader from "./components/MainHeader";
 
 function App() {
     const location = useLocation()
+    const pagesWithMainHeader = [
+        '/main',
+    ]
 
     return (
-        <AnimatePresence mode='wait'>
-            {location.pathname === '/main' && <MainHeader/>}
-            <Routes location={location} key={location.pathname}>
-                <Route path='/' element={<StartPage/>}/>
-                <Route path='/authorization' element={<AuthorizationPage/>}/>
-                <Route path='/main' element={<MainPage/>}/>
-            </Routes>
-        </AnimatePresence>
+        <>
+            {pagesWithMainHeader.includes(location.pathname) && <MainHeader/>}
+            <AnimatePresence mode='wait'>
+                <Routes location={location} key={location.pathname}>
+                    <Route path='/' element={<StartPage/>}/>
+                    <Route path='/authorization' element={<AuthorizationPage/>}/>
+                    <Route path='/main' element={<MainPage/>}/>
+                </Routes>
+            </AnimatePresence>
+        </>
     );
 }
 
