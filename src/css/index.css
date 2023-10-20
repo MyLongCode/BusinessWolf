@@ -1,50 +1,58 @@
 @import "colors.css";
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 h1 {
-  font-family: 'Enthalpy 298', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+    font-family: 'Enthalpy 298', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  line-height: 150%;
-  min-width: 1440px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    line-height: 150%;
+    min-width: 1440px;
 }
 
-button {
-  border-radius: 20px;
-  color: var(--White);
-  line-height: 200%;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 12px 0;
-  width: 100%;
-  border: none;
-  background-color: var(--Main);
+.button {
+    border-radius: 20px;
+    color: var(--White);
+    line-height: 200%;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 12px 0;
+    width: 100%;
+    border: none;
+    background-color: var(--Main);
+    cursor: pointer;
 }
 
-button:disabled {
-  background-color: var(--Gray);
+.button:hover {
+    background-color: var(--DarkMain);
+}
+
+button:focus {
+    outline: none;
+}
+
+.button:disabled {
+    background-color: var(--Gray);
 }
 
 .centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .error_text {
-  color:red;
-  position: absolute;
-  font-size: 16px;
+    color: red;
+    font-size: 16px;
 }

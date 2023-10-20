@@ -1,6 +1,5 @@
 import {motion} from 'framer-motion';
 import React from 'react';
-import MainHeader from "../components/MainHeader";
 import '../css/mainPage.css'
 import courses from "../test_jsons/courses.json"
 import Course from "../components/Course";
@@ -8,7 +7,6 @@ import Course from "../components/Course";
 function MainPage() {
     return (
         <>
-            <MainHeader/>
             <motion.div
                 className="main"
                 initial={{opacity: 0}}
