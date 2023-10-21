@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'Enthalpy 298';
     src:
-        url('../../fonts/enthalpy298/Enthalpy298Regular.woff2') format('woff2'),
-        url('../../fonts/enthalpy298/Enthalpy298Regular.woff') format('woff');
+        url('../fonts/enthalpy298/Enthalpy298Regular.woff2') format('woff2'),
+        url('../fonts/enthalpy298/Enthalpy298Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
@@ -10,8 +10,8 @@
 @font-face {
     font-family: 'Sweet Mavka Script';
     src:
-        url('../../fonts/sweetmavkascript/Sweet Mavka Script.woff2') format('woff2'),
-        url('../../fonts/sweetmavkascript/Sweet Mavka Script.woff') format('woff');
+        url('../fonts/sweetmavkascript/Sweet Mavka Script.woff2') format('woff2'),
+        url('../fonts/sweetmavkascript/Sweet Mavka Script.woff') format('woff');
     font-weight: 500;
     font-style: normal;
 }
