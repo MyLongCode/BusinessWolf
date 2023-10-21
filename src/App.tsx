@@ -1,11 +1,12 @@
 import React from 'react';
 import {Route, Routes, useLocation} from "react-router-dom";
 import StartPage from "./pages/StartPage";
-import './css/index.css';
 import AuthorizationPage from "./pages/AuthorizationPage";
 import {AnimatePresence} from "framer-motion";
 import MainPage from "./pages/MainPage";
-import MainHeader from "./components/MainHeader";
+import MainHeader from "./components/mainHeader/MainHeader";
+import './assets/css/index.css';
+
 
 function App() {
     const location = useLocation()

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import logo from '../images/Logo.svg';
-import '../css/authorizationPage.css';
+import logo from '../assets/images/Logo.svg';
+import '../assets/css/pages/authorizationPage.css';
 import useInput from "../hooks/useInput";
 import CustomInput from "../components/CustomInput";
 import {motion} from 'framer-motion';
@@ -101,7 +101,7 @@ function AuthorizationPage() {
                 validation={password}
                 isPassword={true}
             />
-            <button disabled={!formValid} type="submit" className="button">Начать</button>
+            <button disabled={!formValid} type="submit">Начать</button>
             <p className="restore_password">
                 Забыли пароль? <a rel="noreferrer" href="https://telegram.org" target="_blank">Напишите боту</a>
             </p>

@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
-import logo from '../images/Logo.svg'
-import token from '../images/Token_wolf.svg'
-import avatar from '../images/Avatar.svg'
-import '../css/mainHeader.css'
+import logo from '../../assets/images/Logo.svg'
+import token from '../../assets/images/Token_wolf.svg'
+import avatar from '../../assets/images/Avatar.svg'
+import './mainHeader.css'
 import {Link, useNavigate} from "react-router-dom";
 import { motion } from 'framer-motion';
 

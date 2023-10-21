@@ -1,8 +1,8 @@
 import {motion} from 'framer-motion';
 import React from 'react';
-import '../css/mainPage.css'
+import '../assets/css/pages/mainPage.css'
 import courses from "../test_jsons/courses.json"
-import Course from "../components/Course";
+import Course from "../components/course/Course";
 
 function MainPage() {
     return (

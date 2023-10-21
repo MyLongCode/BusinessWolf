@@ -17,10 +17,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     line-height: 150%;
-    min-width: 1440px;
+    min-width: 720px;
 }
 
-.button {
+button {
     border-radius: 20px;
     color: var(--White);
     line-height: 200%;
@@ -33,7 +33,7 @@ body {
     cursor: pointer;
 }
 
-.button:hover {
+button:hover {
     background-color: var(--DarkMain);
 }
 
@@ -41,7 +41,7 @@ button:focus {
     outline: none;
 }
 
-.button:disabled {
+button:disabled {
     background-color: var(--Gray);
 }
 

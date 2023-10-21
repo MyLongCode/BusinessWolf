@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import '../css/startPage.css';
-import wolf_festive from '../images/Festive_wolf(shadow).png';
+import '../assets/css/pages/startPage.css';
+import wolf_festive from '../assets/images/Festive_wolf(shadow).png';
 import { motion } from 'framer-motion';
 import {Link, useNavigate} from "react-router-dom";
 
@@ -23,7 +23,7 @@ function StartPage() {
             <div className="start_container_left">
                 <h1 className="start_title">Добро пожаловать</h1>
                 <p className="start_text">нажмите начать, чтобы погрузиться <br/> в новый мир</p>
-                <Link to='/authorization' className="button start_button">Начать</Link>
+                <button><Link to='/authorization' className="start_button">Начать</Link></button>
             </div>
             <img src={wolf_festive} alt="Волчонок" width="3000" height="3500" className="start_wolf"/>
         </motion.div>

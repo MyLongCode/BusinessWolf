@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import eye from '../images/Eye_invisible.svg'
+import eye from '../assets/images/Eye_invisible.svg'
 
 export interface ICustomInput {
     title: string

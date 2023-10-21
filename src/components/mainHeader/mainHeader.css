@@ -31,10 +31,16 @@
 .user_avatar {
     margin-left: 64px;
     padding: 0;
-    width: auto;
-    background-color: rgba(0, 0, 0, 0);
+    width: 55px;
+    height: 55px;
     cursor: pointer;
     border: none;
+    border-radius: 50%;
+}
+
+.user_avatar img {
+    width: 100%;
+    height: 100%;
 }
 
 .token_img {
