@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include, re_path
+
+from course.urls import urlpatterns
 from accounts.views import *
 
 urlpatterns = [
@@ -8,5 +10,6 @@ urlpatterns = [
     path('api/users/<int:pk>/', UserAPIDetail.as_view()),
     path('api/drf-auth/', include('rest_framework.urls')),
     path('api/auth/', include('djoser.urls')),
-    re_path(r'^auth/', include('djoser.urls.authtoken')),
+    path('', include(urlpatterns)),
+    re_path(r'^auth/', include('djoser.urls.authtoken')),   # auth/token/login
 ]
