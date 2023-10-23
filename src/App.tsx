@@ -5,7 +5,7 @@ import AuthorizationPage from "./pages/authPage/AuthorizationPage";
 import {AnimatePresence} from "framer-motion";
 import MainPage from "./pages/mainPage/MainPage";
 import MainHeader from "./components/mainHeader/MainHeader";
-import './assets/style/index.css';
+import './index.css';
 
 
 function App() {
