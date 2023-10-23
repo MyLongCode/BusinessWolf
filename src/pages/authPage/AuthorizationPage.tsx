@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import logo from '../../assets/images/Logo.svg';
 import './authorizationPage.css';
 import useInput from "../../hooks/useInput";
-import CustomInput from "../../components/CustomInput";
+import CustomInput from "../../components/customInput/CustomInput";
 import {motion} from 'framer-motion';
 import {useNavigate} from "react-router-dom";
 import axios from "../../api/axios";
@@ -70,16 +70,16 @@ function AuthorizationPage() {
     return (
         <motion.form
             onSubmit={submitHandler}
-            className="authorize_form centered"
+            className="auth centered"
             initial={{opacity: 0.1}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
-            <img src={logo} alt="Логотип" className="auth_logo"/>
+            <img src={logo} alt="Логотип" className="auth__logo"/>
             <h1>Бизнес волчонок</h1>
-            {errorMessage && <div className="auth_error">
-                <p className="error_text">{errorMessage}</p>
+            {errorMessage && <div className="auth__error">
+                <p className="error-text">{errorMessage}</p>
             </div>}
             <CustomInput
                 title='Логин'

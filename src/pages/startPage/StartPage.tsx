@@ -16,16 +16,16 @@ function StartPage() {
         <motion.div
             className="start centered"
             initial={{gap: "150px", opacity:0}}
-            animate={{gap: "0px", opacity:1}}
+            animate={{gap: "0px", opacity:1, transition: {duration: 1.5}}}
             exit={{opacity:0}}
-            transition={{duration: 1.5}}
+            transition={{duration: 0.8}}
         >
-            <div className="start_container_left">
-                <h1 className="start_title">Добро пожаловать</h1>
-                <p className="start_text">нажмите начать, чтобы погрузиться <br/> в новый мир</p>
-                <button><Link to='/authorization' className="start_button">Начать</Link></button>
+            <div className="start__container-left">
+                <h1 className="start__title">Добро пожаловать</h1>
+                <p className="start__text">нажмите начать, чтобы погрузиться <br/> в новый мир</p>
+                <button><Link to='/authorization' className="start__button">Начать</Link></button>
             </div>
-            <img src={wolf_festive} alt="Волчонок" width="3000" height="3500" className="start_wolf"/>
+            <img src={wolf_festive} alt="Волчонок" width="3000" height="3500" className="start__img"/>
         </motion.div>
     );
 }

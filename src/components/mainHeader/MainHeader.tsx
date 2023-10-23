@@ -17,19 +17,19 @@ function MainHeader() {
 
     return (
         <motion.header
-            className="main_header"
+            className="main-header"
             initial={{opacity:0}}
             animate={{opacity:1}}
             exit={{opacity:0}}
             transition={{duration: 0.8}}
         >
             <Link to={'/main'}><img src={logo} alt="Логотип" className="logo"/></Link>
-            <p className="logo_text">Бизнес<br/>волчонок</p>
-            <div className='token_container'>
-                <img src={token} alt="Монеты" className='token_img'/>
-                <span className='token_count'>5</span>
+            <p className="logo__text">Бизнес<br/>волчонок</p>
+            <div className='token'>
+                <img src={token} alt="Монеты" className='token__img'/>
+                <span className='token__count'>5</span>
             </div>
-            <button className='user_avatar' onClick={() => console.log(localStorage.getItem('token'))}><img src={avatar} alt="Аватар пользователя"/></button>
+            <button className='user-avatar' onClick={() => console.log(localStorage.getItem('token'))}><img src={avatar} alt="Аватар пользователя"/></button>
         </motion.header>
     );
 }

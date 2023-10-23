@@ -5,18 +5,18 @@
     padding: 36px;
     display: flex;
     position: relative;
-    box-shadow: 7px 7px 10px 0 rgba(0, 0, 0, 0.10);
+    box-shadow: 7px 7px 25px 0 rgba(0, 0, 0, 0.1);
     min-width: 500px;
     min-height: 300px;
 }
 
-.course_container {
+.course__content {
     display: flex;
     flex-direction: column;
     width: 60%;
 }
 
-.sing_up_button {
+.course__sing-up-button {
     background-color: var(--White);
     color: var(--Main);
     font-size: 18px;
@@ -31,11 +31,11 @@
     left: 0;
 }
 
-.sing_up_button:hover {
+.course__sing-up-button:hover {
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-.course_title {
+.course__title {
     color: var(--White);
     font-size: 40px;
     font-style: normal;
@@ -43,7 +43,7 @@
     line-height: normal;
 }
 
-.course_description {
+.course__description {
     margin-top: 12px;
     margin-bottom: 15px;
     color: var(--White);
@@ -53,7 +53,7 @@
     line-height: normal;
 }
 
-.circle {
+.course__circle {
     background-color: white;
     width: 750px;
     height: 750px;
@@ -65,7 +65,7 @@
     transform: translate(65%, 45%);
 }
 
-.course_wolf {
+.course__img {
     position: absolute;
     bottom: 25px;
     right: 15px;

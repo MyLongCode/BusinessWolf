@@ -1,10 +1,10 @@
-.main_header {
+.main-header {
     display: flex;
     align-items: center;
     margin: 40px 10%  48px;
 }
 
-.logo_text {
+.logo__text {
     font-family: "Enthalpy 298", sans-serif;
     margin-right: auto;
     font-size: 24px;
@@ -19,7 +19,7 @@
     height: 93px;
 }
 
-.token_container {
+.token {
     display: flex;
     align-items: center;
     background-color: var(--Main);
@@ -28,7 +28,7 @@
     width: 95px;
 }
 
-.user_avatar {
+.user-avatar {
     margin-left: 64px;
     padding: 0;
     width: 55px;
@@ -38,19 +38,19 @@
     border-radius: 50%;
 }
 
-.user_avatar img {
+.user-avatar img {
     width: 100%;
     height: 100%;
 }
 
-.token_img {
+.token__img {
     width: 72px;
     height: 72px;
     position: relative;
     left:-16px;
 }
 
-.token_count {
+.token__count {
     position: relative;
     right: 13px;
     color: var(--White);

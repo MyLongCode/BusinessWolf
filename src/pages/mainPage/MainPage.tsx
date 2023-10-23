@@ -13,11 +13,11 @@ function MainPage() {
                 animate={{opacity: 1, transition: {duration: 1.25}}}
                 exit={{opacity: 0}}
             >
-                <div className="greeting_container">
+                <div className="greeting-container">
                     <h1 className='greeting'>Hello, bro</h1>
-                    <span className='what_to_learn'>What do you want to learn?</span>
+                    <span className='what-to-learn'>What do you want to learn?</span>
                 </div>
-                <ul className='courses_container'>
+                <ul className='courses-container'>
                     {courses.map(course => {
                         return (
                             <Course title={course.title} description={course.description} id={course.id} key={course.id}/>

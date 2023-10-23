@@ -57,7 +57,7 @@ input::-ms-clear {
     transform: translate(-50%, -50%);
 }
 
-.error_text {
+.error-text {
     color: red;
     font-size: 16px;
 }
