@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import logo from '../assets/images/Logo.svg';
-import '../assets/css/pages/authorizationPage.css';
-import useInput from "../hooks/useInput";
-import CustomInput from "../components/CustomInput";
+import logo from '../../assets/images/Logo.svg';
+import './authorizationPage.css';
+import useInput from "../../hooks/useInput";
+import CustomInput from "../../components/CustomInput";
 import {motion} from 'framer-motion';
 import {useNavigate} from "react-router-dom";
-import axios from "../api/axios";
+import axios from "../../api/axios";
 import {AxiosError} from "axios";
 
 const LOGIN_URL = '/auth/token/login'

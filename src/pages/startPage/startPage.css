@@ -1,4 +1,4 @@
-@import "../colors.css";
+@import "../../assets/style/colors.css";
 
 @media (min-width: 925px) {
     .start {
@@ -12,6 +12,10 @@
     .start_container_left {
         width: 30%;
         color: var(--Black);
+    }
+
+    .start_container_left button {
+        width: 65%;
     }
 
     .start_text {

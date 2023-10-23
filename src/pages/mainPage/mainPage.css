@@ -16,7 +16,11 @@
     line-height: 70px;
 }
 
-@media (min-width: 1280px) {
+.greeting_container {
+    margin-bottom: 20px;
+}
+
+@media (min-width: 1440px) {
     .courses_container {
         list-style: none;
         display: grid;
@@ -26,7 +30,7 @@
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1440px) {
     .courses_container {
         list-style: none;
         display: grid;

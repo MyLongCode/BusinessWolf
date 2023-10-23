@@ -1,11 +1,11 @@
 import React from 'react';
 import {Route, Routes, useLocation} from "react-router-dom";
-import StartPage from "./pages/StartPage";
-import AuthorizationPage from "./pages/AuthorizationPage";
+import StartPage from "./pages/startPage/StartPage";
+import AuthorizationPage from "./pages/authPage/AuthorizationPage";
 import {AnimatePresence} from "framer-motion";
-import MainPage from "./pages/MainPage";
+import MainPage from "./pages/mainPage/MainPage";
 import MainHeader from "./components/mainHeader/MainHeader";
-import './assets/css/index.css';
+import './assets/style/index.css';
 
 
 function App() {
@@ -17,13 +17,15 @@ function App() {
     return (
         <>
             {pagesWithMainHeader.includes(location.pathname) && <MainHeader/>}
-            <AnimatePresence mode='wait'>
-                <Routes location={location} key={location.pathname}>
-                    <Route path='/' element={<StartPage/>}/>
-                    <Route path='/authorization' element={<AuthorizationPage/>}/>
-                    <Route path='/main' element={<MainPage/>}/>
-                </Routes>
-            </AnimatePresence>
+            <main>
+                <AnimatePresence mode='wait'>
+                    <Routes location={location} key={location.pathname}>
+                        <Route path='/' element={<StartPage/>}/>
+                        <Route path='/authorization' element={<AuthorizationPage/>}/>
+                        <Route path='/main' element={<MainPage/>}/>
+                    </Routes>
+                </AnimatePresence>
+            </main>
         </>
     );
 }

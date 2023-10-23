@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import '../assets/css/pages/startPage.css';
-import wolf_festive from '../assets/images/Festive_wolf(shadow).png';
+import './startPage.css';
+import wolf_festive from '../../assets/images/Festive_wolf(shadow).png';
 import { motion } from 'framer-motion';
 import {Link, useNavigate} from "react-router-dom";
 
@@ -15,10 +15,10 @@ function StartPage() {
     return (
         <motion.div
             className="start centered"
-            initial={{width: "100%", opacity:0}}
-            animate={{width: "90%", opacity:1}}
+            initial={{gap: "150px", opacity:0}}
+            animate={{gap: "0px", opacity:1}}
             exit={{opacity:0}}
-            transition={{duration: 0.8}}
+            transition={{duration: 1.5}}
         >
             <div className="start_container_left">
                 <h1 className="start_title">Добро пожаловать</h1>

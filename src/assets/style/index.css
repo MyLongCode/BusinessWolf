@@ -21,7 +21,7 @@ body {
 }
 
 button {
-    border-radius: 20px;
+    border-radius: 16px;
     color: var(--White);
     line-height: 200%;
     font-weight: bold;
@@ -43,6 +43,11 @@ button:focus {
 
 button:disabled {
     background-color: var(--Gray);
+}
+
+input::-ms-reveal,
+input::-ms-clear {
+    display: none;
 }
 
 .centered {
