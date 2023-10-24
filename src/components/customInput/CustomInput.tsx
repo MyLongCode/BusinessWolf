@@ -17,7 +17,7 @@ function CustomInput(props: ICustomInput) {
     const [passwordShown, setPasswordShown] = useState(false)
 
     return (
-        <label className="input-container">
+        <label className="input">
             <span className="input__title">{props.title}</span>
             <div className={"input__field-container" + (props.validation.value ? " filled" : " unfilled") +
                 ((props.validation.errorMessage && props.validation.isDirty) ? " input_error" : "")}>

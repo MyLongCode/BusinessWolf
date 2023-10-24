@@ -1,0 +1,23 @@
+@import "token";
+@import "userAvatar";
+
+.main-header {
+  display: flex;
+  align-items: center;
+  margin: 40px 10% 48px;
+}
+
+.logo {
+  width: 93px;
+  height: 93px;
+
+  &__text {
+    font-family: "Enthalpy 298", sans-serif;
+    margin-right: auto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 9px;
+  }
+}

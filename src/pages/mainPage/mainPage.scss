@@ -11,12 +11,13 @@
 
 .greeting {
   margin-bottom: 20px;
-}
-.greeting__heading {
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+
+  &__heading {
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 }
 
 .courses-container {
@@ -26,5 +27,3 @@
   gap: 3em 4em;
   margin-bottom: 40px;
 }
-
-/*# sourceMappingURL=mainPage.css.map */

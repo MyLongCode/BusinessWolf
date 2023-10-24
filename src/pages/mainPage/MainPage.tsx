@@ -13,8 +13,8 @@ function MainPage() {
                 animate={{opacity: 1, transition: {duration: 1.25}}}
                 exit={{opacity: 0}}
             >
-                <div className="greeting-container">
-                    <h1 className='greeting'>Hello, bro</h1>
+                <div className="greeting">
+                    <h1 className='greeting__heading'>Hello, bro</h1>
                     <span className='what-to-learn'>What do you want to learn?</span>
                 </div>
                 <ul className='courses-container'>

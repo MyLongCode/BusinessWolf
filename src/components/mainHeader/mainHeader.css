@@ -1,60 +1,58 @@
-.main-header {
-    display: flex;
-    align-items: center;
-    margin: 40px 10%  48px;
-}
-
-.logo__text {
-    font-family: "Enthalpy 298", sans-serif;
-    margin-right: auto;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-left: 9px;
-}
-
-.logo {
-    width: 93px;
-    height: 93px;
-}
-
 .token {
-    display: flex;
-    align-items: center;
-    background-color: var(--Main);
-    border-radius: 15px 14px 14px 15px;
-    height: 55px;
-    width: 95px;
+  display: flex;
+  align-items: center;
+  background-color: var(--Main);
+  border-radius: 15px 14px 14px 15px;
+  height: 55px;
+  width: 95px;
+}
+.token__img {
+  width: 72px;
+  height: 72px;
+  position: relative;
+  left: -16px;
+}
+.token__count {
+  position: relative;
+  right: 13px;
+  color: var(--White);
+  font-size: 23px;
+  font-style: normal;
+  line-height: normal;
 }
 
 .user-avatar {
-    margin-left: 64px;
-    padding: 0;
-    width: 55px;
-    height: 55px;
-    cursor: pointer;
-    border: none;
-    border-radius: 50%;
+  margin-left: 64px;
+  padding: 0;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
 }
-
 .user-avatar img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-.token__img {
-    width: 72px;
-    height: 72px;
-    position: relative;
-    left:-16px;
+.main-header {
+  display: flex;
+  align-items: center;
+  margin: 40px 10% 48px;
 }
 
-.token__count {
-    position: relative;
-    right: 13px;
-    color: var(--White);
-    font-size: 23px;
-    font-style: normal;
-    line-height: normal;
+.logo {
+  width: 93px;
+  height: 93px;
 }
+.logo__text {
+  font-family: "Enthalpy 298", sans-serif;
+  margin-right: auto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 9px;
+}
+
+/*# sourceMappingURL=mainHeader.css.map */

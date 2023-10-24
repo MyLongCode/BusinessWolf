@@ -23,7 +23,7 @@ function StartPage() {
             <div className="start__container-left">
                 <h1 className="start__title">Добро пожаловать</h1>
                 <p className="start__text">нажмите начать, чтобы погрузиться <br/> в новый мир</p>
-                <button><Link to='/authorization' className="start__button">Начать</Link></button>
+                <button className="start__button"><Link to='/authorization' className="start__link">Начать</Link></button>
             </div>
             <img src={wolf_festive} alt="Волчонок" width="3000" height="3500" className="start__img"/>
         </motion.div>

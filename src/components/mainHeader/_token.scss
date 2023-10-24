@@ -1,0 +1,24 @@
+.token {
+  display: flex;
+  align-items: center;
+  background-color: var(--Main);
+  border-radius: 15px 14px 14px 15px;
+  height: 55px;
+  width: 95px;
+
+  &__img {
+    width: 72px;
+    height: 72px;
+    position: relative;
+    left: -16px;
+  }
+
+  &__count {
+    position: relative;
+    right: 13px;
+    color: var(--White);
+    font-size: 23px;
+    font-style: normal;
+    line-height: normal;
+  }
+}

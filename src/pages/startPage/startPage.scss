@@ -1,0 +1,92 @@
+@import "../../assets/style/colors.css";
+
+@media (min-width: 925px) {
+  .start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    color: var(--White);
+
+    &__container-left {
+      width: 30%;
+      color: var(--Black);
+    }
+
+    &__text {
+      margin-bottom: 48px;
+    }
+
+    &__title {
+      font-size: 58px;
+      margin-bottom: 20px;
+      white-space: nowrap;
+    }
+
+    &__link {
+      color: var(--White);
+      line-height: 200%;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    &__button {
+      border-radius: 10px;
+      padding: 12px 85px;
+      border: none;
+    }
+
+    &__img {
+      width: 662px;
+      height: auto;
+      position: relative;
+      top: 5%;
+    }
+  }
+}
+
+@media (max-width: 925px) {
+  .start {
+    color: var(--White);
+
+    &__container-left {
+      text-align: center;
+      color: var(--Black);
+    }
+
+    &__text {
+      margin-bottom: 28px;
+    }
+
+    &_title {
+      font-size: 32px;
+      margin-bottom: 20px;
+      white-space: nowrap;
+    }
+
+    &__link {
+      color: var(--White);
+      line-height: 200%;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    &__button {
+      border-radius: 10px;
+      padding: 24px 85px;
+      border: none;
+    }
+
+    &__img {
+      width: 300px;
+      height: auto;
+      position: absolute;
+      top: -350px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+  }
+}
