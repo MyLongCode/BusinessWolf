@@ -1,8 +1,19 @@
-@import "assets/style/colors.css";
+:root {
+  --White: #FFFFFF;
+  --Main: #4B94DD;
+  --DarkMain: #3b7dbd;
+  --Black: #111010;
+  --Gray: #AAA ;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
 }
 
 h1 {
@@ -34,11 +45,9 @@ button {
 button:hover {
   background-color: var(--DarkMain);
 }
-button:focus {
-  outline: none;
-}
 button:disabled {
   background-color: var(--Gray);
+  cursor: default;
 }
 
 input::-ms-reveal, input::-ms-clear {
@@ -55,6 +64,14 @@ input::-ms-reveal, input::-ms-clear {
 .error-text {
   color: red;
   font-size: 16px;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(45deg);
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -20,16 +20,17 @@
     white-space: nowrap;
   }
   .start__link {
+    border-radius: 16px;
     color: var(--White);
     line-height: 200%;
     font-weight: bold;
     text-transform: uppercase;
-    text-decoration: none;
-  }
-  .start__button {
-    border-radius: 10px;
-    padding: 12px 85px;
+    width: 100%;
     border: none;
+    background-color: var(--Main);
+    cursor: pointer;
+    padding: 20px 114px;
+    text-decoration: none;
   }
   .start__img {
     width: 662px;
@@ -55,16 +56,17 @@
     white-space: nowrap;
   }
   .start__link {
+    border-radius: 16px;
     color: var(--White);
     line-height: 200%;
     font-weight: bold;
     text-transform: uppercase;
-    text-decoration: none;
-  }
-  .start__button {
-    border-radius: 10px;
-    padding: 24px 85px;
+    width: 100%;
     border: none;
+    background-color: var(--Main);
+    cursor: pointer;
+    padding: 24px 85px;
+    text-decoration: none;
   }
   .start__img {
     width: 300px;

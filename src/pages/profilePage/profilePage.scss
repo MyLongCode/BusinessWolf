@@ -1,0 +1,88 @@
+@import "../../assets/style/userAvatar";
+
+.profile {
+  margin: 0 10%;
+
+  &__back {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--Black);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: normal;
+    transition-duration: 300ms;
+    gap: 5px;
+
+    &__arrow {
+      rotate: 90deg;
+    }
+
+    &:hover {
+      gap: 16px;
+    }
+
+    &:active {
+      transition-duration: 1s;
+      opacity: 0;
+    }
+  }
+
+  &__user {
+    margin-top: 48px;
+    display: flex;
+    gap: 32px;
+
+    &__avatar {
+      margin: 0;
+      cursor: default;
+      width: 100px;
+      height: 100px;
+      grid-area: img;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+
+      &__name {
+        color: var(--Black, #111010);
+        font-family: "Enthalpy 298", sans-serif;
+        font-size: 40px;
+        line-height: normal;
+      }
+
+      &__lvl {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 150%;
+      }
+    }
+  }
+
+  &__course {
+    background-color: gray;
+    width: 560px;
+    height: 208px;
+    border-radius: 20px;
+    margin-top: 60px;
+  }
+}
+
+.profile__data {
+  margin: 64px 0;
+}
+
+.input__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-height: 350px;
+
+  .input {
+    width: 49%;
+  }
+}
+

@@ -1,5 +1,5 @@
 @import "token";
-@import "userAvatar";
+@import "../../assets/style/userAvatar";
 
 .main-header {
   display: flex;
@@ -8,8 +8,16 @@
 }
 
 .logo {
-  width: 93px;
-  height: 93px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  transition-duration: 300ms;
+
+  &__img {
+    width: 93px;
+    height: 93px;
+  }
 
   &__text {
     font-family: "Enthalpy 298", sans-serif;
@@ -18,6 +26,9 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-left: 9px;
+  }
+
+  &:hover {
+    gap: 13px;
   }
 }
