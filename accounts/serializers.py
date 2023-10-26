@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from .models import User
 
 
@@ -28,3 +29,23 @@ class UserSerializerAdmin(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        user_data = dict()
+        user_data['id'] = user.id
+        user_data['username'] = user.username
+        user_data['password'] = user.password
+        user_data['is_superuser'] = user.is_superuser
+        user_data['first_name'] = user.first_name
+        user_data['last_name'] = user.last_name
+        user_data['email'] = user.email
+        user_data['is_staff'] = user.is_staff
+        user_data['is_active'] = user.is_active
+        user_data['date_joined'] = str(user.date_joined)
+        token['user_data'] = user_data
+
+        return token
