@@ -15,17 +15,18 @@ function ProfilePage() {
     const [grade, setGrade] = useState('')
 
     const {store} = useContext(Context)
-    const user = store.user
     const navigate = useNavigate()
 
     useEffect(() => {
+        const user = store.user || store.getUserFromToken(localStorage.getItem('token') || '');
+
         setFullName(user.full_name);
         setPhone(user.phone_number);
         setEmail(user.email);
         setAddress(user.address);
         setGrade(user.education_class);
         console.log(user);
-    }, [user]);
+    }, [store.user]);
 
     return (
         <motion.div

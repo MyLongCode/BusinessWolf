@@ -14,15 +14,17 @@ function MainPage() {
         const response = CourseService.fetchCourses();
         const data = response.then(response => response.data)
         data.then(e => {
-            let userCourses: ICourse[] = []
+            let userCourses: ICourse[] = [];
+            const userId = store.user.id || store.getUserFromToken(localStorage.getItem('token') || '').id;
+
             for (const course of e) {
-                if(course.users.includes(store.user.id)) {
+                if (course.users.includes(userId)) {
                     userCourses.push(course)
                 }
             }
             setCourses(userCourses)
         })
-    }, [store.user])
+    }, [store.isAuth])
 
     return (
         <>

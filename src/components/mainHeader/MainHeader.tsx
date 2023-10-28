@@ -12,11 +12,11 @@ function MainHeader() {
     const [coins, setCoins] = useState(0)
     const navigate = useNavigate()
     const {store} = useContext(Context)
-    const user = store.user
 
     useEffect(() => {
-        setCoins(user.coins)
-    }, [user]);
+        const user = store.user || store.getUserFromToken(localStorage.getItem('token') || '');
+        setCoins(user.coins || 0)
+    }, [store.user]);
 
     useEffect(() => {
         if(!localStorage.getItem('refresh')) {

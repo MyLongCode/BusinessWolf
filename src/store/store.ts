@@ -35,8 +35,8 @@ export default class Store {
             const refresh = response.data.refresh
             localStorage.setItem('token', access);
             localStorage.setItem('refresh', refresh);
-            this.setAuth(true);
             this.setUser(this.getUserFromToken(access));
+            this.setAuth(true);
         } catch (e) {
            throw e
         }
@@ -48,8 +48,8 @@ export default class Store {
                 token: localStorage.getItem('token')
             })
             const access = localStorage.getItem('token') || ''
-            this.setAuth(true);
             this.setUser(this.getUserFromToken(access));
+            this.setAuth(true);
         } catch (e) {
             return e as AxiosError
         }
