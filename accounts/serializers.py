@@ -1,7 +1,9 @@
+from requests import Response
 from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from .models import User
+from django.contrib.auth.hashers import make_password
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -12,23 +14,27 @@ class UserSerializer(serializers.ModelSerializer):
         permission_classes = IsAuthenticated
 
     def create(self, validated_data):
-        user = super(UserSerializer, self).create(validated_data)
+        user = User.objects.create(**validated_data)
         user.set_password(validated_data['password'])
-        user.save()
         return user
+
+    def validate_password(self, value: str) -> str:
+        return make_password(value)
 
 
 class UserSerializerAdmin(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ('id', 'username', 'password')
         permission_classes = (IsAuthenticated, IsAdminUser)
 
     def create(self, validated_data):
-        user = super(UserSerializerAdmin, self).create(validated_data)
+        user = User.objects.create(**validated_data)
         user.set_password(validated_data['password'])
-        user.save()
         return user
+
+    def validate_password(self, value: str) -> str:
+        return make_password(value)
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):

@@ -1,3 +1,4 @@
+from django.contrib.auth.base_user import BaseUserManager
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -9,3 +10,4 @@ class User(AbstractUser):
     address = models.CharField(max_length=255)
     education_class = models.CharField(max_length=255)
     coins = models.IntegerField(default=0)
+

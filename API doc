@@ -1,0 +1,23 @@
+Админка:
+    admin/
+Авторизация:
+    auth/token/
+    auth/token/refresh/
+    auth/token/verify/
+Доступ к таблицам в БД
+	api/users/
+	api/users/<int:pk>/
+	    PERMISSIONS
+
+	api/course/
+	api/course/<int:pk>/
+	api/usercourse/
+	api/usercourse/<int:pk>/
+	api/modules/
+	api/modules/<int:pk>/
+	api/lessons/
+	api/lessons/<int:pk>/
+	api/question/
+	api/question/<int:pk>/
+	api/completedquestions/
+	api/completedquestions/<int:pk>/

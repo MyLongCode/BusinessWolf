@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'course.apps.CourseConfig',
     'rest_framework',
-    'rest_framework.authtoken',
     'rest_framework_simplejwt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'BusinessWolf.urls'
@@ -184,4 +185,8 @@ PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.Argon2PasswordHasher",
     "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
     "django.contrib.auth.hashers.ScryptPasswordHasher",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3030',
 ]
