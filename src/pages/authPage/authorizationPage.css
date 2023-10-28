@@ -1,3 +1,32 @@
+.label__input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 20px;
+  border: 2px solid var(--Black);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 160%;
+}
+.label__input:focus {
+  font-family: "Montserrat", sans-serif;
+}
+.label .filled {
+  opacity: 1;
+  border-color: var(--Main);
+}
+.label .unfilled {
+  opacity: 0.4;
+}
+.label .invalid {
+  border-color: red;
+}
+.label__title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 16px;
+}
+
 .auth {
   display: flex;
   flex-direction: column;
@@ -46,33 +75,6 @@
   flex-direction: column;
   margin-bottom: 40px;
   position: relative;
-}
-.auth__label .filled {
-  opacity: 1;
-  border-color: var(--Main);
-}
-.auth__label .unfilled {
-  opacity: 0.4;
-}
-.auth__label__title {
-  align-self: flex-start;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: normal;
-  margin-bottom: 16px;
-}
-.auth__label__input {
-  width: 100%;
-  padding: 16px 14px;
-  border-radius: 20px;
-  border: 2px solid var(--Black);
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 160%;
-}
-.auth__label:nth-child(2) {
-  margin-bottom: 48px;
 }
 
 .password-show {

@@ -1,17 +1,26 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import logo from '../../assets/images/Logo.svg'
 import token from '../../assets/images/Token_wolf.svg'
 import avatar from '../../assets/images/Avatar.jpg'
 import './mainHeader.css'
 import {Link, useNavigate} from "react-router-dom";
 import { motion } from 'framer-motion';
+import {Context} from "../../index";
+import {observer} from "mobx-react-lite";
 
 function MainHeader() {
+    const [coins, setCoins] = useState(0)
     const navigate = useNavigate()
+    const {store} = useContext(Context)
+    const user = store.user
 
     useEffect(() => {
-        if(!localStorage.getItem('token')) {
-            navigate('/authorization')
+        setCoins(user.coins)
+    }, [user]);
+
+    useEffect(() => {
+        if(!localStorage.getItem('refresh')) {
+            navigate('/authorization');
         }
     }, [navigate]);
 
@@ -29,7 +38,7 @@ function MainHeader() {
             </Link>
             <div className='token'>
                 <img src={token} alt="Монеты" className='token__img'/>
-                <span className='token__count'>5</span>
+                <span className='token__count'>{coins}</span>
             </div>
             <Link to={'/profile'} className='user-avatar' >
                 <img src={avatar} alt="Аватар пользователя" className='user-avatar__img'/>
@@ -38,4 +47,4 @@ function MainHeader() {
     );
 }
 
-export default MainHeader;
+export default observer(MainHeader);

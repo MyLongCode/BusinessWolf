@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Route, Routes, useLocation} from "react-router-dom";
 import StartPage from "./pages/startPage/StartPage";
 import AuthorizationPage from "./pages/authPage/AuthorizationPage";
@@ -7,21 +7,21 @@ import MainPage from "./pages/mainPage/MainPage";
 import MainHeader from "./components/mainHeader/MainHeader";
 import './index.css';
 import ProfilePage from "./pages/profilePage/ProfilePage";
+import {Context} from "./index";
+import {observer} from "mobx-react-lite";
 
 
 function App() {
     const location = useLocation()
-    const [lastURL, setLastURL] = useState('')
+    const {store} = useContext(Context)
     const pagesWithMainHeader = [
         '/main',
         '/profile',
     ]
 
     useEffect(() => {
-        if (location.pathname !== '/profile') {
-            setLastURL(location.pathname)
-        }
-    }, [location]);
+        store.checkAuth()
+    });
 
     return (
         <>
@@ -32,7 +32,7 @@ function App() {
                         <Route path='/' element={<StartPage/>}/>
                         <Route path='/authorization' element={<AuthorizationPage/>}/>
                         <Route path='/main' element={<MainPage/>}/>
-                        <Route path='/profile' element={<ProfilePage lastAddress={lastURL}/>}/>
+                        <Route path='/profile' element={<ProfilePage/>}/>
                     </Routes>
                 </AnimatePresence>
             </main>
@@ -40,4 +40,4 @@ function App() {
     );
 }
 
-export default App;
+export default observer(App);

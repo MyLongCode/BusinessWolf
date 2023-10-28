@@ -13,6 +13,8 @@
     line-height: normal;
     transition-duration: 300ms;
     gap: 5px;
+    width: fit-content;
+    cursor: pointer;
 
     &__arrow {
       rotate: 90deg;
@@ -69,20 +71,30 @@
     border-radius: 20px;
     margin-top: 60px;
   }
+
+  &__data {
+    margin: 64px 0;
+
+    &__heading {
+      margin-bottom: 10px;
+    }
+
+    &__desc {
+      margin-bottom: 48px;
+    }
+  }
 }
 
-.profile__data {
-  margin: 64px 0;
-}
+.data {
+  &__label {
 
-.input__list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-height: 350px;
+  }
 
-  .input {
-    width: 49%;
+  &__edit {
+    width: 18px;
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-40px, 19px);
   }
 }
 

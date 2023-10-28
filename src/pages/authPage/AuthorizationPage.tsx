@@ -1,14 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import logo from '../../assets/images/Logo.svg';
 import './authorizationPage.css';
 import {motion} from 'framer-motion';
 import {useNavigate} from "react-router-dom";
-import axios from "../../api/axios";
 import {AxiosError} from "axios";
 import {useForm} from "react-hook-form";
 import eye from '../../assets/images/Eye_invisible.svg'
-
-const LOGIN_URL = '/auth/token/login'
+import {Context} from "../../index";
+import {observer} from "mobx-react-lite";
 
 interface IFormInputs {
     username: string;
@@ -31,33 +30,22 @@ function AuthorizationPage() {
         mode: "onChange"
     })
     const [passwordShown, setPasswordShown] = useState(false)
-
+    const {store} = useContext(Context);
 
     useEffect(() => {
-        if (localStorage.getItem('token')) {
+        if (localStorage.getItem('refresh')) {
             navigate('/main')
         }
-    }, [navigate]);
+    }, [store.isAuth, navigate]);
 
     const onSubmit = async (data: IFormInputs) => {
-        try {
-            const response = await axios.post(LOGIN_URL,
-                JSON.stringify({
-                    username: data.username,
-                    password: data.password
-                }), {
-                    headers: {"Content-Type": 'application/json'}
-                })
-            localStorage.setItem('token', JSON.stringify(response?.data))
-            navigate('/main')
-        } catch (e) {
-            const error = e as AxiosError
+        store.login(data.username, data.password).catch(((error: AxiosError) => {
             if (error.code === "ERR_BAD_REQUEST") {
                 setErrorMessage('Неверный пароль. Попробуйте снова.');
             } else if (error.code === "ERR_NETWORK") {
                 setErrorMessage('Сервер не доступен. Попробуйте позже.')
             }
-        }
+        }))
     }
 
     return (
@@ -75,10 +63,12 @@ function AuthorizationPage() {
             </div>}
             <form onSubmit={handleSubmit(onSubmit)} className="auth__form">
                 <div className="auth__input-wrapper">
-                    <label className='auth__label'>
-                        <p className='auth__label__title'>Логин</p>
+                    <label className='auth__label label'>
+                        <p className='label__title'>Логин</p>
                         <input
-                            className={'auth__label__input' + (dirtyFields?.username ? ' filled' : ' unfilled')}
+                            autoComplete='username'
+                            className={'label__input' + (dirtyFields?.username ? ' filled' : ' unfilled') +
+                                (errors?.username ? ' invalid' : '')}
                             {...register('username', {
                                 required: "Поле не должно быть пустым",
                                 minLength: {
@@ -91,11 +81,12 @@ function AuthorizationPage() {
                     {errors?.username && <p className="error-text">{errors?.username?.message || "Ошибка!"}</p>}
                 </div>
                 <div className="auth__input-wrapper">
-                    <label className='auth__label'>
-                        <p className='auth__label__title'>Пароль</p>
+                    <label className='auth__label label'>
+                        <p className='label__title'>Пароль</p>
                         <input
                             type={passwordShown ? "text" : "password"}
-                            className={'auth__label__input' + (dirtyFields?.password ? ' filled' : ' unfilled')}
+                            className={'label__input' + (dirtyFields?.password ? ' filled' : ' unfilled') +
+                                (errors?.password ? ' invalid' : '')}
                             {...register('password', {
                                 required: "Поле не должно быть пустым",
                                 minLength: {
@@ -122,4 +113,4 @@ function AuthorizationPage() {
     );
 }
 
-export default AuthorizationPage;
+export default observer(AuthorizationPage);

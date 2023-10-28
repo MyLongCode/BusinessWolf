@@ -31,6 +31,8 @@
   line-height: normal;
   transition-duration: 300ms;
   gap: 5px;
+  width: fit-content;
+  cursor: pointer;
 }
 .profile__back__arrow {
   rotate: 90deg;
@@ -78,19 +80,21 @@
   border-radius: 20px;
   margin-top: 60px;
 }
-
 .profile__data {
   margin: 64px 0;
 }
-
-.input__list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-height: 350px;
+.profile__data__heading {
+  margin-bottom: 10px;
 }
-.input__list .input {
-  width: 49%;
+.profile__data__desc {
+  margin-bottom: 48px;
+}
+
+.data__edit {
+  width: 18px;
+  cursor: pointer;
+  position: absolute;
+  transform: translate(-40px, 19px);
 }
 
 /*# sourceMappingURL=profilePage.css.map */
