@@ -3,37 +3,29 @@ import avatar from '../../assets/images/Avatar.jpg'
 import React, {useContext, useEffect, useState} from 'react';
 import {motion} from 'framer-motion';
 import {Link, useNavigate} from "react-router-dom";
-import {useForm} from "react-hook-form";
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite";
-
-interface IFormInputs {
-    name: string,
-    phone: string,
-    email: string,
-    address: string,
-    grade: string
-}
+import ProfileDataForm from "../../components/profileForm/ProfileDataForm";
 
 function ProfilePage() {
     const [fullName, setFullName] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
+    const [address, setAddress] = useState('')
+    const [grade, setGrade] = useState('')
 
     const {store} = useContext(Context)
     const user = store.user
     const navigate = useNavigate()
 
     useEffect(() => {
-        setFullName(user.full_name)
+        setFullName(user.full_name);
+        setPhone(user.phone_number);
+        setEmail(user.email);
+        setAddress(user.address);
+        setGrade(user.education_class);
+        console.log(user);
     }, [user]);
-
-    const {
-        register,
-        formState: {
-            errors
-        }
-    } = useForm<IFormInputs>({
-        mode: "onChange"
-    })
 
     return (
         <motion.div
@@ -60,23 +52,7 @@ function ProfilePage() {
                 <h2 className='profile__data__heading'>Ваши данные:</h2>
                 <p className='profile__data__desc'>Заполните данные и получите <b>5 волчих коинов</b></p>
 
-                <form className='profile__data__form data'>
-                    <div className="data__input-wrapper">
-                        <label className='data__label label'>
-                            <p className='label__title'>ФИО</p>
-                            <input
-                                disabled={true}
-                                // className={'label__input' + (dirtyFields?.name ? ' filled' : ' unfilled') +
-                                // (errors?.name ? ' invalid' : '')}
-                                className={'label__input unfilled'}
-                                {...register('name')}
-                                value={fullName || ''}
-                                autoComplete='off'
-                            />
-                        </label>
-                        {errors?.name && <p className="error-text">{errors?.name?.message || "Ошибка!"}</p>}
-                    </div>
-                </form>
+            <ProfileDataForm name={fullName} phone={phone} email={email} address={address} grade={grade}/>
             </section>
         </motion.div>
     );

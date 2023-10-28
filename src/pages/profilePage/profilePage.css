@@ -84,17 +84,14 @@
   margin: 64px 0;
 }
 .profile__data__heading {
+  font-family: "Enthalpy 298", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: normal;
   margin-bottom: 10px;
 }
 .profile__data__desc {
   margin-bottom: 48px;
-}
-
-.data__edit {
-  width: 18px;
-  cursor: pointer;
-  position: absolute;
-  transform: translate(-40px, 19px);
 }
 
 /*# sourceMappingURL=profilePage.css.map */
