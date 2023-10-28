@@ -4,32 +4,14 @@ import './authorizationPage.css';
 import {motion} from 'framer-motion';
 import {useNavigate} from "react-router-dom";
 import {AxiosError} from "axios";
-import {useForm} from "react-hook-form";
-import eye from '../../assets/images/Eye_invisible.svg'
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite";
-
-interface IFormInputs {
-    username: string;
-    password: string;
-}
+import IAuthInputs from "../../models/IAuthInputs";
+import AuthForm from "../../components/authForm/AuthForm";
 
 function AuthorizationPage() {
     const navigate = useNavigate()
     const [errorMessage, setErrorMessage] = useState('')
-    const {
-        register,
-        formState: {
-            errors,
-            isValid,
-            touchedFields,
-            dirtyFields
-        },
-        handleSubmit
-    } = useForm<IFormInputs>({
-        mode: "onChange"
-    })
-    const [passwordShown, setPasswordShown] = useState(false)
     const {store} = useContext(Context);
 
     useEffect(() => {
@@ -38,7 +20,7 @@ function AuthorizationPage() {
         }
     }, [store.isAuth, navigate]);
 
-    const onSubmit = async (data: IFormInputs) => {
+    const onSubmit = async (data: IAuthInputs) => {
         store.login(data.username, data.password).catch(((error: AxiosError) => {
             if (error.code === "ERR_BAD_REQUEST") {
                 setErrorMessage('Неверный пароль. Попробуйте снова.');
@@ -61,54 +43,7 @@ function AuthorizationPage() {
             {errorMessage && <div className="auth__error">
                 <p className="error-text">{errorMessage}</p>
             </div>}
-            <form onSubmit={handleSubmit(onSubmit)} className="auth__form">
-                <div className="auth__input-wrapper">
-                    <label className='auth__label label'>
-                        <p className='label__title'>Логин</p>
-                        <input
-                            autoComplete='username'
-                            className={'label__input' + (dirtyFields?.username ? ' filled' : ' unfilled') +
-                                (errors?.username ? ' invalid' : '')}
-                            {...register('username', {
-                                required: "Поле не должно быть пустым",
-                                minLength: {
-                                    value: 3,
-                                    message: "Длина логина должна быть не меньше 3 символов"
-                                }
-                            })}
-                        />
-                    </label>
-                    {errors?.username && <p className="error-text">{errors?.username?.message || "Ошибка!"}</p>}
-                </div>
-                <div className="auth__input-wrapper">
-                    <label className='auth__label label'>
-                        <p className='label__title'>Пароль</p>
-                        <input
-                            type={passwordShown ? "text" : "password"}
-                            className={'label__input' + (dirtyFields?.password ? ' filled' : ' unfilled') +
-                                (errors?.password ? ' invalid' : '')}
-                            {...register('password', {
-                                required: "Поле не должно быть пустым",
-                                minLength: {
-                                    value: 6,
-                                    message: "Длина пароля должна быть не меньше 6 символов"
-                                }
-                            })}
-                        />
-                        {touchedFields.password && <img
-                            src={eye}
-                            alt="Показать пароль"
-                            className="password-show"
-                            onClick={() => setPasswordShown(!passwordShown)}
-                        />}
-                    </label>
-                    {errors?.password && <p className="error-text">{errors?.password?.message || "Ошибка!"}</p>}
-                </div>
-                <button disabled={!isValid} className='auth__submit-btn' type="submit">Начать</button>
-                <p className="restore-password">
-                    Забыли пароль? <a rel="noreferrer" href="https://telegram.org" target="_blank">Напишите боту</a>
-                </p>
-            </form>
+            <AuthForm onSubmit={onSubmit}/>
         </motion.div>
     );
 }
