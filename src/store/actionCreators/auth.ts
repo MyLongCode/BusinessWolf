@@ -38,3 +38,10 @@ export const checkAuth = () => {
         }
     }
 }
+
+export const logout = () => {
+    return async (dispatch: Dispatch<AuthAction>) => {
+        dispatch({type: AuthActionTypes.LOGOUT})
+        localStorage.removeItem('refresh_token')
+    }
+}

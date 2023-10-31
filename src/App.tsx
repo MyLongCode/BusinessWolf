@@ -8,21 +8,30 @@ import MainHeader from "./components/mainHeader/MainHeader";
 import './index.css';
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import {useActions} from "./hooks/useActions";
+import {useTypedSelector} from "./hooks/useTypedSelector";
 
 
 function App() {
     const location = useLocation()
     const navigate = useNavigate()
-    const {checkAuth} = useActions()
+    const {checkAuth, logout} = useActions()
+    const {error} = useTypedSelector(state => state.auth)
 
     useEffect(() => {
-        if(location.pathname !== '/authorization') {
+        if (location.pathname !== '/authorization') {
             checkAuth()
         }
     }, []);
 
     useEffect(() => {
-        if(!localStorage.getItem('refresh_token')) {
+        if (error) {
+            navigate('/authorization')
+            logout()
+        }
+    }, [error]);
+
+    useEffect(() => {
+        if (!localStorage.getItem('refresh_token')) {
             navigate('/authorization');
         }
     }, [navigate]);

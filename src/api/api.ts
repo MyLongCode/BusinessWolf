@@ -17,22 +17,19 @@ api.interceptors.response.use((config) => {
     return config;
 }, async (error) => {
     const originalRequest = error.config;
-    if(!error.config._isRetry && error.response.status === 401) {
-        try {
-            originalRequest._isRetry = true;
-            const response = await api.post<AuthResponse>('/auth/token/refresh/', {
-                refresh: localStorage.getItem('refresh_token')
-            })
-            localStorage.setItem('token', response.data.access);
-            originalRequest.data = {
-                token: localStorage.getItem('token')
-            }
-            return api.request(originalRequest);
-        } catch (e) {
-            console.log(error)
+    if (error.config.url !== '/auth/token/refresh/' && error.response.status === 401) {
+        const response = await api.post<AuthResponse>('/auth/token/refresh/', {
+            refresh: localStorage.getItem('refresh_token')
+        })
+        localStorage.setItem('access_token', response.data.access);
+        originalRequest.data = {
+            token: localStorage.getItem('access_token')
         }
+        return api.request(originalRequest);
+    } else {
+        throw error;
     }
-    throw error;
+
 })
 
 export default api;
