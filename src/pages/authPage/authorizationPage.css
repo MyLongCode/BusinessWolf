@@ -27,6 +27,14 @@
   margin-bottom: 16px;
 }
 
+.password-show {
+  width: 24px;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 30%;
+}
+
 .auth {
   display: flex;
   flex-direction: column;
@@ -76,12 +84,9 @@
   margin-bottom: 40px;
   position: relative;
 }
-
-.password-show {
-  width: 24px;
-  cursor: pointer;
-  position: absolute;
-  transform: translate(-40px, 21px);
+.auth__password-wrapper {
+  display: flex;
+  position: relative;
 }
 
 /*# sourceMappingURL=authorizationPage.css.map */

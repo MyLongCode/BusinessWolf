@@ -6,6 +6,7 @@ import {AxiosError} from "axios";
 import api from "../../api/api";
 
 const VerifyURL = '/auth/token/verify/'
+const RefreshURL = '/auth/token/refresh/'
 
 export const login = (username: string, password: string) => {
     return async (dispatch: Dispatch<AuthAction>) => {
@@ -33,8 +34,18 @@ export const checkAuth = () => {
             })
             dispatch({type: AuthActionTypes.CHECK_AUTH_SUCCESS, payload: UserService.getUserFromToken(token)})
         } catch (e) {
-            const error = e as AxiosError
-            dispatch({type: AuthActionTypes.CHECK_AUTH_ERROR, payload: error.code || ''})
+            try {
+                await api.post(RefreshURL, {
+                    refresh: localStorage.getItem('refresh_token')
+                })
+                dispatch({
+                    type: AuthActionTypes.CHECK_AUTH_SUCCESS,
+                    payload: UserService.getUserFromToken(localStorage.getItem('access_token') || '')
+                })
+            } catch (e) {
+                const error = e as AxiosError
+                dispatch({type: AuthActionTypes.CHECK_AUTH_ERROR, payload: error?.code || 'authError'})
+            }
         }
     }
 }

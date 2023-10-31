@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import eye from "../../assets/images/Eye_invisible.svg";
+import eye from "../../assets/images/Eye.svg";
+import eyeSlash from "../../assets/images/Eye-slash.svg";
 import {useForm} from "react-hook-form";
 import IAuthInputs from "../../models/IAuthInputs";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
@@ -25,6 +26,8 @@ function AuthForm({onSubmit}: IAuthForm) {
     } = useForm<IAuthInputs>({
         mode: "onChange"
     })
+
+    const showPasswordIcon = passwordShown ? eyeSlash : eye
 
     useEffect(() => {
         if (submitError === "ERR_BAD_REQUEST") {
@@ -61,24 +64,26 @@ function AuthForm({onSubmit}: IAuthForm) {
                 <div className="auth__input-wrapper">
                     <label className='auth__label label'>
                         <p className='label__title'>Пароль</p>
-                        <input
-                            type={passwordShown ? "text" : "password"}
-                            className={'label__input' + (dirtyFields?.password ? ' filled' : ' unfilled') +
-                                (errors?.password || errorMessage ? ' invalid' : '')}
-                            {...register('password', {
-                                required: "Поле не должно быть пустым",
-                                minLength: {
-                                    value: 6,
-                                    message: "Длина пароля должна быть не меньше 6 символов"
-                                }
-                            })}
-                        />
-                        {touchedFields.password && <img
-                            src={eye}
-                            alt="Показать пароль"
-                            className="password-show"
-                            onClick={() => setPasswordShown(!passwordShown)}
-                        />}
+                        <div className='auth__password-wrapper'>
+                            <input
+                                type={passwordShown ? "text" : "password"}
+                                className={'label__input' + (dirtyFields?.password ? ' filled' : ' unfilled') +
+                                    (errors?.password || errorMessage ? ' invalid' : '')}
+                                {...register('password', {
+                                    required: "Поле не должно быть пустым",
+                                    minLength: {
+                                        value: 6,
+                                        message: "Длина пароля должна быть не меньше 6 символов"
+                                    }
+                                })}
+                            />
+                            {dirtyFields.password && <img
+                                src={showPasswordIcon}
+                                alt="Показать пароль"
+                                className="password-show"
+                                onClick={() => setPasswordShown(!passwordShown)}
+                            />}
+                        </div>
                     </label>
                     {errors?.password && <p className="error-text">{errors?.password?.message || "Ошибка!"}</p>}
                 </div>

@@ -1,4 +1,5 @@
 @import "../../assets/style/inputFIeld";
+@import "passwordShow";
 
 .auth {
   display: flex;
@@ -56,11 +57,9 @@
     margin-bottom: 40px;
     position: relative;
   }
-}
 
-.password-show {
-  width: 24px;
-  cursor: pointer;
-  position: absolute;
-  transform: translate(-40px, 21px);
+  &__password-wrapper {
+    display: flex;
+    position: relative;
+  }
 }

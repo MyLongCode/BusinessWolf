@@ -3,28 +3,32 @@ import React, {useEffect, useState} from 'react';
 import './mainPage.css'
 import Course from "../../components/course/Course";
 import ICourse from "../../models/ICourse";
-import CourseService from "../../services/CourseService";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useActions} from "../../hooks/useActions";
 
 function MainPage() {
     const [courses, setCourses] = useState<ICourse[]>([])
     const {user, isAuth} = useTypedSelector(state => state.auth)
+    const {courses: allCourses} = useTypedSelector(state => state.courses)
+    const {fetchCourses} = useActions()
 
     useEffect(() => {
-        if (isAuth) {
-            const response = CourseService.fetchCourses();
-            const data = response.then(response => response.data)
-            data.then(e => {
-                let userCourses: ICourse[] = [];
-                for (const course of e) {
-                    if (user && course.users.includes(user.id)) {
-                        userCourses.push(course)
-                    }
-                }
-                setCourses(userCourses)
-            })
+        if(isAuth) {
+            fetchCourses()
         }
-    }, [isAuth])
+    }, [isAuth]);
+
+    useEffect(() => {
+        if (allCourses) {
+            let userCourses: ICourse[] = [];
+            for (const course of allCourses) {
+                if (user && course.users.includes(user.id)) {
+                    userCourses.push(course)
+                }
+            }
+            setCourses(userCourses)
+        }
+    }, [allCourses])
 
     return (
         <>

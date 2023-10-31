@@ -33,7 +33,7 @@ interface LogoutAction {
 }
 
 export interface AuthState {
-    user?: null | IUser,
+    user: null | IUser,
     isAuth: boolean,
     loading: boolean,
     error: null | string
