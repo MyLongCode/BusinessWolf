@@ -17,7 +17,7 @@
   flex-direction: column;
   width: 60%;
 }
-.course__sing-up-button {
+.course__continue-btn {
   background-color: var(--White);
   color: var(--Main);
   font-size: 18px;
@@ -31,7 +31,7 @@
   left: 0;
   transition-duration: 200ms;
 }
-.course__sing-up-button:hover {
+.course__continue-btn:hover {
   background-color: rgba(255, 255, 255, 0.8);
 }
 .course__title {

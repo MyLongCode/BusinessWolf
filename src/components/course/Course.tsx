@@ -13,7 +13,7 @@ function Course(props: ICourse) {
             <div className='course__content'>
                 <h2 className='course__title'>{props.course_name}</h2>
                 <p className='course__description'>{props.about_course}</p>
-                <button className='course__sing-up-button'>Записаться</button>
+                <button className='course__continue-btn'>Продолжить</button>
             </div>
             <img src={images[props.id % images.length]} alt="Волк" className='course__img'/>
         </li>
