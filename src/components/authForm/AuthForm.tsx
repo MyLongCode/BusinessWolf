@@ -31,7 +31,7 @@ function AuthForm({onSubmit}: IAuthForm) {
 
     useEffect(() => {
         if (submitError === "ERR_BAD_REQUEST") {
-            setErrorMessage('Неверный пароль. Попробуйте снова.');
+            setErrorMessage('Неверный логин или пароль. Попробуйте снова.');
         } else if (submitError === "ERR_NETWORK") {
             setErrorMessage('Сервер не доступен. Попробуйте позже.')
         }
@@ -39,9 +39,6 @@ function AuthForm({onSubmit}: IAuthForm) {
 
     return (
         <>
-            {errorMessage && <div className="auth__error">
-                <p className="error-text">{errorMessage}</p>
-            </div>}
             <form onSubmit={handleSubmit(onSubmit)} onChange={() => setErrorMessage('')} className="auth__form">
                 <div className="auth__input-wrapper">
                     <label className='auth__label label'>
@@ -87,11 +84,14 @@ function AuthForm({onSubmit}: IAuthForm) {
                     </label>
                     {errors?.password && <p className="error-text">{errors?.password?.message || "Ошибка!"}</p>}
                 </div>
+                {errorMessage && <div className="auth__error">
+                    <p className="error-text">{errorMessage}</p>
+                </div>}
                 <button disabled={!isValid} className='auth__submit-btn' type="submit">Начать</button>
-                <p className="restore-password">
-                    Забыли пароль? <a rel="noreferrer" href="https://telegram.org" target="_blank">Напишите боту</a>
-                </p>
             </form>
+            <p className="restore-password">
+                Забыли пароль? <a rel="noreferrer" href="https://telegram.org" target="_blank">Напишите боту</a>
+            </p>
         </>
     );
 }

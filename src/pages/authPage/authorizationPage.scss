@@ -43,12 +43,12 @@
   }
 
   &__error {
-    background-color: rgba(59, 125, 189, 0.25);
-    border: solid red;
-    border-width: 2px 3px;
-    border-radius: 8px;
-    padding: 15px 60px;
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 25px;
+
+    .error-text {
+      font-size: 18px;
+    }
   }
 
   &__input-wrapper {
@@ -56,6 +56,10 @@
     flex-direction: column;
     margin-bottom: 40px;
     position: relative;
+
+    &:nth-child(2) {
+      margin-bottom: 15px;
+    }
   }
 
   &__password-wrapper {
