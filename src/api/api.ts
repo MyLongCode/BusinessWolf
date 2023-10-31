@@ -9,7 +9,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-    config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
+    config.headers.Authorization = `Bearer ${localStorage.getItem('access_token')}`
     return config
 })
 
@@ -21,7 +21,7 @@ api.interceptors.response.use((config) => {
         try {
             originalRequest._isRetry = true;
             const response = await api.post<AuthResponse>('/auth/token/refresh/', {
-                refresh: localStorage.getItem('refresh')
+                refresh: localStorage.getItem('refresh_token')
             })
             localStorage.setItem('token', response.data.access);
             originalRequest.data = {

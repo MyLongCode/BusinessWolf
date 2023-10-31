@@ -1,30 +1,30 @@
 import {motion} from 'framer-motion';
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './mainPage.css'
 import Course from "../../components/course/Course";
-import {observer} from "mobx-react-lite";
 import ICourse from "../../models/ICourse";
-import {Context} from "../../index";
 import CourseService from "../../services/CourseService";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 function MainPage() {
     const [courses, setCourses] = useState<ICourse[]>([])
-    const {store} = useContext(Context)
-    useEffect(() => {
-        const response = CourseService.fetchCourses();
-        const data = response.then(response => response.data)
-        data.then(e => {
-            let userCourses: ICourse[] = [];
-            const userId = store.user.id || store.getUserFromToken(localStorage.getItem('token') || '').id;
+    const {user, isAuth} = useTypedSelector(state => state.auth)
 
-            for (const course of e) {
-                if (course.users.includes(userId)) {
-                    userCourses.push(course)
+    useEffect(() => {
+        if (isAuth) {
+            const response = CourseService.fetchCourses();
+            const data = response.then(response => response.data)
+            data.then(e => {
+                let userCourses: ICourse[] = [];
+                for (const course of e) {
+                    if (user && course.users.includes(user.id)) {
+                        userCourses.push(course)
+                    }
                 }
-            }
-            setCourses(userCourses)
-        })
-    }, [store.isAuth])
+                setCourses(userCourses)
+            })
+        }
+    }, [isAuth])
 
     return (
         <>
@@ -51,4 +51,4 @@ function MainPage() {
     );
 }
 
-export default observer(MainPage);
+export default MainPage;

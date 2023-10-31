@@ -1,4 +1,4 @@
-import api from "../api/axios";
+import api from "../api/api";
 import {AxiosResponse} from "axios";
 import {AuthResponse} from "../models/responce/AuthResponse";
 

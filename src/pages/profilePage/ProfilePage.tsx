@@ -1,11 +1,10 @@
 import './profilePage.css'
 import avatar from '../../assets/images/Avatar.jpg'
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {motion} from 'framer-motion';
 import {Link, useNavigate} from "react-router-dom";
-import {Context} from "../../index";
-import {observer} from "mobx-react-lite";
 import ProfileDataForm from "../../components/profileForm/ProfileDataForm";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 function ProfilePage() {
     const [fullName, setFullName] = useState('')
@@ -13,20 +12,19 @@ function ProfilePage() {
     const [email, setEmail] = useState('')
     const [address, setAddress] = useState('')
     const [grade, setGrade] = useState('')
+    const {user, isAuth} = useTypedSelector(state => state.auth)
 
-    const {store} = useContext(Context)
     const navigate = useNavigate()
 
     useEffect(() => {
-        const user = store.user || store.getUserFromToken(localStorage.getItem('token') || '');
-
-        setFullName(user.full_name);
-        setPhone(user.phone_number);
-        setEmail(user.email);
-        setAddress(user.address);
-        setGrade(user.education_class);
-        console.log(user);
-    }, [store.user]);
+        if (user) {
+            setFullName(user.full_name);
+            setPhone(user.phone_number);
+            setEmail(user.email);
+            setAddress(user.address);
+            setGrade(user.education_class);
+        }
+    }, [isAuth]);
 
     return (
         <motion.div
@@ -53,10 +51,10 @@ function ProfilePage() {
                 <h2 className='profile__data__heading'>Ваши данные:</h2>
                 <p className='profile__data__desc'>Заполните данные и получите <b>5 волчих коинов</b></p>
 
-            <ProfileDataForm name={fullName} phone={phone} email={email} address={address} grade={grade}/>
+                <ProfileDataForm name={fullName} phone={phone} email={email} address={address} grade={grade}/>
             </section>
         </motion.div>
     );
 }
 
-export default observer(ProfilePage);
+export default ProfilePage;

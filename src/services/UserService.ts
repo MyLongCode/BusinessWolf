@@ -1,11 +1,10 @@
-import api from "../api/axios";
-import {AxiosResponse} from "axios";
 import IUser from "../models/IUser";
-
-const FetchURL = '/api/users/'
+import jwt from "jwt-decode";
+import IToken from "../models/IToken";
 
 export default class UserService {
-    static async fetchUsers(): Promise<AxiosResponse<IUser[]>> {
-        return api.get<IUser[]>(FetchURL)
+    static getUserFromToken(token: string): IUser {
+        const decode: IToken = jwt(token)
+        return decode.user_data
     }
 }
