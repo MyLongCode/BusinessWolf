@@ -23,31 +23,11 @@ function ProfileDataForm({name, phone, email, address, grade}: IFormInputs) {
     return (
         <form className='profile__data__form data'>
             <label className='data__label label'>
-                <p className='label__title'>ФИО</p>
+                <p className='label__title'>Почта</p>
                 <input
                     disabled={true}
                     // className={'label__input' + (dirtyFields?.name ? ' filled' : ' unfilled') +
                     // (errors?.name ? ' invalid' : '')}
-                    className={'label__input unfilled'}
-                    {...register('name')}
-                    value={name || ''}
-                    autoComplete='off'
-                />
-            </label>
-            <label className='data__label label'>
-                <p className='label__title'>Телефон</p>
-                <input
-                    disabled={true}
-                    className={'label__input unfilled'}
-                    {...register('phone')}
-                    value={phone || ''}
-                    autoComplete='off'
-                />
-            </label>
-            <label className='data__label label'>
-                <p className='label__title'>Почта</p>
-                <input
-                    disabled={true}
                     className={'label__input unfilled'}
                     {...register('email')}
                     value={email || ''}
@@ -65,12 +45,12 @@ function ProfileDataForm({name, phone, email, address, grade}: IFormInputs) {
                 />
             </label>
             <label className='data__label label'>
-                <p className='label__title'>Класс</p>
+                <p className='label__title'>Телефон</p>
                 <input
                     disabled={true}
                     className={'label__input unfilled'}
-                    {...register('grade')}
-                    value={grade || ''}
+                    {...register('phone')}
+                    value={phone || ''}
                     autoComplete='off'
                 />
             </label>

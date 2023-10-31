@@ -41,7 +41,7 @@ function ProfilePage() {
                 <img src={avatar} alt="Аватар пользователя" className='profile__user__avatar user-avatar'/>
                 <div className='profile__user__info'>
                     <p className='profile__user__info__name'>{fullName || 'Фамилия Имя'}</p>
-                    <p className='profile__user__info__lvl'>Level: Almost Fluent</p>
+                    <p className='profile__user__info__grade'>{`${grade} класс`}</p>
                 </div>
             </section>
             <section className='profile__courses'>
