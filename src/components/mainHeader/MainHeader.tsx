@@ -31,7 +31,7 @@ function MainHeader() {
             </Link>
             <div className='token'>
                 <img src={token} alt="Монеты" className='token__img'/>
-                <span className='token__count'>{coins}</span>
+                <p className='token__count'>{coins}</p>
             </div>
             <Link to={'/profile'} className='user-avatar'>
                 <img src={avatar} alt="Аватар пользователя" className='user-avatar__img'/>

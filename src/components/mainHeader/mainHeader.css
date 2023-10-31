@@ -4,7 +4,7 @@
   background-color: var(--Main);
   border-radius: 15px 14px 14px 15px;
   height: 55px;
-  width: 95px;
+  width: max-content;
   margin-left: auto;
 }
 .token__img {
@@ -15,7 +15,7 @@
 }
 .token__count {
   position: relative;
-  right: 13px;
+  right: 17px;
   color: var(--White);
   font-size: 23px;
   font-style: normal;
