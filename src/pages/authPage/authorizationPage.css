@@ -44,6 +44,7 @@
   max-width: 574px;
 }
 .auth__submit-btn {
+  margin-top: 25px;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -72,7 +73,6 @@
 }
 .auth__error {
   text-align: center;
-  margin-bottom: 25px;
 }
 .auth__error .error-text {
   font-size: 18px;

@@ -19,7 +19,6 @@ function AuthForm({onSubmit}: IAuthForm) {
         formState: {
             errors,
             isValid,
-            touchedFields,
             dirtyFields
         },
         handleSubmit

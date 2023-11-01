@@ -13,8 +13,10 @@ function MainPage() {
     const {fetchCourses} = useActions()
 
     useEffect(() => {
-        if(isAuth) {
-            fetchCourses()
+        if (isAuth) {
+            if (allCourses.length === 0) {
+                fetchCourses()
+            }
         }
     }, [isAuth]);
 

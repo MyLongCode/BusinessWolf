@@ -10,6 +10,7 @@
   max-width: 574px;
 
   &__submit-btn {
+    margin-top: 25px;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -44,7 +45,6 @@
 
   &__error {
     text-align: center;
-    margin-bottom: 25px;
 
     .error-text {
       font-size: 18px;

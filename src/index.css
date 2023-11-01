@@ -50,7 +50,7 @@ button:hover {
   background-color: var(--DarkMain);
 }
 button:disabled {
-  background-color: var(--Gray);
+  background-color: var(--LightGray);
   cursor: default;
 }
 

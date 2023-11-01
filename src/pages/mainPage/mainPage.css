@@ -1,3 +1,13 @@
+.greeting {
+  margin-bottom: 20px;
+}
+.greeting__heading {
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 .main {
   margin: 0 10%;
 }
@@ -7,16 +17,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 70px;
-}
-
-.greeting {
-  margin-bottom: 20px;
-}
-.greeting__heading {
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .courses-container {

@@ -1,0 +1,27 @@
+.review {
+  margin-bottom: 10px;
+  min-width: 260px;
+  border: solid 1px var(--Black);
+  padding: 18px 16px;
+  border-radius: 20px;
+
+  &__reviewer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+
+    &__avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+
+    &__name {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+}

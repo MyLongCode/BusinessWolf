@@ -9,6 +9,7 @@ import './index.css';
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import {useActions} from "./hooks/useActions";
 import {useTypedSelector} from "./hooks/useTypedSelector";
+import CoursePage from "./pages/coursePage/coursePage";
 
 
 function App() {
@@ -39,11 +40,14 @@ function App() {
     const pagesWithMainHeader = [
         '/main',
         '/profile',
+        '/course'
     ]
 
     return (
         <>
-            {pagesWithMainHeader.includes(location.pathname) && <MainHeader/>}
+            {(pagesWithMainHeader.includes(location.pathname) || pagesWithMainHeader.includes(
+                    location.pathname.slice(0, location.pathname.lastIndexOf('/'))
+                )) && <MainHeader/>}
             <main>
                 <AnimatePresence mode='wait'>
                     <Routes location={location} key={location.pathname}>
@@ -51,6 +55,7 @@ function App() {
                         <Route path='/authorization' element={<AuthorizationPage/>}/>
                         <Route path='/main' element={<MainPage/>}/>
                         <Route path='/profile' element={<ProfilePage/>}/>
+                        <Route path='/course/:id' element={<CoursePage/>}/>
                     </Routes>
                 </AnimatePresence>
             </main>
