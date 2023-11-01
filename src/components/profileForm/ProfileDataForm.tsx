@@ -21,8 +21,8 @@ function ProfileDataForm({name, phone, email, address, grade}: IFormInputs) {
     })
 
     return (
-        <form className='profile__data__form data'>
-            <label className='data__label label'>
+        <form className='data__form form'>
+            <label className='form__label label'>
                 <p className='label__title'>Почта</p>
                 <input
                     disabled={true}
@@ -34,7 +34,7 @@ function ProfileDataForm({name, phone, email, address, grade}: IFormInputs) {
                     autoComplete='email'
                 />
             </label>
-            <label className='data__label label'>
+            <label className='form__label label'>
                 <p className='label__title'>Адрес для подарочков от бизнес-волчонка</p>
                 <input
                     disabled={true}
@@ -44,7 +44,7 @@ function ProfileDataForm({name, phone, email, address, grade}: IFormInputs) {
                     autoComplete='off'
                 />
             </label>
-            <label className='data__label label'>
+            <label className='form__label label'>
                 <p className='label__title'>Телефон</p>
                 <input
                     disabled={true}
@@ -54,7 +54,7 @@ function ProfileDataForm({name, phone, email, address, grade}: IFormInputs) {
                     autoComplete='off'
                 />
             </label>
-            {errors?.name && <p className="error-text">{errors?.name?.message || "Ошибка!"}</p>}
+            {errors?.name && <p className="form__error-text error-text">{errors?.name?.message || "Ошибка!"}</p>}
         </form>
     );
 }

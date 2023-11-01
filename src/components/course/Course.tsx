@@ -10,7 +10,7 @@ import {Link} from "react-router-dom";
 function Course(props: ICourse) {
     const images = [wolf_1, wolf_2, wolf_3, wolf_4]
     return (
-        <li className='course'>
+        <li className='courses__course course'>
             <div className='course__content'>
                 <h2 className='course__title'>{props.course_name}</h2>
                 <p className='course__description'>{props.about_course}</p>

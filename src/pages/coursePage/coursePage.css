@@ -11,7 +11,7 @@
 .course-page {
   margin: 0 10%;
 }
-.course-page__about__heading, .course-page__reviews__heading {
+.course-page .section-heading {
   font-family: "Enthalpy 298", sans-serif;
   font-size: 40px;
   font-style: normal;
@@ -27,17 +27,17 @@
   grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
   gap: 40px;
 }
-.course-page__about {
+.course-page .about {
   width: 60%;
   margin-bottom: 48px;
 }
-.course-page__about__text {
+.course-page .about__text {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
 }
-.course-page__reviews__list {
+.course-page .reviews__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   align-items: center;

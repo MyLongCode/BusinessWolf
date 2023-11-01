@@ -13,16 +13,16 @@
     }
   }
 
-  & .filled {
+  .filled {
     opacity: 1;
     border-color: var(--Main);
   }
 
-  & .unfilled {
+  .unfilled {
     opacity: 0.4;
   }
 
-  & .invalid {
+  .invalid {
     border-color: red;
   }
 

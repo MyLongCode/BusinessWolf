@@ -42,24 +42,23 @@
   scale: 1.2;
 }
 
-.main-header {
+.header {
   display: flex;
   align-items: center;
   margin: 40px 10% 48px;
 }
-
-.logo {
+.header .logo {
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 9px;
   transition-duration: 300ms;
 }
-.logo__img {
+.header .logo__img {
   width: 93px;
   height: 93px;
 }
-.logo__text {
+.header .logo__text {
   font-family: "Enthalpy 298", sans-serif;
   margin-right: auto;
   font-size: 24px;
@@ -67,7 +66,7 @@
   font-weight: 400;
   line-height: normal;
 }
-.logo:hover {
+.header .logo:hover {
   gap: 13px;
 }
 

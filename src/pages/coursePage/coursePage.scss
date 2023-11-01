@@ -3,7 +3,7 @@
 .course-page {
   margin: 0 10%;
 
-  &__about__heading, &__reviews__heading{
+  .section-heading{
     font-family: "Enthalpy 298", sans-serif;
     font-size: 40px;
     font-style: normal;
@@ -22,7 +22,7 @@
     }
   }
 
-  &__about {
+  .about {
     width: 60%;
     margin-bottom: 48px;
 
@@ -34,7 +34,7 @@
     }
   }
 
-  &__reviews {
+  .reviews {
     &__list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

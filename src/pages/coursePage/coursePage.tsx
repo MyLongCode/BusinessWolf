@@ -61,17 +61,17 @@ function CoursePage() {
                     })}
                 </ul>
             </section>
-            <section className='course-page__about'>
-                <h2 className='course-page__about__heading'>Об этом курсе</h2>
-                <p className='course-page__about__text'>
+            <section className='course-page__about about'>
+                <h2 className='about__heading section-heading'>Об этом курсе</h2>
+                <p className='about__text'>
                     Learn the basics of the language: make new friends, plan a family dinner, go shopping and much
                     more!Learn the basics of the language: make new friends, plan a family dinner, go shopping and much
                     more!мLearn the basics of the lang
                 </p>
             </section>
-            <section className='course-page__about'>
-                <h2 className='course-page__about__heading'>Почему этот курс для тебя</h2>
-                <p className='course-page__about__text'>
+            <section className='course-page__about about'>
+                <h2 className='about__heading section-heading'>Почему этот курс для тебя</h2>
+                <p className='about__text'>
                     Learn the basics of the language: make new friends, plan a family dinner, go shopping and much
                     more!Learn the basics of the language: make new friends, plan a family dinner, go shopping and much
                     more!мLearn the basics of the langLearn the basics of the language: make new friends, plan a family
@@ -81,18 +81,18 @@ function CoursePage() {
                     make new friends, plan a family dinner, go shopping and much more!мLearn the basics of the lang
                 </p>
             </section>
-            <section className='course-page__reviews'>
-                <h2 className='course-page__reviews__heading'>Отзывы</h2>
-                <ul className='course-page__reviews__list'>
-                    <li className='course-page__reviews__list__item'>
+            <section className='course-page__reviews reviews'>
+                <h2 className='reviews__heading section-heading'>Отзывы</h2>
+                <ul className='reviews__list'>
+                    <li className='reviews__item'>
                         <Review review='Learn the basics of the language:
                          make new friends, plan a family dinner, go shopping and much more!'/>
                     </li>
-                    <li className='course-page__reviews__list__item'>
+                    <li className='reviews__item'>
                         <Review review='Learn the basics of the language:
                          make new friends, plan a family dinner, go shopping and much more!'/>
                     </li>
-                    <li className='course-page__reviews__list__item'>
+                    <li className='reviews__item'>
                         <Review review='Learn the basics of the language:
                          make new friends, plan a family dinner, go shopping and much more!'/>
                     </li>

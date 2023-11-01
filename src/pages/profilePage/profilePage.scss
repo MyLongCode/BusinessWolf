@@ -29,7 +29,7 @@
     }
   }
 
-  &__user {
+  .user {
     margin-top: 48px;
     display: flex;
     gap: 32px;
@@ -42,7 +42,7 @@
       grid-area: img;
     }
 
-    &__info {
+    .info {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -71,7 +71,7 @@
     margin-top: 60px;
   }
 
-  &__data {
+  .data {
     margin: 64px 0;
 
     &__heading {
