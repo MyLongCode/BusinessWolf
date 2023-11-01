@@ -34,8 +34,8 @@ function ProfilePage() {
             exit={{opacity: 0}}
         >
             <Link to='' onClick={() => navigate(-1)} className='profile__back'>
-                <span className='profile__back__arrow arrow'/>
-                <p className='profile__back__text'>Профиль</p>
+                <span className='profile__back-arrow arrow'/>
+                <p className='profile__back-text'>Профиль</p>
             </Link>
             <section className='profile__user'>
                 <img src={avatar} alt="Аватар пользователя" className='profile__user__avatar user-avatar'/>
@@ -50,7 +50,6 @@ function ProfilePage() {
             <section className='profile__data'>
                 <h2 className='profile__data__heading'>Ваши данные:</h2>
                 <p className='profile__data__desc'>Заполните данные и получите <b>5 волчих коинов</b></p>
-
                 <ProfileDataForm name={fullName} phone={phone} email={email} address={address} grade={grade}/>
             </section>
         </motion.div>

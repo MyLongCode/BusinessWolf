@@ -13,12 +13,11 @@ function MainPage() {
     const {fetchCourses} = useActions()
 
     useEffect(() => {
-        if (isAuth) {
-            if (allCourses.length === 0) {
-                fetchCourses()
-            }
+        if (isAuth && allCourses.length === 0) {
+            fetchCourses()
         }
-    }, [isAuth]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isAuth, allCourses.length]);
 
     useEffect(() => {
         if (allCourses) {
@@ -30,7 +29,7 @@ function MainPage() {
             }
             setCourses(userCourses)
         }
-    }, [allCourses])
+    }, [allCourses, user])
 
     return (
         <>
@@ -44,7 +43,7 @@ function MainPage() {
                     <h1 className='greeting__heading'>Hello, bro</h1>
                     <span className='what-to-learn'>What do you want to learn?</span>
                 </div>
-                <ul className='courses-container'>
+                <ul className='courses'>
                     {courses.map(course => {
                         return (
                             <Course course_name={course.course_name} about_course={course.about_course}

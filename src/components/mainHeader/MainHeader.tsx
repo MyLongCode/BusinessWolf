@@ -15,7 +15,7 @@ function MainHeader() {
         if (user) {
             setCoins(user.coins)
         }
-    }, [isAuth]);
+    }, [isAuth, user]);
 
     return (
         <motion.header

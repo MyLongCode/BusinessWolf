@@ -22,13 +22,15 @@ function App() {
         if (location.pathname !== '/authorization') {
             checkAuth()
         }
-    }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [location.pathname]);
 
     useEffect(() => {
         if (error) {
             navigate('/authorization')
             logout()
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [error]);
 
     useEffect(() => {

@@ -3,6 +3,10 @@
 .profile {
   margin: 0 10%;
 
+  &__back-arrow {
+    rotate: 90deg;
+  }
+
   &__back {
     display: flex;
     align-items: center;
@@ -15,11 +19,6 @@
     gap: 5px;
     width: fit-content;
     cursor: pointer;
-
-    &__arrow {
-      rotate: 90deg;
-    }
-
     &:hover {
       gap: 16px;
     }
