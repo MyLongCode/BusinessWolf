@@ -63,11 +63,10 @@
     }
   }
 
-  &__course {
-    background-color: gray;
-    width: 560px;
-    height: 208px;
-    border-radius: 20px;
+  .courses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
     margin-top: 60px;
   }
 

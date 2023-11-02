@@ -5,6 +5,7 @@ import {motion} from 'framer-motion';
 import {Link, useNavigate} from "react-router-dom";
 import ProfileDataForm from "../../components/profileForm/ProfileDataForm";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+import ProfileCourse from "../../components/profileCourse/ProfileCourse";
 
 function ProfilePage() {
     const [fullName, setFullName] = useState('')
@@ -24,7 +25,7 @@ function ProfilePage() {
             setAddress(user.address);
             setGrade(user.education_class);
         }
-    }, [isAuth]);
+    }, [isAuth, user]);
 
     return (
         <motion.div
@@ -44,8 +45,8 @@ function ProfilePage() {
                     <p className='info__grade'>{`${grade} класс`}</p>
                 </div>
             </section>
-            <section className='profile__courses'>
-                <div className='profile__course'/>
+            <section className='profile__courses courses'>
+                <ProfileCourse/>
             </section>
             <section className='profile__data data'>
                 <h2 className='data__heading'>Ваши данные:</h2>
