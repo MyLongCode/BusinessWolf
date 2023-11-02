@@ -22,5 +22,8 @@
   padding: 6px 21px;
   border-radius: 33px;
 }
+.module_disabled {
+  background-color: var(--LightGray);
+}
 
 /*# sourceMappingURL=module.css.map */

@@ -31,7 +31,7 @@ function ProfilePage() {
         <motion.div
             className="profile"
             initial={{opacity: 0}}
-            animate={{opacity: 1, transition: {duration: 1.25}}}
+            animate={{opacity: 1, transition:{duration: 0.75}}}
             exit={{opacity: 0}}
         >
             <Link to='' onClick={() => navigate(-1)} className='profile__back'>

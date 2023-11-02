@@ -23,4 +23,8 @@
     padding: 6px 21px;
     border-radius: 33px;
   }
+
+  &_disabled {
+    background-color: var(--LightGray);
+  }
 }

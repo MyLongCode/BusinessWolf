@@ -23,7 +23,7 @@ function App() {
             checkAuth()
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [location.pathname]);
+    }, []);
 
     useEffect(() => {
         if (error) {
