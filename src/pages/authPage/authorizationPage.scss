@@ -57,6 +57,12 @@
     margin-bottom: 40px;
     position: relative;
 
+    .label {
+      &__input {
+        padding-right: 40px;
+      }
+    }
+
     &:nth-child(2) {
       margin-bottom: 15px;
     }
