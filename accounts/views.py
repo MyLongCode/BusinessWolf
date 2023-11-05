@@ -1,7 +1,7 @@
 # Create your views here.
 from rest_framework import generics, response
 from .models import User
-from .permissions import IsOwner, IsStaffOrPostOnly
+from .permissions import IsOwner
 from .serializers import *
 from rest_framework import permissions
 

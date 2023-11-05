@@ -7,8 +7,6 @@
 Доступ к таблицам в БД
 	api/users/
 	api/users/<int:pk>/
-	    PERMISSIONS
-
 	api/course/
 	api/course/<int:pk>/
 	api/usercourse/
