@@ -52,6 +52,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         user_data['address'] = user.address
         user_data['education_class'] = user.education_class
         user_data['coins'] = user.coins
+        user_data['phone'] = user.phone
         token['user_data'] = user_data
 
         return token
