@@ -8,7 +8,7 @@ from rest_framework import permissions
 
 class UserAPICreateView(generics.ListCreateAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializerAdmin
+    serializer_class = CreateUserSerializer
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
 
 
@@ -21,3 +21,9 @@ class UserAPIDetail(generics.RetrieveUpdateDestroyAPIView):
         if self.request.user.is_active and self.request.user.is_superuser:
             return UserSerializerAdmin
         return UserSerializer
+
+
+class ChangePasswordUserAPIDetail(generics.RetrieveUpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = ChangeUserPasswordSerializer
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
