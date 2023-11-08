@@ -1,4 +1,3 @@
-from requests import Response
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from .models import User
@@ -9,7 +8,8 @@ from django.contrib.auth.hashers import make_password
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ('coins', 'education_class', 'address', 'phone', 'full_name',
+                  'is_superuser', 'is_staff', 'user_permissions', 'role')
         read_only_fields = ('is_superuser', 'is_staff', 'groups', 'user_permissions', 'role')
         permission_classes = permissions.IsAuthenticated
 
@@ -26,7 +26,9 @@ class UserSerializer(serializers.ModelSerializer):
 class UserSerializerAdmin(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'is_superuser', 'role')
+        fields = ('id', 'username', 'password', 'is_superuser', 'is_staff', 'role',
+                  'coins', 'education_class', 'address', 'phone', 'full_name', 'user_permissions'
+                  )
         read_only_fields = ('role', )
         permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
 
