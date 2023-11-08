@@ -9,8 +9,8 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('coins', 'education_class', 'address', 'phone', 'full_name',
-                  'is_superuser', 'is_staff', 'user_permissions', 'role')
-        read_only_fields = ('is_superuser', 'is_staff', 'groups', 'user_permissions', 'role')
+                  'is_superuser', 'is_staff', 'role')
+        read_only_fields = ('is_superuser', 'is_staff', 'groups', 'role')
         permission_classes = permissions.IsAuthenticated
 
     def create(self, validated_data):
@@ -27,7 +27,7 @@ class UserSerializerAdmin(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'password', 'is_superuser', 'is_staff', 'role',
-                  'coins', 'education_class', 'address', 'phone', 'full_name', 'user_permissions'
+                  'coins', 'education_class', 'address', 'phone', 'full_name'
                   )
         read_only_fields = ('role', )
         permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
