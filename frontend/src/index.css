@@ -1,0 +1,81 @@
+:root {
+  --White: #FFFFFF;
+  --Main: #4B94DD;
+  --DarkMain: #3b7dbd;
+  --Black: #111010;
+  --Gray: #AAA ;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  font-family: "Enthalpy 298", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  line-height: 150%;
+  min-width: 720px;
+}
+
+html, body {
+  scrollbar-gutter: stable;
+}
+
+button {
+  border-radius: 16px;
+  color: var(--White);
+  line-height: 200%;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 12px 0;
+  width: 100%;
+  border: none;
+  background-color: var(--Main);
+  cursor: pointer;
+}
+button:hover {
+  background-color: var(--DarkMain);
+}
+button:disabled {
+  background-color: var(--LightGray);
+  cursor: default;
+}
+
+input::-ms-reveal, input::-ms-clear {
+  display: none;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.error-text {
+  color: red;
+  font-size: 16px;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(45deg);
+}
+
+/*# sourceMappingURL=index.css.map */

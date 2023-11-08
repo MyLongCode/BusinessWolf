@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Полезный курс",
+    "description": "Описание полезного курса",
+    "id": 1
+  },
+  {
+    "title": "Крутой курс",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt aliquam lorem nec ultrices. Aenean sit amet nunc non nulla ornare mattis. Vestibulum volutpat nunc elit.",
+    "id": 2
+  },
+  {
+    "title": "Супер курс",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt aliquam lorem nec ultrices. Aenean sit amet nunc non nulla ornare mattis. Vestibulum volutpat nunc elit.",
+    "id": 3
+  },
+  {
+    "title": "Мега курс",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt aliquam lorem nec ultrices. Aenean sit amet nunc non nulla ornare mattis. Vestibulum volutpat nunc elit.",
+    "id": 4
+  },
+  {
+    "title": "Омега курс",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt aliquam lorem nec ultrices. Aenean sit amet nunc non nulla ornare mattis. Vestibulum volutpat nunc elit.",
+    "id": 5
+  },
+  {
+    "title": "Ульра курс",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt aliquam lorem nec ultrices. Aenean sit amet nunc non nulla ornare mattis. Vestibulum volutpat nunc elit.",
+    "id": 6
+  }
+]
