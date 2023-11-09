@@ -1,35 +1,21 @@
 import {motion} from 'framer-motion';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import './mainPage.css'
 import Course from "../../components/course/Course";
-import ICourse from "../../models/ICourse";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useActions} from "../../hooks/useActions";
 
 function MainPage() {
-    const [courses, setCourses] = useState<ICourse[]>([])
-    const {user, isAuth} = useTypedSelector(state => state.auth)
-    const {courses: allCourses} = useTypedSelector(state => state.courses)
+    const {isAuth} = useTypedSelector(state => state.auth)
+    const {courses} = useTypedSelector(state => state.courses)
     const {fetchCourses} = useActions()
 
     useEffect(() => {
-        if (isAuth && allCourses.length === 0) {
+        if (isAuth && courses.length === 0) {
             fetchCourses()
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isAuth, allCourses.length]);
-
-    useEffect(() => {
-        if (allCourses) {
-            let userCourses: ICourse[] = [];
-            for (const course of allCourses) {
-                if (user && course.users.includes(user.id)) {
-                    userCourses.push(course)
-                }
-            }
-            setCourses(userCourses)
-        }
-    }, [allCourses, user])
+    }, [isAuth, courses.length]);
 
     return (
         <>

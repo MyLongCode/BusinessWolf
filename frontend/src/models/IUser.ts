@@ -1,10 +1,11 @@
 export default interface IUser {
-    "id": number,
+    "id": number
     "username": string,
-    "full_name": string,
-    "email": string,
-    "address": string,
-    "phone_number": string,
+    "password": string,
+    "coins": number,
     "education_class": string,
-    "coins": number
+    "address": string,
+    "phone": string,
+    "full_name": string,
+    "email": string
 }

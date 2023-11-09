@@ -8,9 +8,9 @@ from django.contrib.auth.hashers import make_password
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('coins', 'education_class', 'address', 'phone', 'full_name',
-                  'is_superuser', 'is_staff', 'role')
-        read_only_fields = ('is_superuser', 'is_staff', 'groups', 'role')
+        fields = ('id', 'coins', 'education_class', 'address', 'phone', 'full_name',
+                  'is_superuser', 'is_staff', 'role', 'email')
+        read_only_fields = ('id', 'is_superuser', 'is_staff', 'groups', 'role')
         permission_classes = permissions.IsAuthenticated
 
 

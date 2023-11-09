@@ -28,18 +28,20 @@ function CoursePage() {
         if(isAuth && allModules.length === 0) {
             fetchModules()
         }
+        // eslint-disable-next-line
     }, [isAuth,]);
 
     useEffect(() => {
         if(allModules.length !== 0) {
             const modulesToAdd = []
             for (const module of allModules) {
-                if(module.course_id === Number(id)) {
+                if(module.course === Number(id)) {
                     modulesToAdd.push(module)
                 }
             }
             setCourseModules(modulesToAdd)
         }
+        // eslint-disable-next-line
     }, [allModules]);
 
     return (
@@ -56,7 +58,7 @@ function CoursePage() {
             <section className='course-page__modules modules'>
                 <ul className='modules__list'>
                     {modules.map(module => {
-                        return <Module key={module.module_id} courseNumber={module.module_number}
+                        return <Module key={module.id} courseNumber={module.number}
                                        completeLessons={2} totalLessons={12}/>
                     })}
                 </ul>

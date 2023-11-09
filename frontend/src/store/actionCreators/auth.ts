@@ -4,6 +4,8 @@ import {Dispatch} from "redux";
 import UserService from "../../services/UserService";
 import {AxiosError} from "axios";
 import api from "../../api/api";
+import TokenService from "../../services/TokenService";
+import IToken from "../../models/IToken";
 
 const VerifyURL = '/auth/token/verify/'
 const RefreshURL = '/auth/token/refresh/'
@@ -16,7 +18,10 @@ export const login = (username: string, password: string) => {
             const accessToken = response.data.access
             localStorage.setItem('access_token', accessToken)
             localStorage.setItem('refresh_token', response.data.refresh)
-            dispatch({type: AuthActionTypes.LOGIN_SUCCESS, payload: UserService.getUserFromToken(accessToken)})
+            const userID = TokenService.decodeToken(accessToken).user_id
+            await UserService.fetchUser(userID).then(response => {
+                dispatch({type: AuthActionTypes.LOGIN_SUCCESS, payload: response.data})
+            })
         } catch (e) {
             const error = e as AxiosError
             dispatch({type: AuthActionTypes.LOGIN_ERROR, payload: error.code || ''})
@@ -29,18 +34,27 @@ export const checkAuth = () => {
         try {
             dispatch({type: AuthActionTypes.CHECK_AUTH})
             const token = localStorage.getItem('access_token') || ''
+            const userID = TokenService.decodeToken(token).user_id
             await api.post(VerifyURL, {
                 token
             })
-            dispatch({type: AuthActionTypes.CHECK_AUTH_SUCCESS, payload: UserService.getUserFromToken(token)})
+            UserService.fetchUser(userID).then(response => {
+                dispatch({type: AuthActionTypes.CHECK_AUTH_SUCCESS, payload: response.data})
+            })
         } catch (e) {
             try {
+                let token: IToken = {} as IToken
                 await api.post(RefreshURL, {
                     refresh: localStorage.getItem('refresh_token')
+                }).then(response => {
+                    token = TokenService.decodeToken(response.data.access)
                 })
-                dispatch({
-                    type: AuthActionTypes.CHECK_AUTH_SUCCESS,
-                    payload: UserService.getUserFromToken(localStorage.getItem('access_token') || '')
+                const userID = token.user_id
+                await UserService.fetchUser(userID).then(response => {
+                    dispatch({
+                        type: AuthActionTypes.CHECK_AUTH_SUCCESS,
+                        payload: response.data
+                    })
                 })
             } catch (e) {
                 const error = e as AxiosError

@@ -20,7 +20,7 @@ function ProfilePage() {
     useEffect(() => {
         if (user) {
             setFullName(user.full_name);
-            setPhone(user.phone_number);
+            setPhone(user.phone);
             setEmail(user.email);
             setAddress(user.address);
             setGrade(user.education_class);

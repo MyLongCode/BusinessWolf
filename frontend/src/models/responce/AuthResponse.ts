@@ -1,4 +1,7 @@
+import IUser from "../IUser";
+
 export interface AuthResponse {
-    access: string,
-    refresh: string
+    "refresh": string,
+    "access": string,
+    "user_data": IUser
 }

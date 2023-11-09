@@ -13,7 +13,6 @@
     "@types/react-dom": "^18.2.10",
     "@types/react-redux": "^7.1.28",
     "axios": "^1.6.0",
-    "babel": "^6.23.0",
     "framer-motion": "^10.16.4",
     "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
@@ -52,6 +51,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-transform-private-property-in-object": "^7.23.3"
   }
 }
