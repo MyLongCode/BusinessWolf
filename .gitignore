@@ -1,0 +1,10 @@
+
+backend/accounts/__pycache__/
+
+backend/accounts/migrations/__pycache__/
+
+backend/BusinessWolf/__pycache__/
+
+backend/course/__pycache__/
+
+backend/course/migrations/__pycache__/
