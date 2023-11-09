@@ -58,7 +58,7 @@ function CoursePage() {
             <section className='course-page__modules modules'>
                 <ul className='modules__list'>
                     {modules.map(module => {
-                        return <Module key={module.id} courseNumber={module.number}
+                        return <Module key={module.id} id={module.id} courseNumber={module.number}
                                        completeLessons={2} totalLessons={12}/>
                     })}
                 </ul>

@@ -1,10 +1,10 @@
-@import "token";
-@import "../../assets/style/userAvatar";
+@import "../token";
+@import "../../../assets/style/userAvatar";
 
-.header {
+.main-header {
   display: flex;
   align-items: center;
-  margin: 40px 10% 48px;
+  padding: 40px 10% 48px;
 
   .logo {
     text-decoration: none;

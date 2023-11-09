@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import logo from '../../assets/images/Logo.svg'
-import token from '../../assets/images/Token_wolf.svg'
-import avatar from '../../assets/images/Avatar.jpg'
+import logo from '../../../assets/images/Logo.svg'
+import token from '../../../assets/images/Token_wolf.svg'
+import avatar from '../../../assets/images/Avatar.jpg'
 import './mainHeader.css'
 import {Link} from "react-router-dom";
 import {motion} from 'framer-motion';
-import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
-function MainHeader() {
+function MainHeader(props: {className: string}) {
     const [coins, setCoins] = useState(0)
     const {user, isAuth} = useTypedSelector(state => state.auth)
 
@@ -19,7 +19,7 @@ function MainHeader() {
 
     return (
         <motion.header
-            className="header"
+            className='main-header header'
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}

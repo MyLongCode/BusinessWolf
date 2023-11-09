@@ -1,0 +1,76 @@
+.user-avatar {
+  margin-left: 64px;
+  padding: 0;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  border: solid 3px var(--Main);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition-duration: 300ms;
+}
+.user-avatar__img:hover {
+  scale: 1.2;
+}
+
+.module-header {
+  padding: 40px 10% 48px;
+  background-color: var(--Main);
+  color: var(--White);
+  border-radius: 0 0 50px 50px;
+  margin-bottom: 48px;
+}
+.module-header .header__wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.module-header .header__wrapper .user-avatar {
+  margin-left: auto;
+  border-color: var(--White);
+}
+.module-header .header__wrapper .logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  transition-duration: 300ms;
+}
+.module-header .header__wrapper .logo__img {
+  width: 93px;
+  height: 93px;
+}
+.module-header .header__wrapper .logo__text {
+  font-family: "Enthalpy 298", sans-serif;
+  color: var(--White);
+  margin-right: auto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.module-header .header__wrapper .logo:hover {
+  gap: 13px;
+}
+.module-header .hm {
+  max-width: 45%;
+}
+.module-header .hm__name {
+  font-family: "Enthalpy 298", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+.module-header .hm__desc {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 160%;
+}
+
+/*# sourceMappingURL=moduleHeader.css.map */

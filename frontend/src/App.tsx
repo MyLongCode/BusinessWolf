@@ -4,12 +4,14 @@ import StartPage from "./pages/startPage/StartPage";
 import AuthorizationPage from "./pages/authPage/AuthorizationPage";
 import {AnimatePresence} from "framer-motion";
 import MainPage from "./pages/mainPage/MainPage";
-import MainHeader from "./components/mainHeader/MainHeader";
+import MainHeader from "./components/headers/mainHeader/MainHeader";
 import './index.css';
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import {useActions} from "./hooks/useActions";
 import {useTypedSelector} from "./hooks/useTypedSelector";
 import CoursePage from "./pages/coursePage/coursePage";
+import ModulePage from "./pages/modulePage/ModulePage";
+import ModuleHeader from "./components/headers/moduleHeader/ModuleHeader";
 
 
 function App() {
@@ -45,11 +47,17 @@ function App() {
         '/course'
     ]
 
+    const pagesWithModuleHeader = [
+        '/module'
+    ]
+
     return (
         <>
             {(pagesWithMainHeader.includes(location.pathname) || pagesWithMainHeader.includes(
                     location.pathname.slice(0, location.pathname.lastIndexOf('/'))
-                )) && <MainHeader/>}
+                )) && <MainHeader className=''/>}
+            {pagesWithModuleHeader.includes(location.pathname.slice(0, location.pathname.indexOf('/', 1)
+            )) && <ModuleHeader/>}
             <main>
                 <AnimatePresence mode='wait'>
                     <Routes location={location} key={location.pathname}>
@@ -58,6 +66,8 @@ function App() {
                         <Route path='/main' element={<MainPage/>}/>
                         <Route path='/profile' element={<ProfilePage/>}/>
                         <Route path='/course/:id' element={<CoursePage/>}/>
+                        <Route path='/module/:id/notes' element={<ModulePage/>}/>
+                        <Route path='/module/:id/tests' element={<ModulePage/>}/>
                     </Routes>
                 </AnimatePresence>
             </main>

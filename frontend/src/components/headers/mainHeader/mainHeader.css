@@ -42,23 +42,23 @@
   scale: 1.2;
 }
 
-.header {
+.main-header {
   display: flex;
   align-items: center;
-  margin: 40px 10% 48px;
+  padding: 40px 10% 48px;
 }
-.header .logo {
+.main-header .logo {
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 9px;
   transition-duration: 300ms;
 }
-.header .logo__img {
+.main-header .logo__img {
   width: 93px;
   height: 93px;
 }
-.header .logo__text {
+.main-header .logo__text {
   font-family: "Enthalpy 298", sans-serif;
   margin-right: auto;
   font-size: 24px;
@@ -66,7 +66,7 @@
   font-weight: 400;
   line-height: normal;
 }
-.header .logo:hover {
+.main-header .logo:hover {
   gap: 13px;
 }
 

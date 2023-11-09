@@ -1,0 +1,64 @@
+@import "../../../assets/style/userAvatar";
+
+.module-header {
+  padding: 40px 10% 48px;
+  background-color: var(--Main);
+  color: var(--White);
+  border-radius: 0 0 50px 50px;
+  margin-bottom: 48px;
+
+  .header__wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+
+    .user-avatar {
+      margin-left: auto;
+      border-color: var(--White);
+    }
+
+    .logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      transition-duration: 300ms;
+
+      &__img {
+        width: 93px;
+        height: 93px;
+      }
+
+      &__text {
+        font-family: "Enthalpy 298", sans-serif;
+        color: var(--White);
+        margin-right: auto;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      &:hover {
+        gap: 13px;
+      }
+    }
+  }
+
+  .hm {
+    max-width: 45%;
+    &__name {
+      font-family: "Enthalpy 298", sans-serif;
+      font-size: 40px;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 20px;
+    }
+
+    &__desc {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 160%;
+    }
+  }
+}

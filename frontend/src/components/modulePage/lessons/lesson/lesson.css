@@ -1,0 +1,14 @@
+.lesson {
+  border-radius: 20px;
+  border: 1px solid var(--Black);
+  padding: 18px 20px;
+  max-width: 795px;
+}
+.lesson__title {
+  margin-bottom: 14px;
+}
+.lesson__desc {
+  margin-bottom: 24px;
+}
+
+/*# sourceMappingURL=lesson.css.map */
