@@ -1,0 +1,46 @@
+@import "../../assets/style/greeting";
+
+.course-page {
+  margin: 0 10%;
+
+  .section-heading{
+    font-family: "Enthalpy 298", sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 24px;
+  }
+
+  &__modules {
+    margin-bottom: 64px;
+
+    .modules__list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+      gap: 40px;
+    }
+  }
+
+  .about {
+    width: 60%;
+    margin-bottom: 48px;
+
+    &__text {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%;
+    }
+  }
+
+  .reviews {
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+  }
+}

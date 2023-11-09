@@ -1,0 +1,96 @@
+.user-avatar {
+  margin-left: 64px;
+  padding: 0;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  border: solid 3px var(--Main);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition-duration: 300ms;
+}
+.user-avatar__img:hover {
+  scale: 1.2;
+}
+
+.profile {
+  margin: 0 10%;
+}
+.profile__back-arrow {
+  rotate: 90deg;
+}
+.profile__back {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--Black);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: normal;
+  transition-duration: 300ms;
+  gap: 5px;
+  width: fit-content;
+  cursor: pointer;
+}
+.profile__back:hover {
+  gap: 16px;
+}
+.profile__back:active {
+  transition-duration: 1s;
+  opacity: 0;
+}
+.profile .user {
+  margin-top: 48px;
+  display: flex;
+  gap: 32px;
+}
+.profile .user__avatar {
+  margin: 0;
+  cursor: default;
+  width: 100px;
+  height: 100px;
+  grid-area: img;
+}
+.profile .user .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.profile .user .info__name {
+  color: var(--Black, #111010);
+  font-family: "Enthalpy 298", sans-serif;
+  font-size: 40px;
+  line-height: normal;
+}
+.profile .user .info__grade {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.profile .courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 60px;
+}
+.profile .data {
+  margin: 64px 0;
+}
+.profile .data__heading {
+  font-family: "Enthalpy 298", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+.profile .data__desc {
+  margin-bottom: 48px;
+}
+
+/*# sourceMappingURL=profilePage.css.map */

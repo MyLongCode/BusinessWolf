@@ -1,0 +1,73 @@
+.token {
+  display: flex;
+  align-items: center;
+  background-color: var(--Main);
+  border-radius: 15px 14px 14px 15px;
+  height: 55px;
+  width: max-content;
+  margin-left: auto;
+}
+.token__img {
+  width: 72px;
+  height: 72px;
+  position: relative;
+  left: -16px;
+}
+.token__count {
+  position: relative;
+  right: 17px;
+  color: var(--White);
+  font-size: 23px;
+  font-style: normal;
+  line-height: normal;
+}
+
+.user-avatar {
+  margin-left: 64px;
+  padding: 0;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  border: solid 3px var(--Main);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition-duration: 300ms;
+}
+.user-avatar__img:hover {
+  scale: 1.2;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin: 40px 10% 48px;
+}
+.header .logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  transition-duration: 300ms;
+}
+.header .logo__img {
+  width: 93px;
+  height: 93px;
+}
+.header .logo__text {
+  font-family: "Enthalpy 298", sans-serif;
+  margin-right: auto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.header .logo:hover {
+  gap: 13px;
+}
+
+/*# sourceMappingURL=mainHeader.css.map */
