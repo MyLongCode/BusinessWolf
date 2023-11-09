@@ -1,12 +1,17 @@
 .module {
+  border-radius: 20px;
+  background-color: var(--Main);
+  box-shadow: 7px 7px 25px 0 rgba(0, 0, 0, 0.1);
+}
+.module__link {
+  text-decoration: none;
+}
+.module__wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 22px 32px;
-  border-radius: 20px;
-  background-color: var(--Main);
-  box-shadow: 7px 7px 25px 0 rgba(0, 0, 0, 0.1);
 }
 .module__title {
   color: var(--White);
