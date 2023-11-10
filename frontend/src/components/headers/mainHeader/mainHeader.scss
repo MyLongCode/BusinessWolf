@@ -2,9 +2,8 @@
 @import "../../../assets/style/userAvatar";
 
 .main-header {
-  display: flex;
-  align-items: center;
-  padding: 40px 10% 48px;
+  padding: 40px 10% 0;
+  margin-bottom: 32px;
 
   .logo {
     text-decoration: none;

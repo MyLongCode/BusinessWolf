@@ -22,6 +22,16 @@
   line-height: normal;
 }
 
+.greeting {
+  margin-top: 48px;
+}
+.greeting__heading {
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 .user-avatar {
   margin-left: 64px;
   padding: 0;
@@ -43,6 +53,10 @@
 }
 
 .main-header {
+  padding: 40px 10% 0;
+  margin-bottom: 32px;
+}
+.main-header .header__nav {
   display: flex;
   align-items: center;
   padding: 40px 10% 48px;
