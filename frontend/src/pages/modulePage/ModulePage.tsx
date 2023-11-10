@@ -20,13 +20,7 @@ function ModulePage() {
     const currentState = location.pathname.split('/')[3] === 'notes' ? States.notes : States.tests
 
     return (
-        <motion.div
-            initial={{opacity: 0.1}}
-            animate={{opacity: 1}}
-            exit={{opacity: 0}}
-            transition={{duration: 0.3}}
-            className='module-page'
-        >
+        <div className='module-page'>
             <div className={"module-page__change-btn change-btn"}>
                 <motion.div
                     className="change-btn__slider"
@@ -43,10 +37,17 @@ function ModulePage() {
                     Тесты
                 </Link>
             </div>
-
-            {currentState === States.notes && <Lessons/>}
-            {currentState === States.tests && <Tests/>}
-        </motion.div>
+            <motion.div
+                className="module__content"
+                initial={{opacity: 0.1}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0}}
+                transition={{duration: 0.3}}
+            >
+                {currentState === States.notes && <Lessons/>}
+                {currentState === States.tests && <Tests/>}
+            </motion.div>
+        </div>
     );
 }
 

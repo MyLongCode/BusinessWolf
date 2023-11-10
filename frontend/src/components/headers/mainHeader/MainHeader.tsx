@@ -25,13 +25,18 @@ function MainHeader(props: { isGreetingVisible: boolean }) {
             exit={{opacity: 0}}
             transition={{duration: 0.8}}
         >
-            <Link to={'/main'} className='header__logo logo'>
-                <img src={logo} alt="Логотип" className="logo__img"/>
-                <p className="logo__text">Бизнес<br/>волчонок</p>
-            </Link>
-            <div className='header__token token'>
-                <img src={token} alt="Монеты" className='token__img'/>
-                <p className='token__count'>{coins}</p>
+            <div className="header__nav">
+                <Link to={'/main'} className='header__logo logo'>
+                    <img src={logo} alt="Логотип" className="logo__img"/>
+                    <p className="logo__text">Бизнес<br/>волчонок</p>
+                </Link>
+                <div className='header__token token'>
+                    <img src={token} alt="Монеты" className='token__img'/>
+                    <p className='token__count'>{coins}</p>
+                </div>
+                <Link to={'/profile'} className='header__user-avatar user-avatar'>
+                    <img src={avatar} alt="Аватар пользователя" className='user-avatar__img'/>
+                </Link>
             </div>
             {props.isGreetingVisible && <div className="header__greeting greeting">
                 <h1 className='greeting__heading'>Hello, bro</h1>

@@ -4,6 +4,10 @@
   border: solid 1px var(--Black);
   padding: 18px 16px;
   border-radius: 20px;
+  min-height: 165px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .review__reviewer {
   display: flex;

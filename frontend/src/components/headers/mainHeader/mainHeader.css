@@ -22,16 +22,6 @@
   line-height: normal;
 }
 
-.greeting {
-  margin-top: 48px;
-}
-.greeting__heading {
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
 .user-avatar {
   margin-left: 64px;
   padding: 0;
@@ -52,6 +42,16 @@
   scale: 1.2;
 }
 
+.greeting {
+  margin-bottom: 32px;
+}
+.greeting__heading {
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 .main-header {
   padding: 40px 10% 0;
   margin-bottom: 32px;
@@ -59,20 +59,20 @@
 .main-header .header__nav {
   display: flex;
   align-items: center;
-  padding: 40px 10% 48px;
+  margin-bottom: 48px;
 }
-.main-header .logo {
+.main-header .header__nav .logo {
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 9px;
   transition-duration: 300ms;
 }
-.main-header .logo__img {
+.main-header .header__nav .logo__img {
   width: 93px;
   height: 93px;
 }
-.main-header .logo__text {
+.main-header .header__nav .logo__text {
   font-family: "Enthalpy 298", sans-serif;
   margin-right: auto;
   font-size: 24px;
@@ -80,7 +80,7 @@
   font-weight: 400;
   line-height: normal;
 }
-.main-header .logo:hover {
+.main-header .header__nav .logo:hover {
   gap: 13px;
 }
 

@@ -25,10 +25,6 @@ function MainPage() {
                 animate={{opacity: 1, transition: {duration: 0.75}}}
                 exit={{opacity: 0}}
             >
-                <div className="greeting">
-                    <h1 className='greeting__heading'>Hello, bro</h1>
-                    <span className='what-to-learn'>What do you want to learn?</span>
-                </div>
                 <ul className='courses'>
                     {courses.map(course => {
                         return (

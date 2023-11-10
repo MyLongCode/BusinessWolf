@@ -1,15 +1,5 @@
-.greeting {
-  margin-bottom: 20px;
-}
-.greeting__heading {
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
 .course-page {
-  margin: 0 10%;
+  margin: 0 10% 60px;
 }
 .course-page .section-heading {
   font-family: "Enthalpy 298", sans-serif;
