@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import {motion} from 'framer-motion';
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
-function MainHeader(props: {className: string}) {
+function MainHeader(props: { isGreetingVisible: boolean }) {
     const [coins, setCoins] = useState(0)
     const {user, isAuth} = useTypedSelector(state => state.auth)
 
@@ -25,17 +25,23 @@ function MainHeader(props: {className: string}) {
             exit={{opacity: 0}}
             transition={{duration: 0.8}}
         >
-            <Link to={'/main'} className='header__logo logo'>
-                <img src={logo} alt="Логотип" className="logo__img"/>
-                <p className="logo__text">Бизнес<br/>волчонок</p>
-            </Link>
-            <div className='header__token token'>
-                <img src={token} alt="Монеты" className='token__img'/>
-                <p className='token__count'>{coins}</p>
+            <div className="header__nav">
+                <Link to={'/main'} className='header__logo logo'>
+                    <img src={logo} alt="Логотип" className="logo__img"/>
+                    <p className="logo__text">Бизнес<br/>волчонок</p>
+                </Link>
+                <div className='header__token token'>
+                    <img src={token} alt="Монеты" className='token__img'/>
+                    <p className='token__count'>{coins}</p>
+                </div>
+                <Link to={'/profile'} className='header__user-avatar user-avatar'>
+                    <img src={avatar} alt="Аватар пользователя" className='user-avatar__img'/>
+                </Link>
             </div>
-            <Link to={'/profile'} className='header__user-avatar user-avatar'>
-                <img src={avatar} alt="Аватар пользователя" className='user-avatar__img'/>
-            </Link>
+            {props.isGreetingVisible && <div className="header__greeting greeting">
+                <h1 className='greeting__heading'>Hello, bro</h1>
+                <span className='what-to-learn'>What do you want to learn?</span>
+            </div>}
         </motion.header>
     );
 }

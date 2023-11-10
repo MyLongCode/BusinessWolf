@@ -55,7 +55,7 @@ function App() {
         <>
             {(pagesWithMainHeader.includes(location.pathname) || pagesWithMainHeader.includes(
                     location.pathname.slice(0, location.pathname.lastIndexOf('/'))
-                )) && <MainHeader className=''/>}
+                )) && <MainHeader isGreetingVisible={location.pathname !== '/profile'}/>}
             {pagesWithModuleHeader.includes(location.pathname.slice(0, location.pathname.indexOf('/', 1)
             )) && <ModuleHeader/>}
             <main>

@@ -1,34 +1,40 @@
 @import "../token";
 @import "../../../assets/style/userAvatar";
+@import "greeting";
 
 .main-header {
-  display: flex;
-  align-items: center;
-  padding: 40px 10% 48px;
+  padding: 40px 10% 0;
+  margin-bottom: 32px;
 
-  .logo {
-    text-decoration: none;
+  .header__nav {
     display: flex;
     align-items: center;
-    gap: 9px;
-    transition-duration: 300ms;
+    margin-bottom: 48px;
 
-    &__img {
-      width: 93px;
-      height: 93px;
-    }
+    .logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      transition-duration: 300ms;
 
-    &__text {
-      font-family: "Enthalpy 298", sans-serif;
-      margin-right: auto;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-    }
+      &__img {
+        width: 93px;
+        height: 93px;
+      }
 
-    &:hover {
-      gap: 13px;
+      &__text {
+        font-family: "Enthalpy 298", sans-serif;
+        margin-right: auto;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      &:hover {
+        gap: 13px;
+      }
     }
   }
 }
