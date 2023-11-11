@@ -1,8 +1,9 @@
 import React from 'react';
 import './test.css'
 import ITest from "../../../../models/ITest";
+import {Link} from "react-router-dom";
 
-interface ITestProps{
+interface ITestProps {
     test: ITest,
     lesson_names: string[]
 }
@@ -17,7 +18,7 @@ function Test(props: ITestProps) {
     }
 
     return (
-        <>
+        <Link to={`/test/${props.test.id}`} className='test-link'>
             {
                 lesson_name &&
                 <li className='tests__test test'>
@@ -26,7 +27,7 @@ function Test(props: ITestProps) {
                     <p className='test__time'>30 мин</p>
                 </li>
             }
-        </>
+        </Link>
     );
 }
 

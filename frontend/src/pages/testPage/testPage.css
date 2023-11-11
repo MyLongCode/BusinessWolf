@@ -1,0 +1,31 @@
+.test-page {
+  margin: 0 10%;
+}
+.test-page__counter {
+  background-color: var(--Main);
+  width: max-content;
+  padding: 6px 42px;
+  border-radius: 33px;
+  color: var(--White);
+  margin-bottom: 24px;
+}
+.test-page__question {
+  line-height: 26px;
+  max-width: 660px;
+  margin-bottom: 48px;
+}
+.test-page__select-text {
+  font-family: "Enthalpy 298", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 32px;
+}
+.test-page .answers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+  gap: 24px 40px;
+  margin-bottom: 64px;
+}
+
+/*# sourceMappingURL=testPage.css.map */

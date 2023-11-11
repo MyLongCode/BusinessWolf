@@ -12,6 +12,7 @@ import {useTypedSelector} from "./hooks/useTypedSelector";
 import CoursePage from "./pages/coursePage/coursePage";
 import ModulePage from "./pages/modulePage/ModulePage";
 import ModuleHeader from "./components/headers/moduleHeader/ModuleHeader";
+import TestPage from "./pages/testPage/TestPage";
 
 
 function App() {
@@ -48,7 +49,8 @@ function App() {
     ]
 
     const pagesWithModuleHeader = [
-        '/module'
+        '/module',
+        '/test'
     ]
 
     return (
@@ -68,6 +70,7 @@ function App() {
                         <Route path='/course/:id' element={<CoursePage/>}/>
                         <Route path='/module/:id/notes' element={<ModulePage/>}/>
                         <Route path='/module/:id/tests' element={<ModulePage/>}/>
+                        <Route path='/test/:id' element={<TestPage/>}/>
                     </Routes>
                 </AnimatePresence>
             </main>

@@ -1,3 +1,8 @@
+.test-link {
+  text-decoration: none;
+  color: var(--Black);
+}
+
 .test {
   border-radius: 20px;
   border: 1px solid var(--Black);
