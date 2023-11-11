@@ -9,6 +9,7 @@ class Courses(models.Model):
 
     class Meta:
         db_table = 'courses'
+        verbose_name_plural = 'courses'
 
 
 class UserCourse(models.Model):
@@ -17,6 +18,7 @@ class UserCourse(models.Model):
 
     class Meta:
         db_table = 'user_courses'
+        verbose_name_plural = 'user courses'
 
 
 class Modules(models.Model):
@@ -25,6 +27,7 @@ class Modules(models.Model):
 
     class Meta:
         db_table = 'modules'
+        verbose_name_plural = 'modules'
 
 
 class Lessons(models.Model):
@@ -35,6 +38,7 @@ class Lessons(models.Model):
 
     class Meta:
         db_table = 'lessons'
+        verbose_name_plural = 'lessons'
 
 
 class Test(models.Model):
@@ -43,6 +47,7 @@ class Test(models.Model):
 
     class Meta:
         db_table = 'test'
+        verbose_name_plural = 'test'
 
 
 class Questions(models.Model):
@@ -53,6 +58,7 @@ class Questions(models.Model):
 
     class Meta:
         db_table = 'questions'
+        verbose_name_plural = 'questions'
 
 
 class CompletedQuestions(models.Model):
@@ -61,6 +67,7 @@ class CompletedQuestions(models.Model):
 
     class Meta:
         db_table = 'user_completed_questions'
+        verbose_name_plural = 'user completed questions'
 
 
 class CompletedLessons(models.Model):
@@ -69,3 +76,4 @@ class CompletedLessons(models.Model):
 
     class Meta:
         db_table = 'user_completed_lessons'
+        verbose_name_plural = 'user completed lessons'
