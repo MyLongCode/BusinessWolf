@@ -44,8 +44,8 @@ function ModulePage() {
                 exit={{opacity: 0}}
                 transition={{duration: 0.3}}
             >
-                {currentState === States.notes && <Lessons/>}
-                {currentState === States.tests && <Tests/>}
+                {currentState === States.notes && <Lessons moduleID={Number(id)}/>}
+                {currentState === States.tests && <Tests moduleID={Number(id)}/>}
             </motion.div>
         </div>
     );

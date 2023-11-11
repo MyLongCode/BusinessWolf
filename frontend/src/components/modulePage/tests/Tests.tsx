@@ -8,7 +8,7 @@ import LessonService from "../../../services/LessonService";
 import ILesson from "../../../models/ILesson";
 import { motion } from 'framer-motion';
 
-function Tests() {
+function Tests(props: {moduleID: number}) {
     const [tests, setTests] = useState<ITest[]>([])
     const [lessons, setLessons] = useState<ILesson[]>([]);
 
@@ -38,8 +38,8 @@ function Tests() {
         >
             <ul className='tests__list'>
                 {tests.length > 0 && tests.map(test => {
-                    return <Test key={test.id} lesson_names={lessons.map(lesson => {
-                        return lesson.id === test.lesson ? lesson.chat_text : ''
+                    return  <Test key={test.id} lesson_names={lessons.map(lesson => {
+                        return lesson.module === props.moduleID && lesson.id === test.lesson ? lesson.chat_text : ''
                     })} test={test}/>
                 })}
             </ul>
