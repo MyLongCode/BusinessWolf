@@ -9,6 +9,7 @@ class Courses(models.Model):
 
     class Meta:
         db_table = 'courses'
+        verbose_name_plural = 'courses'
 
 
 class UserCourse(models.Model):
@@ -17,6 +18,7 @@ class UserCourse(models.Model):
 
     class Meta:
         db_table = 'user_courses'
+        verbose_name_plural = 'user courses'
 
 
 class Modules(models.Model):
@@ -25,6 +27,7 @@ class Modules(models.Model):
 
     class Meta:
         db_table = 'modules'
+        verbose_name_plural = 'modules'
 
 
 class Lessons(models.Model):
@@ -35,6 +38,7 @@ class Lessons(models.Model):
 
     class Meta:
         db_table = 'lessons'
+        verbose_name_plural = 'lessons'
 
 
 class Test(models.Model):
@@ -43,24 +47,17 @@ class Test(models.Model):
 
     class Meta:
         db_table = 'test'
+        verbose_name_plural = 'test'
 
 
 class Questions(models.Model):
     text = models.CharField(max_length=500)
     explanation = models.CharField(max_length=200)
-    answers = models.CharField(max_length=300)
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'questions'
-
-
-class CompletedQuestions(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    question = models.ForeignKey(Questions, on_delete=models.CASCADE)
-
-    class Meta:
-        db_table = 'user_completed_questions'
+        verbose_name_plural = 'questions'
 
 
 class CompletedLessons(models.Model):
@@ -69,3 +66,34 @@ class CompletedLessons(models.Model):
 
     class Meta:
         db_table = 'user_completed_lessons'
+        verbose_name_plural = 'user completed lessons'
+
+
+class Answers(models.Model):
+    question = models.ForeignKey(Questions, on_delete=models.CASCADE)
+    text = models.CharField(max_length=300)
+    is_right = models.BooleanField(default=False)
+
+    class Meta:
+        db_table = 'answers'
+        verbose_name_plural = 'answers'
+
+
+class CompletedTests(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    test = models.ForeignKey(Test, on_delete=models.CASCADE)
+
+
+class CompletedQuestions(models.Model):
+    completed_test = models.ForeignKey(CompletedTests, on_delete=models.CASCADE)
+    question = models.ForeignKey(Questions, on_delete=models.CASCADE)
+    is_right = models.BooleanField(default=False)
+
+    class Meta:
+        db_table = 'completed_questions'
+        verbose_name_plural = 'user completed questions'
+
+
+class SelectedAnswers(models.Model):
+    completed_question = models.ForeignKey(CompletedQuestions, on_delete=models.CASCADE)
+    answer = models.ForeignKey(Answers, on_delete=models.CASCADE)
