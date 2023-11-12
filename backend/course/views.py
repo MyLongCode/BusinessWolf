@@ -84,18 +84,6 @@ class QuestionAPIDetail(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class CompletedQuestionsAPICreateView(generics.ListCreateAPIView):
-    queryset = CompletedQuestions.objects.all()
-    serializer_class = CompletedQuestionsSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-
-class CompletedQuestionsAPIDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = CompletedQuestions.objects.all()
-    serializer_class = CompletedQuestionsSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-
 class TestAPIDetail(generics.RetrieveAPIView):
     queryset = Test.objects.all()
     serializer_class = TestSerializer
@@ -194,3 +182,50 @@ class AdminTestAPICreateView(generics.ListCreateAPIView):
     serializer_class = TestSerializer
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
 
+
+class AdminAnswersAPIDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Answers.objects.all()
+    serializer_class = AnswersSerializer
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+
+
+class AdminAnswersAPICreateView(generics.ListCreateAPIView):
+    queryset = Answers.objects.all()
+    serializer_class = AnswersSerializer
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+
+
+class AdminSelectedAnswersAPIDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SelectedAnswers.objects.all()
+    serializer_class = SelectedAnswersSerializer
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+
+
+class AdminSelectedAnswersAPICreateView(generics.ListCreateAPIView):
+    queryset = SelectedAnswers.objects.all()
+    serializer_class = SelectedAnswersSerializer
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+
+
+class AdminCompletedTestsAPIDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CompletedTests.objects.all()
+    serializer_class = CompletedTestsSerializer
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+
+
+class AdminCompletedTestsAPICreateView(generics.ListCreateAPIView):
+    queryset = CompletedTests.objects.all()
+    serializer_class = CompletedTestsSerializer
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+
+
+class CompletedQuestionsAPIDetail(generics.RetrieveUpdateAPIView):
+    queryset = CompletedQuestions.objects.all()
+    serializer_class = CompletedTestsSerializer
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+
+
+class CompletedQuestionsAPICreateView(generics.ListCreateAPIView):
+    queryset = CompletedQuestions.objects.all()
+    serializer_class = CompletedTestsSerializer
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]

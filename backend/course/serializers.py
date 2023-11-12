@@ -96,19 +96,7 @@ class LessonsSerializer(serializers.ModelSerializer):
         permission_classes = (IsAuthenticated,)
 
 
-class QuestionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Questions
-        fields = '__all__'
-        read_only_fields = ('__all__',)
-        permission_classes = (IsAuthenticated,)
 
-
-class CompletedQuestionsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CompletedQuestions
-        fields = '__all__'
-        permission_classes = (IsAuthenticated,)
 
 
 class TestSerializer(serializers.ModelSerializer):
@@ -122,5 +110,41 @@ class TestSerializer(serializers.ModelSerializer):
 class CompletedLessonsSerializer(serializers.ModelSerializer):
     class Meta:
         model = CompletedLessons
+        fields = '__all__'
+        permission_classes = (IsAuthenticated,)
+
+
+class AnswersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Answers
+        fields = '__all__'
+        permission_classes = (IsAuthenticated,)
+
+
+class SelectedAnswersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SelectedAnswers
+        fields = '__all__'
+        permission_classes = (IsAuthenticated,)
+
+
+class CompletedTestsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CompletedTests
+        fields = '__all__'
+        permission_classes = (IsAuthenticated,)
+
+
+class QuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Questions
+        fields = '__all__'
+        read_only_fields = ('__all__',)
+        permission_classes = (IsAuthenticated,)
+
+
+class CompletedQuestionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CompletedQuestions
         fields = '__all__'
         permission_classes = (IsAuthenticated,)
