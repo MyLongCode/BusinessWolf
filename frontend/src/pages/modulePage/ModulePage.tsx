@@ -42,10 +42,10 @@ function ModulePage() {
                 initial={{opacity: 0.1}}
                 animate={{opacity: 1}}
                 exit={{opacity: 0}}
-                transition={{duration: 0.3}}
+                transition={{duration: 0.1}}
             >
-                {currentState === States.notes && <Lessons/>}
-                {currentState === States.tests && <Tests/>}
+                {currentState === States.notes && <Lessons moduleID={Number(id)}/>}
+                {currentState === States.tests && <Tests moduleID={Number(id)}/>}
             </motion.div>
         </div>
     );

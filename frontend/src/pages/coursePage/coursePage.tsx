@@ -33,13 +33,7 @@ function CoursePage() {
 
     useEffect(() => {
         if(allModules.length !== 0) {
-            const modulesToAdd = []
-            for (const module of allModules) {
-                if(module.course === Number(id)) {
-                    modulesToAdd.push(module)
-                }
-            }
-            setCourseModules(modulesToAdd)
+            setCourseModules(allModules.filter(item => item.course === Number(id)))
         }
         // eslint-disable-next-line
     }, [allModules]);
