@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import logo from '../../../assets/images/Logo.svg'
 import avatar from '../../../assets/images/Avatar.jpg'
 import './moduleHeader.css'
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {motion} from 'framer-motion';
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import {useActions} from "../../../hooks/useActions";
@@ -48,6 +48,7 @@ function ModuleHeader() {
                 setTitle(`${lessons.find((elem) => elem.id === Number(testID))?.chat_text}`)
             }
         }
+        // eslint-disable-next-line
     }, [location, modules.length, lessons.length]);
 
     return (

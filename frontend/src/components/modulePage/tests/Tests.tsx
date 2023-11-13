@@ -6,9 +6,9 @@ import ITest from "../../../models/ITest";
 import Test from "./test/Test";
 import LessonService from "../../../services/LessonService";
 import ILesson from "../../../models/ILesson";
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 
-function Tests(props: {moduleID: number}) {
+function Tests(props: { moduleID: number }) {
     const [tests, setTests] = useState<ITest[]>([])
     const [lessons, setLessons] = useState<ILesson[]>([]);
 
@@ -30,20 +30,15 @@ function Tests(props: {moduleID: number}) {
     }, []);
 
     return (
-        <motion.div
-            className='tests'
-            initial={{opacity: 0.1}}
-            animate={{opacity: 1}}
-            exit={{opacity: 0, transition: {duration: 0.2}}}
-        >
+        <div className='tests'>
             <ul className='tests__list'>
                 {tests.length > 0 && tests.map(test => {
-                    return  <Test key={test.id} lesson_names={lessons.map(lesson => {
+                    return <Test key={test.id} lesson_names={lessons.map(lesson => {
                         return lesson.module === props.moduleID && lesson.id === test.lesson ? lesson.chat_text : ''
                     })} test={test}/>
                 })}
             </ul>
-        </motion.div>
+        </div>
     );
 }
 

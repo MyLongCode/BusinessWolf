@@ -20,12 +20,7 @@ function Lessons(props: { moduleID: number }) {
     }, []);
 
     return (
-        <motion.div
-            className='lessons'
-            initial={{opacity: 0.1}}
-            animate={{opacity: 1}}
-            exit={{opacity: 0, transition: {duration: 0.2}}}
-        >
+        <div className='lessons'>
             <ul className='lessons__list'>
                 {lessons.length > 0 && lessons.map(lesson => {
                     return lesson.module === props.moduleID &&
@@ -33,7 +28,7 @@ function Lessons(props: { moduleID: number }) {
                                 abstract_text={lesson.abstract_text} module={lesson.module}/>
                 })}
             </ul>
-        </motion.div>
+        </div>
     );
 }
 
