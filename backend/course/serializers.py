@@ -152,3 +152,22 @@ class CompletedQuestionsSerializer(serializers.ModelSerializer):
         model = CompletedQuestions
         fields = ('id', 'completed_test', 'question')
         permission_classes = (IsAuthenticated,)
+
+
+class CompletedQuestionCheckSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CompletedQuestions
+        fields = ('id', 'completed_test', 'question')
+        read_only_fields = ('completed_test', 'question')
+        permission_classes = (IsAuthenticated,)
+
+    def update(self, instance, validated_data):
+        selected_answers = SelectedAnswers.objects.filter(completed_question=self.data['id'])
+        answers = Answers.objects.filter(id__in=selected_answers.values_list('answer_id', flat=True))
+        answers_question_right = Answers.objects.filter(question_id=self.data['question']).filter(is_right=True)
+        if sorted(answers.values_list('id', flat=True)) == sorted(answers_question_right.values_list('id', flat=True)):
+            instance.is_right = True
+        else:
+            instance.is_right = False
+        instance.save()
+        return instance

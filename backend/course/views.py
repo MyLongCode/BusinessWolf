@@ -229,3 +229,9 @@ class CompletedQuestionsAPICreateView(generics.CreateAPIView):
     queryset = CompletedQuestions.objects.all()
     serializer_class = CompletedQuestionsSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+class CompletedQuestionCheckView(generics.RetrieveUpdateAPIView):
+    queryset = CompletedQuestions.objects.all()
+    serializer_class = CompletedQuestionCheckSerializer
+    permission_classes = [permissions.IsAuthenticated]
