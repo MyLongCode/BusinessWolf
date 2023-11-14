@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 from .models import *
 
@@ -96,9 +97,6 @@ class LessonsSerializer(serializers.ModelSerializer):
         permission_classes = (IsAuthenticated,)
 
 
-
-
-
 class TestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Test
@@ -131,8 +129,14 @@ class SelectedAnswersSerializer(serializers.ModelSerializer):
 class CompletedTestsSerializer(serializers.ModelSerializer):
     class Meta:
         model = CompletedTests
-        fields = '__all__'
+        fields = ('test', 'user_id')
+        read_only_fields = ('user_id',)
         permission_classes = (IsAuthenticated,)
+
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        data['user_id'] = self.context['request'].user.id
+        return data
 
 
 class QuestionSerializer(serializers.ModelSerializer):
@@ -146,5 +150,5 @@ class QuestionSerializer(serializers.ModelSerializer):
 class CompletedQuestionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = CompletedQuestions
-        fields = '__all__'
+        fields = ('id', 'completed_test', 'question')
         permission_classes = (IsAuthenticated,)
