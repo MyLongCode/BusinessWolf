@@ -83,6 +83,10 @@ class CompletedTests(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
 
+    class Meta:
+        db_table = 'completed_tests'
+        verbose_name_plural = 'completed tests'
+
 
 class CompletedQuestions(models.Model):
     completed_test = models.ForeignKey(CompletedTests, on_delete=models.CASCADE)
@@ -97,3 +101,7 @@ class CompletedQuestions(models.Model):
 class SelectedAnswers(models.Model):
     completed_question = models.ForeignKey(CompletedQuestions, on_delete=models.CASCADE)
     answer = models.ForeignKey(Answers, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'selected_answers'
+        verbose_name_plural = 'selected answers'
