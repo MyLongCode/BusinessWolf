@@ -154,6 +154,7 @@ class CompletedQuestionsSerializer(serializers.ModelSerializer):
         permission_classes = (IsAuthenticated,)
 
 
+
 class CompletedQuestionCheckSerializer(serializers.ModelSerializer):
     class Meta:
         model = CompletedQuestions

@@ -1,6 +1,21 @@
 from rest_framework import generics, permissions
+from rest_framework.generics import get_object_or_404
+
 from .permissions import CoursePermission, UserCoursePermission, ModulesPermission, LessonsPermission
 from .serializers import *
+
+
+class GetAfterCreateMixin:
+    def get_object(self):
+        queryset = self.get_queryset()             # Get the base queryset
+        queryset = self.filter_queryset(queryset)  # Apply any filter backends
+        filter = {}
+        for field in self.lookup_fields:
+            if self.kwargs.get(field): # Ignore empty fields.
+                filter[field] = self.kwargs[field]
+        obj = get_object_or_404(queryset, **filter)  # Lookup the object
+        self.check_object_permissions(self.request, obj)
+        return obj
 
 
 class CoursesAPICreateView(generics.ListAPIView):
@@ -201,7 +216,7 @@ class SelectedAnswersAPIDetail(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class SelectedAnswersAPICreateView(generics.CreateAPIView):
+class SelectedAnswersAPICreateView(generics.CreateAPIView, GetAfterCreateMixin):
     queryset = SelectedAnswers.objects.all()
     serializer_class = SelectedAnswersSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -213,7 +228,7 @@ class CompletedTestsAPIDetail(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class CompletedTestsAPICreateView(generics.CreateAPIView):
+class CompletedTestsAPICreateView(generics.CreateAPIView, GetAfterCreateMixin):
     queryset = CompletedTests.objects.all()
     serializer_class = CompletedTestsSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -225,7 +240,7 @@ class CompletedQuestionsAPIDetail(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class CompletedQuestionsAPICreateView(generics.CreateAPIView):
+class CompletedQuestionsAPICreateView(generics.CreateAPIView, GetAfterCreateMixin):
     queryset = CompletedQuestions.objects.all()
     serializer_class = CompletedQuestionsSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -235,3 +250,5 @@ class CompletedQuestionCheckView(generics.RetrieveUpdateAPIView):
     queryset = CompletedQuestions.objects.all()
     serializer_class = CompletedQuestionCheckSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
