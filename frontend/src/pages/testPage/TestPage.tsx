@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import './testPage.css';
 import Answer from "../../components/answer/Answer";
 import {useActions} from "../../hooks/useActions";
@@ -20,6 +20,8 @@ function TestPage() {
     const [selectedAnswers, setSelectedAnswers] = useState<number[]>([])
     const {addQuestion, pushTest} = useActions()
     const [currentQuestion, setCurrentQuestion] = useState<number>(1);
+    const navigate = useNavigate()
+    const location = useLocation()
 
     useEffect(() => {
         const shuffle = (array: any[]) => {
@@ -70,6 +72,7 @@ function TestPage() {
             setCurrentQuestion(prevState => prevState + 1)
         } else {
             pushTest(Number(id))
+            navigate(`${location.pathname}/result`)
         }
         setSelectedAnswers([])
     }

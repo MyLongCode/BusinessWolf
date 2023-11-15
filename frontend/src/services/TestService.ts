@@ -3,8 +3,10 @@ import {AxiosResponse} from "axios";
 import ITest from "../models/ITest";
 import {ICompletedTestResponse} from "../models/responce/ICompletedTestResponse";
 import {ICompletedQuestionResponse} from "../models/responce/ICompletedQuestionResponse";
+import ICompletedTest from "../models/ICompletedTest";
 
 const FETCH_URL = '/api/test/'
+const FETCH_COMPLETED_URL = '/api/completedtests/'
 
 const POST_TEST_URL = '/api/completedtests/'
 const POST_QUESTION_URL = '/api/completedquestions/'
