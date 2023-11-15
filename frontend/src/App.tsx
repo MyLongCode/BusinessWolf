@@ -13,6 +13,7 @@ import CoursePage from "./pages/coursePage/coursePage";
 import ModulePage from "./pages/modulePage/ModulePage";
 import ModuleHeader from "./components/headers/moduleHeader/ModuleHeader";
 import TestPage from "./pages/testPage/TestPage";
+import TestResultPage from "./pages/testResultPage/TestResultPage";
 
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
                         <Route path='/module/:id/notes' element={<ModulePage/>}/>
                         <Route path='/module/:id/tests' element={<ModulePage/>}/>
                         <Route path='/test/:id' element={<TestPage/>}/>
+                        <Route path='/test/:id/result' element={<TestResultPage/>}/>
                     </Routes>
                 </AnimatePresence>
             </main>

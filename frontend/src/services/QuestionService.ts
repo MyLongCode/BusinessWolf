@@ -1,7 +1,7 @@
 import api from "../api/api";
 import IQuestion from "../models/IQuestion";
 
-const FETCH_URL = '/api/question/'
+const FETCH_URL = '/api/questions/'
 const FETCH_COMPLETED_URL = '/api/completedquestions/'
 
 export default class QuestionService {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import {AuthResponse} from "../models/responce/AuthResponse";
+import {IAuthResponse} from "../models/responce/IAuthResponse";
 
 export const API_URL = 'http://127.0.0.1:8000';
 
@@ -18,7 +18,7 @@ api.interceptors.response.use((config) => {
 }, async (error) => {
     const originalRequest = error.config;
     if (error.config.url !== '/auth/token/refresh/' && error.response.status === 401) {
-        const response = await api.post<AuthResponse>('/auth/token/refresh/', {
+        const response = await api.post<IAuthResponse>('/auth/token/refresh/', {
             refresh: localStorage.getItem('refresh_token')
         })
         localStorage.setItem('access_token', response.data.access);

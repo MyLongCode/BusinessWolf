@@ -4,5 +4,5 @@ import {rootReducer} from "./reducers";
 
 export const store = configureStore({
     reducer: rootReducer,
-    middleware: (gdm) => gdm().concat(thunk)
+    middleware: (gdm) => gdm().concat(thunk),
 })

@@ -1,15 +1,16 @@
 import React from 'react';
 import './answer.css';
+import IAnswer from "../../models/IAnswer";
 
-function Answer({id, isSelected, clickHandler}: { id: number, isSelected: boolean, clickHandler: any }) {
+function Answer({answer, isSelected, clickHandler}: { answer: IAnswer, isSelected: boolean, clickHandler: any }) {
     return (
         <li className={`answer ${isSelected && 'answer_selected'}`} onClick={() => {
-            clickHandler(id)
+            clickHandler(answer.id)
         }}>
             <div className={`answer__toggle toggle ${isSelected && 'toggle_selected'}`}>
                 {isSelected && <div className='toggle__dot'/>}
             </div>
-            <p className='answer__text'>{`Вопрос ${id}`}</p>
+            <p className='answer__text'>{`${answer.text}`}</p>
         </li>
     );
 }

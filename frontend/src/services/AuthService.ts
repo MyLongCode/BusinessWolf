@@ -1,11 +1,11 @@
 import api from "../api/api";
 import {AxiosResponse} from "axios";
-import {AuthResponse} from "../models/responce/AuthResponse";
+import {IAuthResponse} from "../models/responce/IAuthResponse";
 
 const LoginURL = '/auth/token/'
 
 export default class AuthService {
-    static async login(username: string, password: string): Promise<AxiosResponse<AuthResponse>> {
-        return api.post<AuthResponse>(LoginURL, {username, password});
+    static async login(username: string, password: string): Promise<AxiosResponse<IAuthResponse>> {
+        return api.post<IAuthResponse>(LoginURL, {username, password});
     }
 }
