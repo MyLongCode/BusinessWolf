@@ -6,6 +6,8 @@ import {useActions} from "../../hooks/useActions";
 import QuestionService from "../../services/QuestionService";
 import IQuestion from "../../models/IQuestion";
 import {AxiosError} from "axios";
+import IAnswer from "../../models/IAnswer";
+import AnswerService from "../../services/AnswerService";
 
 type TestParams = {
     id: string
@@ -14,17 +16,43 @@ type TestParams = {
 function TestPage() {
     const {id} = useParams<TestParams>()
     const [questions, setQuestions] = useState<IQuestion[]>([]);
+    const [answers, setAnswers] = useState<Map<number, IAnswer[]>>(new Map());
     const [selectedAnswers, setSelectedAnswers] = useState<number[]>([])
-    const {addAnswers} = useActions()
-    const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+    const {addQuestion, pushTest} = useActions()
+    const [currentQuestion, setCurrentQuestion] = useState<number>(1);
 
     useEffect(() => {
-        QuestionService.fetchQuestions()
+        const shuffle = (array: any[]) => {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                let temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array
+        }
+
+        let answers: IAnswer[];
+        AnswerService.fetchAnswers()
             .then(response => {
-                setQuestions(response.data.filter(item => item.test === Number(id)))
+                answers = shuffle(response.data)
             })
             .catch(e => {
-                console.log(e as AxiosError)
+                console.error(e as AxiosError)
+            })
+
+        QuestionService.fetchQuestions()
+            .then(response => {
+                setQuestions(response.data.filter(item => item.test === Number(id)).map(question => {
+                    setAnswers(prevState => prevState.set(
+                        question.id,
+                        answers.filter(answer => answer.question === question.id)
+                    ))
+                    return question
+                }))
+            })
+            .catch(e => {
+                console.error(e as AxiosError)
             })
     }, []);
 
@@ -36,33 +64,29 @@ function TestPage() {
         }
     }
 
-    const onSubmit = () => {
-        if(currentQuestion + 1 < questions.length) {
-            addAnswers(selectedAnswers)
+    const onSubmit = async () => {
+        addQuestion({answers: selectedAnswers, id: questions[currentQuestion-1].id})
+        if (currentQuestion < questions.length) {
             setCurrentQuestion(prevState => prevState + 1)
-            setSelectedAnswers([])
         } else {
-            alert('Ответы отправлены на сервер')
+            pushTest(Number(id))
         }
+        setSelectedAnswers([])
     }
 
     return (
         <>
-            { questions.length > 0 &&
+            {questions.length > 0 &&
                 <div className='test-page'>
-                    <p className='test-page__counter'>{`${currentQuestion + 1}/${questions.length}`}</p>
-                    <p className='test-page__question'>Tool yang dapat digunakan untuk memanipulasi dua objek atau lebih atau
-                        lebih Pada Adobe Illustrator disebut ...</p>
+                    <p className='test-page__counter'>{`${currentQuestion}/${questions.length}`}</p>
+                    <p className='test-page__question'>{questions[currentQuestion - 1].text}</p>
                     <h3 className='test-page__select-text'>Выберите верный ответ</h3>
                     <ul className='test-page__answers answers'>
-                        <Answer id={currentQuestion * 4 + 1} isSelected={selectedAnswers.includes(currentQuestion * 4 + 1)}
-                                clickHandler={(id: number) => onAnswerClick(id)}/>
-                        <Answer id={currentQuestion * 4 + 2} isSelected={selectedAnswers.includes(currentQuestion * 4 + 2)}
-                                clickHandler={(id: number) => onAnswerClick(id)}/>
-                        <Answer id={currentQuestion * 4 + 3} isSelected={selectedAnswers.includes(currentQuestion * 4 + 3)}
-                                clickHandler={(id: number) => onAnswerClick(id)}/>
-                        <Answer id={currentQuestion * 4 + 4} isSelected={selectedAnswers.includes(currentQuestion * 4 + 4)}
-                                clickHandler={(id: number) => onAnswerClick(id)}/>
+                        {answers.get(currentQuestion)?.map(answer => {
+                            return <Answer key={answer.id} answer={answer}
+                                           isSelected={selectedAnswers.includes(answer.id)}
+                                           clickHandler={() => onAnswerClick(answer.id)}/>
+                        })}
                     </ul>
                     <button className='test-page__answer-btn answer-btn' onClick={() => onSubmit()}>Ответить</button>
                 </div>
