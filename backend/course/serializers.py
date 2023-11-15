@@ -129,8 +129,8 @@ class SelectedAnswersSerializer(serializers.ModelSerializer):
 class CompletedTestsSerializer(serializers.ModelSerializer):
     class Meta:
         model = CompletedTests
-        fields = ('test', 'user_id')
-        read_only_fields = ('user_id',)
+        fields = ('test', 'user_id', 'id')
+        read_only_fields = ('user_id', 'id')
         permission_classes = (IsAuthenticated,)
 
     def validate(self, attrs):
@@ -152,6 +152,7 @@ class CompletedQuestionsSerializer(serializers.ModelSerializer):
         model = CompletedQuestions
         fields = ('id', 'completed_test', 'question')
         permission_classes = (IsAuthenticated,)
+
 
 
 class CompletedQuestionCheckSerializer(serializers.ModelSerializer):
