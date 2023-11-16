@@ -14,6 +14,7 @@ import ModulePage from "./pages/modulePage/ModulePage";
 import ModuleHeader from "./components/headers/moduleHeader/ModuleHeader";
 import TestPage from "./pages/testPage/TestPage";
 import TestResultPage from "./pages/testResultPage/TestResultPage";
+import LessonPage from "./pages/lessonPage/LessonPage";
 
 
 function App() {
@@ -51,7 +52,8 @@ function App() {
 
     const pagesWithModuleHeader = [
         '/module',
-        '/test'
+        '/test',
+        '/lesson'
     ]
 
     return (
@@ -69,10 +71,10 @@ function App() {
                         <Route path='/main' element={<MainPage/>}/>
                         <Route path='/profile' element={<ProfilePage/>}/>
                         <Route path='/course/:id' element={<CoursePage/>}/>
-                        <Route path='/module/:id/notes' element={<ModulePage/>}/>
-                        <Route path='/module/:id/tests' element={<ModulePage/>}/>
+                        <Route path='/module/:id/*' element={<ModulePage/>}/>
                         <Route path='/test/:id' element={<TestPage/>}/>
                         <Route path='/test/:id/result' element={<TestResultPage/>}/>
+                        <Route path='/lesson/:id' element={<LessonPage/>}/>
                     </Routes>
                 </AnimatePresence>
             </main>

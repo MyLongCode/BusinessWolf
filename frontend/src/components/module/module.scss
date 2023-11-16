@@ -25,13 +25,13 @@
   }
 
   &__lessons-count {
-    color: var(--Gray);
+    color: var(--Gray89);
     background-color: var(--White);
     padding: 6px 21px;
     border-radius: 33px;
   }
 
   &_disabled {
-    background-color: var(--LightGray);
+    background-color: var(--GrayA);
   }
 }

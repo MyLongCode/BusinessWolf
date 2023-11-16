@@ -1,0 +1,75 @@
+.message {
+  background-color: var(--Main);
+  color: var(--White);
+  width: max-content;
+  border-radius: 18px;
+  max-width: 600px;
+  position: relative;
+
+  &_not-user {
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      left: -7px;
+      height: 20px;
+      width: 20px;
+      background: var(--Main);
+      border-bottom-right-radius: 15px;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      bottom: 0;
+      left: -10px;
+      width: 10px;
+      height: 20px;
+      background: var(--White);
+      border-bottom-right-radius: 10px;
+    }
+  }
+
+  &_user {
+    background-color: var(--GrayF1);
+    color: var(--Black);
+    align-self: end;
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      right: -8px;
+      height: 20px;
+      width: 20px;
+      background: var(--GrayF1) fixed;
+      border-bottom-left-radius: 15px;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      bottom: 0;
+      right: -10px;
+      width: 10px;
+      height: 20px;
+      background: white;
+      border-bottom-left-radius: 10px;
+    }
+  }
+
+  &__text {
+    padding: 6px 12px;
+  }
+
+  &__attachment {
+    img {
+      border-radius: 18px 18px 0 0;
+      width: 100%;
+    }
+  }
+}

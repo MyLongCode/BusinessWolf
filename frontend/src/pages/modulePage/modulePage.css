@@ -21,7 +21,7 @@
   z-index: -1;
 }
 .change-btn__notes, .change-btn__tests {
-  color: var(--Gray);
+  color: var(--Gray89);
   display: inline-block;
   border-radius: 10px;
   padding: 12px 60px;

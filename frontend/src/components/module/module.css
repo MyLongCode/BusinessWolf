@@ -22,13 +22,13 @@
   line-height: normal;
 }
 .module__lessons-count {
-  color: var(--Gray);
+  color: var(--Gray89);
   background-color: var(--White);
   padding: 6px 21px;
   border-radius: 33px;
 }
 .module_disabled {
-  background-color: var(--LightGray);
+  background-color: var(--GrayA);
 }
 
 /*# sourceMappingURL=module.css.map */
