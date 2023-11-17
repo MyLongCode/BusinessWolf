@@ -27,7 +27,7 @@ function App() {
         if (location.pathname !== '/authorization') {
             checkAuth()
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
             navigate('/authorization')
             logout()
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [error]);
 
     useEffect(() => {
@@ -53,7 +53,8 @@ function App() {
     return (
         <>
             {(pagesWithMainHeader.some(page => location.pathname.includes(page)) && !location.pathname.includes('/module'))
-                && <MainHeader isGreetingVisible={location.pathname !== '/profile'}/>}
+                && <MainHeader
+                    isGreetingVisible={location.pathname !== '/profile' && !location.pathname.includes('/course')}/>}
             {(location.pathname.includes('/module'))
                 && <ModuleHeader/>}
             <main>

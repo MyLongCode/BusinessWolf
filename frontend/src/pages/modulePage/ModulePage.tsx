@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
 import "./modulePage.css"
 import Lessons from "../../components/modulePage/lessons/Lessons";
@@ -19,14 +19,16 @@ function ModulePage() {
     const {id, courseID} = useParams<ModuleParams>()
     const location = useLocation()
     const navigate = useNavigate()
-    const [currentState, setCurrentState] =
-        useState<States>(location.pathname.split('/')[5] === 'tests' ? States.tests : States.lessons);
+    const currentState = location.pathname.split('/')[5] === 'tests' ? States.tests : States.lessons;
 
     useEffect(() => {
-        if (!['tests', 'lessons'].includes(location.pathname.split('/')[5])) {
-            navigate(`/course/${courseID}/module/${id}/lessons`)
+        const checkPath = () => {
+            if (!['tests', 'lessons'].includes(location.pathname.split('/')[5])) {
+                navigate(`/course/${courseID}/module/${id}/lessons`, {replace: true})
+            }
         }
-    }, []);
+        checkPath()
+    }, [courseID, id, location.pathname, navigate]);
 
     return (
         <div className='module-page'>

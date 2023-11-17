@@ -6,7 +6,7 @@ import Review from "../../components/review/Review";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import IModule from "../../models/IModule";
 import {useActions} from "../../hooks/useActions";
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 
 type CourseParams = {
     id: string
@@ -25,14 +25,14 @@ function CoursePage() {
     }
 
     useEffect(() => {
-        if(isAuth && allModules.length === 0) {
+        if (isAuth && allModules.length === 0) {
             fetchModules()
         }
         // eslint-disable-next-line
-    }, [isAuth,]);
+    }, [isAuth, allModules.length,]);
 
     useEffect(() => {
-        if(allModules.length !== 0) {
+        if (allModules.length !== 0) {
             setCourseModules(allModules.filter(item => item.course === Number(id)))
         }
         // eslint-disable-next-line

@@ -18,19 +18,7 @@ function ModuleHeader() {
     const {fetchModules} = useActions()
 
     useEffect(() => {
-        if (location.pathname.startsWith('/module')) {
-            if (modules.length === 0) {
-                fetchModules()
-            }
-            if (modules.length > 0) {
-                const moduleID = location.pathname.match('\\d+')?.
-                    ["0"]
-                const names = modules.map(module => {
-                    return module.id
-                })
-                setTitle(`Модуль ${names.find((elem) => elem === Number(moduleID))}`)
-            }
-        } else if (location.pathname.startsWith('/test') || location.pathname.startsWith('/lesson')) {
+        if (location.pathname.includes('/tests/') || location.pathname.includes('/lessons/')) {
             if (lessons.length === 0) {
                 LessonService.fetchLessons()
                     .then(response => {
@@ -42,14 +30,20 @@ function ModuleHeader() {
             }
 
             if (lessons.length > 0) {
-                const testID = location.pathname.match('\\d+')?.
-                    ["0"]
-                console.log(testID);
-                setTitle(`${lessons.find((elem) => elem.id === Number(testID))?.chat_text}`)
+                const id = location.pathname.split('/')[6]
+                setTitle(`${lessons.find((elem) => elem.id === Number(id))?.chat_text}`)
+            }
+        } else if (location.pathname.includes('/module')) {
+            if (modules.length === 0) {
+                fetchModules()
+            }
+            if (modules.length > 0) {
+                const moduleID = location.pathname.split('/')[4]
+                setTitle(`Модуль ${modules.find(module => module.id === Number(moduleID))?.id}`)
             }
         }
         // eslint-disable-next-line
-    }, [location, modules.length, lessons.length]);
+    }, [lessons, location.pathname, modules]);
 
     return (
         <motion.header

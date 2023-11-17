@@ -36,7 +36,7 @@ function ProfilePage() {
         >
             <Link to='' onClick={() => navigate(-1)} className='profile__back'>
                 <span className='profile__back-arrow arrow'/>
-                <p className='profile__back-text'>Профиль</p>
+                <p className='profile__back-text'>Вернуться</p>
             </Link>
             <section className='profile__user user'>
                 <img src={avatar} alt="Аватар пользователя" className='user__avatar user-avatar'/>

@@ -8,6 +8,11 @@
   border: 1px solid var(--Black);
   padding: 18px 20px;
   max-width: 795px;
+  transition-duration: 0.2s;
+}
+.lesson:hover {
+  background-color: whitesmoke;
+  opacity: 0.7;
 }
 .lesson__title {
   margin-bottom: 14px;
