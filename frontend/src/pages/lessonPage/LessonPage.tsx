@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import './lessonPage.css'
 import LessonMessage from "../../components/lessonMessage/LessonMessage";
 import IMessage from "../../models/IMessage";
-import {m} from "framer-motion";
+import { motion } from 'framer-motion';
 
 type LessonPageParams = {
     id: string
@@ -56,7 +56,13 @@ function LessonPage() {
 
 
     return (
-        <div className='lesson-page'>
+        <motion.div
+            className='lesson-page'
+            initial={{opacity: 0.1}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            transition={{duration: 0.1}}
+        >
             <ul className='lesson-page__messages'>
                 {messages.map(message => {
                     return <LessonMessage
@@ -70,7 +76,7 @@ function LessonPage() {
                 })}
             </ul>
             <button className="lesson-page__btn">Прочитано</button>
-        </div>
+        </motion.div>
     );
 }
 

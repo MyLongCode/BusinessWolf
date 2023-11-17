@@ -6,7 +6,8 @@ import Tests from "../../components/modulePage/tests/Tests";
 import {motion} from 'framer-motion';
 
 type ModuleParams = {
-    id: string
+    id: string,
+    courseID: string
 }
 
 enum States {
@@ -15,18 +16,17 @@ enum States {
 }
 
 function ModulePage() {
-    const {id} = useParams<ModuleParams>()
+    const {id, courseID} = useParams<ModuleParams>()
     const location = useLocation()
     const navigate = useNavigate()
-    const [currentState, setCurrentState] = useState(States.lessons);
+    const [currentState, setCurrentState] =
+        useState<States>(location.pathname.split('/')[5] === 'tests' ? States.tests : States.lessons);
 
     useEffect(() => {
-        const stateStr = location.pathname.split('/')[3]
-        if(stateStr !== 'tests' && stateStr !== 'lessons') {
-            navigate(`/module/${id}/lessons`)
+        if (!['tests', 'lessons'].includes(location.pathname.split('/')[5])) {
+            navigate(`/course/${courseID}/module/${id}/lessons`)
         }
-        setCurrentState(stateStr === 'tests' ? States.tests : States.lessons)
-    }, [location.pathname]);
+    }, []);
 
     return (
         <div className='module-page'>
@@ -37,11 +37,11 @@ function ModulePage() {
                     animate={(currentState === States.lessons ? {right: "49%"} : {right: "1%"})}
                     transition={{duration: "0.2", ease: "easeIn"}}
                 />
-                <Link to={`/module/${id}/lessons`}
+                <Link to={`/course/${courseID}/module/${id}/lessons`}
                       className={`change-btn__lessons ${currentState === States.lessons ? 'change-btn_active' : ''}`}>
                     Конспекты
                 </Link>
-                <Link to={`/module/${id}/tests`}
+                <Link to={`/course/${courseID}/module/${id}/tests`}
                       className={`change-btn__tests ${currentState === States.tests ? 'change-btn_active' : ''}`}>
                     Тесты
                 </Link>

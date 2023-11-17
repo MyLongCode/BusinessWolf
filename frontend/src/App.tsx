@@ -50,19 +50,12 @@ function App() {
         '/course'
     ]
 
-    const pagesWithModuleHeader = [
-        '/module',
-        '/test',
-        '/lesson'
-    ]
-
     return (
         <>
-            {(pagesWithMainHeader.includes(location.pathname) || pagesWithMainHeader.includes(
-                    location.pathname.slice(0, location.pathname.lastIndexOf('/'))
-                )) && <MainHeader isGreetingVisible={location.pathname !== '/profile'}/>}
-            {pagesWithModuleHeader.includes(location.pathname.slice(0, location.pathname.indexOf('/', 1)
-            )) && <ModuleHeader/>}
+            {(pagesWithMainHeader.some(page => location.pathname.includes(page)) && !location.pathname.includes('/module'))
+                && <MainHeader isGreetingVisible={location.pathname !== '/profile'}/>}
+            {(location.pathname.includes('/module'))
+                && <ModuleHeader/>}
             <main>
                 <AnimatePresence mode='wait'>
                     <Routes location={location} key={location.pathname}>
@@ -71,10 +64,10 @@ function App() {
                         <Route path='/main' element={<MainPage/>}/>
                         <Route path='/profile' element={<ProfilePage/>}/>
                         <Route path='/course/:id' element={<CoursePage/>}/>
-                        <Route path='/module/:id/*' element={<ModulePage/>}/>
-                        <Route path='/test/:id' element={<TestPage/>}/>
-                        <Route path='/test/:id/result' element={<TestResultPage/>}/>
-                        <Route path='/lesson/:id' element={<LessonPage/>}/>
+                        <Route path='/course/:courseID/module/:id/*' element={<ModulePage/>}/>
+                        <Route path='/course/:courseID/module/:moduleID/lessons/:id' element={<LessonPage/>}/>
+                        <Route path='/course/:courseID/module/:moduleID/tests/:id' element={<TestPage/>}/>
+                        <Route path='/course/:courseID/module/:moduleID/tests/:id/result' element={<TestResultPage/>}/>
                     </Routes>
                 </AnimatePresence>
             </main>
