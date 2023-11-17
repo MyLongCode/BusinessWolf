@@ -14,15 +14,14 @@
     color: var(--White);
     position: absolute;
     border-radius: 13px;
-    right: 1%;
     align-self: center;
     width: 50%;
     height: 90%;
     z-index: -1;
   }
 
-  &__notes, &__tests {
-    color: var(--Gray);
+  &__lessons, &__tests {
+    color: var(--Gray89);
     display: inline-block;
     border-radius: 10px;
     padding: 12px 60px;

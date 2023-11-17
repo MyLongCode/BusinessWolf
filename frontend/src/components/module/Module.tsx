@@ -6,13 +6,14 @@ interface ModuleProps {
     id: number,
     courseNumber: number,
     completeLessons: number,
-    totalLessons: number
+    totalLessons: number,
+    courseID: number
 }
 
-function Module({id, courseNumber, completeLessons, totalLessons}: ModuleProps) {
+function Module({id, courseNumber, completeLessons, totalLessons, courseID}: ModuleProps) {
     return (
         <li className={'modules__item module' + (courseNumber !== 1 ? ' module_disabled' : '')}>
-            <Link to={`/module/${id}/notes`} className='module__link'>
+            <Link to={`/course/${courseID}/module/${id}/lessons`} className='module__link'>
                 <div className='module__wrapper'>
                     <h2 className='module__title'>{'Модуль ' + courseNumber}</h2>
                     <p className='module__lessons-count'>{`${completeLessons}/${totalLessons} уроков`}</p>

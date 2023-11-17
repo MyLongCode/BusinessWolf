@@ -14,14 +14,13 @@
   color: var(--White);
   position: absolute;
   border-radius: 13px;
-  right: 1%;
   align-self: center;
   width: 50%;
   height: 90%;
   z-index: -1;
 }
-.change-btn__notes, .change-btn__tests {
-  color: var(--Gray);
+.change-btn__lessons, .change-btn__tests {
+  color: var(--Gray89);
   display: inline-block;
   border-radius: 10px;
   padding: 12px 60px;
@@ -31,7 +30,7 @@
   text-align: center;
   text-decoration: none;
 }
-.change-btn__notes:hover, .change-btn__tests:hover {
+.change-btn__lessons:hover, .change-btn__tests:hover {
   opacity: 0.6;
 }
 .change-btn_active {

@@ -3,8 +3,9 @@
   --Main: #4B94DD;
   --DarkMain: #3b7dbd;
   --Black: #111010;
-  --LightGray: #AAA;
-  --Gray: #898989;
+  --GrayA: #AAA;
+  --GrayF1: #F1F1F1;
+  --Gray89: #898989;
 }
 
 * {
@@ -47,7 +48,7 @@ button:hover {
   background-color: var(--DarkMain);
 }
 button:disabled {
-  background-color: var(--LightGray);
+  background-color: var(--GrayA);
   cursor: default;
 }
 

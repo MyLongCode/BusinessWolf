@@ -30,7 +30,7 @@ function ModuleHeader() {
                 })
                 setTitle(`Модуль ${names.find((elem) => elem === Number(moduleID))}`)
             }
-        } else if (location.pathname.startsWith('/test')) {
+        } else if (location.pathname.startsWith('/test') || location.pathname.startsWith('/lesson')) {
             if (lessons.length === 0) {
                 LessonService.fetchLessons()
                     .then(response => {

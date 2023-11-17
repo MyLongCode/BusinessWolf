@@ -1,7 +1,7 @@
 import React from 'react';
 import './test.css'
 import ITest from "../../../../models/ITest";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 interface ITestProps {
     test: ITest,
@@ -9,6 +9,8 @@ interface ITestProps {
 }
 
 function Test(props: ITestProps) {
+    const location = useLocation()
+
     let lesson_name = ''
     for (const name of props.lesson_names) {
         if (name !== '') {
@@ -18,7 +20,7 @@ function Test(props: ITestProps) {
     }
 
     return (
-        <Link to={`/test/${props.test.id}`} className='test-link'>
+        <Link to={`${location.pathname}/${props.test.id}`} className='test-link'>
             {
                 lesson_name &&
                 <li className='tests__test test'>

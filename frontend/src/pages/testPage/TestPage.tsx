@@ -8,6 +8,7 @@ import IQuestion from "../../models/IQuestion";
 import {AxiosError} from "axios";
 import IAnswer from "../../models/IAnswer";
 import AnswerService from "../../services/AnswerService";
+import { motion } from 'framer-motion';
 
 type TestParams = {
     id: string
@@ -80,7 +81,13 @@ function TestPage() {
     return (
         <>
             {questions.length > 0 &&
-                <div className='test-page'>
+                <motion.div
+                    className='test-page'
+                    initial={{opacity: 0.1}}
+                    animate={{opacity: 1}}
+                    exit={{opacity: 0}}
+                    transition={{duration: 0.1}}
+                >
                     <p className='test-page__counter'>{`${currentQuestion}/${questions.length}`}</p>
                     <p className='test-page__question'>{questions[currentQuestion - 1].text}</p>
                     <h3 className='test-page__select-text'>Выберите верный ответ</h3>
@@ -92,7 +99,7 @@ function TestPage() {
                         })}
                     </ul>
                     <button className='test-page__answer-btn answer-btn' onClick={() => onSubmit()}>Ответить</button>
-                </div>
+                </motion.div>
             }
         </>
     );

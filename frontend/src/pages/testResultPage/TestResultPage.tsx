@@ -1,9 +1,11 @@
 import React from 'react';
 import './testResultPage.css'
 import QuestionResult from "../../components/questionResult/QuestionResult";
-import { Link } from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 function TestResultPage() {
+    const {courseID, moduleID} = useParams<{courseID: string, moduleID: string}>()
+
     return (
         <div className='test-result-page'>
             <h3 className='test-result-page__heading'>Давайте проверим ваши ответы</h3>
@@ -13,7 +15,7 @@ function TestResultPage() {
                                 answers={[]} is_correct={true}/>
             </ul>
             {/*<button className="test-result-page__btn">Завершить</button>*/}
-            <Link to='/main'>Завершить</Link>
+            <Link to={`/course/${courseID}/module/${moduleID}`}>Завершить</Link>
         </div>
     );
 }
