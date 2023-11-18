@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import './lessonPage.css'
 import LessonMessage from "../../components/lessonMessage/LessonMessage";
 import IMessage from "../../models/IMessage";
-import { motion } from 'framer-motion';
+import ModuleLayout from "../../components/layouts/moduleLayout/ModuleLayout";
 
 type LessonPageParams = {
     id: string
@@ -56,27 +56,23 @@ function LessonPage() {
 
 
     return (
-        <motion.div
-            className='lesson-page'
-            initial={{opacity: 0.1}}
-            animate={{opacity: 1}}
-            exit={{opacity: 0}}
-            transition={{duration: 0.1}}
-        >
-            <ul className='lesson-page__messages'>
-                {messages.map(message => {
-                    return <LessonMessage
-                        key={message.id}
-                        id={message.id}
-                        number={message.number}
-                        text={message.text}
-                        isUser={message.isUser}
-                        attachment={message.attachment}
-                    />
-                })}
-            </ul>
-            <button className="lesson-page__btn">Прочитано</button>
-        </motion.div>
+        <ModuleLayout headerTitle={`Урок: ${id}`}>
+            <div className='lesson-page'>
+                <ul className='lesson-page__messages'>
+                    {messages.map(message => {
+                        return <LessonMessage
+                            key={message.id}
+                            id={message.id}
+                            number={message.number}
+                            text={message.text}
+                            isUser={message.isUser}
+                            attachment={message.attachment}
+                        />
+                    })}
+                </ul>
+                <button className="lesson-page__btn">Прочитано</button>
+            </div>
+        </ModuleLayout>
     );
 }
 

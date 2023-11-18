@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import './startPage.css';
 import wolf_festive from '../../assets/images/Festive_wolf(shadow).png';
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 import {Link, useNavigate} from "react-router-dom";
 
 function StartPage() {
@@ -15,9 +15,8 @@ function StartPage() {
     return (
         <motion.div
             className="start centered"
-            initial={{gap: "150px", opacity:0}}
-            animate={{gap: "0px", opacity:1, transition: {duration: 1.5}}}
-            exit={{opacity:0}}
+            initial={{gap: "150px"}}
+            animate={{gap: "0px", transition: {duration: 1.5}}}
             transition={{duration: 0.8}}
         >
             <div className="start__container-left">

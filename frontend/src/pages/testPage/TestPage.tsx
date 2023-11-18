@@ -8,7 +8,8 @@ import IQuestion from "../../models/IQuestion";
 import {AxiosError} from "axios";
 import IAnswer from "../../models/IAnswer";
 import AnswerService from "../../services/AnswerService";
-import { motion } from 'framer-motion';
+import ModuleLayout from "../../components/layouts/moduleLayout/ModuleLayout";
+import LessonService from "../../services/LessonService";
 
 type TestParams = {
     id: string
@@ -20,7 +21,7 @@ function TestPage() {
     const [answers, setAnswers] = useState<Map<number, IAnswer[]>>(new Map());
     const [selectedAnswers, setSelectedAnswers] = useState<number[]>([])
     const {addQuestion, pushTest} = useActions()
-    const [currentQuestion, setCurrentQuestion] = useState<number>(1);
+    const [currentQuestion, setCurrentQuestion] = useState(1);
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -46,10 +47,10 @@ function TestPage() {
 
         QuestionService.fetchQuestions()
             .then(response => {
-                setQuestions(response.data.filter(item => item.test === Number(id)).map(question => {
+                setQuestions(response.data?.filter(item => item.test === Number(id)).map(question => {
                     setAnswers(prevState => prevState.set(
                         question.id,
-                        answers.filter(answer => answer.question === question.id)
+                        answers?.filter(answer => answer.question === question.id)
                     ))
                     return question
                 }))
@@ -57,9 +58,9 @@ function TestPage() {
             .catch(e => {
                 console.error(e as AxiosError)
             })
-    }, []);
+    }, [id]);
 
-    const onAnswerClick = (id: number) => {
+    const onAnswerClickHandler = (id: number) => {
         if (!selectedAnswers.includes(id)) {
             setSelectedAnswers(prevState => [...prevState, id])
         } else {
@@ -67,8 +68,8 @@ function TestPage() {
         }
     }
 
-    const onSubmit = async () => {
-        addQuestion({answers: selectedAnswers, id: questions[currentQuestion-1].id})
+    const onSubmitHandler = async () => {
+        addQuestion({answers: selectedAnswers, id: questions[currentQuestion - 1].id})
         if (currentQuestion < questions.length) {
             setCurrentQuestion(prevState => prevState + 1)
         } else {
@@ -79,15 +80,9 @@ function TestPage() {
     }
 
     return (
-        <>
+        <ModuleLayout headerTitle={`Тест ${id}`}>
             {questions.length > 0 &&
-                <motion.div
-                    className='test-page'
-                    initial={{opacity: 0.1}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}
-                    transition={{duration: 0.1}}
-                >
+                <div className='test-page'>
                     <p className='test-page__counter'>{`${currentQuestion}/${questions.length}`}</p>
                     <p className='test-page__question'>{questions[currentQuestion - 1].text}</p>
                     <h3 className='test-page__select-text'>Выберите верный ответ</h3>
@@ -95,13 +90,13 @@ function TestPage() {
                         {answers.get(currentQuestion)?.map(answer => {
                             return <Answer key={answer.id} answer={answer}
                                            isSelected={selectedAnswers.includes(answer.id)}
-                                           clickHandler={() => onAnswerClick(answer.id)}/>
+                                           clickHandler={() => onAnswerClickHandler(answer.id)}/>
                         })}
                     </ul>
-                    <button className='test-page__answer-btn answer-btn' onClick={() => onSubmit()}>Ответить</button>
-                </motion.div>
+                    <button className='test-page__answer-btn answer-btn' onClick={() => onSubmitHandler()}>Ответить</button>
+                </div>
             }
-        </>
+        </ModuleLayout>
     );
 }
 

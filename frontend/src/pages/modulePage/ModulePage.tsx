@@ -4,6 +4,7 @@ import "./modulePage.css"
 import Lessons from "../../components/modulePage/lessons/Lessons";
 import Tests from "../../components/modulePage/tests/Tests";
 import {motion} from 'framer-motion';
+import ModuleLayout from "../../components/layouts/moduleLayout/ModuleLayout";
 
 type ModuleParams = {
     id: string,
@@ -13,6 +14,11 @@ type ModuleParams = {
 enum States {
     lessons,
     tests
+}
+
+const sliderButtonVariants = {
+    left: {right: "49%"},
+    right: {right: "1%"}
 }
 
 function ModulePage() {
@@ -31,34 +37,37 @@ function ModulePage() {
     }, [courseID, id, location.pathname, navigate]);
 
     return (
-        <div className='module-page'>
-            <div className={"module-page__change-btn change-btn"}>
+        <ModuleLayout headerTitle={`Модуль ${id}`}>
+            <div className='module-page'>
+                <div className={"module-page__change-btn change-btn"}>
+                    <motion.div
+                        className="change-btn__slider"
+                        initial={currentState === States.lessons ? "right" : "left"}
+                        animate={currentState === States.lessons ? "left" : "right"}
+                        variants={sliderButtonVariants}
+                        transition={{duration: 0.2, ease: "easeIn"}}
+                    />
+                    <Link to={`/course/${courseID}/module/${id}/lessons`}
+                          className={`change-btn__lessons ${currentState === States.lessons ? 'change-btn_active' : ''}`}>
+                        Конспекты
+                    </Link>
+                    <Link to={`/course/${courseID}/module/${id}/tests`}
+                          className={`change-btn__tests ${currentState === States.tests ? 'change-btn_active' : ''}`}>
+                        Тесты
+                    </Link>
+                </div>
                 <motion.div
-                    className="change-btn__slider"
-                    initial={(currentState === States.lessons ? {right: "1%"} : {right: "49%"})}
-                    animate={(currentState === States.lessons ? {right: "49%"} : {right: "1%"})}
-                    transition={{duration: "0.2", ease: "easeIn"}}
-                />
-                <Link to={`/course/${courseID}/module/${id}/lessons`}
-                      className={`change-btn__lessons ${currentState === States.lessons ? 'change-btn_active' : ''}`}>
-                    Конспекты
-                </Link>
-                <Link to={`/course/${courseID}/module/${id}/tests`}
-                      className={`change-btn__tests ${currentState === States.tests ? 'change-btn_active' : ''}`}>
-                    Тесты
-                </Link>
+                    className="module__content"
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    exit={{opacity: 0}}
+                    transition={{duration: 0.1}}
+                >
+                    {currentState === States.lessons && <Lessons moduleID={Number(id)}/>}
+                    {currentState === States.tests && <Tests moduleID={Number(id)}/>}
+                </motion.div>
             </div>
-            <motion.div
-                className="module__content"
-                initial={{opacity: 0.1}}
-                animate={{opacity: 1}}
-                exit={{opacity: 0}}
-                transition={{duration: 0.1}}
-            >
-                {currentState === States.lessons && <Lessons moduleID={Number(id)}/>}
-                {currentState === States.tests && <Tests moduleID={Number(id)}/>}
-            </motion.div>
-        </div>
+        </ModuleLayout>
     );
 }
 

@@ -3,14 +3,17 @@ import logo from '../../../assets/images/Logo.svg'
 import avatar from '../../../assets/images/Avatar.jpg'
 import './moduleHeader.css'
 import {Link, useLocation} from "react-router-dom";
-import {motion} from 'framer-motion';
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import {useActions} from "../../../hooks/useActions";
 import ILesson from "../../../models/ILesson";
 import LessonService from "../../../services/LessonService";
 import {AxiosError} from "axios";
 
-function ModuleHeader() {
+interface ModuleHeaderProps {
+    title: string
+}
+
+function ModuleHeader(props: ModuleHeaderProps) {
     const location = useLocation()
     const [title, setTitle] = useState('');
     const {modules} = useTypedSelector(state => state.modules)
@@ -18,41 +21,12 @@ function ModuleHeader() {
     const {fetchModules} = useActions()
 
     useEffect(() => {
-        if (location.pathname.includes('/tests/') || location.pathname.includes('/lessons/')) {
-            if (lessons.length === 0) {
-                LessonService.fetchLessons()
-                    .then(response => {
-                        setLessons(response.data)
-                    })
-                    .catch(e => {
-                        console.log(e as AxiosError)
-                    })
-            }
-
-            if (lessons.length > 0) {
-                const id = location.pathname.split('/')[6]
-                setTitle(`${lessons.find((elem) => elem.id === Number(id))?.chat_text}`)
-            }
-        } else if (location.pathname.includes('/module')) {
-            if (modules.length === 0) {
-                fetchModules()
-            }
-            if (modules.length > 0) {
-                const moduleID = location.pathname.split('/')[4]
-                setTitle(`Модуль ${modules.find(module => module.id === Number(moduleID))?.id}`)
-            }
-        }
+        setTitle(props.title)
         // eslint-disable-next-line
-    }, [lessons, location.pathname, modules]);
+    }, []);
 
     return (
-        <motion.header
-            className='module-header header'
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            exit={{opacity: 0, transition: {duration: 0.2}}}
-            transition={{duration: 0.8}}
-        >
+        <header className='module-header header'>
             <div className="header__wrapper">
                 <Link to={'/main'} className='header__logo logo'>
                     <img src={logo} alt="Логотип" className="logo__img"/>
@@ -67,7 +41,7 @@ function ModuleHeader() {
                 <p className='hm_desc'>Learn the basics of the language: make new friends, plan a family dinner, go
                     shopping and much more!</p>
             </div>
-        </motion.header>
+        </header>
     );
 }
 

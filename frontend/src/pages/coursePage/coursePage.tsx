@@ -6,7 +6,7 @@ import Review from "../../components/review/Review";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import IModule from "../../models/IModule";
 import {useActions} from "../../hooks/useActions";
-import {motion} from 'framer-motion';
+import MainLayout from "../../components/layouts/mainLayout/MainLayout";
 
 type CourseParams = {
     id: string
@@ -39,58 +39,60 @@ function CoursePage() {
     }, [allModules]);
 
     return (
-        <motion.div
-            className='course-page'
-            initial={{opacity: 0}}
-            animate={{opacity: 1, transition: {duration: 0.75}}}
-            exit={{opacity: 0}}
-        >
-            <section className='course-page__modules modules'>
-                <ul className='modules__list'>
-                    {modules.map(module => {
-                        return <Module key={module.id} id={module.id} courseNumber={module.number}
-                                       completeLessons={2} totalLessons={12} courseID={Number(id)}/>
-                    })}
-                </ul>
-            </section>
-            <section className='course-page__about about'>
-                <h2 className='about__heading section-heading'>Об этом курсе</h2>
-                <p className='about__text'>
-                    Learn the basics of the language: make new friends, plan a family dinner, go shopping and much
-                    more!Learn the basics of the language: make new friends, plan a family dinner, go shopping and much
-                    more!мLearn the basics of the lang
-                </p>
-            </section>
-            <section className='course-page__about about'>
-                <h2 className='about__heading section-heading'>Почему этот курс для тебя</h2>
-                <p className='about__text'>
-                    Learn the basics of the language: make new friends, plan a family dinner, go shopping and much
-                    more!Learn the basics of the language: make new friends, plan a family dinner, go shopping and much
-                    more!мLearn the basics of the langLearn the basics of the language: make new friends, plan a family
-                    dinner, go shopping and much more!Learn the basics of the language: make new friends, plan a family
-                    dinner, go shopping and much more!мLearn the basics of the langLearn the basics of the language:
-                    make new friends, plan a family dinner, go shopping and much more!Learn the basics of the language:
-                    make new friends, plan a family dinner, go shopping and much more!мLearn the basics of the lang
-                </p>
-            </section>
-            <section className='course-page__reviews reviews'>
-                <h2 className='reviews__heading section-heading'>Отзывы</h2>
-                <ul className='reviews__list'>
-                    <li className='reviews__item'>
-                        <Review review='Learn the basics of the language:
+        <MainLayout>
+            <div className='course-page'>
+                <section className='course-page__modules modules'>
+                    <ul className='modules__list'>
+                        {modules.map(module => {
+                            return <Module key={module.id} id={module.id} courseNumber={module.number}
+                                           completeLessons={2} totalLessons={12} courseID={Number(id)}/>
+                        })}
+                    </ul>
+                </section>
+                <section className='course-page__about about'>
+                    <h2 className='about__heading section-heading'>Об этом курсе</h2>
+                    <p className='about__text'>
+                        Learn the basics of the language: make new friends, plan a family dinner, go shopping and much
+                        more!Learn the basics of the language: make new friends, plan a family dinner, go shopping and
+                        much
+                        more!мLearn the basics of the lang
+                    </p>
+                </section>
+                <section className='course-page__about about'>
+                    <h2 className='about__heading section-heading'>Почему этот курс для тебя</h2>
+                    <p className='about__text'>
+                        Learn the basics of the language: make new friends, plan a family dinner, go shopping and much
+                        more!Learn the basics of the language: make new friends, plan a family dinner, go shopping and
+                        much
+                        more!мLearn the basics of the langLearn the basics of the language: make new friends, plan a
+                        family
+                        dinner, go shopping and much more!Learn the basics of the language: make new friends, plan a
+                        family
+                        dinner, go shopping and much more!мLearn the basics of the langLearn the basics of the language:
+                        make new friends, plan a family dinner, go shopping and much more!Learn the basics of the
+                        language:
+                        make new friends, plan a family dinner, go shopping and much more!мLearn the basics of the lang
+                    </p>
+                </section>
+                <section className='course-page__reviews reviews'>
+                    <h2 className='reviews__heading section-heading'>Отзывы</h2>
+                    <ul className='reviews__list'>
+                        <li className='reviews__item'>
+                            <Review review='Learn the basics of the language:
                          make new friends, plan a family dinner, go shopping and much more!'/>
-                    </li>
-                    <li className='reviews__item'>
-                        <Review review='Learn the basics of the language:
+                        </li>
+                        <li className='reviews__item'>
+                            <Review review='Learn the basics of the language:
                          make new friends, plan a family dinner, go shopping and much more!'/>
-                    </li>
-                    <li className='reviews__item'>
-                        <Review review='Learn the basics of the language:
+                        </li>
+                        <li className='reviews__item'>
+                            <Review review='Learn the basics of the language:
                          make new friends, plan a family dinner, go shopping and much more!'/>
-                    </li>
-                </ul>
-            </section>
-        </motion.div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </MainLayout>
     );
 }
 

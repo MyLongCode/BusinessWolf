@@ -42,16 +42,6 @@
   scale: 1.2;
 }
 
-.greeting {
-  margin-bottom: 32px;
-}
-.greeting__heading {
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
 .main-header {
   padding: 40px 10% 0;
   margin-bottom: 32px;
