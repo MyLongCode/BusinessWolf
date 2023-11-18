@@ -2,23 +2,14 @@ import React, {useEffect, useState} from 'react';
 import logo from '../../../assets/images/Logo.svg'
 import avatar from '../../../assets/images/Avatar.jpg'
 import './moduleHeader.css'
-import {Link, useLocation} from "react-router-dom";
-import {useTypedSelector} from "../../../hooks/useTypedSelector";
-import {useActions} from "../../../hooks/useActions";
-import ILesson from "../../../models/ILesson";
-import LessonService from "../../../services/LessonService";
-import {AxiosError} from "axios";
+import {Link} from "react-router-dom";
 
 interface ModuleHeaderProps {
     title: string
 }
 
 function ModuleHeader(props: ModuleHeaderProps) {
-    const location = useLocation()
     const [title, setTitle] = useState('');
-    const {modules} = useTypedSelector(state => state.modules)
-    const [lessons, setLessons] = useState<ILesson[]>([])
-    const {fetchModules} = useActions()
 
     useEffect(() => {
         setTitle(props.title)

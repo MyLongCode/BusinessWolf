@@ -6,8 +6,6 @@ import ITest from "../../../models/ITest";
 import Test from "./test/Test";
 import LessonService from "../../../services/LessonService";
 import ILesson from "../../../models/ILesson";
-import {motion} from 'framer-motion';
-import {useLocation, useNavigate} from "react-router-dom";
 
 function Tests(props: { moduleID: number }) {
     const [tests, setTests] = useState<ITest[]>([])

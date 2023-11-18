@@ -30,9 +30,12 @@
     line-height: normal;
     text-align: center;
     text-decoration: none;
+    background: none;
+    text-transform: none;
 
     &:hover {
       opacity: 0.6;
+      background: none;
     }
   }
 

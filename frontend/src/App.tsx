@@ -22,25 +22,22 @@ function App() {
     const {error} = useTypedSelector(state => state.auth)
 
     useEffect(() => {
-        if (location.pathname !== '/authorization') {
+        if (location.pathname !== '/authorization' && location.pathname !== '/') {
             checkAuth()
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
-        if (error) {
-            navigate('/authorization')
+        if ((error || !localStorage.getItem('refresh_token')) &&
+            location.pathname !== '/authorization' && location.pathname !== '/') {
+            navigate('/authorization', {
+                state: {from: location}
+            })
             logout()
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [error]);
-
-    useEffect(() => {
-        if (!localStorage.getItem('refresh_token')) {
-            navigate('/authorization');
-        }
-    }, [navigate]);
+        // eslint-disable-next-line
+    }, [error, navigate]);
 
     return (
         <>
@@ -50,11 +47,15 @@ function App() {
                     <Route path='/authorization' element={<AuthorizationPage/>}/>
                     <Route index path='/main' element={<MainPage/>}/>
                     <Route path='/profile' element={<ProfilePage/>}/>
-                    <Route path='/course/:id' element={<CoursePage/>}/>
-                    <Route path='/course/:courseID/module/:id/*' element={<ModulePage/>}/>
-                    <Route path='/course/:courseID/module/:moduleID/lessons/:id' element={<LessonPage/>}/>
-                    <Route path='/course/:courseID/module/:moduleID/tests/:id' element={<TestPage/>}/>
-                    <Route path='/course/:courseID/module/:moduleID/tests/:id/result' element={<TestResultPage/>}/>
+                    <Route path='/course'>
+                        <Route path=':id' element={<CoursePage/>}/>
+                        <Route path=':courseID/module'>
+                            <Route path=':id/*' element={<ModulePage/>}/>
+                            <Route path=':moduleID/lessons/:id' element={<LessonPage/>}/>
+                            <Route path=':moduleID/tests/:id' element={<TestPage/>}/>
+                            <Route path=':moduleID/tests/:id/result' element={<TestResultPage/>}/>
+                        </Route>
+                    </Route>
                 </Routes>
             </AnimatePresence>
         </>

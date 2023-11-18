@@ -4,6 +4,7 @@ import './lessonPage.css'
 import LessonMessage from "../../components/lessonMessage/LessonMessage";
 import IMessage from "../../models/IMessage";
 import ModuleLayout from "../../components/layouts/moduleLayout/ModuleLayout";
+import { motion } from 'framer-motion';
 
 type LessonPageParams = {
     id: string
@@ -56,8 +57,14 @@ function LessonPage() {
 
 
     return (
-        <ModuleLayout headerTitle={`Урок: ${id}`}>
-            <div className='lesson-page'>
+        <ModuleLayout headerTitle={`Урок ${id}`}>
+            <motion.div
+                className='lesson-page'
+                initial={{opacity: 0}}
+                animate={{opacity:1}}
+                exit={{opacity:0}}
+                transition={{duration: 0.2}}
+            >
                 <ul className='lesson-page__messages'>
                     {messages.map(message => {
                         return <LessonMessage
@@ -71,7 +78,7 @@ function LessonPage() {
                     })}
                 </ul>
                 <button className="lesson-page__btn">Прочитано</button>
-            </div>
+            </motion.div>
         </ModuleLayout>
     );
 }

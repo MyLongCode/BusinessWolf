@@ -4,7 +4,6 @@ import Lesson from "./lesson/Lesson";
 import ILesson from "../../../models/ILesson";
 import LessonService from "../../../services/LessonService";
 import {AxiosError} from "axios";
-import {motion} from 'framer-motion';
 
 function Lessons(props: { moduleID: number }) {
     const [lessons, setLessons] = useState<ILesson[]>([])

@@ -4,6 +4,7 @@ import eyeSlash from "../../assets/images/Eye-slash.svg";
 import {useForm} from "react-hook-form";
 import IAuthInputs from "../../models/IAuthInputs";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useLocation} from "react-router-dom";
 
 interface IAuthForm {
     onSubmit: any,
@@ -11,6 +12,7 @@ interface IAuthForm {
 }
 
 function AuthForm({onSubmit}: IAuthForm) {
+    const location = useLocation()
     const [errorMessage, setErrorMessage] = useState('')
     const [passwordShown, setPasswordShown] = useState(false)
     const {error: submitError} = useTypedSelector(state => state.auth)
@@ -31,8 +33,6 @@ function AuthForm({onSubmit}: IAuthForm) {
     useEffect(() => {
         if (submitError === "ERR_BAD_REQUEST") {
             setErrorMessage('Неверный логин или пароль. Попробуйте снова.');
-        } else if (submitError === "ERR_NETWORK") {
-            setErrorMessage('Сервер не доступен. Попробуйте позже.')
         }
     }, [submitError]);
 

@@ -7,7 +7,7 @@ import {Link, useNavigate} from "react-router-dom";
 function StartPage() {
     const navigate = useNavigate()
     useEffect(() => {
-        if(localStorage.getItem('token')) {
+        if (localStorage.getItem('token')) {
             navigate('/main')
         }
     }, [navigate]);
@@ -15,9 +15,10 @@ function StartPage() {
     return (
         <motion.div
             className="start centered"
-            initial={{gap: "150px"}}
-            animate={{gap: "0px", transition: {duration: 1.5}}}
-            transition={{duration: 0.8}}
+            initial={{gap: "150px", opacity: 0}}
+            animate={{gap: "0px", opacity: 1, transition: {duration: 1.5}}}
+            exit={{opacity: 0}}
+            transition={{duration: 0.5}}
         >
             <div className="start__container-left">
                 <h1 className="start__title">Добро пожаловать</h1>

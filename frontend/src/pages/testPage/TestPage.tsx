@@ -9,7 +9,7 @@ import {AxiosError} from "axios";
 import IAnswer from "../../models/IAnswer";
 import AnswerService from "../../services/AnswerService";
 import ModuleLayout from "../../components/layouts/moduleLayout/ModuleLayout";
-import LessonService from "../../services/LessonService";
+import { motion } from 'framer-motion';
 
 type TestParams = {
     id: string
@@ -36,29 +36,26 @@ function TestPage() {
             return array
         }
 
-        let answers: IAnswer[];
         AnswerService.fetchAnswers()
-            .then(response => {
-                answers = shuffle(response.data)
+            .then(AnswersResponse => {
+                QuestionService.fetchQuestions()
+                    .then(QuestionsResponse => {
+                        setQuestions(QuestionsResponse.data?.filter(item => item.test === Number(id)).map(question => {
+                            setAnswers(prevState => prevState.set(
+                                question.id,
+                                shuffle(AnswersResponse.data)?.filter(answer => answer.question === question.id)
+                            ))
+                            return question
+                        }))
+                    })
+                    .catch(e => {
+                        console.error(e as AxiosError)
+                    })
             })
             .catch(e => {
                 console.error(e as AxiosError)
             })
-
-        QuestionService.fetchQuestions()
-            .then(response => {
-                setQuestions(response.data?.filter(item => item.test === Number(id)).map(question => {
-                    setAnswers(prevState => prevState.set(
-                        question.id,
-                        answers?.filter(answer => answer.question === question.id)
-                    ))
-                    return question
-                }))
-            })
-            .catch(e => {
-                console.error(e as AxiosError)
-            })
-    }, [id]);
+    }, [id,]);
 
     const onAnswerClickHandler = (id: number) => {
         if (!selectedAnswers.includes(id)) {
@@ -82,7 +79,13 @@ function TestPage() {
     return (
         <ModuleLayout headerTitle={`Тест ${id}`}>
             {questions.length > 0 &&
-                <div className='test-page'>
+                <motion.div
+                    className='test-page'
+                    initial={{opacity: 0}}
+                    animate={{opacity:1}}
+                    exit={{opacity:0}}
+                    transition={{duration: 0.2}}
+                >
                     <p className='test-page__counter'>{`${currentQuestion}/${questions.length}`}</p>
                     <p className='test-page__question'>{questions[currentQuestion - 1].text}</p>
                     <h3 className='test-page__select-text'>Выберите верный ответ</h3>
@@ -93,8 +96,9 @@ function TestPage() {
                                            clickHandler={() => onAnswerClickHandler(answer.id)}/>
                         })}
                     </ul>
-                    <button className='test-page__answer-btn answer-btn' onClick={() => onSubmitHandler()}>Ответить</button>
-                </div>
+                    <button className='test-page__answer-btn answer-btn' onClick={() => onSubmitHandler()}>Ответить
+                    </button>
+                </motion.div>
             }
         </ModuleLayout>
     );

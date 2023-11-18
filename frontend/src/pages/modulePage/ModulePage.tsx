@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import "./modulePage.css"
 import Lessons from "../../components/modulePage/lessons/Lessons";
 import Tests from "../../components/modulePage/tests/Tests";
@@ -26,15 +26,20 @@ function ModulePage() {
     const location = useLocation()
     const navigate = useNavigate()
     const currentState = location.pathname.split('/')[5] === 'tests' ? States.tests : States.lessons;
+    const [stateChanged, setStateChanged] = useState(false);
 
     useEffect(() => {
-        const checkPath = () => {
-            if (!['tests', 'lessons'].includes(location.pathname.split('/')[5])) {
-                navigate(`/course/${courseID}/module/${id}/lessons`, {replace: true})
-            }
+        if (!['tests', 'lessons'].includes(location.pathname.split('/')[5])) {
+            navigate(`/course/${courseID}/module/${id}/lessons`, {replace: true})
         }
-        checkPath()
     }, [courseID, id, location.pathname, navigate]);
+
+    const sliderButtonClickHandler = (state: States) => {
+        setStateChanged(currentState !== state)
+        navigate(`/course/${courseID}/module/${id}/${state === States.tests ? 'tests' : 'lessons'}`, {
+            replace: true,
+        })
+    }
 
     return (
         <ModuleLayout headerTitle={`Модуль ${id}`}>
@@ -42,26 +47,30 @@ function ModulePage() {
                 <div className={"module-page__change-btn change-btn"}>
                     <motion.div
                         className="change-btn__slider"
-                        initial={currentState === States.lessons ? "right" : "left"}
-                        animate={currentState === States.lessons ? "left" : "right"}
+                        initial={currentState === States.lessons ? "left" : "right"}
+                        animate={stateChanged && currentState === States.lessons ? "right" : stateChanged ? "left" : ""}
                         variants={sliderButtonVariants}
                         transition={{duration: 0.2, ease: "easeIn"}}
                     />
-                    <Link to={`/course/${courseID}/module/${id}/lessons`}
-                          className={`change-btn__lessons ${currentState === States.lessons ? 'change-btn_active' : ''}`}>
+                    <button
+                        className={`change-btn__lessons ${currentState === States.lessons ? 'change-btn_active' : ''}`}
+                        onClick={() => sliderButtonClickHandler(States.lessons)}
+                    >
                         Конспекты
-                    </Link>
-                    <Link to={`/course/${courseID}/module/${id}/tests`}
-                          className={`change-btn__tests ${currentState === States.tests ? 'change-btn_active' : ''}`}>
+                    </button>
+                    <button
+                        className={`change-btn__tests ${currentState === States.tests ? 'change-btn_active' : ''}`}
+                        onClick={() => sliderButtonClickHandler(States.tests)}
+                    >
                         Тесты
-                    </Link>
+                    </button>
                 </div>
                 <motion.div
                     className="module__content"
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}
-                    transition={{duration: 0.1}}
+                    transition={{duration: 0.3}}
                 >
                     {currentState === States.lessons && <Lessons moduleID={Number(id)}/>}
                     {currentState === States.tests && <Tests moduleID={Number(id)}/>}

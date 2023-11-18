@@ -29,9 +29,12 @@
   line-height: normal;
   text-align: center;
   text-decoration: none;
+  background: none;
+  text-transform: none;
 }
 .change-btn__lessons:hover, .change-btn__tests:hover {
   opacity: 0.6;
+  background: none;
 }
 .change-btn_active {
   color: var(--White);
