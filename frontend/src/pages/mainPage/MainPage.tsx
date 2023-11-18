@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import './mainPage.css'
-import Course from "../../components/course/Course";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useActions} from "../../hooks/useActions";
 import MainLayout from "../../components/layouts/mainLayout/MainLayout";
+import CoursesList from "../../components/courses/CoursesList";
 
 function MainPage() {
     const {isAuth} = useTypedSelector(state => state.auth)
@@ -14,7 +14,7 @@ function MainPage() {
         if (isAuth && courses.length === 0) {
             fetchCourses()
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line
     }, [isAuth, courses.length]);
 
     return (
@@ -24,14 +24,7 @@ function MainPage() {
                     <h1 className='greeting__heading'>Hello, bro</h1>
                     <span className='what-to-learn'>What do you want to learn?</span>
                 </div>
-                <ul className='courses'>
-                    {courses.map(course => {
-                        return (
-                            <Course course_name={course.course_name} about_course={course.about_course}
-                                    id={course.id} users={course.users} key={course.id}/>
-                        )
-                    })}
-                </ul>
+                <CoursesList courses={courses}/>
             </div>
         </MainLayout>
     );

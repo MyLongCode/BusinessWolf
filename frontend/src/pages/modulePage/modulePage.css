@@ -1,47 +1,10 @@
-.change-btn {
-  border: 3px solid var(--Main);
-  border-radius: 18px;
-  width: max-content;
-  padding: 8px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  position: relative;
-  margin-bottom: 48px;
-}
-.change-btn__slider {
-  background-color: var(--Main);
-  color: var(--White);
-  position: absolute;
-  border-radius: 13px;
-  align-self: center;
-  width: 50%;
-  height: 90%;
-  z-index: -1;
-}
-.change-btn__lessons, .change-btn__tests {
-  color: var(--Gray89);
-  display: inline-block;
-  border-radius: 10px;
-  padding: 12px 60px;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: normal;
-  text-align: center;
-  text-decoration: none;
-  background: none;
-  text-transform: none;
-}
-.change-btn__lessons:hover, .change-btn__tests:hover {
-  opacity: 0.6;
-  background: none;
-}
-.change-btn_active {
-  color: var(--White);
-}
-
 .module-page {
   margin: 0 10%;
+}
+.module-page__content .lessons, .module-page__content .tests {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  gap: 40px;
 }
 
 /*# sourceMappingURL=modulePage.css.map */

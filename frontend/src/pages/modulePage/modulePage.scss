@@ -1,5 +1,11 @@
-@import "change-btn";
-
 .module-page {
   margin: 0 10%;
+
+  &__content {
+    .lessons, .tests {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+      gap: 40px;
+    }
+  }
 }

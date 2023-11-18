@@ -5,7 +5,7 @@ import {Link, useParams} from 'react-router-dom';
 import ModuleLayout from "../../components/layouts/moduleLayout/ModuleLayout";
 
 function TestResultPage() {
-    const {courseID, moduleID, id} = useParams<{courseID: string, moduleID: string, id: string}>()
+    const {courseID, moduleID, id} = useParams<{ courseID: string, moduleID: string, id: string }>()
 
     return (
         <ModuleLayout headerTitle={`Результат теста ${id}`}>
@@ -13,7 +13,9 @@ function TestResultPage() {
                 <h3 className='test-result-page__heading'>Давайте проверим ваши ответы</h3>
                 <ul className='test-result-page__questions'>
                     <QuestionResult question_id={0}
-                                    question_explanation={'Объяснения ответа и почему он верный и тд .... ake new friends, plan a family dinner, go shopping and much more!мLearn the basics of the langLearn the basics of the language'}
+                                    question_explanation={`Объяснения ответа и почему он верный и тд ....
+                                     ake new friends, plan a family dinner, go shopping and much more!
+                                     мLearn the basics of the langLearn the basics of the language`}
                                     answers={[]} is_correct={true}/>
                 </ul>
                 {/*<button className="test-result-page__btn">Завершить</button>*/}

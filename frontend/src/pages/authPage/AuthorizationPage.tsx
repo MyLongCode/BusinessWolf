@@ -16,7 +16,6 @@ function AuthorizationPage() {
 
     useEffect(() => {
         if (isAuth) {
-            console.log(location.state?.from)
             navigate(location.state?.from?.pathname || '/main')
         }
         // eslint-disable-next-line

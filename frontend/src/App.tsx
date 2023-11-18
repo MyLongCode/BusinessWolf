@@ -25,7 +25,7 @@ function App() {
         if (location.pathname !== '/authorization' && location.pathname !== '/') {
             checkAuth()
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {

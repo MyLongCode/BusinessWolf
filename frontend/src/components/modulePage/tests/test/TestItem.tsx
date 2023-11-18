@@ -5,14 +5,14 @@ import {Link, useLocation} from "react-router-dom";
 
 interface ITestProps {
     test: ITest,
-    lesson_names: string[]
+    lessonNames: string[]
 }
 
-function Test(props: ITestProps) {
+function TestItem({test, lessonNames}: ITestProps) {
     const location = useLocation()
 
     let lesson_name = ''
-    for (const name of props.lesson_names) {
+    for (const name of lessonNames) {
         if (name !== '') {
             lesson_name = name;
             break
@@ -20,12 +20,12 @@ function Test(props: ITestProps) {
     }
 
     return (
-        <Link to={`${location.pathname}/${props.test.id}`} className='test-link'>
+        <Link to={`${location.pathname}/${test.id}`} className='test-link'>
             {
                 lesson_name &&
                 <li className='tests__test test'>
-                    <h3 className='test__title'>{`Тест ${props.test.id} (${lesson_name})`}</h3>
-                    <p className='test__desc'>{props.test.text}</p>
+                    <h3 className='test__title'>{`Тест ${test.id} (${lesson_name})`}</h3>
+                    <p className='test__desc'>{test.text}</p>
                     <p className='test__time'>30 мин</p>
                 </li>
             }
@@ -33,4 +33,4 @@ function Test(props: ITestProps) {
     );
 }
 
-export default Test;
+export default TestItem;

@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
 import {AxiosError} from "axios";
-import {TestsAction, TestsActionTypes, TestState} from "../types/tests";
+import {TestsAction, TestsActionTypes} from "../types/tests";
 import TestService from "../../services/TestService";
 import {RootState} from "../reducers";
 

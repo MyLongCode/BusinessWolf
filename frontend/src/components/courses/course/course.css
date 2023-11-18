@@ -1,5 +1,5 @@
 .course {
-  background: var(--Main) url("../../assets/images/Course_bg.png") no-repeat;
+  background: var(--Main) url("../../../assets/images/Course_bg.png") no-repeat;
   background-size: 125% 160%;
   background-position: 35% 45%;
   overflow: hidden;
@@ -15,7 +15,7 @@
 .course__content {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 75%;
 }
 .course__continue-btn {
   background-color: var(--White);

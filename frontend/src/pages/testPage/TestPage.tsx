@@ -1,15 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useLocation, useNavigate, useParams} from "react-router-dom";
 import './testPage.css';
 import Answer from "../../components/answer/Answer";
 import {useActions} from "../../hooks/useActions";
-import QuestionService from "../../services/QuestionService";
-import IQuestion from "../../models/IQuestion";
-import {AxiosError} from "axios";
-import IAnswer from "../../models/IAnswer";
-import AnswerService from "../../services/AnswerService";
 import ModuleLayout from "../../components/layouts/moduleLayout/ModuleLayout";
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
+import useQuestions from "../../hooks/useQuestions";
 
 type TestParams = {
     id: string
@@ -17,45 +13,12 @@ type TestParams = {
 
 function TestPage() {
     const {id} = useParams<TestParams>()
-    const [questions, setQuestions] = useState<IQuestion[]>([]);
-    const [answers, setAnswers] = useState<Map<number, IAnswer[]>>(new Map());
+    const {answers, questions} = useQuestions(Number(id))
     const [selectedAnswers, setSelectedAnswers] = useState<number[]>([])
     const {addQuestion, pushTest} = useActions()
     const [currentQuestion, setCurrentQuestion] = useState(1);
     const navigate = useNavigate()
     const location = useLocation()
-
-    useEffect(() => {
-        const shuffle = (array: any[]) => {
-            for (let i = array.length - 1; i > 0; i--) {
-                let j = Math.floor(Math.random() * (i + 1));
-                let temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-            return array
-        }
-
-        AnswerService.fetchAnswers()
-            .then(AnswersResponse => {
-                QuestionService.fetchQuestions()
-                    .then(QuestionsResponse => {
-                        setQuestions(QuestionsResponse.data?.filter(item => item.test === Number(id)).map(question => {
-                            setAnswers(prevState => prevState.set(
-                                question.id,
-                                shuffle(AnswersResponse.data)?.filter(answer => answer.question === question.id)
-                            ))
-                            return question
-                        }))
-                    })
-                    .catch(e => {
-                        console.error(e as AxiosError)
-                    })
-            })
-            .catch(e => {
-                console.error(e as AxiosError)
-            })
-    }, [id,]);
 
     const onAnswerClickHandler = (id: number) => {
         if (!selectedAnswers.includes(id)) {
