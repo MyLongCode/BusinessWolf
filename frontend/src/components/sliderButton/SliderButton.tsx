@@ -25,7 +25,7 @@ function SliderButton({className, initialState, currentState, buttonClickHandler
             />
             <button
                 className={
-                    `slider-btn__lessons ${
+                    `slider-btn__lessons btn ${
                         currentState === "left" || initialState === "left" ? 'slider-btn_active' : ''}`}
                 onClick={() => buttonClickHandler("left")}
             >
@@ -33,7 +33,7 @@ function SliderButton({className, initialState, currentState, buttonClickHandler
             </button>
             <button
                 className={
-                    `slider-btn__tests ${
+                    `slider-btn__tests btn ${
                         currentState === "right" || initialState === "right" ? 'slider-btn_active' : ''}`}
                 onClick={() => buttonClickHandler("right")}
             >
@@ -43,4 +43,4 @@ function SliderButton({className, initialState, currentState, buttonClickHandler
     );
 }
 
-export default SliderButton;
+export default React.memo(SliderButton);

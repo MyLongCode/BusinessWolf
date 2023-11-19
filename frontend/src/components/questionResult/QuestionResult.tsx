@@ -21,4 +21,4 @@ function QuestionResult(props: IResultProps) {
     );
 }
 
-export default QuestionResult;
+export default React.memo(QuestionResult);

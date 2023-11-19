@@ -14,11 +14,11 @@ function CourseItem({course}: {course: ICourse }) {
             <div className='course__content'>
                 <h2 className='course__title'>{course.course_name}</h2>
                 <p className='course__description'>{course.about_course}</p>
-                <Link to={'/course/' + course.id} className='course__continue-btn'>Продолжить</Link>
+                <Link to={'/course/' + course.id} className='course__continue-btn btn'>Продолжить</Link>
             </div>
             <img src={images[course.id % images.length]} alt="Волк" className='course__img'/>
         </li>
     );
 }
 
-export default CourseItem;
+export default React.memo(CourseItem);

@@ -66,7 +66,7 @@ function LessonPage() {
                 transition={{duration: 0.2}}
             >
                 <LessonChat messages={messages}/>
-                <button className="lesson-page__btn">Прочитано</button>
+                <button className="lesson-page__btn btn">Прочитано</button>
             </motion.div>
         </ModuleLayout>
     );

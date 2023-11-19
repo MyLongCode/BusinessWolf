@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import logo from '../../../assets/images/Logo.svg'
-import token from '../../../assets/images/Token_wolf.svg'
 import avatar from '../../../assets/images/Avatar.jpg'
 import './mainHeader.css'
 import {Link} from "react-router-dom";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import Coins from "../../coins/Coins";
 
 function MainHeader() {
     const [coins, setCoins] = useState(0)
@@ -23,10 +23,7 @@ function MainHeader() {
                     <img src={logo} alt="Логотип" className="logo__img"/>
                     <p className="logo__text">Бизнес<br/>волчонок</p>
                 </Link>
-                <div className='header__token token'>
-                    <img src={token} alt="Монеты" className='token__img'/>
-                    <p className='token__count'>{coins}</p>
-                </div>
+                <Coins coins={coins}/>
                 <Link to={'/profile'} className='header__user-avatar user-avatar'>
                     <img src={avatar} alt="Аватар пользователя" className='user-avatar__img'/>
                 </Link>
@@ -35,4 +32,4 @@ function MainHeader() {
     );
 }
 
-export default MainHeader;
+export default React.memo(MainHeader);

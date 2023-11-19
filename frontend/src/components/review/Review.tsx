@@ -21,4 +21,4 @@ function Review(props: ReviewProps) {
     );
 }
 
-export default Review;
+export default React.memo(Review);

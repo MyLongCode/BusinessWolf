@@ -18,7 +18,7 @@ function ProfilePage() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (user) {
+        if (user && isAuth) {
             setFullName(user.full_name);
             setPhone(user.phone);
             setEmail(user.email);

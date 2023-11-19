@@ -49,6 +49,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 36px;
+  width: 100%;
 }
 .auth__form {
   width: 100%;

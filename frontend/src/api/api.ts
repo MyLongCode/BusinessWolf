@@ -17,7 +17,7 @@ api.interceptors.response.use((config) => {
     return config;
 }, async (error) => {
     const originalRequest = error.config;
-    if (error.config.url !== '/auth/token/refresh/' && error.response.status === 401) {
+    if (error.config.url !== '/auth/coins/refresh/' && error.response.status === 401) {
         const response = await api.post<IAuthResponse>('/auth/token/refresh/', {
             refresh: localStorage.getItem('refresh_token')
         })

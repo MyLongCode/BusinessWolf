@@ -6,6 +6,7 @@ import {Link, useNavigate} from "react-router-dom";
 
 function StartPage() {
     const navigate = useNavigate()
+
     useEffect(() => {
         if (localStorage.getItem('token')) {
             navigate('/main')
@@ -23,7 +24,7 @@ function StartPage() {
             <div className="start__container-left">
                 <h1 className="start__title">Добро пожаловать</h1>
                 <p className="start__text">нажмите начать, чтобы погрузиться <br/> в новый мир</p>
-                <Link to='/authorization' className="start__link">Начать</Link>
+                <Link to='/authorization' className="start__link btn">Начать</Link>
             </div>
             <img src={wolf_festive} alt="Волчонок" width="3000" height="3500" className="start__img"/>
         </motion.div>

@@ -33,4 +33,4 @@ function TestItem({test, lessonNames}: ITestProps) {
     );
 }
 
-export default TestItem;
+export default React.memo(TestItem);

@@ -22,4 +22,4 @@ function ModuleItem({module, completeLessons, totalLessons}: ModuleProps) {
     );
 }
 
-export default ModuleItem;
+export default React.memo(ModuleItem);

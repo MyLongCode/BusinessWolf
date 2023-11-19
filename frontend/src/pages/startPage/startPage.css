@@ -20,17 +20,7 @@
     white-space: nowrap;
   }
   .start__link {
-    border-radius: 16px;
-    color: var(--White);
-    line-height: 200%;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 100%;
-    border: none;
-    background-color: var(--Main);
-    cursor: pointer;
-    padding: 20px 114px;
-    text-decoration: none;
+    width: 60%;
   }
   .start__img {
     width: 662px;
@@ -54,19 +44,6 @@
     font-size: 32px;
     margin-bottom: 20px;
     white-space: nowrap;
-  }
-  .start__link {
-    border-radius: 16px;
-    color: var(--White);
-    line-height: 200%;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 100%;
-    border: none;
-    background-color: var(--Main);
-    cursor: pointer;
-    padding: 24px 85px;
-    text-decoration: none;
   }
   .start__img {
     width: 300px;

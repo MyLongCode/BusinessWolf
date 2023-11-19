@@ -59,7 +59,7 @@ function TestPage() {
                                            clickHandler={() => onAnswerClickHandler(answer.id)}/>
                         })}
                     </ul>
-                    <button className='test-page__answer-btn answer-btn' onClick={() => onSubmitHandler()}>Ответить
+                    <button disabled={selectedAnswers.length === 0} className='test-page__answer-btn btn' onClick={() => onSubmitHandler()}>Ответить
                     </button>
                 </motion.div>
             }

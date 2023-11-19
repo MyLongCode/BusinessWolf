@@ -4,15 +4,12 @@ import eyeSlash from "../../assets/images/Eye-slash.svg";
 import {useForm} from "react-hook-form";
 import IAuthInputs from "../../models/IAuthInputs";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {useLocation} from "react-router-dom";
 
 interface IAuthForm {
     onSubmit: any,
-
 }
 
 function AuthForm({onSubmit}: IAuthForm) {
-    const location = useLocation()
     const [errorMessage, setErrorMessage] = useState('')
     const [passwordShown, setPasswordShown] = useState(false)
     const {error: submitError} = useTypedSelector(state => state.auth)
@@ -86,7 +83,7 @@ function AuthForm({onSubmit}: IAuthForm) {
                 {errorMessage && <div className="auth__error">
                     <p className="error-text">{errorMessage}</p>
                 </div>}
-                <button disabled={!isValid} className='auth__submit-btn' type="submit">Начать</button>
+                <button disabled={!isValid} className='auth__submit-btn btn' type="submit">Начать</button>
             </form>
             <p className="restore-password">
                 Забыли пароль? <a rel="noreferrer" href="https://telegram.org" target="_blank">Напишите боту</a>

@@ -16,4 +16,4 @@ function LessonMessage({message}: {message: IMessage}) {
     );
 }
 
-export default LessonMessage;
+export default React.memo(LessonMessage);

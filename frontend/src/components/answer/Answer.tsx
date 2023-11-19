@@ -15,4 +15,4 @@ function Answer({answer, isSelected, clickHandler}: { answer: IAnswer, isSelecte
     );
 }
 
-export default Answer;
+export default React.memo(Answer);

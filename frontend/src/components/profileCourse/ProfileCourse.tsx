@@ -23,4 +23,4 @@ function ProfileCourse() {
     );
 }
 
-export default ProfileCourse;
+export default React.memo(ProfileCourse);

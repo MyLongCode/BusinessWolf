@@ -36,4 +36,4 @@ function ModuleHeader(props: ModuleHeaderProps) {
     );
 }
 
-export default ModuleHeader;
+export default React.memo(ModuleHeader);

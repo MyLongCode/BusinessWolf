@@ -1,6 +1,9 @@
 .test-page {
   margin: 0 10%;
 }
+.test-page__answer-btn {
+  width: 100%;
+}
 .test-page__counter {
   background-color: var(--Main);
   width: max-content;

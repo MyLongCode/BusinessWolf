@@ -24,18 +24,20 @@ body {
   min-width: 720px;
 }
 
-button {
+.btn {
   border-radius: 16px;
   color: var(--White);
   line-height: 200%;
   font-weight: bold;
   text-transform: uppercase;
   padding: 12px 0;
-  width: 100%;
   border: none;
   background-color: var(--Main);
   cursor: pointer;
+  text-decoration: none;
   transition-duration: 0.2s;
+  display: block;
+  text-align: center;
 
   &:hover {
     background-color: var(--DarkMain);
@@ -44,6 +46,10 @@ button {
   &:disabled {
     background-color: var(--GrayA);
     cursor: default;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 

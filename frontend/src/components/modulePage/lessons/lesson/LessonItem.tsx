@@ -17,4 +17,4 @@ function LessonItem({lesson}: {lesson: ILesson}) {
     );
 }
 
-export default LessonItem;
+export default React.memo(LessonItem);
