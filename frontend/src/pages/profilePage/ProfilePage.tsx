@@ -28,7 +28,7 @@ function ProfilePage() {
     }, [isAuth, user]);
 
     return (
-        <MainLayout>
+        <MainLayout pageTitle={'Профиль'}>
             <div className="profile">
                 <Link to='' onClick={() => navigate(-1)} className='profile__back'>
                     <span className='profile__back-arrow arrow'/>

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import './lessonPage.css'
 import IMessage from "../../models/IMessage";
 import ModuleLayout from "../../components/layouts/moduleLayout/ModuleLayout";
@@ -7,12 +7,15 @@ import {motion} from 'framer-motion';
 import LessonChat from "../../components/lessonChat/LessonChat";
 
 type LessonPageParams = {
-    id: string
+    id: string,
+    moduleID: string,
+    courseID: string
 }
 
 function LessonPage() {
-    const {id} = useParams<LessonPageParams>()
+    const {id, moduleID, courseID} = useParams<LessonPageParams>()
     const [messages, setMessages] = useState<IMessage[]>([]);
+    const navigate = useNavigate()
 
     useEffect(() => {
         setMessages([
@@ -21,6 +24,7 @@ function LessonPage() {
                 number: 1,
                 text: 'Let’s get lunch! How about pizza? 🍕',
                 isUser: true,
+                attachmentType: '',
                 attachment: ''
             },
             {
@@ -28,6 +32,7 @@ function LessonPage() {
                 number: 2,
                 text: 'That sounds great! I’m in. What time works for you?',
                 isUser: false,
+                attachmentType: '',
                 attachment: ''
             },
             {
@@ -35,6 +40,7 @@ function LessonPage() {
                 number: 3,
                 text: 'Let’s say 12pm if it’s fine with you?',
                 isUser: true,
+                attachmentType: '',
                 attachment: ''
             },
             {
@@ -43,21 +49,34 @@ function LessonPage() {
                 text: 'Learn the basics of the language: make new friends, plan a family dinner, go shopping and much more!Learn the basics of the language: make new friends, plan a family dinner, go shopping and much more!мLearn the basics of the langLearn the basics of the language: make new friends, plan a family dinner, go shopping and much more!Learn the basics of the language: \n' +
                     'make new friends, plan a family dinner, go shopping and much more!мLearn the basics of the langLearn the basics of the language: make new friends, plan a family dinner, go shopping and much more!Learn the basics of the language: make new friends, plan a family dinner, go shopping and much more!мLearn the basics of the lang',
                 isUser: false,
+                attachmentType: '',
                 attachment: ''
             },
             {
                 id: 5,
                 number: 5,
-                text: 'Сообщение с вложением',
+                text: 'Сообщение с видео',
                 isUser: false,
-                attachment: 'a'
+                attachmentType: 'video',
+                attachment: 'https://www.youtube.com/embed/GzXELHF3BvM?si=Z7yC8QASKyfwKn53'
+            },
+            {
+                id: 6,
+                number: 6,
+                text: 'Сообщение с изображением',
+                isUser: false,
+                attachmentType: 'image',
+                attachment: 'https://imgholder.ru/1920x1080/8493a8/adb9ca.jpg&text=IMAGE&font=matias'
             }
         ])
     }, []);
 
+    const buttonClickHandler = () => {
+        navigate(`/course/${courseID}/module/${moduleID}/lessons`)
+    }
 
     return (
-        <ModuleLayout headerTitle={`Урок ${id}`}>
+        <ModuleLayout headerTitle={`Урок ${id}`} pageTitle={`Урок ${id}`}>
             <motion.div
                 className='lesson-page'
                 initial={{opacity: 0}}
@@ -66,7 +85,7 @@ function LessonPage() {
                 transition={{duration: 0.2}}
             >
                 <LessonChat messages={messages}/>
-                <button className="lesson-page__btn btn">Прочитано</button>
+                <button className="lesson-page__btn btn" onClick={() => buttonClickHandler()}>Прочитано</button>
             </motion.div>
         </ModuleLayout>
     );

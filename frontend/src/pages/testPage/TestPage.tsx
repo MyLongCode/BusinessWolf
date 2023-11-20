@@ -40,7 +40,7 @@ function TestPage() {
     }
 
     return (
-        <ModuleLayout headerTitle={`Тест ${id}`}>
+        <ModuleLayout headerTitle={`Тест ${id}`} pageTitle={`Тест ${id}`}>
             {questions.length > 0 &&
                 <motion.div
                     className='test-page'

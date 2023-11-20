@@ -3,5 +3,6 @@ export default interface IMessage {
     number: number
     text: string,
     isUser: boolean,
+    attachmentType: "image" | "video" | ""
     attachment: string
 }

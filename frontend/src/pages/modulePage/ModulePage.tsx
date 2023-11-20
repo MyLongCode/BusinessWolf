@@ -42,7 +42,7 @@ function ModulePage() {
     }
 
     return (
-        <ModuleLayout headerTitle={`Модуль ${id}`}>
+        <ModuleLayout headerTitle={`Модуль ${id}`} pageTitle={`Модуль ${id}`}>
             <div className='module-page'>
                 <SliderButton className={'module-page__slider-btn'} buttonNames={{left: "Коспекты", right: "Тесты"}}
                               initialState={initialState === States.lessons ? "left" : "right"}

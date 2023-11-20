@@ -8,7 +8,7 @@ function TestResultPage() {
     const {courseID, moduleID, id} = useParams<{ courseID: string, moduleID: string, id: string }>()
 
     return (
-        <ModuleLayout headerTitle={`Результат теста ${id}`}>
+        <ModuleLayout headerTitle={`Результат теста ${id}`} pageTitle={`Результат теста ${id}`}>
             <div className='test-result-page'>
                 <h3 className='test-result-page__heading'>Давайте проверим ваши ответы</h3>
                 <ul className='test-result-page__questions'>

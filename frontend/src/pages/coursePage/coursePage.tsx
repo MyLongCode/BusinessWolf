@@ -30,7 +30,7 @@ function CoursePage() {
     }, [isAuth, modules.length,]);
 
     return (
-        <MainLayout>
+        <MainLayout pageTitle={`Курс ${id}`}>
             <div className='course-page'>
                 <section className='course-page__modules modules'>
                     <ModulesList modules={modules.filter(module => module.course === Number(id))}/>
