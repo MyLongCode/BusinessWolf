@@ -3,34 +3,7 @@
 .profile {
   margin: 0 10%;
 
-  &__back-arrow {
-    rotate: 90deg;
-  }
-
-  &__back {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: var(--Black);
-    font-size: 24px;
-    font-weight: 600;
-    line-height: normal;
-    transition-duration: 300ms;
-    gap: 5px;
-    width: fit-content;
-    cursor: pointer;
-    &:hover {
-      gap: 16px;
-    }
-
-    &:active {
-      transition-duration: 1s;
-      opacity: 0;
-    }
-  }
-
   .user {
-    margin-top: 48px;
     display: flex;
     gap: 32px;
 

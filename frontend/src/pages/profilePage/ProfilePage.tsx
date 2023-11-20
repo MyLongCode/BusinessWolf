@@ -1,39 +1,19 @@
 import './profilePage.css'
 import avatar from '../../assets/images/Avatar.jpg'
-import React, {useEffect, useState} from 'react';
-import {Link, useNavigate} from "react-router-dom";
+import React from 'react';
 import ProfileDataForm from "../../components/profileForm/ProfileDataForm";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
 import ProfileCourse from "../../components/profileCourse/ProfileCourse";
 import MainLayout from "../../components/layouts/mainLayout/MainLayout";
+import ReturnButton from "../../components/returnButton/ReturnButton";
+import useUserData from "../../hooks/useUserData";
 
 function ProfilePage() {
-    const [fullName, setFullName] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
-    const [address, setAddress] = useState('')
-    const [grade, setGrade] = useState('')
-    const {user, isAuth} = useTypedSelector(state => state.auth)
-
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        if (user && isAuth) {
-            setFullName(user.full_name);
-            setPhone(user.phone);
-            setEmail(user.email);
-            setAddress(user.address);
-            setGrade(user.education_class);
-        }
-    }, [isAuth, user]);
+    const {address, grade, email, fullName, phone} = useUserData()
 
     return (
         <MainLayout pageTitle={'Профиль'}>
             <div className="profile">
-                <Link to='' onClick={() => navigate(-1)} className='profile__back'>
-                    <span className='profile__back-arrow arrow'/>
-                    <p className='profile__back-text'>Вернуться</p>
-                </Link>
+                <ReturnButton text={'Вернуться'}/>
                 <section className='profile__user user'>
                     <img src={avatar} alt="Аватар пользователя" className='user__avatar user-avatar'/>
                     <div className='user__info info'>

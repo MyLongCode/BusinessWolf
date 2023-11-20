@@ -12,63 +12,65 @@ type LessonPageParams = {
     courseID: string
 }
 
+const messagesData: IMessage[] = [
+    {
+        id: 1,
+        number: 1,
+        text: 'Let’s get lunch! How about pizza? 🍕',
+        isUser: true,
+        attachmentType: '',
+        attachment: ''
+    },
+    {
+        id: 2,
+        number: 2,
+        text: 'That sounds great! I’m in. What time works for you?',
+        isUser: false,
+        attachmentType: '',
+        attachment: ''
+    },
+    {
+        id: 3,
+        number: 3,
+        text: 'Let’s say 12pm if it’s fine with you?',
+        isUser: true,
+        attachmentType: '',
+        attachment: ''
+    },
+    {
+        id: 4,
+        number: 4,
+        text: 'Learn the basics of the language: make new friends, plan a family dinner, go shopping and much more!Learn the basics of the language: make new friends, plan a family dinner, go shopping and much more!мLearn the basics of the langLearn the basics of the language: make new friends, plan a family dinner, go shopping and much more!Learn the basics of the language: \n' +
+            'make new friends, plan a family dinner, go shopping and much more!мLearn the basics of the langLearn the basics of the language: make new friends, plan a family dinner, go shopping and much more!Learn the basics of the language: make new friends, plan a family dinner, go shopping and much more!мLearn the basics of the lang',
+        isUser: false,
+        attachmentType: '',
+        attachment: ''
+    },
+    {
+        id: 5,
+        number: 5,
+        text: 'Сообщение с видео',
+        isUser: false,
+        attachmentType: 'video',
+        attachment: 'https://www.youtube.com/embed/GzXELHF3BvM?si=Z7yC8QASKyfwKn53'
+    },
+    {
+        id: 6,
+        number: 6,
+        text: 'Сообщение с изображением',
+        isUser: false,
+        attachmentType: 'image',
+        attachment: 'https://imgholder.ru/1920x1080/8493a8/adb9ca.jpg&text=IMAGE&font=matias'
+    }
+]
+
 function LessonPage() {
     const {id, moduleID, courseID} = useParams<LessonPageParams>()
     const [messages, setMessages] = useState<IMessage[]>([]);
     const navigate = useNavigate()
 
     useEffect(() => {
-        setMessages([
-            {
-                id: 1,
-                number: 1,
-                text: 'Let’s get lunch! How about pizza? 🍕',
-                isUser: true,
-                attachmentType: '',
-                attachment: ''
-            },
-            {
-                id: 2,
-                number: 2,
-                text: 'That sounds great! I’m in. What time works for you?',
-                isUser: false,
-                attachmentType: '',
-                attachment: ''
-            },
-            {
-                id: 3,
-                number: 3,
-                text: 'Let’s say 12pm if it’s fine with you?',
-                isUser: true,
-                attachmentType: '',
-                attachment: ''
-            },
-            {
-                id: 4,
-                number: 4,
-                text: 'Learn the basics of the language: make new friends, plan a family dinner, go shopping and much more!Learn the basics of the language: make new friends, plan a family dinner, go shopping and much more!мLearn the basics of the langLearn the basics of the language: make new friends, plan a family dinner, go shopping and much more!Learn the basics of the language: \n' +
-                    'make new friends, plan a family dinner, go shopping and much more!мLearn the basics of the langLearn the basics of the language: make new friends, plan a family dinner, go shopping and much more!Learn the basics of the language: make new friends, plan a family dinner, go shopping and much more!мLearn the basics of the lang',
-                isUser: false,
-                attachmentType: '',
-                attachment: ''
-            },
-            {
-                id: 5,
-                number: 5,
-                text: 'Сообщение с видео',
-                isUser: false,
-                attachmentType: 'video',
-                attachment: 'https://www.youtube.com/embed/GzXELHF3BvM?si=Z7yC8QASKyfwKn53'
-            },
-            {
-                id: 6,
-                number: 6,
-                text: 'Сообщение с изображением',
-                isUser: false,
-                attachmentType: 'image',
-                attachment: 'https://imgholder.ru/1920x1080/8493a8/adb9ca.jpg&text=IMAGE&font=matias'
-            }
-        ])
+        setMessages(messagesData)
     }, []);
 
     const buttonClickHandler = () => {

@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import logo from '../../../assets/images/Logo.svg'
-import avatar from '../../../assets/images/Avatar.jpg'
 import './moduleHeader.css'
-import {Link} from "react-router-dom";
+import Logo from "../../logo/Logo";
+import ProfileMenu from "../../profileMenu/ProfileMenu";
 
 interface ModuleHeaderProps {
     title: string
@@ -13,19 +12,13 @@ function ModuleHeader(props: ModuleHeaderProps) {
 
     useEffect(() => {
         setTitle(props.title)
-        // eslint-disable-next-line
-    }, []);
+    }, [props.title]);
 
     return (
         <header className='module-header header'>
             <div className="header__wrapper">
-                <Link to={'/main'} className='header__logo logo'>
-                    <img src={logo} alt="Логотип" className="logo__img"/>
-                    <p className="logo__text">Бизнес<br/>волчонок</p>
-                </Link>
-                <Link to={'/profile'} className='header__user-avatar user-avatar'>
-                    <img src={avatar} alt="Аватар пользователя" className='user-avatar__img'/>
-                </Link>
+                <Logo/>
+                <ProfileMenu/>
             </div>
             <div className="header__module hm">
                 <h2 className='hm__name'>{title}</h2>

@@ -2,14 +2,13 @@
   margin-bottom: 10px;
   min-width: 260px;
   border: solid 1px var(--Black);
-  padding: 18px 16px;
+  padding: 14px 16px;
   border-radius: 20px;
   min-height: 165px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
-  &__reviewer {
+  &__author {
     display: flex;
     align-items: center;
     gap: 12px;

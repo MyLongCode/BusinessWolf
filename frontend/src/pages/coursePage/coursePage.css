@@ -27,12 +27,5 @@
   font-weight: 400;
   line-height: 160%;
 }
-.course-page .reviews__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
 
 /*# sourceMappingURL=coursePage.css.map */
