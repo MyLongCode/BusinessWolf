@@ -16,3 +16,6 @@ class IsStaffOrPostOnly(permissions.BasePermission):
             return True
 
         return obj.is_superuser
+
+
+

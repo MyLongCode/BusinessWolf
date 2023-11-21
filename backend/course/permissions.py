@@ -35,3 +35,12 @@ class LessonsPermission(permissions.BasePermission):
                         course_id__in=Courses.objects.filter(
                             id__in=UserCourse.objects.filter(user_id=request.user.id)
                             .values_list("course_id", flat=True))).values_list("id", flat=True))
+
+
+class CompletedTestsPermission(permissions.BasePermission):
+    def has_object_permission(self, request, view, obj):
+        if request.user.is_superuser:
+            return True
+        return (request.method in permissions.SAFE_METHODS
+                and obj.user_id == request.user.id)
+
