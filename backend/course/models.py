@@ -43,7 +43,7 @@ class Lessons(models.Model):
 
 class Test(models.Model):
     text = models.CharField(max_length=500)
-    lesson = models.ForeignKey(Lessons, on_delete=models.CASCADE)
+    module = models.ForeignKey(Modules, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'test'
@@ -95,7 +95,7 @@ class CompletedQuestions(models.Model):
 
     class Meta:
         db_table = 'completed_questions'
-        verbose_name_plural = 'user completed questions'
+        verbose_name_plural = 'completed questions'
 
 
 class SelectedAnswers(models.Model):

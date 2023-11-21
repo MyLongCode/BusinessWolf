@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 from rest_framework.generics import get_object_or_404
 
-from .permissions import CoursePermission, UserCoursePermission, ModulesPermission, LessonsPermission
+from .permissions import *
 from .serializers import *
 
 
@@ -109,6 +109,14 @@ class TestAPICreateView(generics.ListAPIView):
     queryset = Test.objects.all()
     serializer_class = TestSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return Test.objects.all()
+        user = self.request.user
+        return Test.objects.filter(module_id__in=Modules.objects.filter(course_id__in=Courses.objects.filter(
+            id__in=UserCourse.objects.filter(user_id=user.id).values_list("course_id", flat=True))).values_list("id",
+                                                                                                                flat=True))
 
 
 class AdminCoursesAPICreateView(generics.ListCreateAPIView):
@@ -225,13 +233,18 @@ class SelectedAnswersAPICreateView(generics.CreateAPIView, GetAfterCreateMixin):
 class CompletedTestsAPIDetail(generics.RetrieveAPIView):
     queryset = CompletedTests.objects.all()
     serializer_class = CompletedTestsSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated, CompletedTestsPermission]
 
 
-class CompletedTestsAPICreateView(generics.CreateAPIView, GetAfterCreateMixin):
+class CompletedTestsAPICreateView(generics.ListCreateAPIView, GetAfterCreateMixin):
     queryset = CompletedTests.objects.all()
     serializer_class = CompletedTestsSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return CompletedTests.objects.all()
+        return CompletedTests.objects.filter(user_id=self.request.user.id)
 
 
 class CompletedQuestionsAPIDetail(generics.RetrieveAPIView):
