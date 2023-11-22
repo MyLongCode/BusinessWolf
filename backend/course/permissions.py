@@ -23,7 +23,7 @@ class ModulesPermission(permissions.BasePermission):
             return True
         return (request.method in permissions.SAFE_METHODS and obj.id in
                 Modules.objects.filter(course_id__in=Courses.objects.filter(
-                    id__in=UserCourse.objects.filter(user_id=request.user.id).values_list("course_id", flat=True))))
+                    course_id__in=UserCourse.objects.filter(user_id=request.user.id).values_list("course_id", flat=True))))
 
 
 class LessonsPermission(permissions.BasePermission):
@@ -33,7 +33,7 @@ class LessonsPermission(permissions.BasePermission):
         return (request.method in permissions.SAFE_METHODS
                 and obj.module_id in Modules.objects.filter(
                         course_id__in=Courses.objects.filter(
-                            id__in=UserCourse.objects.filter(user_id=request.user.id)
+                            course_id__in=UserCourse.objects.filter(user_id=request.user.id)
                             .values_list("course_id", flat=True))).values_list("id", flat=True))
 
 

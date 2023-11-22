@@ -1,3 +1,4 @@
+from drf_writable_nested import WritableNestedModelSerializer
 from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -162,12 +163,56 @@ class CompletedQuestionCheckSerializer(serializers.ModelSerializer):
         permission_classes = (IsAuthenticated,)
 
     def update(self, instance, validated_data):
-        selected_answers = SelectedAnswers.objects.filter(completed_question=self.data['id'])
-        answers = Answers.objects.filter(id__in=selected_answers.values_list('answer_id', flat=True))
+        selected_answers = SelectedAnswers.objects.filter(completed_question=self.data['question_id'])
+        answers = Answers.objects.filter(answer_id__in=selected_answers.values_list('answer_id', flat=True))
         answers_question_right = Answers.objects.filter(question_id=self.data['question']).filter(is_right=True)
-        if sorted(answers.values_list('id', flat=True)) == sorted(answers_question_right.values_list('id', flat=True)):
+        if sorted(answers.values_list('answer_id', flat=True)) == sorted(answers_question_right.values_list('answer_id', flat=True)):
             instance.is_right = True
         else:
             instance.is_right = False
         instance.save()
         return instance
+
+
+class NestedSelectedAnswersSerializer(WritableNestedModelSerializer):
+    answer = AnswersSerializer()
+
+    class Meta:
+        model = SelectedAnswers
+        fields = '__all__'
+        permission_classes = (IsAuthenticated,)
+
+
+class NestedAnswersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SelectedAnswers
+        fields = '__all__'
+        permission_classes = (IsAuthenticated,)
+
+
+class NestedQuestionSerializer(WritableNestedModelSerializer):
+    answers = AnswersSerializer(many=True)
+
+    class Meta:
+        model = Questions
+        fields = '__all__'
+        permission_classes = (IsAuthenticated,)
+
+
+class NestedCompletedQuestionsSerializer(WritableNestedModelSerializer):
+    selected_answers = NestedSelectedAnswersSerializer(many=True)
+    question = NestedQuestionSerializer()
+
+    class Meta:
+        model = CompletedQuestions
+        fields = '__all__'
+        permission_classes = (IsAuthenticated,)
+
+
+class CompletedTestSerializer(WritableNestedModelSerializer):
+    completed_questions = NestedCompletedQuestionsSerializer(many=True)
+
+    class Meta:
+        model = CompletedTests
+        fields = '__all__'
+        permission_classes = (IsAuthenticated,)
