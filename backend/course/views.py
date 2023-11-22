@@ -1,4 +1,6 @@
-from rest_framework import generics, permissions
+import json
+
+from rest_framework import generics, permissions, status
 from rest_framework.generics import get_object_or_404
 
 from .permissions import *
@@ -7,11 +9,11 @@ from .serializers import *
 
 class GetAfterCreateMixin:
     def get_object(self):
-        queryset = self.get_queryset()             # Get the base queryset
+        queryset = self.get_queryset()  # Get the base queryset
         queryset = self.filter_queryset(queryset)  # Apply any filter backends
         filter = {}
         for field in self.lookup_fields:
-            if self.kwargs.get(field): # Ignore empty fields.
+            if self.kwargs.get(field):  # Ignore empty fields.
                 filter[field] = self.kwargs[field]
         obj = get_object_or_404(queryset, **filter)  # Lookup the object
         self.check_object_permissions(self.request, obj)
@@ -27,7 +29,7 @@ class CoursesAPICreateView(generics.ListAPIView):
             return Courses.objects.all()
         user = self.request.user
         return Courses.objects.filter(
-            id__in=UserCourse.objects.filter(user_id=user.id).values_list("course_id", flat=True))
+            course_id__in=UserCourse.objects.filter(user_id=user.id).values_list("course_id", flat=True))
 
 
 class CoursesAPIDetail(generics.RetrieveAPIView):
@@ -59,7 +61,7 @@ class ModulesAPICreateView(generics.ListAPIView):
             return Modules.objects.all()
         user = self.request.user
         return Modules.objects.filter(course_id__in=Courses.objects.filter(
-            id__in=UserCourse.objects.filter(user_id=user.id).values_list("course_id", flat=True)))
+            course_id__in=UserCourse.objects.filter(user_id=user.id).values_list("course_id", flat=True)))
 
 
 class ModulesAPIDetail(generics.RetrieveAPIView):
@@ -78,7 +80,8 @@ class LessonsAPICreateView(generics.ListAPIView):
             return Lessons.objects.all()
         user = self.request.user
         return Lessons.objects.filter(module_id__in=Modules.objects.filter(course_id__in=Courses.objects.filter(
-            id__in=UserCourse.objects.filter(user_id=user.id).values_list("course_id", flat=True))).values_list("id", flat=True))
+            course_id__in=UserCourse.objects.filter(user_id=user.id).values_list("course_id", flat=True))).values_list(
+            "id", flat=True))
 
 
 class LessonsAPIDetail(generics.RetrieveAPIView):
@@ -115,8 +118,9 @@ class TestAPICreateView(generics.ListAPIView):
             return Test.objects.all()
         user = self.request.user
         return Test.objects.filter(module_id__in=Modules.objects.filter(course_id__in=Courses.objects.filter(
-            id__in=UserCourse.objects.filter(user_id=user.id).values_list("course_id", flat=True))).values_list("id",
-                                                                                                                flat=True))
+            course_id__in=UserCourse.objects.filter(user_id=user.id).values_list("course_id", flat=True))).values_list(
+            "id",
+            flat=True))
 
 
 class AdminCoursesAPICreateView(generics.ListCreateAPIView):
@@ -265,3 +269,7 @@ class CompletedQuestionCheckView(generics.RetrieveUpdateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
 
+class CompletedTestView(generics.RetrieveAPIView):
+    queryset = CompletedTests.objects.all()
+    serializer_class = CompletedTestSerializer
+    permission_classes = [permissions.IsAuthenticated]
