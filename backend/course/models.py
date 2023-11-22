@@ -43,7 +43,7 @@ class Lessons(models.Model):
 
 class Test(models.Model):
     text = models.CharField(max_length=500)
-    module = models.ForeignKey(Modules, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Lessons, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'test'
