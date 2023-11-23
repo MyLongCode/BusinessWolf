@@ -1,42 +1,43 @@
 .slider-btn {
-  border: 3px solid var(--Main);
-  border-radius: 18px;
-  width: max-content;
-  padding: 8px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  position: relative;
-  margin-bottom: 48px;
+	border: 3px solid var(--Main);
+	border-radius: 18px;
+	width: max-content;
+	padding: 8px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	position: relative;
+	margin-bottom: 48px;
 
-  &__slider {
-    background-color: var(--Main);
-    color: var(--White);
-    position: absolute;
-    border-radius: 13px;
-    align-self: center;
-    width: 50%;
-    height: 90%;
-    z-index: -1;
-  }
+	&__slider {
+		background-color: var(--Main);
+		color: var(--White);
+		position: absolute;
+		border-radius: 13px;
+		align-self: center;
+		width: 50%;
+		height: 90%;
+		z-index: -1;
+	}
 
-  &__lessons, &__tests {
-    color: var(--Gray89);
-    display: inline-block;
-    padding: 12px 60px;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: normal;
-    background: none;
-    text-transform: none;
+	&__lessons,
+	&__tests {
+		color: var(--Gray89);
+		display: inline-block;
+		padding: 12px 60px;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: normal;
+		background: none;
+		text-transform: none;
 
-    &:hover {
-      opacity: 0.6;
-      background: none;
-    }
-  }
+		&:hover {
+			opacity: 0.6;
+			background: none;
+		}
+	}
 
-  &_active {
-    color: var(--White);
-  }
+	&_active {
+		color: var(--White);
+	}
 }

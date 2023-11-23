@@ -52,7 +52,7 @@
   border-radius: 20px;
 }
 .profile-course .progress-bar__progress::-webkit-progress-value {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 69.1%), #FFC167;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 69.1%), #ffc167;
   border-radius: 20px;
 }
 

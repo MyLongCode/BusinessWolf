@@ -1,3 +1,3 @@
 export interface ICompletedQuestionResponse {
-    id: number
+	id: number
 }

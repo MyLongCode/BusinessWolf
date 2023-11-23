@@ -1,37 +1,37 @@
 .test-page {
-  margin: 0 10%;
+	margin: 0 10%;
 
-  &__answer-btn {
-    width: 100%;
-  }
+	&__answer-btn {
+		width: 100%;
+	}
 
-  &__counter {
-    background-color: var(--Main);
-    width: max-content;
-    padding: 6px 42px;
-    border-radius: 33px;
-    color: var(--White);
-    margin-bottom: 24px;
-  }
+	&__counter {
+		background-color: var(--Main);
+		width: max-content;
+		padding: 6px 42px;
+		border-radius: 33px;
+		color: var(--White);
+		margin-bottom: 24px;
+	}
 
-  &__question {
-    line-height: 26px;
-    max-width: 660px;
-    margin-bottom: 48px;
-  }
+	&__question {
+		line-height: 26px;
+		max-width: 660px;
+		margin-bottom: 48px;
+	}
 
-  &__select-text {
-    font-family: "Enthalpy 298", sans-serif;
-    font-size: 40px;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 32px;
-  }
+	&__select-text {
+		font-family: 'Enthalpy 298', sans-serif;
+		font-size: 40px;
+		font-weight: 400;
+		line-height: normal;
+		margin-bottom: 32px;
+	}
 
-  .answers {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
-    gap: 24px 40px;
-    margin-bottom: 64px;
-  }
+	.answers {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+		gap: 24px 40px;
+		margin-bottom: 64px;
+	}
 }

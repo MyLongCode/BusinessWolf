@@ -1,32 +1,34 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react'
 import './moduleHeader.css'
-import Logo from "../../logo/Logo";
-import ProfileMenu from "../../profileMenu/ProfileMenu";
+import Logo from '../../logo/Logo'
+import ProfileMenu from '../../profileMenu/ProfileMenu'
 
 interface ModuleHeaderProps {
-    title: string
+	title: string
 }
 
 function ModuleHeader(props: ModuleHeaderProps) {
-    const [title, setTitle] = useState('');
+	const [title, setTitle] = useState('')
 
-    useEffect(() => {
-        setTitle(props.title)
-    }, [props.title]);
+	useEffect(() => {
+		setTitle(props.title)
+	}, [props.title])
 
-    return (
-        <header className='module-header header'>
-            <div className="header__wrapper">
-                <Logo/>
-                <ProfileMenu/>
-            </div>
-            <div className="header__module hm">
-                <h2 className='hm__name'>{title}</h2>
-                <p className='hm_desc'>Learn the basics of the language: make new friends, plan a family dinner, go
-                    shopping and much more!</p>
-            </div>
-        </header>
-    );
+	return (
+		<header className='module-header header'>
+			<div className='header__wrapper'>
+				<Logo />
+				<ProfileMenu />
+			</div>
+			<div className='header__module hm'>
+				<h2 className='hm__name'>{title}</h2>
+				<p className='hm_desc'>
+					Learn the basics of the language: make new friends, plan a family
+					dinner, go shopping and much more!
+				</p>
+			</div>
+		</header>
+	)
 }
 
-export default React.memo(ModuleHeader);
+export default React.memo(ModuleHeader)

@@ -58,7 +58,8 @@
 .message__text {
   padding: 6px 12px;
 }
-.message__attachment img, .message__attachment iframe {
+.message__attachment img,
+.message__attachment iframe {
   border-radius: 18px 18px 0 0;
   width: 600px;
   border: none;

@@ -1,30 +1,30 @@
 .review {
-  margin-bottom: 10px;
-  min-width: 260px;
-  border: solid 1px var(--Black);
-  padding: 14px 16px;
-  border-radius: 20px;
-  min-height: 165px;
-  display: flex;
-  flex-direction: column;
+	margin-bottom: 10px;
+	min-width: 260px;
+	border: solid 1px var(--Black);
+	padding: 14px 16px;
+	border-radius: 20px;
+	min-height: 165px;
+	display: flex;
+	flex-direction: column;
 
-  &__author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
+	&__author {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-bottom: 10px;
 
-    &__avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-    }
+		&__avatar {
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+		}
 
-    &__name {
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
-    }
-  }
+		&__name {
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+		}
+	}
 }

@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["questionResult.scss"],"names":[],"mappings":"AAAA;EACE;;AAEA;EACE;EACA;EACA;EACA;;AAGF;EACE;EACA;;AAEA;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA;;AAIJ;EACE;EACA;EACA;EACA;;AACA;EALF;IAMI","file":"questionResult.css"}
+{"version":3,"sourceRoot":"","sources":["questionResult.scss"],"names":[],"mappings":"AAAA;EACC;;AAEA;EACC;EACA;EACA;EACA;;AAGD;EACC;EACA;;AAEA;EACC;EACA;EACA;;AAGD;EACC;EACA;EACA;;AAIF;EACC;EACA;EACA;EACA;;AACA;EALD;IAME","file":"questionResult.css"}
