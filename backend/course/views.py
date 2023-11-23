@@ -117,7 +117,7 @@ class TestAPICreateView(generics.ListAPIView):
         if self.request.user.is_superuser:
             return Test.objects.all()
         user = self.request.user
-        return Test.objects.filter(module_id__in=Modules.objects.filter(course_id__in=Courses.objects.filter(
+        return Test.objects.filter(lesson_id__in=Modules.objects.filter(course_id__in=Courses.objects.filter(
             course_id__in=UserCourse.objects.filter(user_id=user.id).values_list("course_id", flat=True))).values_list(
             "module_id",
             flat=True))
