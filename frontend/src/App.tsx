@@ -37,7 +37,7 @@ function App() {
             logout()
         }
         // eslint-disable-next-line
-    }, [error, navigate]);
+    }, [error, navigate,]);
 
     return (
         <>

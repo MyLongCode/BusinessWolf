@@ -1,5 +1,5 @@
 export default interface IQuestion {
-    id: number
+    question_id: number
     text: string
     explanation: string
     test: number

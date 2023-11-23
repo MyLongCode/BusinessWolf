@@ -1,13 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './coursePage.css'
 import {useNavigate, useParams} from "react-router-dom";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {useActions} from "../../hooks/useActions";
 import MainLayout from "../../components/layouts/mainLayout/MainLayout";
 import ModulesList from "../../components/modules/ModulesList";
 import ReviewsList from "../../components/reviews/ReviewsList";
 import IReview from "../../models/IReview";
 import ReturnButton from "../../components/returnButton/ReturnButton";
+import useModules from "../../hooks/useModules";
 
 type CourseParams = {
     id: string
@@ -34,20 +33,11 @@ const reviews: IReview[] = [
 function CoursePage() {
     const navigate = useNavigate()
     const {id} = useParams<CourseParams>()
-    const {modules} = useTypedSelector(state => state.modules)
-    const {isAuth} = useTypedSelector(state => state.auth)
-    const {fetchModules} = useActions()
+    const modules = useModules()
 
     if (id && Number.isNaN(Number(id))) {
         navigate('/main')
     }
-
-    useEffect(() => {
-        if (isAuth && modules.length === 0) {
-            fetchModules()
-        }
-        // eslint-disable-next-line
-    }, [isAuth, modules.length,]);
 
     return (
         <MainLayout pageTitle={`Курс ${id}`}>

@@ -11,15 +11,17 @@ import {motion} from 'framer-motion';
 function AuthorizationPage() {
     const navigate = useNavigate()
     const location = useLocation()
-    const {isAuth} = useTypedSelector(state => state.auth)
+    const {user} = useTypedSelector(state => state.auth)
     const {login, checkAuth} = useActions()
 
     useEffect(() => {
-        if (isAuth) {
-            navigate(location.state?.from?.pathname || '/main')
+        if (user) {
+            navigate(location.state?.from?.pathname || '/main', {
+                replace: true
+            })
         }
         // eslint-disable-next-line
-    }, [isAuth]);
+    }, [user]);
 
     useEffect(() => {
         if (localStorage.getItem('refresh_token')) {
@@ -29,7 +31,7 @@ function AuthorizationPage() {
     }, []);
 
     const onSubmit = async (data: IAuthInputs) => {
-        login(data.username, data.password)
+        login({username: data.username, password: data.password})
     }
 
     return (

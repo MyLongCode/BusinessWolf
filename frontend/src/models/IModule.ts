@@ -1,5 +1,7 @@
 export default interface IModule{
-    id: number
+    module_id: number
     number: number
+    name: string
+    description: string
     course: number
 }

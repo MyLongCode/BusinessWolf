@@ -1,15 +1,11 @@
 import {combineReducers} from "redux";
-import {authReducer} from "./authReducer";
-import {coursesReducer} from "./coursesReducer";
-import {modulesReducer} from "./modulesReducer";
-import {testsReducer} from "./testsReducer";
+import {testsSlice} from "../tests/tests.slice";
+import {authSlice} from "../auth/auth.slice";
 
 
 export const rootReducer = combineReducers({
-    auth: authReducer,
-    courses: coursesReducer,
-    modules: modulesReducer,
-    tests: testsReducer
+    auth: authSlice.reducer,
+    tests: testsSlice.reducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>

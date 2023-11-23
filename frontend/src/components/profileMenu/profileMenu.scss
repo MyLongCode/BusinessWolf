@@ -8,12 +8,14 @@
   padding: 30px 40px;
   border-radius: 22px;
 
-  &::before {
-    content: '';
-    position: absolute; /* Абсолютное позиционирование */
-    top: -25px; right: 13px; /* Положение треугольника */
-    border: 15px solid transparent; /* Прозрачные границы */
-    border-bottom: 20px solid var(--Main); /* Добавляем треугольник */
+  &:before {
+    content: "";
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid var(--Main);
+    right: 20px;
+    top: -18px;
   }
 
   &__btns {

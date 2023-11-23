@@ -6,7 +6,7 @@ function ModulesList({modules}: {modules: IModule[]}) {
     return (
         <ul className='modules__list'>
             {modules.map(module => {
-                return <ModuleItem key={module.id} module={module} completeLessons={2} totalLessons={12}/>
+                return <ModuleItem key={module.module_id} module={module} completeLessons={2} totalLessons={12}/>
             })}
         </ul>
     );

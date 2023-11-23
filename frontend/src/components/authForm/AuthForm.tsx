@@ -28,7 +28,7 @@ function AuthForm({onSubmit}: IAuthForm) {
     const showPasswordIcon = passwordShown ? eyeSlash : eye
 
     useEffect(() => {
-        if (submitError === "ERR_BAD_REQUEST") {
+        if (submitError === "401") {
             setErrorMessage('Неверный логин или пароль. Попробуйте снова.');
         }
     }, [submitError]);

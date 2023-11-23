@@ -7,7 +7,7 @@ import SliderButton from "../../components/sliderButton/SliderButton";
 import TestsList from "../../components/modulePage/tests/TestsList";
 import LessonsList from "../../components/modulePage/lessons/LessonsList";
 import useLessons from "../../hooks/useLessons";
-import useTests from "../../hooks/useTests";
+import {useTests} from "../../hooks/useTests";
 
 type ModuleParams = {
     id: string,
@@ -25,8 +25,8 @@ function ModulePage() {
     const navigate = useNavigate()
     const initialState = location.pathname.split('/')[5] === 'tests' ? States.tests : States.lessons;
     const [stateChanged, setStateChanged] = useState(false);
-    const {lessons} = useLessons()
-    const {tests} = useTests()
+    const lessons = useLessons()
+    const tests = useTests()
 
     useEffect(() => {
         if (!['tests', 'lessons'].includes(location.pathname.split('/')[5])) {

@@ -12,9 +12,9 @@ interface ModuleProps {
 function ModuleItem({module, completeLessons, totalLessons}: ModuleProps) {
     return (
         <li className={'modules__item module'}>
-            <Link to={`/course/${module.course}/module/${module.id}/lessons`} className='module__link'>
+            <Link to={`/course/${module.course}/module/${module.module_id}/lessons`} className='module__link'>
                 <div className='module__wrapper'>
-                    <h2 className='module__title'>{'Модуль ' + module.number}</h2>
+                    <h2 className='module__title'>{module.name}</h2>
                     <p className='module__lessons-count'>{`${completeLessons}/${totalLessons} уроков`}</p>
                 </div>
             </Link>

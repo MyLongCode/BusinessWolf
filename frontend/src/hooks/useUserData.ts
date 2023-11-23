@@ -11,7 +11,7 @@ interface IUserData {
 }
 
 const useUserData = (): IUserData => {
-    const {user, isAuth} = useTypedSelector(state => state.auth)
+    const {user} = useTypedSelector(state => state.auth)
 
     const [fullName, setFullName] = useState('')
     const [phone, setPhone] = useState('')
@@ -21,7 +21,7 @@ const useUserData = (): IUserData => {
     const [coins, setCoins] = useState(0);
 
     useEffect(() => {
-        if (user && isAuth) {
+        if (user) {
             setFullName(user.full_name);
             setPhone(user.phone);
             setEmail(user.email);
@@ -29,7 +29,7 @@ const useUserData = (): IUserData => {
             setGrade(user.education_class);
             setCoins(user.coins)
         }
-    }, [isAuth, user]);
+    }, [user]);
 
     return {
         address: address,

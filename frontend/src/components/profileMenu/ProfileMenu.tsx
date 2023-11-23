@@ -14,7 +14,7 @@ const ProfileMenu = () => {
 
     const menuClickHandler = () => {
         setBurgerAnimating(!burgerAnimating)
-        setTimeout(() => setBurgerHidden(!burgerHidden), burgerHidden ? 0 : 300)
+        setTimeout(() => setBurgerHidden(!burgerHidden), burgerHidden ? 0 : 250)
     }
 
     return (
@@ -24,12 +24,10 @@ const ProfileMenu = () => {
             </button>
             {!burgerHidden && <motion.div
                 className="burger"
-                initial={{height: 0, transform: "scale(1, 0)"}}
+                initial={{height: 0, padding: 0}}
                 animate={burgerAnimating ? {
-                    height: 0,
-                    transform: "scale(1, 0)",
-                    transition: {duration: 0.1}
-                } : {height: 140, transform: "scale(1, 1)"}}
+                    height: 0, padding: 0
+                } : {height: 140, padding: "30px 40px"}}
                 transition={{duration: 0.3}}
             >
                 <ul className='burger__btns'>

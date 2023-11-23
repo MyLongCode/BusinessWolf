@@ -6,7 +6,7 @@ function CoursesList({courses}: { courses: ICourse[] }) {
     return (
         <ul className='courses'>
             {courses.map(course => {
-                return <CourseItem course={course} key={course.id}/>
+                return <CourseItem course={course} key={course.course_id}/>
             })}
         </ul>
     );

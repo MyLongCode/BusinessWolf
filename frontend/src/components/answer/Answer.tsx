@@ -5,7 +5,7 @@ import IAnswer from "../../models/IAnswer";
 function Answer({answer, isSelected, clickHandler}: { answer: IAnswer, isSelected: boolean, clickHandler: any }) {
     return (
         <li className={`answer ${isSelected && 'answer_selected'}`} onClick={() => {
-            clickHandler(answer.id)
+            clickHandler(answer.answer_id)
         }}>
             <div className={`answer__toggle toggle ${isSelected && 'toggle_selected'}`}>
                 {isSelected && <div className='toggle__dot'/>}

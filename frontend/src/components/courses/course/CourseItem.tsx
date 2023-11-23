@@ -12,11 +12,11 @@ function CourseItem({course}: {course: ICourse }) {
     return (
         <li className='courses__course course'>
             <div className='course__content'>
-                <h2 className='course__title'>{course.course_name}</h2>
-                <p className='course__description'>{course.about_course}</p>
-                <Link to={'/course/' + course.id} className='course__continue-btn btn'>Продолжить</Link>
+                <h2 className='course__title'>{course.name}</h2>
+                <p className='course__description'>{course.description}</p>
+                <Link to={'/course/' + course.course_id} className='course__continue-btn btn'>Продолжить</Link>
             </div>
-            <img src={images[course.id % images.length]} alt="Волк" className='course__img'/>
+            <img src={images[course.course_id % images.length]} alt="Волк" className='course__img'/>
         </li>
     );
 }
