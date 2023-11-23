@@ -81,7 +81,7 @@ class LessonsAPICreateView(generics.ListAPIView):
         user = self.request.user
         return Lessons.objects.filter(module_id__in=Modules.objects.filter(course_id__in=Courses.objects.filter(
             course_id__in=UserCourse.objects.filter(user_id=user.id).values_list("course_id", flat=True))).values_list(
-            "id", flat=True))
+            "module_id", flat=True))
 
 
 class LessonsAPIDetail(generics.RetrieveAPIView):
@@ -119,7 +119,7 @@ class TestAPICreateView(generics.ListAPIView):
         user = self.request.user
         return Test.objects.filter(module_id__in=Modules.objects.filter(course_id__in=Courses.objects.filter(
             course_id__in=UserCourse.objects.filter(user_id=user.id).values_list("course_id", flat=True))).values_list(
-            "id",
+            "module_id",
             flat=True))
 
 
