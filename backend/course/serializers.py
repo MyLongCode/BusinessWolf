@@ -163,7 +163,7 @@ class CompletedQuestionCheckSerializer(serializers.ModelSerializer):
         permission_classes = (IsAuthenticated,)
 
     def update(self, instance, validated_data):
-        selected_answers = SelectedAnswers.objects.filter(completed_question=self.data['question_id'])
+        selected_answers = SelectedAnswers.objects.filter(completed_question=self.data['question'])
         answers = Answers.objects.filter(answer_id__in=selected_answers.values_list('answer_id', flat=True))
         answers_question_right = Answers.objects.filter(question_id=self.data['question']).filter(is_right=True)
         if sorted(answers.values_list('answer_id', flat=True)) == sorted(answers_question_right.values_list('answer_id', flat=True)):
