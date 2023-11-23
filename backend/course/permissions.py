@@ -34,7 +34,7 @@ class LessonsPermission(permissions.BasePermission):
                 and obj.module_id in Modules.objects.filter(
                         course_id__in=Courses.objects.filter(
                             course_id__in=UserCourse.objects.filter(user_id=request.user.id)
-                            .values_list("course_id", flat=True))).values_list("id", flat=True))
+                            .values_list("course_id", flat=True))).values_list("module_id", flat=True))
 
 
 class CompletedTestsPermission(permissions.BasePermission):
