@@ -9,7 +9,7 @@ function Answer({
 }: {
 	answer: IAnswer
 	isSelected: boolean
-	clickHandler: any
+	clickHandler: (answer_id: number) => void
 }) {
 	return (
 		<li

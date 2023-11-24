@@ -19,7 +19,7 @@ function TestItem({ test, lessonNames }: ITestProps) {
 				break
 			}
 		}
-	}, [])
+	}, [lessonNames])
 
 	return (
 		<Link to={`${location.pathname}/${test.test_id}`} className='test-link'>
@@ -27,7 +27,7 @@ function TestItem({ test, lessonNames }: ITestProps) {
 				<li className='tests__test test'>
 					<h3 className='test__title'>{`${test.name} (${lessonsName})`}</h3>
 					<p className='test__desc'>{test.text}</p>
-					<p className='test__time'>30 мин</p>
+					<p className='test__time'>{test.duration} мин</p>
 				</li>
 			)}
 		</Link>

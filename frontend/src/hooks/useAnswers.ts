@@ -1,15 +1,24 @@
 import { useQuery } from '@tanstack/react-query'
 import AnswerService from '../services/AnswerService'
 import IAnswer from '../models/IAnswer'
+import { useEffect, useState } from 'react'
 
 const useAnswers = (): IAnswer[] => {
+	const [answers, setAnswers] = useState<IAnswer[]>([])
+
 	const { data } = useQuery({
 		queryKey: ['get answers'],
-		queryFn: () => AnswerService.fetchAnswers(),
+		queryFn: async () => await AnswerService.fetchAnswers(),
 		select: ({ data }) => data
 	})
 
-	return data || ([] as IAnswer[])
+	useEffect(() => {
+		if (data) {
+			setAnswers(data)
+		}
+	}, [data])
+
+	return answers
 }
 
 export default useAnswers

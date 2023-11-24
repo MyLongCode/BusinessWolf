@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { addQuestion, pushTest } from './tests.actions'
+import { createSlice } from '@reduxjs/toolkit'
+import { addQuestion, pushTest, selectAnswer } from './tests.actions'
 import IFullCompletedTestResponse from '../../models/responce/IFullCompletedTestResponse'
 
 export interface IQuestionIDs {
@@ -9,6 +9,7 @@ export interface IQuestionIDs {
 
 const initialState = {
 	questions: [] as IQuestionIDs[],
+	selectedAnswers: [] as number[],
 	completedTest: {} as IFullCompletedTestResponse
 }
 
@@ -20,6 +21,7 @@ export const testsSlice = createSlice({
 		builder
 			.addCase(addQuestion.fulfilled, (state, action) => {
 				state.questions.push(action.payload)
+				state.selectedAnswers = []
 			})
 			.addCase(pushTest.fulfilled, (state, action) => {
 				state.questions = []
@@ -27,6 +29,15 @@ export const testsSlice = createSlice({
 			})
 			.addCase(pushTest.rejected, (_, action) => {
 				console.error(action.error)
+			})
+			.addCase(selectAnswer.fulfilled, (state, { payload: id }) => {
+				if (!state.selectedAnswers.includes(id)) {
+					state.selectedAnswers.push(id)
+				} else {
+					state.selectedAnswers = state.selectedAnswers.filter(
+						item => item !== id
+					)
+				}
 			})
 	}
 })

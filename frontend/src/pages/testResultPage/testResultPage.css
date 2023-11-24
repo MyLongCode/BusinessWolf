@@ -1,5 +1,9 @@
 .test-result-page {
   padding: 0 10%;
+  margin-bottom: 40px;
+}
+.test-result-page__btn {
+  width: 40%;
 }
 .test-result-page__heading {
   font-family: "Enthalpy 298", sans-serif;

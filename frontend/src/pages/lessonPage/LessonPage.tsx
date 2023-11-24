@@ -4,7 +4,6 @@ import './lessonPage.css'
 import ModuleLayout from '../../components/layouts/moduleLayout/ModuleLayout'
 import { motion } from 'framer-motion'
 import LessonChat from '../../components/lessonChat/LessonChat'
-import useLessons from '../../hooks/useLessons'
 
 type LessonPageParams = {
 	id: string

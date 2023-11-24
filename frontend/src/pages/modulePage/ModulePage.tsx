@@ -52,7 +52,7 @@ function ModulePage() {
 			<div className='module-page'>
 				<SliderButton
 					className={'module-page__slider-btn'}
-					buttonNames={{ left: 'Коспекты', right: 'Тесты' }}
+					buttonNames={{ left: 'Конспекты', right: 'Тесты' }}
 					initialState={initialState === States.lessons ? 'left' : 'right'}
 					currentState={
 						stateChanged && initialState === States.lessons

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import './questionResult.css'
 import IAnswer from '../../models/IAnswer'
 import ISelectedAnswer from '../../models/ISelectedAnswer'
@@ -27,7 +27,9 @@ function QuestionResult({
 	const isCorrect = useMemo(
 		() =>
 			selectedAnswers.every(selAnswer =>
-				rightAnswers.includes(selAnswer.answer)
+				rightAnswers
+					.map(rAnswer => rAnswer.answer_id)
+					.includes(selAnswer.answer.answer_id)
 			),
 		[selectedAnswers, rightAnswers]
 	)
@@ -42,6 +44,14 @@ function QuestionResult({
 			>
 				{userAnswers.map(answer => answer.text).join(', ')}
 			</p>
+			{!isCorrect && (
+				<>
+					<h5 className='question-result__right-title'>Правильный ответ:</h5>
+					<p className='question-result__right-answer right-answer'>
+						{rightAnswers.map(answer => answer.text).join(', ')}
+					</p>
+				</>
+			)}
 			<p className='question-result__answer'>{questionExplanation}</p>
 		</li>
 	)

@@ -38,6 +38,7 @@ const ProfileMenu = () => {
 							  }
 							: { height: 140, padding: '30px 40px' }
 					}
+					exit={{ height: 0, padding: 0 }}
 					transition={{ duration: 0.3 }}
 				>
 					<ul className='burger__btns'>

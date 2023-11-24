@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './profileCourse.css'
 
 function ProfileCourse() {
-	const [progress, setProgress] = useState(33)
+	const [progress, setProgress] = useState(0)
+
+	useEffect(() => {
+		setProgress(33)
+	}, [])
 
 	return (
 		<div className='profile-course'>

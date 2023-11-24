@@ -23,3 +23,10 @@ export const addQuestion = createAsyncThunk<IQuestionIDs, IQuestionIDs>(
 		return data
 	}
 )
+
+export const selectAnswer = createAsyncThunk<number, number>(
+	'tests/select-answer',
+	async data => {
+		return data
+	}
+)

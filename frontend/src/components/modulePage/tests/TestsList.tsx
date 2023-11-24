@@ -16,6 +16,8 @@ function TestsList({
 		<ul className='tests'>
 			{tests.length > 0 &&
 				tests.map(test => {
+					if (!test.test_id) return null
+
 					return (
 						<TestItem
 							key={test.test_id}

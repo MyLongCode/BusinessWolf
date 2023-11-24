@@ -11,7 +11,7 @@ function LessonItem({ lesson }: { lesson: ILesson }) {
 			<li className='lessons__lesson lesson'>
 				<h3 className='lesson__title'>{lesson.name}</h3>
 				<p className='lesson__desc'>{lesson.description}</p>
-				<p className='lesson__time'>{lesson.duration}</p>
+				<p className='lesson__time'>{lesson.duration} мин</p>
 			</li>
 		</Link>
 	)
