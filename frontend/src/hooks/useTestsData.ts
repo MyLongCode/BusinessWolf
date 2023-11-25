@@ -1,8 +1,9 @@
 import IAnswer from '../models/IAnswer'
 import { useEffect, useState } from 'react'
-import useAnswers from './useAnswers'
-import { useQuestions } from './useQuestions'
 import IQuestion from '../models/IQuestion'
+import { useQuery } from '@tanstack/react-query'
+import AnswerService from '../services/AnswerService'
+import QuestionService from '../services/QuestionService'
 
 const shuffle = <T>(array: T[]): T[] => {
 	for (let i = array.length - 1; i > 0; i--) {
@@ -18,31 +19,44 @@ export const useTestsData = (): {
 	questions: IQuestion[]
 	answers: Map<number, IAnswer[]>
 } => {
-	const answersData = useAnswers()
-	const questionsData = useQuestions()
-
 	const [questions, setQuestions] = useState<IQuestion[]>([])
 	const [answers, setAnswers] = useState<Map<number, IAnswer[]>>(new Map())
 
+	const { data, isSuccess } = useQuery({
+		queryKey: ['get tests data'],
+		queryFn: async () => {
+			const answersResponse = await AnswerService.fetchAnswers()
+			const questionsResponse = await QuestionService.fetchQuestions()
+
+			return {
+				questionsResponse: questionsResponse,
+				answersResponse: answersResponse
+			}
+		},
+		select: ({ questionsResponse, answersResponse }) => {
+			return {
+				questionsData: questionsResponse.data,
+				answersData: answersResponse.data
+			}
+		}
+	})
+
 	useEffect(() => {
-		if (
-			questionsData.length > 0 &&
-			answersData.length > 0 &&
-			answers.size === 0
-		) {
-			for (const question of questionsData) {
+		if (isSuccess) {
+			setQuestions(data.questionsData)
+
+			data.questionsData.forEach(question => {
 				setAnswers(prevState =>
 					prevState.set(
 						question.question_id,
-						shuffle(answersData).filter(
+						shuffle(data.answersData).filter(
 							answer => answer.question === question.question_id
 						)
 					)
 				)
-			}
-			setQuestions(questionsData)
+			})
 		}
-	}, [questionsData, answersData, answers])
+	}, [isSuccess])
 
 	return { questions, answers }
 }
