@@ -1,4 +1,4 @@
-@import "../../assets/style/colors.css";
+@import '../../assets/style/colors.css';
 @media (min-width: 925px) {
   .start {
     display: flex;

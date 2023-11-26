@@ -1,5 +1,8 @@
 export default interface ITest {
-    id: number,
-    text: string,
-    lesson: number
+	test_id: number
+	text: string
+	name: string
+	description: string
+	duration: number
+	lesson: number
 }

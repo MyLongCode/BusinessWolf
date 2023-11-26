@@ -1,3 +1,3 @@
 export interface ICompletedTestResponse {
-    id: number
+	id: number
 }

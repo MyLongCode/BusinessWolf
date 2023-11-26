@@ -1,5 +1,10 @@
 .test-result-page {
   padding: 0 10%;
+  margin-bottom: 40px;
+
+  &__btn {
+    width: 40%;
+  }
 
   &__heading {
     font-family: 'Enthalpy 298', sans-serif;

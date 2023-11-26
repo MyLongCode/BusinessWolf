@@ -1,36 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
 import './test.css'
-import ITest from "../../../../models/ITest";
-import {Link, useLocation} from "react-router-dom";
+import type ITest from '../../../../models/ITest'
+import { Link, useParams } from 'react-router-dom'
+import Links from '../../../../config/links.config'
 
 interface ITestProps {
-    test: ITest,
-    lessonNames: string[]
+	test: ITest
+	lessonNames: string[]
 }
 
-function TestItem({test, lessonNames}: ITestProps) {
-    const location = useLocation()
+function TestItem({ test, lessonNames }: ITestProps) {
+	const [lessonsName, setLessonsName] = useState('')
+	const { courseID, id: moduleID } = useParams<{
+		courseID: string
+		id: string
+	}>()
 
-    let lesson_name = ''
-    for (const name of lessonNames) {
-        if (name !== '') {
-            lesson_name = name;
-            break
-        }
-    }
+	useEffect(() => {
+		for (const name of lessonNames) {
+			if (name !== '') {
+				setLessonsName(name)
+				break
+			}
+		}
+	}, [lessonNames])
 
-    return (
-        <Link to={`${location.pathname}/${test.id}`} className='test-link'>
-            {
-                lesson_name &&
-                <li className='tests__test test'>
-                    <h3 className='test__title'>{`Тест ${test.id} (${lesson_name})`}</h3>
-                    <p className='test__desc'>{test.text}</p>
-                    <p className='test__time'>30 мин</p>
-                </li>
-            }
-        </Link>
-    );
+	return (
+		<Link
+			to={Links.test(courseID, moduleID, test.test_id)}
+			className='test-link'
+		>
+			{lessonsName !== '' && (
+				<li className='tests__test test'>
+					<h3 className='test__title'>{`${test.name} (${lessonsName})`}</h3>
+					<p className='test__desc'>{test.text}</p>
+					<p className='test__time'>{test.duration} мин</p>
+				</li>
+			)}
+		</Link>
+	)
 }
 
-export default React.memo(TestItem);
+export default React.memo(TestItem)

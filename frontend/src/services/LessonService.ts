@@ -1,11 +1,18 @@
-import api from "../api/api";
-import {AxiosResponse} from "axios";
-import ILesson from "../models/ILesson";
+import api from '../api/api'
+import type { AxiosResponse } from 'axios'
+import type ILesson from '../models/ILesson'
 
 const FETCH_URL = '/api/lessons/'
 
 export default class LessonService {
-    static async fetchLessons(): Promise<AxiosResponse<ILesson[]>> {
-        return await api.get<ILesson[]>(FETCH_URL)
-    }
+	static async fetchLessons(id: string): Promise<AxiosResponse<ILesson>>
+	static async fetchLessons(): Promise<AxiosResponse<ILesson[]>>
+
+	static async fetchLessons(
+		id?: any
+	): Promise<AxiosResponse<ILesson | ILesson[]>> {
+		return id
+			? await api.get<ILesson[]>(`${FETCH_URL}${id}/`)
+			: await api.get<ILesson[]>(FETCH_URL)
+	}
 }

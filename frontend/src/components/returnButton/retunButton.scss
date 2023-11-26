@@ -1,27 +1,27 @@
 .return-btn {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--Black);
-  font-size: 24px;
-  font-weight: 600;
-  line-height: normal;
-  transition-duration: 300ms;
-  gap: 5px;
-  width: fit-content;
-  cursor: pointer;
-  margin-bottom: 32px;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: var(--Black);
+	font-size: 24px;
+	font-weight: 600;
+	line-height: normal;
+	transition-duration: 300ms;
+	gap: 5px;
+	width: fit-content;
+	cursor: pointer;
+	margin-bottom: 32px;
 
-  &__arrow {
-    rotate: 90deg;
-  }
+	&__arrow {
+		rotate: 90deg;
+	}
 
-  &:hover {
-    gap: 16px;
-  }
+	&:hover {
+		gap: 16px;
+	}
 
-  &:active {
-    transition-duration: 1s;
-    opacity: 0;
-  }
+	&:active {
+		transition-duration: 1s;
+		opacity: 0;
+	}
 }

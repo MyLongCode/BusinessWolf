@@ -1,20 +1,27 @@
-import React from 'react';
+import React from 'react'
 import './lesson.css'
-import ILesson from "../../../../models/ILesson";
-import {Link, useLocation} from "react-router-dom";
+import type ILesson from '../../../../models/ILesson'
+import { Link, useParams } from 'react-router-dom'
+import Links from '../../../../config/links.config'
 
-function LessonItem({lesson}: {lesson: ILesson}) {
-    const location = useLocation()
+function LessonItem({ lesson }: { lesson: ILesson }) {
+	const { courseID, id: moduleID } = useParams<{
+		courseID: string
+		id: string
+	}>()
 
-    return (
-        <Link to={`${location.pathname}/${lesson.id}`} className='test-link'>
-        <li className='lessons__lesson lesson'>
-            <h3 className='lesson__title'>{lesson.chat_text}</h3>
-            <p className='lesson__desc'>{lesson.abstract_text}</p>
-            <p className='lesson__time'>30 мин</p>
-        </li>
-        </Link>
-    );
+	return (
+		<Link
+			to={Links.lesson(courseID, moduleID, lesson.lesson_id)}
+			className='test-link'
+		>
+			<li className='lessons__lesson lesson'>
+				<h3 className='lesson__title'>{lesson.name}</h3>
+				<p className='lesson__desc'>{lesson.description}</p>
+				<p className='lesson__time'>{lesson.duration} мин</p>
+			</li>
+		</Link>
+	)
 }
 
-export default React.memo(LessonItem);
+export default React.memo(LessonItem)

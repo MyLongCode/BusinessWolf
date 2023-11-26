@@ -1,62 +1,80 @@
-@import "../../assets/style/userAvatar";
+@import '../../assets/style/userAvatar';
 
 .profile {
-  margin: 0 10%;
+	margin: 0 10%;
 
-  .user {
-    display: flex;
-    gap: 32px;
+	.user {
+		display: flex;
+		gap: 32px;
+		position: relative;
 
-    &__avatar {
-      margin: 0;
-      cursor: default;
-      width: 100px;
-      height: 100px;
-      grid-area: img;
-    }
+		&__avatar {
+			position: relative;
+			margin: 0;
+			width: 100px;
+			height: 100px;
+			grid-area: img;
+			cursor: pointer;
+			transition-duration: 0.2s;
 
-    .info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 10px;
+			&:hover {
+				opacity: 0.7;
+			}
+		}
 
-      &__name {
-        color: var(--Black, #111010);
-        font-family: "Enthalpy 298", sans-serif;
-        font-size: 40px;
-        line-height: normal;
-      }
+		&::after {
+			content: url("../../assets/images/avatar-edit.svg");
+			display: flex;
+			position: absolute;
+			border-radius: 50%;
+			left: 60px;
+			bottom: -10px;
+			background-color: var(--Main);
+			padding: 6px 4px 0 5px;
+			pointer-events: none;
+		}
 
-      &__grade {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 150%;
-      }
-    }
-  }
+		.info {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 10px;
 
-  .courses {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 60px;
-  }
+			&__name {
+				color: var(--Black, #111010);
+				font-family: 'Enthalpy 298', sans-serif;
+				font-size: 40px;
+				line-height: normal;
+			}
 
-  .data {
-    margin: 64px 0;
+			&__grade {
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 150%;
+			}
+		}
+	}
 
-    &__heading {
-      font-family: "Enthalpy 298", sans-serif;
-      font-size: 40px;
-      font-weight: 400;
-      line-height: normal;
-      margin-bottom: 10px;
-    }
+	.courses {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 40px;
+		margin-top: 60px;
+	}
 
-    &__desc {
-      margin-bottom: 48px;
-    }
-  }
+	.data {
+		margin: 64px 0;
+
+		&__heading {
+			font-family: 'Enthalpy 298', sans-serif;
+			font-size: 40px;
+			font-weight: 400;
+			line-height: normal;
+			margin-bottom: 10px;
+		}
+
+		&__desc {
+			margin-bottom: 48px;
+		}
+	}
 }
-
