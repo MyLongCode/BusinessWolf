@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import CourseService from '../services/CourseService'
-import ICourse from '../models/ICourse'
+import CourseService from 'services/CourseService'
+import type ICourse from 'models/ICourse'
 
 const useCourses = () => {
 	const { data } = useQuery({

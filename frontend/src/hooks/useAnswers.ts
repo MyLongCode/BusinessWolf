@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import AnswerService from '../services/AnswerService'
-import IAnswer from '../models/IAnswer'
+import AnswerService from 'services/AnswerService'
+import type IAnswer from 'models/IAnswer'
 import { useEffect, useState } from 'react'
 
 const useAnswers = (): IAnswer[] => {

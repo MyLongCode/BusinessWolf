@@ -1,5 +1,5 @@
 import api from '../api/api'
-import IQuestion from '../models/IQuestion'
+import type IQuestion from '../models/IQuestion'
 
 const FETCH_URL = '/api/questions/'
 

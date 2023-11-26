@@ -1,7 +1,7 @@
-import ILesson from '../models/ILesson'
-import LessonService from '../services/LessonService'
+import type ILesson from 'models/ILesson'
+import LessonService from 'services/LessonService'
 import { useQuery } from '@tanstack/react-query'
-import { AxiosResponse } from 'axios'
+import type { AxiosResponse } from 'axios'
 
 export default function useLessons(): ILesson[]
 export default function useLessons(id: null): undefined

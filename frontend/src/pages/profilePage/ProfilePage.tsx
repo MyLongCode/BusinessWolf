@@ -1,17 +1,27 @@
 import './profilePage.css'
-import avatar from '../../assets/images/Avatar.jpg'
-import React from 'react'
-import ProfileDataForm from '../../components/profileForm/ProfileDataForm'
-import ProfileCourse from '../../components/profileCourse/ProfileCourse'
-import MainLayout from '../../components/layouts/mainLayout/MainLayout'
-import ReturnButton from '../../components/returnButton/ReturnButton'
-import useUserData from '../../hooks/useUserData'
+import avatar from 'assets/images/Avatar.jpg'
+import React, { useState } from 'react'
+import ProfileDataForm from 'components/profilePage/profileForm/ProfileDataForm'
+import ProfileCourse from 'components/profilePage/profileCourse/ProfileCourse'
+import MainLayout from 'components/layouts/mainLayout/MainLayout'
+import ReturnButton from 'components/returnButton/ReturnButton'
+import useUserData from 'hooks/useUserData'
+import ChangeAvatarModal from 'components/profilePage/changeAvatarModal/ChangeAvatarModal'
 
 function ProfilePage() {
 	const { address, grade, email, fullName, phone } = useUserData()
+	const [isAvatarModalVisible, setIsModalVisible] = useState(false)
+
+	const changeAvatarClickHandler = () => {
+		setIsModalVisible(true)
+	}
 
 	return (
 		<MainLayout pageTitle={'Профиль'}>
+			{isAvatarModalVisible && (
+				<ChangeAvatarModal setIsModalVisible={setIsModalVisible} />
+			)}
+
 			<div className='profile'>
 				<ReturnButton text={'Вернуться'} />
 				<section className='profile__user user'>
@@ -19,6 +29,7 @@ function ProfilePage() {
 						src={avatar}
 						alt='Аватар пользователя'
 						className='user__avatar user-avatar'
+						onClick={() => changeAvatarClickHandler()}
 					/>
 					<div className='user__info info'>
 						<p className='info__name'>{fullName || 'Фамилия Имя'}</p>

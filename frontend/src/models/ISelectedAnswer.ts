@@ -1,4 +1,4 @@
-import IAnswer from './IAnswer'
+import type IAnswer from './IAnswer'
 
 export default interface ISelectedAnswer {
 	id: number

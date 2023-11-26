@@ -1,5 +1,5 @@
-import { AxiosResponse } from 'axios'
-import ICourse from '../models/ICourse'
+import type { AxiosResponse } from 'axios'
+import type ICourse from '../models/ICourse'
 import api from '../api/api'
 
 const FetchAPI = '/api/course/'

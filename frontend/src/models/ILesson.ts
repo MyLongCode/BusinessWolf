@@ -1,4 +1,4 @@
-import IMessage from './IMessage'
+import type IMessage from './IMessage'
 
 export default interface ILesson {
 	lesson_id: number

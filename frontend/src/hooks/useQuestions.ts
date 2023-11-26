@@ -1,5 +1,5 @@
-import IQuestion from '../models/IQuestion'
-import QuestionService from '../services/QuestionService'
+import type IQuestion from 'models/IQuestion'
+import QuestionService from 'services/QuestionService'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 

@@ -1,5 +1,5 @@
-import ISelectedAnswer from './ISelectedAnswer'
-import IAnswer from './IAnswer'
+import type ISelectedAnswer from './ISelectedAnswer'
+import type IAnswer from './IAnswer'
 
 export default interface ICompletedQuestion {
 	id: number

@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './retunButton.css'
+import Links from '../../config/links.config'
 
 const ReturnButton = ({ text, to }: { text: string; to?: string }) => {
 	const location = useLocation()
 
 	return (
-		<Link to={to || location.state?.from || '/main'} className='return-btn'>
+		<Link to={to || location.state?.from || Links.main} className='return-btn'>
 			<span className='return-btn__arrow arrow' />
 			<p className='return-btn__text'>{text}</p>
 		</Link>

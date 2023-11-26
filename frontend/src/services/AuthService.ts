@@ -1,6 +1,6 @@
 import api from '../api/api'
-import { AxiosResponse } from 'axios'
-import { IAuthResponse } from '../models/responce/IAuthResponse'
+import type { AxiosResponse } from 'axios'
+import type IAuthResponse from '../models/responce/IAuthResponse'
 
 const LoginURL = '/auth/token/'
 const CheckAuthURL = '/auth/token/verify/'

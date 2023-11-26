@@ -13,6 +13,7 @@ import ModulePage from './pages/modulePage/ModulePage'
 import TestPage from './pages/testPage/TestPage'
 import TestResultPage from './pages/testResultPage/TestResultPage'
 import LessonPage from './pages/lessonPage/LessonPage'
+import Links from './config/links.config'
 
 function App() {
 	const location = useLocation()
@@ -21,7 +22,7 @@ function App() {
 	const { error } = useTypedSelector(state => state.auth)
 
 	useEffect(() => {
-		if (location.pathname !== '/authorization' && location.pathname !== '/') {
+		if (location.pathname !== Links.auth && location.pathname !== Links.start) {
 			checkAuth()
 		}
 		// eslint-disable-next-line
@@ -30,10 +31,10 @@ function App() {
 	useEffect(() => {
 		if (
 			(error || !localStorage.getItem('refresh_token')) &&
-			location.pathname !== '/authorization' &&
-			location.pathname !== '/'
+			location.pathname !== Links.auth &&
+			location.pathname !== Links.start
 		) {
-			navigate('/authorization', {
+			navigate(Links.auth, {
 				state: { from: location }
 			})
 			logout()

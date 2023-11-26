@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { checkAuth, login, logout } from './auth.actions'
-import IUser from '../../models/IUser'
+import type IUser from 'models/IUser'
 
 const initialState = {
 	user: {} as IUser | null,

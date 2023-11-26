@@ -1,9 +1,9 @@
 import React from 'react'
 import './mainHeader.css'
-import Coins from '../../coins/Coins'
+import Coins from '../coins/Coins'
 import useUserData from '../../../hooks/useUserData'
-import Logo from '../../logo/Logo'
-import ProfileMenu from '../../profileMenu/ProfileMenu'
+import Logo from '../logo/Logo'
+import ProfileMenu from '../../profilePage/profileMenu/ProfileMenu'
 
 function MainHeader() {
 	const { coins } = useUserData()

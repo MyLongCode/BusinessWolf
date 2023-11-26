@@ -1,4 +1,4 @@
-import ICompletedQuestion from '../ICompletedQuestion'
+import type ICompletedQuestion from '../ICompletedQuestion'
 
 export default interface IFullCompletedTestResponse {
 	id: number

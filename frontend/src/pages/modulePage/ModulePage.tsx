@@ -2,22 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import './modulePage.css'
 import { motion } from 'framer-motion'
-import ModuleLayout from '../../components/layouts/moduleLayout/ModuleLayout'
-import SliderButton from '../../components/sliderButton/SliderButton'
-import TestsList from '../../components/modulePage/tests/TestsList'
-import LessonsList from '../../components/modulePage/lessons/LessonsList'
-import useLessons from '../../hooks/useLessons'
-import { useTests } from '../../hooks/useTests'
-
-type ModuleParams = {
-	id: string
-	courseID: string
-}
-
-enum States {
-	lessons,
-	tests
-}
+import ModuleLayout from 'components/layouts/moduleLayout/ModuleLayout'
+import SliderButton from 'components/sliderButton/SliderButton'
+import TestsList from 'components/modulePage/tests/TestsList'
+import LessonsList from 'components/modulePage/lessons/LessonsList'
+import useLessons from 'hooks/useLessons'
+import { useTests } from 'hooks/useTests'
+import { ModuleParams, States } from './modulePage.helper'
+import Links from '../../config/links.config'
 
 function ModulePage() {
 	const { id, courseID } = useParams<ModuleParams>()
@@ -31,14 +23,14 @@ function ModulePage() {
 
 	useEffect(() => {
 		if (!['tests', 'lessons'].includes(location.pathname.split('/')[5])) {
-			navigate(`/course/${courseID}/module/${id}/lessons`, { replace: true })
+			navigate(`${Links.module(courseID, id)}/lessons`, { replace: true })
 		}
 	}, [courseID, id, location.pathname, navigate])
 
 	const sliderButtonClickHandler = (state: States) => {
 		setStateChanged(initialState !== state)
 		navigate(
-			`/course/${courseID}/module/${id}/${
+			`${Links.module(courseID, id)}/${
 				state === States.tests ? 'tests' : 'lessons'
 			}`,
 			{

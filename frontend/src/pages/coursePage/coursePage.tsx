@@ -1,16 +1,14 @@
 import React from 'react'
 import './coursePage.css'
 import { useNavigate, useParams } from 'react-router-dom'
-import MainLayout from '../../components/layouts/mainLayout/MainLayout'
-import ModulesList from '../../components/modules/ModulesList'
-import ReviewsList from '../../components/reviews/ReviewsList'
-import IReview from '../../models/IReview'
-import ReturnButton from '../../components/returnButton/ReturnButton'
-import useModules from '../../hooks/useModules'
-
-type CourseParams = {
-	id: string
-}
+import MainLayout from 'components/layouts/mainLayout/MainLayout'
+import ModulesList from 'components/coursePage/modules/ModulesList'
+import ReviewsList from 'components/coursePage/reviews/ReviewsList'
+import type IReview from 'models/IReview'
+import ReturnButton from 'components/returnButton/ReturnButton'
+import useModules from 'hooks/useModules'
+import type { CourseParams } from './coursePage.types'
+import Links from '../../config/links.config'
 
 const reviews: IReview[] = [
 	{
@@ -36,7 +34,7 @@ function CoursePage() {
 	const modules = useModules()
 
 	if (id && Number.isNaN(Number(id))) {
-		navigate('/main')
+		navigate(Links.main)
 	}
 
 	return (

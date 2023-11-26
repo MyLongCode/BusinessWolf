@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import eye from '../../assets/images/Eye.svg'
-import eyeSlash from '../../assets/images/Eye-slash.svg'
+import eye from 'assets/images/Eye.svg'
+import eyeSlash from 'assets/images/Eye-slash.svg'
 import { useForm } from 'react-hook-form'
-import IAuthInputs from '../../models/IAuthInputs'
-import { useTypedSelector } from '../../hooks/useTypedSelector'
-
-interface IAuthForm {
-	onSubmit: any
-}
+import type IAuthInputs from 'models/IAuthInputs'
+import { useTypedSelector } from 'hooks/useTypedSelector'
+import type { IAuthForm } from './authForm.interface'
 
 function AuthForm({ onSubmit }: IAuthForm) {
 	const [errorMessage, setErrorMessage] = useState('')

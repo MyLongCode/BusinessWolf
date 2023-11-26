@@ -1,6 +1,6 @@
 import api from '../api/api'
-import { AxiosResponse } from 'axios'
-import IAnswer from '../models/IAnswer'
+import type { AxiosResponse } from 'axios'
+import type IAnswer from '../models/IAnswer'
 
 const FETCH_URL = '/api/answers/'
 

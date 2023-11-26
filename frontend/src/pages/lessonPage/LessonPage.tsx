@@ -3,20 +3,16 @@ import { useNavigate, useParams } from 'react-router-dom'
 import './lessonPage.css'
 import ModuleLayout from '../../components/layouts/moduleLayout/ModuleLayout'
 import { motion } from 'framer-motion'
-import LessonChat from '../../components/lessonChat/LessonChat'
-
-type LessonPageParams = {
-	id: string
-	moduleID: string
-	courseID: string
-}
+import LessonChat from '../../components/testPage/lessonChat/LessonChat'
+import type { LessonPageParams } from './lessonPage.types'
+import Links from '../../config/links.config'
 
 function LessonPage() {
 	const { id, moduleID, courseID } = useParams<LessonPageParams>()
 	const navigate = useNavigate()
 
 	const buttonClickHandler = () => {
-		navigate(`/course/${courseID}/module/${moduleID}/lessons`)
+		navigate(Links.lesson(courseID, moduleID, id))
 	}
 
 	return (

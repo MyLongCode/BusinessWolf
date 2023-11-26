@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import TestService from '../../services/TestService'
-import { RootState } from '../reducers'
-import { IQuestionIDs } from './tests.slice'
-import IFullCompletedTestResponse from '../../models/responce/IFullCompletedTestResponse'
+import TestService from 'services/TestService'
+import { RootState } from '../rootReducer'
+import type { IQuestionIDs } from './tests.slice'
+import type IFullCompletedTestResponse from 'models/responce/IFullCompletedTestResponse'
 
 export const pushTest = createAsyncThunk<IFullCompletedTestResponse, number>(
 	'tests/push-tests',

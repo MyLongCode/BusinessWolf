@@ -1,13 +1,20 @@
 import React from 'react'
 import './lesson.css'
-import ILesson from '../../../../models/ILesson'
-import { Link, useLocation } from 'react-router-dom'
+import type ILesson from '../../../../models/ILesson'
+import { Link, useParams } from 'react-router-dom'
+import Links from '../../../../config/links.config'
 
 function LessonItem({ lesson }: { lesson: ILesson }) {
-	const location = useLocation()
+	const { courseID, id: moduleID } = useParams<{
+		courseID: string
+		id: string
+	}>()
 
 	return (
-		<Link to={`${location.pathname}/${lesson.lesson_id}`} className='test-link'>
+		<Link
+			to={Links.lesson(courseID, moduleID, lesson.lesson_id)}
+			className='test-link'
+		>
 			<li className='lessons__lesson lesson'>
 				<h3 className='lesson__title'>{lesson.name}</h3>
 				<p className='lesson__desc'>{lesson.description}</p>

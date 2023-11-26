@@ -1,6 +1,6 @@
-import IUser from '../models/IUser'
+import type IUser from '../models/IUser'
 import api from '../api/api'
-import { AxiosResponse } from 'axios'
+import type { AxiosResponse } from 'axios'
 
 export default class UserService {
 	static async fetchUser(id: number | string): Promise<AxiosResponse<IUser>> {

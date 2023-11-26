@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { IAuthResponse } from '../../models/responce/IAuthResponse'
-import AuthService from '../../services/AuthService'
-import TokenService from '../../services/TokenService'
-import UserService from '../../services/UserService'
-import { AxiosError } from 'axios'
+import type IAuthResponse from 'models/responce/IAuthResponse'
+import AuthService from 'services/AuthService'
+import TokenService from 'services/TokenService'
+import UserService from 'services/UserService'
+import type { AxiosError } from 'axios'
 
 interface IAuthData {
 	username: string

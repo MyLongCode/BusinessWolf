@@ -1,6 +1,6 @@
-import { AxiosResponse } from 'axios'
+import type { AxiosResponse } from 'axios'
 import api from '../api/api'
-import IModule from '../models/IModule'
+import type IModule from '../models/IModule'
 
 const FetchAPI = '/api/modules/'
 

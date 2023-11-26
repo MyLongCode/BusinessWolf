@@ -1,8 +1,8 @@
 import React from 'react'
 import './mainPage.css'
-import MainLayout from '../../components/layouts/mainLayout/MainLayout'
-import CoursesList from '../../components/courses/CoursesList'
-import useCourses from '../../hooks/useCourses'
+import MainLayout from 'components/layouts/mainLayout/MainLayout'
+import CoursesList from 'components/mainPage/courses/CoursesList'
+import useCourses from 'hooks/useCourses'
 import { motion } from 'framer-motion'
 
 function MainPage() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import ILesson from '../../../models/ILesson'
+import type ILesson from '../../../models/ILesson'
 import LessonItem from './lesson/LessonItem'
 
 function LessonsList({

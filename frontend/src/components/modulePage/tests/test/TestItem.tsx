@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './test.css'
-import ITest from '../../../../models/ITest'
-import { Link, useLocation } from 'react-router-dom'
+import type ITest from '../../../../models/ITest'
+import { Link, useParams } from 'react-router-dom'
+import Links from '../../../../config/links.config'
 
 interface ITestProps {
 	test: ITest
@@ -9,8 +10,11 @@ interface ITestProps {
 }
 
 function TestItem({ test, lessonNames }: ITestProps) {
-	const location = useLocation()
 	const [lessonsName, setLessonsName] = useState('')
+	const { courseID, id: moduleID } = useParams<{
+		courseID: string
+		id: string
+	}>()
 
 	useEffect(() => {
 		for (const name of lessonNames) {
@@ -22,7 +26,10 @@ function TestItem({ test, lessonNames }: ITestProps) {
 	}, [lessonNames])
 
 	return (
-		<Link to={`${location.pathname}/${test.test_id}`} className='test-link'>
+		<Link
+			to={Links.test(courseID, moduleID, test.test_id)}
+			className='test-link'
+		>
 			{lessonsName !== '' && (
 				<li className='tests__test test'>
 					<h3 className='test__title'>{`${test.name} (${lessonsName})`}</h3>

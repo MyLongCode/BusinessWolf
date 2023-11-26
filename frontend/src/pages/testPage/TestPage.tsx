@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './testPage.css'
-import { useActions } from '../../hooks/useActions'
-import ModuleLayout from '../../components/layouts/moduleLayout/ModuleLayout'
+import { useActions } from 'hooks/useActions'
+import ModuleLayout from 'components/layouts/moduleLayout/ModuleLayout'
 import { motion } from 'framer-motion'
-import { useTestsData } from '../../hooks/useTestsData'
-import { useTypedSelector } from '../../hooks/useTypedSelector'
-import AnswersList from '../../components/answer/AnswersList/AnswersList'
-
-type TestParams = {
-	id: string
-}
+import { useTestsData } from 'hooks/useTestsData'
+import { useTypedSelector } from 'hooks/useTypedSelector'
+import AnswersList from 'components/testPage/answer/AnswersList/AnswersList'
+import type { TestParams } from './testPage.types'
 
 function TestPage() {
 	const { id } = useParams<TestParams>()

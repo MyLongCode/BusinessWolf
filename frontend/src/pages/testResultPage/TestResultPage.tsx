@@ -1,10 +1,11 @@
 import React from 'react'
 import './testResultPage.css'
-import QuestionResult from '../../components/questionResult/QuestionResult'
+import QuestionResult from 'components/testPage/questionResult/QuestionResult'
 import { Link, useParams } from 'react-router-dom'
-import ModuleLayout from '../../components/layouts/moduleLayout/ModuleLayout'
-import useCompletedTest from '../../hooks/useCompletedTest'
+import ModuleLayout from 'components/layouts/moduleLayout/ModuleLayout'
+import useCompletedTest from 'hooks/useCompletedTest'
 import { motion } from 'framer-motion'
+import Links from '../../config/links.config'
 
 function TestResultPage() {
 	const { courseID, moduleID, id } = useParams<{
@@ -45,10 +46,9 @@ function TestResultPage() {
 							)
 						})}
 				</ul>
-				{/*<button className="test-result-page__btn btn">Завершить</button>*/}
 				<Link
 					className='test-result-page__btn btn'
-					to={`/course/${courseID}/module/${moduleID}`}
+					to={Links.module(courseID, moduleID)}
 				>
 					Завершить
 				</Link>

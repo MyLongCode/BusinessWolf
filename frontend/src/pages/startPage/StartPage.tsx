@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react'
 import './startPage.css'
-import wolf_festive from '../../assets/images/Festive_wolf(shadow).png'
+import wolf_festive from 'assets/images/Festive_wolf(shadow).png'
 import { motion } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
+import Links from '../../config/links.config'
 
 function StartPage() {
 	const navigate = useNavigate()
 
 	useEffect(() => {
 		if (localStorage.getItem('token')) {
-			navigate('/main')
+			navigate(Links.main)
 		}
 	}, [navigate])
 
