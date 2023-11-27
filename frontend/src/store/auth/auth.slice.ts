@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { checkAuth, login, logout } from './auth.actions'
+import { checkAuth, login, logout, patchUser } from './auth.actions'
 import type IUser from 'models/IUser'
 
 const initialState = {
@@ -38,6 +38,12 @@ export const authSlice = createSlice({
 			.addCase(checkAuth.rejected, state => {
 				state.user = null
 				state.error = '401'
+			})
+			.addCase(patchUser.fulfilled, (state, { payload }) => {
+				state.user = payload
+			})
+			.addCase(patchUser.rejected, state => {
+				state.error = '400'
 			})
 	}
 })

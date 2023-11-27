@@ -1,7 +1,7 @@
 .message {
 	background-color: var(--Main);
 	color: var(--White);
-	max-width: 600px;
+	max-width: 700px;
 	width: max-content;
 	border-radius: 18px;
 	position: relative;
@@ -35,18 +35,17 @@
 	&_user {
 		background-color: var(--GrayF1);
 		color: var(--Black);
-		align-self: end;
 
 		&:before {
 			content: '';
 			position: absolute;
 			z-index: 0;
 			bottom: 0;
-			right: -8px;
+			left: -7px;
 			height: 20px;
 			width: 20px;
-			background: var(--GrayF1) fixed;
-			border-bottom-left-radius: 15px;
+			background: var(--GrayF1);
+			border-bottom-right-radius: 15px;
 		}
 
 		&:after {
@@ -54,11 +53,11 @@
 			position: absolute;
 			z-index: 1;
 			bottom: 0;
-			right: -10px;
+			left: -10px;
 			width: 10px;
 			height: 20px;
-			background: white;
-			border-bottom-left-radius: 10px;
+			background: var(--White);
+			border-bottom-right-radius: 10px;
 		}
 	}
 

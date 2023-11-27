@@ -40,7 +40,7 @@ function TestPage() {
 					<p className='test-page__question'>
 						{questions[currentQuestion - 1].text}
 					</p>
-					<h3 className='test-page__select-text'>Выберите верный ответ</h3>
+					<h3 className='test-page__select-text'>Выберите верные ответы</h3>
 					<AnswersList
 						testID={id || ''}
 						answers={answers.get(currentQuestion) || []}

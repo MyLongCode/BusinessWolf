@@ -12,7 +12,7 @@ function LessonPage() {
 	const navigate = useNavigate()
 
 	const buttonClickHandler = () => {
-		navigate(Links.lesson(courseID, moduleID, id))
+		navigate(`${Links.module(courseID, moduleID)}/lessons`)
 	}
 
 	return (

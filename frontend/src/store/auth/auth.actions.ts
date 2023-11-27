@@ -4,6 +4,8 @@ import AuthService from 'services/AuthService'
 import TokenService from 'services/TokenService'
 import UserService from 'services/UserService'
 import type { AxiosError } from 'axios'
+import IUser from '../../models/IUser'
+import IUserPatch from '../../models/IUserPatch'
 
 interface IAuthData {
 	username: string
@@ -37,6 +39,18 @@ export const checkAuth = createAsyncThunk(
 			return response.data
 		} catch (e) {
 			thunkAPI.dispatch(logout())
+			return thunkAPI.rejectWithValue(e as AxiosError)
+		}
+	}
+)
+
+export const patchUser = createAsyncThunk<IUser, IUserPatch>(
+	'auth/patch-user',
+	async (data, thunkAPI) => {
+		try {
+			const response = await UserService.patchUser(data)
+			return response.data
+		} catch (e) {
 			return thunkAPI.rejectWithValue(e as AxiosError)
 		}
 	}

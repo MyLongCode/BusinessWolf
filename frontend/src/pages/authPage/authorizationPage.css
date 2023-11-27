@@ -10,21 +10,24 @@
 .label__input:focus {
   font-family: "Montserrat", sans-serif;
 }
-.label .filled {
-  opacity: 1;
-  border-color: var(--Main);
-}
-.label .unfilled {
-  opacity: 0.4;
-}
-.label .invalid {
-  border-color: red;
-}
 .label__title {
   font-size: 24px;
   font-weight: 600;
   line-height: normal;
   margin-bottom: 16px;
+}
+
+.filled {
+  opacity: 1;
+  border-color: var(--Main);
+}
+
+.unfilled {
+  opacity: 0.4;
+}
+
+input.invalid {
+  border-color: red;
 }
 
 .password-show {
