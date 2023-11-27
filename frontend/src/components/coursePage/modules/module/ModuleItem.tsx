@@ -1,8 +1,8 @@
 import React from 'react'
-import './module.css'
 import { Link } from 'react-router-dom'
-import { ModuleProps } from './moduleItem.interface'
 import Links from '../../../../config/links.config'
+import './module.css'
+import { ModuleProps } from './moduleItem.interface'
 
 function ModuleItem({ module, completeLessons, totalLessons }: ModuleProps) {
 	return (

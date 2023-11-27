@@ -1,7 +1,7 @@
 import React from 'react'
-import LessonMessage from './lessonMessage/LessonMessage'
 import { useParams } from 'react-router-dom'
 import useLessons from '../../../hooks/useLessons'
+import LessonMessage from './lessonMessage/LessonMessage'
 
 function LessonChat() {
 	const { id } = useParams<{ id: string }>()

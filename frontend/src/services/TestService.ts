@@ -1,8 +1,8 @@
-import api from '../api/api'
 import type { AxiosResponse } from 'axios'
+import api from '../api/api'
 import type ITest from '../models/ITest'
-import type { ICompletedTestResponse } from '../models/responce/ICompletedTestResponse'
 import type { ICompletedQuestionResponse } from '../models/responce/ICompletedQuestionResponse'
+import type { ICompletedTestResponse } from '../models/responce/ICompletedTestResponse'
 import type IFullCompletedTestResponse from '../models/responce/IFullCompletedTestResponse'
 
 const FETCH_URL = '/api/test/'

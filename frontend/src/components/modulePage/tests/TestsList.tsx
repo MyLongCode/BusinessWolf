@@ -1,7 +1,7 @@
 import React from 'react'
+import type ILesson from '../../../models/ILesson'
 import type ITest from '../../../models/ITest'
 import TestItem from './test/TestItem'
-import type ILesson from '../../../models/ILesson'
 
 function TestsList({
 	moduleID,

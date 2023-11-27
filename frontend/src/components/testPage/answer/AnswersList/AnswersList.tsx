@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Answer from '../Answer'
-import type IAnswer from '../../../../models/IAnswer'
-import { useTypedSelector } from '../../../../hooks/useTypedSelector'
-import { useActions } from '../../../../hooks/useActions'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useActions } from '../../../../hooks/useActions'
+import { useTypedSelector } from '../../../../hooks/useTypedSelector'
+import type IAnswer from '../../../../models/IAnswer'
 import type IQuestion from '../../../../models/IQuestion'
+import Answer from '../Answer'
 
 const AnswersList = ({
 	testID,

@@ -1,11 +1,11 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import './lessonPage.css'
 import ModuleLayout from '../../components/layouts/moduleLayout/ModuleLayout'
-import { motion } from 'framer-motion'
 import LessonChat from '../../components/testPage/lessonChat/LessonChat'
-import type { LessonPageParams } from './lessonPage.types'
 import Links from '../../config/links.config'
+import './lessonPage.css'
+import type { LessonPageParams } from './lessonPage.types'
 
 function LessonPage() {
 	const { id, moduleID, courseID } = useParams<LessonPageParams>()

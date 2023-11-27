@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
-import avatar from '../../../assets/images/Avatar.jpg'
-import './profileMenu.css'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useActions } from '../../../hooks/useActions'
+import avatar from '../../../assets/images/Avatar.jpg'
 import Links from '../../../config/links.config'
+import { useActions } from '../../../hooks/useActions'
+import './profileMenu.css'
 
 const ProfileMenu = () => {
 	const [burgerHidden, setBurgerHidden] = useState(true)

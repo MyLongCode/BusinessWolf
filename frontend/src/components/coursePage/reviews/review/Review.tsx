@@ -1,7 +1,7 @@
 import React from 'react'
 import AuthorAvatar from '../../../../assets/images/Avatar.jpg'
-import './review.css'
 import type IReview from '../../../../models/IReview'
+import './review.css'
 
 function ReviewItem({ review }: { review: IReview }) {
 	return (

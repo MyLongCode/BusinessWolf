@@ -1,31 +1,31 @@
 .course-page {
-  margin: 0 10% 60px;
+	margin: 0 10% 60px;
 }
 .course-page .section-heading {
-  font-family: "Enthalpy 298", sans-serif;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom: 24px;
+	font-family: 'Enthalpy 298', sans-serif;
+	font-size: 40px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin-bottom: 24px;
 }
 .course-page__modules {
-  margin-bottom: 64px;
+	margin-bottom: 64px;
 }
 .course-page__modules .modules__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
-  gap: 40px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+	gap: 40px;
 }
 .course-page .about {
-  width: 60%;
-  margin-bottom: 48px;
+	width: 60%;
+	margin-bottom: 48px;
 }
 .course-page .about__text {
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 160%;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 160%;
 }
 
 /*# sourceMappingURL=coursePage.css.map */

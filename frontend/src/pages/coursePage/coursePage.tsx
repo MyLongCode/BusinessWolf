@@ -1,14 +1,14 @@
-import React from 'react'
-import './coursePage.css'
-import { useNavigate, useParams } from 'react-router-dom'
-import MainLayout from 'components/layouts/mainLayout/MainLayout'
+import type IReview from 'models/IReview'
 import ModulesList from 'components/coursePage/modules/ModulesList'
 import ReviewsList from 'components/coursePage/reviews/ReviewsList'
-import type IReview from 'models/IReview'
+import MainLayout from 'components/layouts/mainLayout/MainLayout'
 import ReturnButton from 'components/returnButton/ReturnButton'
+import React from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import useModules from 'hooks/useModules'
-import type { CourseParams } from './coursePage.types'
 import Links from '../../config/links.config'
+import './coursePage.css'
+import type { CourseParams } from './coursePage.types'
 
 const reviews: IReview[] = [
 	{

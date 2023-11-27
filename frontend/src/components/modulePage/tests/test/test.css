@@ -1,24 +1,24 @@
 .test-link {
-  text-decoration: none;
-  color: var(--Black);
-  max-width: 795px;
+	text-decoration: none;
+	color: var(--Black);
+	max-width: 795px;
 }
 
 .test {
-  border-radius: 20px;
-  border: 2px solid var(--Black);
-  padding: 18px 20px;
-  transition-duration: 0.2s;
+	border-radius: 20px;
+	border: 2px solid var(--Black);
+	padding: 18px 20px;
+	transition-duration: 0.2s;
 }
 .test:hover {
-  background-color: whitesmoke;
-  opacity: 0.7;
+	background-color: whitesmoke;
+	opacity: 0.7;
 }
 .test__title {
-  margin-bottom: 14px;
+	margin-bottom: 14px;
 }
 .test__desc {
-  margin-bottom: 24px;
+	margin-bottom: 24px;
 }
 
 /*# sourceMappingURL=test.css.map */

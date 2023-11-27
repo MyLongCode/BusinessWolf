@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import ModuleHeader from '../../headers/moduleHeader/ModuleHeader'
 import { useLocation } from 'react-router-dom'
+import ModuleHeader from '../../headers/moduleHeader/ModuleHeader'
 
 function ModuleLayout({
 	children,

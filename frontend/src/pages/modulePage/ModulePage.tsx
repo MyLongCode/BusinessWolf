@@ -1,15 +1,15 @@
+import ModuleLayout from 'components/layouts/moduleLayout/ModuleLayout'
+import LessonsList from 'components/modulePage/lessons/LessonsList'
+import TestsList from 'components/modulePage/tests/TestsList'
+import SliderButton from 'components/sliderButton/SliderButton'
+import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import './modulePage.css'
-import { motion } from 'framer-motion'
-import ModuleLayout from 'components/layouts/moduleLayout/ModuleLayout'
-import SliderButton from 'components/sliderButton/SliderButton'
-import TestsList from 'components/modulePage/tests/TestsList'
-import LessonsList from 'components/modulePage/lessons/LessonsList'
 import useLessons from 'hooks/useLessons'
 import { useTests } from 'hooks/useTests'
-import { ModuleParams, States } from './modulePage.helper'
 import Links from '../../config/links.config'
+import './modulePage.css'
+import { ModuleParams, States } from './modulePage.helper'
 
 function ModulePage() {
 	const { id, courseID } = useParams<ModuleParams>()

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import './moduleHeader.css'
-import Logo from '../logo/Logo'
 import ProfileMenu from '../../profilePage/profileMenu/ProfileMenu'
+import Logo from '../logo/Logo'
+import './moduleHeader.css'
 
 interface ModuleHeaderProps {
 	title: string

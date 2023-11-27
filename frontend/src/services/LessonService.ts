@@ -1,5 +1,5 @@
-import api from '../api/api'
 import type { AxiosResponse } from 'axios'
+import api from '../api/api'
 import type ILesson from '../models/ILesson'
 
 const FETCH_URL = '/api/lessons/'

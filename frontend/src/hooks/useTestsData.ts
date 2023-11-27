@@ -1,9 +1,9 @@
-import type IAnswer from 'models/IAnswer'
-import { useEffect, useState } from 'react'
-import type IQuestion from 'models/IQuestion'
 import { useQuery } from '@tanstack/react-query'
+import type IAnswer from 'models/IAnswer'
+import type IQuestion from 'models/IQuestion'
 import AnswerService from 'services/AnswerService'
 import QuestionService from 'services/QuestionService'
+import { useEffect, useState } from 'react'
 
 const shuffle = <T>(array: T[]): T[] => {
 	for (let i = array.length - 1; i > 0; i--) {

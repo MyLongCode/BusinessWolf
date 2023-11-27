@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { testsSlice } from './tests/tests.slice'
 import { authSlice } from './auth/auth.slice'
+import { testsSlice } from './tests/tests.slice'
 
 export const rootReducer = combineReducers({
 	auth: authSlice.reducer,

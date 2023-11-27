@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import './test.css'
-import type ITest from '../../../../models/ITest'
 import { Link, useParams } from 'react-router-dom'
 import Links from '../../../../config/links.config'
+import type ITest from '../../../../models/ITest'
+import './test.css'
 
 interface ITestProps {
 	test: ITest

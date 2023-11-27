@@ -1,7 +1,7 @@
 import React from 'react'
-import './lessonMessage.css'
-import type IMessage from '../../../../models/IMessage'
 import LessonMessageConfig from '../../../../config/lessonMessage.config'
+import type IMessage from '../../../../models/IMessage'
+import './lessonMessage.css'
 
 function LessonMessage({ message }: { message: IMessage }) {
 	return (

@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
-import logo from 'assets/images/Logo.svg'
-import './authorizationPage.css'
-import { useLocation, useNavigate } from 'react-router-dom'
 import type IAuthInputs from 'models/IAuthInputs'
 import AuthForm from 'components/authForm/AuthForm'
-import { useTypedSelector } from 'hooks/useTypedSelector'
-import { useActions } from 'hooks/useActions'
 import { motion } from 'framer-motion'
+import logo from 'assets/images/Logo.svg'
+import React, { useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { useActions } from 'hooks/useActions'
+import { useTypedSelector } from 'hooks/useTypedSelector'
 import Links from '../../config/links.config'
+import './authorizationPage.css'
 
 function AuthorizationPage() {
 	const navigate = useNavigate()

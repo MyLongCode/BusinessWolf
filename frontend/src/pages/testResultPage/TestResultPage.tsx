@@ -1,11 +1,11 @@
-import React from 'react'
-import './testResultPage.css'
-import QuestionResult from 'components/testPage/questionResult/QuestionResult'
-import { Link, useParams } from 'react-router-dom'
 import ModuleLayout from 'components/layouts/moduleLayout/ModuleLayout'
-import useCompletedTest from 'hooks/useCompletedTest'
+import QuestionResult from 'components/testPage/questionResult/QuestionResult'
 import { motion } from 'framer-motion'
+import React from 'react'
+import { Link, useParams } from 'react-router-dom'
+import useCompletedTest from 'hooks/useCompletedTest'
 import Links from '../../config/links.config'
+import './testResultPage.css'
 
 function TestResultPage() {
 	const { courseID, moduleID, id } = useParams<{

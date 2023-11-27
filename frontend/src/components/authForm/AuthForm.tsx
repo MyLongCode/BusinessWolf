@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import eye from 'assets/images/Eye.svg'
-import eyeSlash from 'assets/images/Eye-slash.svg'
-import { useForm } from 'react-hook-form'
 import type IAuthInputs from 'models/IAuthInputs'
+import eyeSlash from 'assets/images/Eye-slash.svg'
+import eye from 'assets/images/Eye.svg'
+import React, { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { useTypedSelector } from 'hooks/useTypedSelector'
 import type { IAuthForm } from './authForm.interface'
 

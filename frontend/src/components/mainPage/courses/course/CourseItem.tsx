@@ -1,9 +1,9 @@
-import React from 'react'
-import './course.css'
 import * as wolfs from 'assets/images/wolfes'
-import type ICourse from '../../../../models/ICourse'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Links from '../../../../config/links.config'
+import type ICourse from '../../../../models/ICourse'
+import './course.css'
 
 const images = [wolfs.wolf_1, wolfs.wolf_2, wolfs.wolf_3, wolfs.wolf_4]
 

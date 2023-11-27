@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import type { IAvatar } from './avatar/avatarItem.interface'
 import AvatarItem from './avatar/avatarItem'
+import type { IAvatar } from './avatar/avatarItem.interface'
 
 const AvatarsList = ({
 	avatars,

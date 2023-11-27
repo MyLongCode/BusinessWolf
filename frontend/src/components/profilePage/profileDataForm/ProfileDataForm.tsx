@@ -1,10 +1,10 @@
+import { clsx } from 'clsx'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import './profileDataForm.css'
-import { clsx } from 'clsx'
 import { useActions } from '../../../hooks/useActions'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import IUserPatch from '../../../models/IUserPatch'
+import './profileDataForm.css'
 
 interface IFormInputs {
 	name: string

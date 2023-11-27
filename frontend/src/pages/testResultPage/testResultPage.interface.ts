@@ -1,5 +1,5 @@
-import ISelectedAnswer from '../../models/ISelectedAnswer'
 import IAnswer from '../../models/IAnswer'
+import ISelectedAnswer from '../../models/ISelectedAnswer'
 
 export interface IResultProps {
 	title: string

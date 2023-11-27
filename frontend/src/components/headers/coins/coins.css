@@ -1,25 +1,25 @@
 .coins {
-  display: flex;
-  align-items: center;
-  background-color: var(--Main);
-  border-radius: 15px 14px 14px 15px;
-  height: 55px;
-  width: max-content;
-  margin-left: auto;
+	display: flex;
+	align-items: center;
+	background-color: var(--Main);
+	border-radius: 15px 14px 14px 15px;
+	height: 55px;
+	width: max-content;
+	margin-left: auto;
 }
 .coins__img {
-  width: 72px;
-  height: 72px;
-  position: relative;
-  left: -16px;
+	width: 72px;
+	height: 72px;
+	position: relative;
+	left: -16px;
 }
 .coins__count {
-  position: relative;
-  right: 17px;
-  color: var(--White);
-  font-size: 23px;
-  font-style: normal;
-  line-height: normal;
+	position: relative;
+	right: 17px;
+	color: var(--White);
+	font-size: 23px;
+	font-style: normal;
+	line-height: normal;
 }
 
 /*# sourceMappingURL=coins.css.map */

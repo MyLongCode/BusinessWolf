@@ -1,5 +1,5 @@
-import api from '../api/api'
 import type { AxiosResponse } from 'axios'
+import api from '../api/api'
 import type IAuthResponse from '../models/responce/IAuthResponse'
 
 const LoginURL = '/auth/token/'

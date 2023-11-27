@@ -1,12 +1,12 @@
+import ModuleLayout from 'components/layouts/moduleLayout/ModuleLayout'
+import AnswersList from 'components/testPage/answer/AnswersList/AnswersList'
+import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import './testPage.css'
 import { useActions } from 'hooks/useActions'
-import ModuleLayout from 'components/layouts/moduleLayout/ModuleLayout'
-import { motion } from 'framer-motion'
 import { useTestsData } from 'hooks/useTestsData'
 import { useTypedSelector } from 'hooks/useTypedSelector'
-import AnswersList from 'components/testPage/answer/AnswersList/AnswersList'
+import './testPage.css'
 import type { TestParams } from './testPage.types'
 
 function TestPage() {

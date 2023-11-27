@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import ModuleService from 'services/ModuleService'
 import type IModule from 'models/IModule'
+import ModuleService from 'services/ModuleService'
 
 const useModules = () => {
 	const { data } = useQuery({

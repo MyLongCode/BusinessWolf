@@ -1,6 +1,6 @@
-import type IUser from '../models/IUser'
-import api from '../api/api'
 import type { AxiosResponse } from 'axios'
+import api from '../api/api'
+import type IUser from '../models/IUser'
 import IUserPatch from '../models/IUserPatch'
 
 const USERS_URL = '/api/users'

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import MainHeader from '../../headers/mainHeader/MainHeader'
+import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import MainHeader from '../../headers/mainHeader/MainHeader'
 
 function MainLayout({
 	children,

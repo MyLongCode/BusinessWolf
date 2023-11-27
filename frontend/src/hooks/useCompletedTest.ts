@@ -1,6 +1,6 @@
-import { useTypedSelector } from './useTypedSelector'
-import { useEffect, useState } from 'react'
 import type ICompletedQuestion from 'models/ICompletedQuestion'
+import { useEffect, useState } from 'react'
+import { useTypedSelector } from './useTypedSelector'
 
 export const useCompletedTest = () => {
 	const { completedTest } = useTypedSelector(state => state.tests)

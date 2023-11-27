@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
-import './questionResult.css'
 import type { IResultProps } from '../../../pages/testResultPage/testResultPage.interface'
+import './questionResult.css'
 
 function QuestionResult({
 	selectedAnswers,

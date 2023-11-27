@@ -1,5 +1,5 @@
-import React from 'react'
 import token from 'assets/images/Token_wolf.svg'
+import React from 'react'
 import './coins.css'
 
 function Coins({ coins }: { coins: number }) {

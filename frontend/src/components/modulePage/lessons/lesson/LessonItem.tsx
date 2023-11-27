@@ -1,8 +1,8 @@
 import React from 'react'
-import './lesson.css'
-import type ILesson from '../../../../models/ILesson'
 import { Link, useParams } from 'react-router-dom'
 import Links from '../../../../config/links.config'
+import type ILesson from '../../../../models/ILesson'
+import './lesson.css'
 
 function LessonItem({ lesson }: { lesson: ILesson }) {
 	const { courseID, id: moduleID } = useParams<{

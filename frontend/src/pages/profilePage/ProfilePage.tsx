@@ -1,12 +1,12 @@
-import './profilePage.css'
+import MainLayout from 'components/layouts/mainLayout/MainLayout'
+import ChangeAvatarModal from 'components/profilePage/changeAvatarModal/ChangeAvatarModal'
+import ProfileCourse from 'components/profilePage/profileCourse/ProfileCourse'
+import ProfileDataForm from 'components/profilePage/profileDataForm/ProfileDataForm'
+import ReturnButton from 'components/returnButton/ReturnButton'
 import avatar from 'assets/images/Avatar.jpg'
 import React, { useState } from 'react'
-import ProfileDataForm from 'components/profilePage/profileForm/ProfileDataForm'
-import ProfileCourse from 'components/profilePage/profileCourse/ProfileCourse'
-import MainLayout from 'components/layouts/mainLayout/MainLayout'
-import ReturnButton from 'components/returnButton/ReturnButton'
 import useUserData from 'hooks/useUserData'
-import ChangeAvatarModal from 'components/profilePage/changeAvatarModal/ChangeAvatarModal'
+import './profilePage.css'
 
 function ProfilePage() {
 	const { address, grade, email, fullName, phone } = useUserData()

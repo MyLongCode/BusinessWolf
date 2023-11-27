@@ -1,17 +1,17 @@
 .avatar {
-  -webkit-user-drag: none;
+	-webkit-user-drag: none;
 
-  &:hover {
-    opacity: 0.8;
-  }
+	&:hover {
+		opacity: 0.8;
+	}
 
-  &:active {
-    opacity: 0.5;
-  }
+	&:active {
+		opacity: 0.5;
+	}
 }
 
 .active {
-  outline: var(--Main) 4px solid;
-  outline-offset: -4px;
-  border-radius: 50%;
+	outline: var(--Main) 4px solid;
+	outline-offset: -4px;
+	border-radius: 50%;
 }

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
-import './startPage.css'
-import wolf_festive from 'assets/images/Festive_wolf(shadow).png'
 import { motion } from 'framer-motion'
+import wolf_festive from 'assets/images/Festive_wolf(shadow).png'
+import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Links from '../../config/links.config'
+import './startPage.css'
 
 function StartPage() {
 	const navigate = useNavigate()

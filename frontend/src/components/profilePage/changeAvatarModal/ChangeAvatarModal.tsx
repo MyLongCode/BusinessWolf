@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import useAvatars from '../../../hooks/useAvatars'
+import AvatarItem from '../../avatars/avatar/avatarItem'
+import type { IAvatar } from '../../avatars/avatar/avatarItem.interface'
+import AvatarsList from '../../avatars/avatarsList'
 import Modal from '../../modal/Modal'
 import type { IChangeAvatarModalProps } from './changeAvatarModal.interface'
 import styles from './changeAvatarModal.module.css'
-import type { IAvatar } from '../../avatars/avatar/avatarItem.interface'
-import AvatarsList from '../../avatars/avatarsList'
-import AvatarItem from '../../avatars/avatar/avatarItem'
-import useAvatars from '../../../hooks/useAvatars'
 
 const ChangeAvatarModal = ({ setIsModalVisible }: IChangeAvatarModalProps) => {
 	const avatars = useAvatars()

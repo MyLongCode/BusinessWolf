@@ -1,6 +1,6 @@
+import type IAnswer from 'models/IAnswer'
 import React from 'react'
 import './answer.css'
-import type IAnswer from 'models/IAnswer'
 
 function Answer({
 	answer,

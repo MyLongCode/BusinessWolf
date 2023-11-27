@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { addQuestion, pushTest, selectAnswer } from './tests.actions'
 import type IFullCompletedTestResponse from 'models/responce/IFullCompletedTestResponse'
+import { addQuestion, pushTest, selectAnswer } from './tests.actions'
 
 export interface IQuestionIDs {
 	id: number

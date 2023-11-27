@@ -1,18 +1,18 @@
 .lesson-page {
-  margin-bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  padding: 0 10%;
+	margin-bottom: 50px;
+	display: flex;
+	flex-direction: column;
+	padding: 0 10%;
 }
 .lesson-page__messages {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  width: 700px;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	width: 700px;
 }
 .lesson-page__btn {
-  margin-top: 64px;
-  max-width: 700px;
+	margin-top: 64px;
+	max-width: 700px;
 }
 
 /*# sourceMappingURL=lessonPage.css.map */

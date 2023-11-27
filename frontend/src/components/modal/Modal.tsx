@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import styles from './modal.module.css'
 import type { IModalProps } from './modal.intreface'
+import styles from './modal.module.css'
 
 const Modal = ({ children, className, setIsModalVisible }: IModalProps) => {
 	const clickHandler = () => {

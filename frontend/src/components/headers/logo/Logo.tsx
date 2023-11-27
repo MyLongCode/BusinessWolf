@@ -1,8 +1,8 @@
 import React from 'react'
-import logo from '../../../assets/images/Logo.svg'
 import { Link } from 'react-router-dom'
-import './logo.css'
+import logo from '../../../assets/images/Logo.svg'
 import Links from '../../../config/links.config'
+import './logo.css'
 
 const Logo = () => {
 	return (

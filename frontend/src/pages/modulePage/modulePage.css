@@ -1,11 +1,11 @@
 .module-page {
-  margin: 0 10%;
+	margin: 0 10%;
 }
 .module-page__content .lessons,
 .module-page__content .tests {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-  gap: 40px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+	gap: 40px;
 }
 
 /*# sourceMappingURL=modulePage.css.map */
