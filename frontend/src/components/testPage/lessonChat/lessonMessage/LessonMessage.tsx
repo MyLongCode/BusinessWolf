@@ -1,6 +1,7 @@
 import React from 'react'
 import './lessonMessage.css'
 import type IMessage from '../../../../models/IMessage'
+import LessonMessageConfig from '../../../../config/lessonMessage.config'
 
 function LessonMessage({ message }: { message: IMessage }) {
 	return (
@@ -15,8 +16,8 @@ function LessonMessage({ message }: { message: IMessage }) {
 						<img src={message.url} alt='Вложение' />
 					) : (
 						<iframe
-							width='600'
-							height='340'
+							width={LessonMessageConfig.videoWidth}
+							height={LessonMessageConfig.videoHeight}
 							src={message.url}
 							title='YouTube video player'
 							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'

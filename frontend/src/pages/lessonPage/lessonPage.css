@@ -2,7 +2,7 @@
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 0 10%;
 }
 .lesson-page__messages {
   display: flex;
@@ -12,7 +12,7 @@
 }
 .lesson-page__btn {
   margin-top: 64px;
-  width: 700px;
+  max-width: 700px;
 }
 
 /*# sourceMappingURL=lessonPage.css.map */
