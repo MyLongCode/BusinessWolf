@@ -64,7 +64,8 @@ function ProfileDataForm({ name, phone, email, address, grade }: IFormInputs) {
 						{...register('email', {
 							pattern: {
 								value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-								message: 'Некорректный формат почты'
+								message:
+									'Неверный формат. Пример электронной почты ivanov@mail.ru'
 							}
 						})}
 						value={emailValue}
@@ -118,9 +119,9 @@ function ProfileDataForm({ name, phone, email, address, grade }: IFormInputs) {
 							pattern: {
 								value: /[(+7)8]\d{10}/,
 								message:
-									'Неверный формат телефона.' +
-									' Номер телефона должен быть указан с кодом города/оператора' +
-									' и состоять из 10 цифр (Например +79123456789)'
+									'Неверный формат.' +
+									' Номер телефона должен состоять из 11 цифр' +
+									' (например +79999999999 или 89999999999)'
 							}
 						})}
 						value={phoneValue}
