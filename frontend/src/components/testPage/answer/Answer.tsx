@@ -1,6 +1,7 @@
 import type IAnswer from 'models/IAnswer'
+import { clsx } from 'clsx'
 import React from 'react'
-import './answer.css'
+import styles from './answer.module.css'
 
 function Answer({
 	answer,
@@ -13,17 +14,23 @@ function Answer({
 }) {
 	return (
 		<li
-			className={`answer ${isSelected && 'answer_selected'}`}
+			className={clsx(
+				styles.answer,
+				isSelected ? styles.answer_selected : null
+			)}
 			onClick={() => {
 				clickHandler(answer.answer_id)
 			}}
 		>
 			<div
-				className={`answer__toggle toggle ${isSelected && 'toggle_selected'}`}
+				className={clsx(
+					styles.toggle,
+					isSelected ? styles.toggle_selected : null
+				)}
 			>
-				{isSelected && <div className='toggle__dot' />}
+				{isSelected && <div className={styles.toggle__dot} />}
 			</div>
-			<p className='answer__text'>{`${answer.text}`}</p>
+			<p>{`${answer.text}`}</p>
 		</li>
 	)
 }

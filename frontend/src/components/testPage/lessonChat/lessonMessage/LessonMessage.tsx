@@ -1,3 +1,4 @@
+import { clsx } from 'clsx'
 import React from 'react'
 import LessonMessageConfig from '../../../../config/lessonMessage.config'
 import type IMessage from '../../../../models/IMessage'
@@ -6,9 +7,10 @@ import './lessonMessage.css'
 function LessonMessage({ message }: { message: IMessage }) {
 	return (
 		<li
-			className={`message${
-				message.author === 'user' ? ' message_user' : ' message_not-user'
-			}`}
+			className={clsx('message', {
+				message_user: message.author === 'user',
+				message_admin: message.author === 'admin'
+			})}
 		>
 			{message.type !== 'text' && (
 				<div className='message__attachment'>

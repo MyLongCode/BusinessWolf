@@ -1,9 +1,9 @@
+import type IAnswer from 'models/IAnswer'
+import type IQuestion from 'models/IQuestion'
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useActions } from '../../../../hooks/useActions'
-import { useTypedSelector } from '../../../../hooks/useTypedSelector'
-import type IAnswer from '../../../../models/IAnswer'
-import type IQuestion from '../../../../models/IQuestion'
+import { useActions } from 'hooks/useActions'
+import { useTypedSelector } from 'hooks/useTypedSelector'
 import Answer from '../Answer'
 
 const AnswersList = ({
@@ -36,6 +36,7 @@ const AnswersList = ({
 			selectAnswer(id)
 		} else {
 			setSelected(prevState => prevState.filter(item => item !== id))
+			selectAnswer(id)
 		}
 	}
 

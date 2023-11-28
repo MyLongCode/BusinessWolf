@@ -1,7 +1,7 @@
 import ModuleLayout from 'components/layouts/moduleLayout/ModuleLayout'
 import AnswersList from 'components/testPage/answer/AnswersList/AnswersList'
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useActions } from 'hooks/useActions'
 import { useTestsData } from 'hooks/useTestsData'

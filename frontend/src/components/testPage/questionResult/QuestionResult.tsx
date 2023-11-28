@@ -1,6 +1,8 @@
+import { clsx } from 'clsx'
 import React, { useMemo } from 'react'
 import type { IResultProps } from '../../../pages/testResultPage/testResultPage.interface'
 import './questionResult.css'
+import ResultAnswersList from './resultAnswersList/ResultAnswersList'
 
 function QuestionResult({
 	selectedAnswers,
@@ -29,22 +31,17 @@ function QuestionResult({
 	return (
 		<li className='question-result'>
 			<h4 className='question-result__title'>{title}</h4>
-			<p
-				className={`question-result__your-answer your-answer your-answer_${
-					isCorrect ? 'good' : 'bad'
-				}`}
-			>
-				{userAnswers.map(answer => answer.text).join(', ')}
-			</p>
+			<h5 className='question-result__heading'>Ваш ответ:</h5>
+			<ResultAnswersList answers={userAnswers} />
 			{!isCorrect && (
 				<>
-					<h5 className='question-result__right-title'>Правильный ответ:</h5>
-					<p className='question-result__right-answer right-answer'>
-						{rightAnswers.map(answer => answer.text).join(', ')}
-					</p>
+					<h5 className='question-result__heading question-result__heading_right'>
+						Правильный ответ:
+					</h5>
+					<ResultAnswersList answers={rightAnswers} />
 				</>
 			)}
-			<p className='question-result__answer'>{questionExplanation}</p>
+			<p className='question-result__explanation'>{questionExplanation}</p>
 		</li>
 	)
 }
