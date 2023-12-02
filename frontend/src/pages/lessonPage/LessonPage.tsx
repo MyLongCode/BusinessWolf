@@ -8,12 +8,7 @@ import './lessonPage.css'
 import type { LessonPageParams } from './lessonPage.types'
 
 function LessonPage() {
-	const { id, moduleID, courseID } = useParams<LessonPageParams>()
-	const navigate = useNavigate()
-
-	const buttonClickHandler = () => {
-		navigate(`${Links.module(courseID, moduleID)}/lessons`)
-	}
+	const { id } = useParams<LessonPageParams>()
 
 	return (
 		<ModuleLayout headerTitle={`Урок ${id}`} pageTitle={`Урок ${id}`}>
@@ -25,12 +20,6 @@ function LessonPage() {
 				transition={{ duration: 0.2 }}
 			>
 				<LessonChat />
-				<button
-					className='lesson-page__btn btn'
-					onClick={() => buttonClickHandler()}
-				>
-					Прочитано
-				</button>
 			</motion.div>
 		</ModuleLayout>
 	)

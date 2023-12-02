@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { useActions } from '../../../hooks/useActions'
 import useAvatars from '../../../hooks/useAvatars'
+import useUserData from '../../../hooks/useUserData'
 import AvatarItem from '../../avatars/avatar/avatarItem'
 import type { IAvatar } from '../../avatars/avatar/avatarItem.interface'
 import AvatarsList from '../../avatars/avatarsList'
@@ -9,20 +11,24 @@ import styles from './changeAvatarModal.module.css'
 
 const ChangeAvatarModal = ({ setIsModalVisible }: IChangeAvatarModalProps) => {
 	const avatars = useAvatars()
-	const [currentAvatar, setCurrentAvatar] = useState<IAvatar | null>(null)
+	const { avatar, id } = useUserData()
+	const [currentAvatar, setCurrentAvatar] = useState<IAvatar | null>(avatar)
+	const { patchUser } = useActions()
 
 	useEffect(() => {
 		if (!currentAvatar) {
-			setCurrentAvatar(avatars[0])
+			setCurrentAvatar(avatar)
 		}
-	}, [avatars])
+	}, [avatar, currentAvatar])
 
 	const avatarClickHandler = (avatar: IAvatar) => {
 		setCurrentAvatar(avatar)
 	}
 
 	const saveClickHandler = () => {
-		alert('Аватар изменен')
+		if (currentAvatar) {
+			patchUser({ id: id, avatar: currentAvatar.id })
+		}
 		setIsModalVisible(false)
 	}
 

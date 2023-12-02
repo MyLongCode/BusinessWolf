@@ -3,4 +3,5 @@ export default interface IUserPatch {
 	address?: string
 	phone?: string
 	email?: string
+	avatar?: number
 }

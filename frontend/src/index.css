@@ -1,86 +1,86 @@
 :root {
-	--White: #ffffff;
-	--Main: #4b94dd;
-	--DarkMain: #3b7dbd;
-	--Black: #111010;
-	--GrayA: #aaa;
-	--GrayF1: #f1f1f1;
-	--Gray89: #898989;
+  --White: #ffffff;
+  --Main: #4b94dd;
+  --DarkMain: #3b7dbd;
+  --Black: #111010;
+  --GrayA: #aaa;
+  --GrayF1: #f1f1f1;
+  --Gray89: #898989;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 h1 {
-	font-family: 'Enthalpy 298', sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
+  font-family: "Enthalpy 298", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 body {
-	font-family: 'Montserrat', sans-serif;
-	font-size: 18px;
-	line-height: 150%;
-	min-width: 720px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  line-height: 150%;
+  min-width: 720px;
 }
 
 .btn {
-	border-radius: 16px;
-	color: var(--White);
-	line-height: 200%;
-	font-weight: bold;
-	text-transform: uppercase;
-	padding: 12px 0;
-	border: none;
-	background-color: var(--Main);
-	cursor: pointer;
-	text-decoration: none;
-	transition-duration: 0.2s;
-	display: block;
-	text-align: center;
+  border-radius: 16px;
+  color: var(--White);
+  line-height: 200%;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 12px 0;
+  border: none;
+  background-color: var(--Main);
+  cursor: pointer;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  display: block;
+  text-align: center;
 }
 .btn:hover {
-	background-color: var(--DarkMain);
+  background-color: var(--DarkMain);
 }
 .btn:disabled {
-	background-color: var(--GrayA);
-	cursor: default;
+  background-color: var(--GrayA);
+  cursor: default;
 }
 .btn:focus {
-	outline: none;
+  outline: none;
 }
 
-input::-ms-reveal,
-input::-ms-clear {
-	display: none;
+input::-ms-reveal, input::-ms-clear {
+  display: none;
 }
 
 .centered {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .error-text {
-	color: red;
-	font-size: 16px;
+  color: red;
+  font-size: 16px;
 }
 
 .arrow {
-	border: solid black;
-	border-width: 0 2px 2px 0;
-	display: inline-block;
-	padding: 5px;
-	transform: rotate(45deg);
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(45deg);
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -8,4 +8,5 @@ export default interface IUser {
 	phone: string
 	full_name: string
 	email: string
+	avatar: number
 }

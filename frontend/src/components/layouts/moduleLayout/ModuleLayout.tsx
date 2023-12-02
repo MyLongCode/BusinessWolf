@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import ModuleHeader from '../../headers/moduleHeader/ModuleHeader'
 
 function ModuleLayout({
@@ -12,6 +13,7 @@ function ModuleLayout({
 	pageTitle: string
 }) {
 	const location = useLocation()
+	const { isLoading } = useTypedSelector(state => state.auth)
 
 	useEffect(() => {
 		document.title = `Бизнес волчонок${pageTitle ? ` | ${pageTitle}` : ''}`
@@ -20,7 +22,7 @@ function ModuleLayout({
 	return (
 		<>
 			<ModuleHeader title={headerTitle} />
-			<main>{children}</main>
+			{children && !isLoading && <main>{children}</main>}
 		</>
 	)
 }

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import useUserData from '../../hooks/useUserData'
 import AvatarItem from './avatar/avatarItem'
 import type { IAvatar } from './avatar/avatarItem.interface'
 
@@ -11,7 +12,14 @@ const AvatarsList = ({
 	className?: string
 	onClick?: (avatar: IAvatar) => void
 }) => {
-	const [active, setActive] = useState(0)
+	const { avatar } = useUserData()
+	const [active, setActive] = useState(avatar?.id)
+
+	useEffect(() => {
+		if ((!active && active !== 0) || active === -1) {
+			setActive(avatar?.id)
+		}
+	}, [avatar, active])
 
 	const clickHandler = (avatar: IAvatar) => {
 		setActive(avatar.id)

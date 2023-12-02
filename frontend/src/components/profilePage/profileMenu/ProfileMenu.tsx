@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import avatar from '../../../assets/images/Avatar.jpg'
 import Links from '../../../config/links.config'
 import { useActions } from '../../../hooks/useActions'
+import useUserData from '../../../hooks/useUserData'
 import './profileMenu.css'
 
 const ProfileMenu = () => {
@@ -14,6 +14,7 @@ const ProfileMenu = () => {
 	const { logout } = useActions()
 	const burgerRef = useRef(null)
 	const profileRef = useRef(null)
+	const { avatar } = useUserData()
 
 	const menuClickHandler = () => {
 		setBurgerAnimating(!burgerAnimating)
@@ -41,12 +42,14 @@ const ProfileMenu = () => {
 	return (
 		<>
 			<button className='user-avatar' onClick={() => menuClickHandler()}>
-				<img
-					src={avatar}
-					alt='Аватар пользователя'
-					className='user-avatar__img'
-					ref={profileRef}
-				/>
+				{avatar && (
+					<img
+						src={avatar?.image}
+						alt=''
+						className='user-avatar__img'
+						ref={profileRef}
+					/>
+				)}
 			</button>
 			{!burgerHidden && (
 				<motion.div

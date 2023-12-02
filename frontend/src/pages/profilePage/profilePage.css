@@ -48,6 +48,7 @@
   background-color: var(--Main);
   padding: 6px 4px 0 5px;
   pointer-events: none;
+  min-width: 26px;
 }
 .profile .user .info {
   display: flex;

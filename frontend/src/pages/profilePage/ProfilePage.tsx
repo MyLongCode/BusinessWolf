@@ -3,13 +3,12 @@ import ChangeAvatarModal from 'components/profilePage/changeAvatarModal/ChangeAv
 import ProfileCourse from 'components/profilePage/profileCourse/ProfileCourse'
 import ProfileDataForm from 'components/profilePage/profileDataForm/ProfileDataForm'
 import ReturnButton from 'components/returnButton/ReturnButton'
-import avatar from 'assets/images/Avatar.jpg'
 import React, { useState } from 'react'
 import useUserData from 'hooks/useUserData'
 import './profilePage.css'
 
 function ProfilePage() {
-	const { address, grade, email, fullName, phone } = useUserData()
+	const { address, grade, email, fullName, phone, avatar } = useUserData()
 	const [isAvatarModalVisible, setIsModalVisible] = useState(false)
 
 	const changeAvatarClickHandler = () => {
@@ -26,14 +25,14 @@ function ProfilePage() {
 				<ReturnButton text={'Вернуться'} />
 				<section className='profile__user user'>
 					<img
-						src={avatar}
-						alt='Аватар пользователя'
+						src={avatar?.image}
+						alt=''
 						className='user__avatar user-avatar'
 						onClick={() => changeAvatarClickHandler()}
 					/>
 					<div className='user__info info'>
 						<p className='info__name'>{fullName || 'Фамилия Имя'}</p>
-						<p className='info__grade'>{`${grade} класс`}</p>
+						<p className='info__grade'>{`${grade || 0} класс`}</p>
 					</div>
 				</section>
 				<section className='profile__courses courses'>

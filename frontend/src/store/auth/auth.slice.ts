@@ -17,10 +17,10 @@ export const authSlice = createSlice({
 			.addCase(login.pending, state => {
 				state.isLoading = true
 			})
-			.addCase(login.fulfilled, (state, action) => {
-				state.user = action.payload.user_data
-				localStorage.setItem('access_token', action.payload.access)
-				localStorage.setItem('refresh_token', action.payload.refresh)
+			.addCase(login.fulfilled, (state, { payload }) => {
+				state.user = payload.user_data
+				localStorage.setItem('access_token', payload.access)
+				localStorage.setItem('refresh_token', payload.refresh)
 				state.isLoading = false
 			})
 			.addCase(login.rejected, state => {
@@ -32,11 +32,16 @@ export const authSlice = createSlice({
 				state.isLoading = false
 				state.user = null
 			})
+			.addCase(checkAuth.pending, state => {
+				state.isLoading = true
+			})
 			.addCase(checkAuth.fulfilled, (state, { payload }) => {
+				state.isLoading = false
 				state.user = payload
 			})
 			.addCase(checkAuth.rejected, state => {
 				state.user = null
+				state.isLoading = false
 				state.error = '401'
 			})
 			.addCase(patchUser.fulfilled, (state, { payload }) => {

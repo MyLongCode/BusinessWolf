@@ -1,10 +1,33 @@
 import { clsx } from 'clsx'
-import React from 'react'
+import { useScroll } from 'framer-motion'
+import React, { useEffect, useRef, useState } from 'react'
 import LessonMessageConfig from '../../../../config/lessonMessage.config'
 import type IMessage from '../../../../models/IMessage'
 import './lessonMessage.css'
 
-function LessonMessage({ message }: { message: IMessage }) {
+function LessonMessage({
+	message,
+	printingHandler
+}: {
+	message: IMessage
+	printingHandler: (state: boolean) => void
+}) {
+	const [isPrinting, setIsPrinting] = useState(true)
+
+	useEffect(() => {
+		printingHandler(true)
+
+		const donePrinting = () => {
+			setIsPrinting(false)
+			printingHandler(false)
+		}
+		if (message.author === 'admin') {
+			setTimeout(() => donePrinting(), 1000)
+		} else {
+			donePrinting()
+		}
+	}, [])
+
 	return (
 		<li
 			className={clsx('message', {
@@ -36,7 +59,7 @@ function LessonMessage({ message }: { message: IMessage }) {
 						: {}
 				}
 			>
-				{message.text}
+				{isPrinting ? '...' : message.text}
 			</p>
 		</li>
 	)
