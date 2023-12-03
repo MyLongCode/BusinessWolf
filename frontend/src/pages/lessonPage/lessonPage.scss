@@ -1,3 +1,12 @@
+@keyframes opacityOn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 .lesson-page {
 	margin-bottom: 50px;
 	display: flex;
@@ -14,5 +23,6 @@
 	&__btn {
 		margin-top: 64px;
 		max-width: 700px;
+		animation: opacityOn 0.2s ease-out;
 	}
 }

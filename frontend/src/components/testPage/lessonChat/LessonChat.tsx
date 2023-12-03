@@ -36,7 +36,7 @@ function LessonChat() {
 			}
 		}
 		if (!isPrinting) {
-			setTimeout(() => scroll(), 400)
+			scroll()
 		}
 	}, [messagesCount, isPrinting])
 

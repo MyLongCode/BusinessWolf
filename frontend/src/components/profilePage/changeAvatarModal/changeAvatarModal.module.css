@@ -1,8 +1,17 @@
+@keyframes opacityOn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .modal {
   padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: opacityOn 0.3s ease-out;
 }
 
 .heading {
@@ -39,6 +48,11 @@
   width: fit-content;
   padding: 10px 80px;
   align-self: center;
+}
+
+.changed {
+  background-color: forestgreen;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=changeAvatarModal.module.css.map */

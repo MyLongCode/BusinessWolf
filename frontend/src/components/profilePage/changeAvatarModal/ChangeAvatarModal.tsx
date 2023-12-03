@@ -1,3 +1,4 @@
+import { clsx } from 'clsx'
 import React, { useEffect, useState } from 'react'
 import { useActions } from '../../../hooks/useActions'
 import useAvatars from '../../../hooks/useAvatars'
@@ -14,6 +15,7 @@ const ChangeAvatarModal = ({ setIsModalVisible }: IChangeAvatarModalProps) => {
 	const { avatar, id } = useUserData()
 	const [currentAvatar, setCurrentAvatar] = useState<IAvatar | null>(avatar)
 	const { patchUser } = useActions()
+	const [isChanged, setIsChanged] = useState(false)
 
 	useEffect(() => {
 		if (!currentAvatar) {
@@ -28,8 +30,9 @@ const ChangeAvatarModal = ({ setIsModalVisible }: IChangeAvatarModalProps) => {
 	const saveClickHandler = () => {
 		if (currentAvatar) {
 			patchUser({ id: id, avatar: currentAvatar.id })
+			setIsChanged(true)
 		}
-		setIsModalVisible(false)
+		setTimeout(() => setIsModalVisible(false), 500)
 	}
 
 	return (
@@ -45,10 +48,11 @@ const ChangeAvatarModal = ({ setIsModalVisible }: IChangeAvatarModalProps) => {
 				className={styles.current}
 			/>
 			<button
-				className={'btn ' + styles.save}
+				className={clsx('btn', styles.save, isChanged ? styles.changed : null)}
+				disabled={currentAvatar?.id === avatar?.id && !isChanged}
 				onClick={() => saveClickHandler()}
 			>
-				Сохранить изменения
+				{isChanged ? 'Сохранено!' : 'Сохранить изменения'}
 			</button>
 		</Modal>
 	)
