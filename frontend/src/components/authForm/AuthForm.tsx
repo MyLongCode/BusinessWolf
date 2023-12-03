@@ -4,6 +4,7 @@ import eye from 'assets/images/Eye.svg'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTypedSelector } from 'hooks/useTypedSelector'
+import { ErrorConfig } from '../../config/error.config'
 import type { IAuthForm } from './authForm.interface'
 
 function AuthForm({ onSubmit }: IAuthForm) {
@@ -21,7 +22,7 @@ function AuthForm({ onSubmit }: IAuthForm) {
 	const showPasswordIcon = passwordShown ? eyeSlash : eye
 
 	useEffect(() => {
-		if (submitError === '401') {
+		if (submitError === ErrorConfig.login) {
 			setErrorMessage('Неверный логин или пароль. Попробуйте снова.')
 		}
 	}, [submitError])

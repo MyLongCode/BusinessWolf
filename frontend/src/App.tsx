@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import React, { useEffect } from 'react'
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { ErrorConfig } from './config/error.config'
 import Links from './config/links.config'
 import { useActions } from './hooks/useActions'
 import { useTypedSelector } from './hooks/useTypedSelector'
@@ -18,7 +19,7 @@ import TestResultPage from './pages/testResultPage/TestResultPage'
 function App() {
 	const location = useLocation()
 	const navigate = useNavigate()
-	const { checkAuth, logout } = useActions()
+	const { checkAuth, logout, clearError } = useActions()
 	const { error } = useTypedSelector(state => state.auth)
 
 	useEffect(() => {
@@ -30,10 +31,12 @@ function App() {
 
 	useEffect(() => {
 		if (
-			(error || !localStorage.getItem('refresh_token')) &&
+			((error && error === ErrorConfig.auth) ||
+				!localStorage.getItem('refresh_token')) &&
 			location.pathname !== Links.auth &&
 			location.pathname !== Links.start
 		) {
+			clearError()
 			navigate(Links.auth, {
 				state: { from: location }
 			})

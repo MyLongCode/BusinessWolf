@@ -25,4 +25,4 @@ const AvatarItem = ({
 	)
 }
 
-export default AvatarItem
+export default React.memo(AvatarItem)

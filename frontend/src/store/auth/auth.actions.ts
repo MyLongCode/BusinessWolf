@@ -4,6 +4,7 @@ import AuthService from 'services/AuthService'
 import TokenService from 'services/TokenService'
 import UserService from 'services/UserService'
 import type { AxiosError } from 'axios'
+import { ErrorConfig } from '../../config/error.config'
 import IUser from '../../models/IUser'
 import IUserPatch from '../../models/IUserPatch'
 
@@ -55,3 +56,7 @@ export const patchUser = createAsyncThunk<IUser, IUserPatch>(
 		}
 	}
 )
+
+export const clearError = createAsyncThunk('auth/clear-error', async () => {
+	return ErrorConfig.none
+})

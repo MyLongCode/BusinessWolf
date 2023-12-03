@@ -44,4 +44,4 @@ const AvatarsList = ({
 	)
 }
 
-export default AvatarsList
+export default React.memo(AvatarsList)

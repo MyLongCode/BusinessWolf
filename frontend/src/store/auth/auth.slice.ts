@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type IUser from 'models/IUser'
-import { checkAuth, login, logout, patchUser } from './auth.actions'
+import { ErrorConfig } from '../../config/error.config'
+import { checkAuth, clearError, login, logout, patchUser } from './auth.actions'
 
 const initialState = {
 	user: {} as IUser | null,
 	isLoading: false,
-	error: ''
+	error: ErrorConfig.none
 }
 
 export const authSlice = createSlice({
@@ -26,7 +27,7 @@ export const authSlice = createSlice({
 			.addCase(login.rejected, state => {
 				state.isLoading = false
 				state.user = null
-				state.error = 'Ошибка авторизации'
+				state.error = ErrorConfig.login
 			})
 			.addCase(logout.fulfilled, state => {
 				state.isLoading = false
@@ -42,13 +43,16 @@ export const authSlice = createSlice({
 			.addCase(checkAuth.rejected, state => {
 				state.user = null
 				state.isLoading = false
-				state.error = '401'
+				state.error = ErrorConfig.auth
 			})
 			.addCase(patchUser.fulfilled, (state, { payload }) => {
 				state.user = payload
 			})
 			.addCase(patchUser.rejected, state => {
-				state.error = '400'
+				state.error = ErrorConfig.patch
+			})
+			.addCase(clearError.fulfilled, (state, action) => {
+				state.error = action.payload
 			})
 	}
 })

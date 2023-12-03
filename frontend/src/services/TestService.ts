@@ -7,6 +7,7 @@ import type IFullCompletedTestResponse from '../models/responce/IFullCompletedTe
 
 const FETCH_URL = '/api/test/'
 const FETCH_COMPLETED_URL = '/api/completedtest/'
+const FETCH_ALL_COMPLETED_URL = '/api/completedtests/'
 
 const POST_TEST_URL = '/api/completedtests/'
 const POST_QUESTION_URL = '/api/completedquestions/'
@@ -55,5 +56,9 @@ export default class TestService {
 
 	static async getLastCompletedTest(id: number) {
 		return api.get<IFullCompletedTestResponse>(`${FETCH_COMPLETED_URL}${id}/`)
+	}
+
+	static async getCompletedTests() {
+		return api.get<ICompletedTestResponse[]>(`${FETCH_ALL_COMPLETED_URL}`)
 	}
 }

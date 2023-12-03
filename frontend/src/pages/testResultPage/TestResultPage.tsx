@@ -48,7 +48,7 @@ function TestResultPage() {
 				</ul>
 				<Link
 					className='test-result-page__btn btn'
-					to={Links.module(courseID, moduleID)}
+					to={`${Links.module(courseID, moduleID)}/lessons`}
 				>
 					Завершить
 				</Link>

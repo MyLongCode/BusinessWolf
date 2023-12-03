@@ -3,22 +3,23 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Links from '../../../config/links.config'
 import { useActions } from '../../../hooks/useActions'
+import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import useUserData from '../../../hooks/useUserData'
 import './profileMenu.css'
 
 const ProfileMenu = () => {
 	const [burgerHidden, setBurgerHidden] = useState(true)
 	const [burgerAnimating, setBurgerAnimating] = useState(true)
+	const { logout } = useActions()
+	const { avatar } = useUserData()
 	const navigate = useNavigate()
 	const location = useLocation()
-	const { logout } = useActions()
 	const burgerRef = useRef(null)
 	const profileRef = useRef(null)
-	const { avatar } = useUserData()
 
 	const menuClickHandler = () => {
 		setBurgerAnimating(!burgerAnimating)
-		setTimeout(() => setBurgerHidden(!burgerHidden), burgerHidden ? 0 : 250)
+		setTimeout(() => setBurgerHidden(!burgerHidden), burgerHidden ? 0 : 200)
 	}
 
 	useEffect(() => {
@@ -30,7 +31,7 @@ const ProfileMenu = () => {
 				profileRef.current !== e.target
 			) {
 				setBurgerAnimating(true)
-				setTimeout(() => setBurgerHidden(true), 250)
+				setTimeout(() => setBurgerHidden(true), 200)
 			}
 		}
 		document.addEventListener('click', checkIfClickedOutside)
@@ -42,14 +43,12 @@ const ProfileMenu = () => {
 	return (
 		<>
 			<button className='user-avatar' onClick={() => menuClickHandler()}>
-				{avatar && (
-					<img
-						src={avatar?.image}
-						alt=''
-						className='user-avatar__img'
-						ref={profileRef}
-					/>
-				)}
+				<img
+					src={avatar?.image}
+					alt=''
+					className='user-avatar__img'
+					ref={profileRef}
+				/>
 			</button>
 			{!burgerHidden && (
 				<motion.div
@@ -60,7 +59,8 @@ const ProfileMenu = () => {
 						burgerAnimating
 							? {
 									height: 0,
-									padding: 0
+									padding: 0,
+									transition: { duration: 0.2 }
 							  }
 							: { height: 140, padding: '30px 40px' }
 					}

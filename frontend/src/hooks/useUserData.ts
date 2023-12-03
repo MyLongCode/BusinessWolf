@@ -38,7 +38,9 @@ const useUserData = (): IUserData => {
 	}, [user])
 
 	useEffect(() => {
-		setAvatar(avatars.find(avatar => avatar.id === user?.avatar) || null)
+		if (user && avatars.length !== 0 && !avatar) {
+			setAvatar(avatars.find(avatar => avatar.id === user?.avatar) || null)
+		}
 	}, [avatars, user])
 
 	return {
