@@ -272,4 +272,4 @@ class CompletedQuestionCheckView(generics.RetrieveUpdateAPIView):
 class CompletedTestView(generics.RetrieveAPIView):
     queryset = CompletedTests.objects.all()
     serializer_class = CompletedTestSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated, CompletedTestsPermission]
