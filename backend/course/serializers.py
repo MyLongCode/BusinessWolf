@@ -116,7 +116,7 @@ class CompletedLessonsSerializer(serializers.ModelSerializer):
 class AnswersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answers
-        fields = '__all__'
+        fields = ("answer_id", 'text', 'explanation', 'question')
         permission_classes = (IsAuthenticated,)
 
 
@@ -174,8 +174,15 @@ class CompletedQuestionCheckSerializer(serializers.ModelSerializer):
         return instance
 
 
+class AnswersTSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Answers
+        fields = '__all__'
+        permission_classes = (IsAuthenticated,)
+
+
 class NestedSelectedAnswersSerializer(WritableNestedModelSerializer):
-    answer = AnswersSerializer()
+    answer = AnswersTSerializer()
 
     class Meta:
         model = SelectedAnswers
