@@ -7,6 +7,7 @@ const ResultAnswersList = ({ answers }: { answers: IAnswer[] }) => {
 		<>
 			{answers.map(answer => (
 				<p
+					key={answer.answer_id}
 					className={clsx('question-result__answer', 'answer', {
 						answer_good: answer.is_right,
 						answer_bad: !answer.is_right

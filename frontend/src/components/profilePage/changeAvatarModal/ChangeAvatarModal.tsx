@@ -32,7 +32,7 @@ const ChangeAvatarModal = ({ setIsModalVisible }: IChangeAvatarModalProps) => {
 			patchUser({ id: id, avatar: currentAvatar.id })
 			setIsChanged(true)
 		}
-		setTimeout(() => setIsModalVisible(false), 500)
+		setTimeout(() => setIsModalVisible(false), 300)
 	}
 
 	return (

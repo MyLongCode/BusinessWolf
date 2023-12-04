@@ -10,7 +10,8 @@ export interface IQuestionIDs {
 const initialState = {
 	questions: [] as IQuestionIDs[],
 	selectedAnswers: [] as number[],
-	completedTest: {} as IFullCompletedTestResponse
+	completedTest: {} as IFullCompletedTestResponse,
+	areTestsLoading: false
 }
 
 export const testsSlice = createSlice({
@@ -23,12 +24,17 @@ export const testsSlice = createSlice({
 				state.questions.push(action.payload)
 				state.selectedAnswers = []
 			})
+			.addCase(pushTest.pending, state => {
+				state.areTestsLoading = true
+			})
 			.addCase(pushTest.fulfilled, (state, action) => {
 				state.questions = []
 				state.completedTest = action.payload
+				state.areTestsLoading = false
 			})
-			.addCase(pushTest.rejected, (_, action) => {
+			.addCase(pushTest.rejected, (state, action) => {
 				console.error(action.error)
+				state.areTestsLoading = false
 			})
 			.addCase(selectAnswer.fulfilled, (state, { payload: id }) => {
 				if (!state.selectedAnswers.includes(id)) {
