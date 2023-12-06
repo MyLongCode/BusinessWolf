@@ -3,6 +3,10 @@ import type IAnswer from 'models/IAnswer'
 import AnswerService from 'services/AnswerService'
 import { useEffect, useState } from 'react'
 
+/**
+ * @description
+ * Это хук для получения ответов для тестов
+ */
 const useAnswers = (): IAnswer[] => {
 	const [answers, setAnswers] = useState<IAnswer[]>([])
 

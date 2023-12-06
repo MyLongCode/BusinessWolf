@@ -14,6 +14,10 @@ interface IUserData {
 	avatar: IAvatar | null
 }
 
+/**
+ * @description
+ * Это хук для получения данных пользователя
+ */
 const useUserData = (): IUserData => {
 	const { user } = useTypedSelector(state => state.auth)
 	const id = useMemo(() => user?.id || -1, [user])

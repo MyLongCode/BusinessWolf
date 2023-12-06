@@ -1,3 +1,7 @@
+/**
+ * @description
+ * Этот класс содержит настройку для плеера видео на странице конспекта
+ */
 export default class LessonMessageConfig {
 	private static heightCorrelation = 0.575
 

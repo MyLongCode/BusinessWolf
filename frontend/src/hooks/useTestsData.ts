@@ -5,6 +5,10 @@ import AnswerService from 'services/AnswerService'
 import QuestionService from 'services/QuestionService'
 import { useEffect, useState } from 'react'
 
+/**
+ * @description
+ * Это функция для перемешивания массива
+ */
 const shuffle = <T>(array: T[]): T[] => {
 	for (let i = array.length - 1; i > 0; i--) {
 		let j = Math.floor(Math.random() * (i + 1))
@@ -15,6 +19,11 @@ const shuffle = <T>(array: T[]): T[] => {
 	return array
 }
 
+/**
+ * @description
+ * Это хук для получения списка id ответов с указанными вопросами
+ * и самих ответов
+ */
 export const useTestsData = (): {
 	questions: IQuestion[]
 	answers: Map<number, IAnswer[]>

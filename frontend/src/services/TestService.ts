@@ -1,22 +1,14 @@
 import type { AxiosResponse } from 'axios'
 import api from '../api/api'
+import QueriesConfig from '../config/queries.config'
 import type ITest from '../models/ITest'
 import type { ICompletedQuestionResponse } from '../models/responce/ICompletedQuestionResponse'
 import type { ICompletedTestResponse } from '../models/responce/ICompletedTestResponse'
 import type IFullCompletedTestResponse from '../models/responce/IFullCompletedTestResponse'
 
-const FETCH_URL = '/api/test/'
-const FETCH_COMPLETED_URL = '/api/completedtest/'
-const FETCH_ALL_COMPLETED_URL = '/api/completedtests/'
-
-const POST_TEST_URL = '/api/completedtests/'
-const POST_QUESTION_URL = '/api/completedquestions/'
-const POST_ANSWERS_URL = '/api/selectedanswers/'
-const CHECK_QUESTION_URL = '/api/completedquestscheck/'
-
 export default class TestService {
 	static async fetchTests(): Promise<AxiosResponse<ITest[]>> {
-		return await api.get<ITest[]>(FETCH_URL)
+		return await api.get<ITest[]>(QueriesConfig.FETCH_TEST_URL)
 	}
 
 	static async postTest(
@@ -30,22 +22,26 @@ export default class TestService {
 			{} as Promise<AxiosResponse<IFullCompletedTestResponse>>
 
 		await api
-			.post<ICompletedTestResponse>(POST_TEST_URL, { test: testID })
+			.post<ICompletedTestResponse>(QueriesConfig.POST_TEST_URL, {
+				test: testID
+			})
 			.then(async testResponse => {
 				for await (const question of questions) {
 					await api
-						.post<ICompletedQuestionResponse>(POST_QUESTION_URL, {
+						.post<ICompletedQuestionResponse>(QueriesConfig.POST_QUESTION_URL, {
 							completed_test: testResponse.data.id,
 							question: question.id
 						})
 						.then(async questionResponse => {
 							for (const answer of question.answers) {
-								await api.post(POST_ANSWERS_URL, {
+								await api.post(QueriesConfig.POST_ANSWERS_URL, {
 									completed_question: questionResponse.data.id,
 									answer
 								})
 							}
-							await api.put(`${CHECK_QUESTION_URL}${questionResponse.data.id}/`)
+							await api.put(
+								`${QueriesConfig.CHECK_QUESTION_URL}${questionResponse.data.id}/`
+							)
 						})
 				}
 				result = this.getLastCompletedTest(testResponse.data.id)
@@ -55,10 +51,14 @@ export default class TestService {
 	}
 
 	static async getLastCompletedTest(id: number) {
-		return api.get<IFullCompletedTestResponse>(`${FETCH_COMPLETED_URL}${id}/`)
+		return api.get<IFullCompletedTestResponse>(
+			`${QueriesConfig.FETCH_COMPLETED_TEST_URL}${id}/`
+		)
 	}
 
 	static async getCompletedTests() {
-		return api.get<ICompletedTestResponse[]>(`${FETCH_ALL_COMPLETED_URL}`)
+		return api.get<ICompletedTestResponse[]>(
+			`${QueriesConfig.FETCH_ALL_COMPLETED_TESTS_URL}`
+		)
 	}
 }

@@ -9,7 +9,6 @@
 .lesson-page {
   margin-bottom: 50px;
   display: flex;
-  flex-direction: column;
   padding: 0 10%;
 }
 .lesson-page__messages {
@@ -21,7 +20,19 @@
 .lesson-page__btn {
   margin-top: 64px;
   max-width: 700px;
+  width: fit-content;
+  padding: 10px 25px;
   animation: opacityOn 0.2s ease-out;
+}
+.lesson-page__wolf {
+  position: fixed;
+  right: 300px;
+  top: 400px;
+}
+@media (max-width: 1400px) {
+  .lesson-page__wolf {
+    opacity: 0;
+  }
 }
 
 /*# sourceMappingURL=lessonPage.css.map */

@@ -3,8 +3,32 @@ import type ILesson from 'models/ILesson'
 import LessonService from 'services/LessonService'
 import type { AxiosResponse } from 'axios'
 
+/**
+ * @description
+ * Это хук для получения всех конспектов, доступных пользователю
+ * @returns
+ * Все конспекты
+ */
 export default function useLessons(): ILesson[]
+
+/**
+ * @description
+ * Это хук для получения всех конспектов, доступных пользователю
+ * @param id
+ * Идентификатор конспекта
+ * @returns
+ * Все конспекты
+ */
 export default function useLessons(id: null): undefined
+
+/**
+ * @description
+ * Это хук для получения всех конспектов, доступных пользователю
+ * @param id
+ * Идентификатор конспекта
+ * @returns
+ * Конкретный конспект с указанным id
+ */
 export default function useLessons(id: string): ILesson
 
 export default function useLessons(

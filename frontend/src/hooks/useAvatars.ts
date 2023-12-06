@@ -2,6 +2,10 @@ import avatars from 'assets/images/avatars'
 import { useEffect, useState } from 'react'
 import { IAvatar } from '../components/avatars/avatar/avatarItem.interface'
 
+/**
+ * @description
+ * Это хук для получения всех аватарок, доступных пользователю
+ */
 const useAvatars = () => {
 	const [data, setData] = useState<IAvatar[]>([])
 

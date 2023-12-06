@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
+import wolf from 'assets/images/lesson-wolf.png'
 import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import ModuleLayout from '../../components/layouts/moduleLayout/ModuleLayout'
 import LessonChat from '../../components/testPage/lessonChat/LessonChat'
-import Links from '../../config/links.config'
 import './lessonPage.css'
 import type { LessonPageParams } from './lessonPage.types'
 
@@ -20,6 +20,13 @@ function LessonPage() {
 				transition={{ duration: 0.2 }}
 			>
 				<LessonChat />
+				<img
+					src={wolf}
+					alt=''
+					width={420}
+					height={1010}
+					className='lesson-page__wolf'
+				/>
 			</motion.div>
 		</ModuleLayout>
 	)

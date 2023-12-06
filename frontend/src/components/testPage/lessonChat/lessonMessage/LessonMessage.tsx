@@ -5,6 +5,8 @@ import LessonMessageConfig from '../../../../config/lessonMessage.config'
 import type IMessage from '../../../../models/IMessage'
 import './lessonMessage.css'
 
+const printDuration = 1400
+
 function LessonMessage({
 	message,
 	printingHandler
@@ -22,7 +24,7 @@ function LessonMessage({
 			printingHandler(false)
 		}
 		if (message.author === 'admin') {
-			setTimeout(() => donePrinting(), 1000)
+			setTimeout(() => donePrinting(), printDuration)
 		} else {
 			donePrinting()
 		}
@@ -35,7 +37,7 @@ function LessonMessage({
 				message_admin: message.author === 'admin'
 			})}
 		>
-			{message.type !== 'text' && (
+			{message.type !== 'text' && !isPrinting && (
 				<div className='message__attachment'>
 					{message.type === 'picture' ? (
 						<img src={message.url} alt='Вложение' />

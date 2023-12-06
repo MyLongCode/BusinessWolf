@@ -1,10 +1,9 @@
 import type IAuthResponse from 'models/responce/IAuthResponse'
 import axios, { AxiosError } from 'axios'
-
-export const API_URL = 'http://127.0.0.1:8000'
+import QueriesConfig from '../config/queries.config'
 
 const api = axios.create({
-	baseURL: API_URL,
+	baseURL: QueriesConfig.API_URL,
 	withCredentials: true
 })
 

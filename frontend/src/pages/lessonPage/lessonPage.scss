@@ -10,7 +10,6 @@
 .lesson-page {
 	margin-bottom: 50px;
 	display: flex;
-	flex-direction: column;
 	padding: 0 10%;
 
 	&__messages {
@@ -23,6 +22,18 @@
 	&__btn {
 		margin-top: 64px;
 		max-width: 700px;
+		width: fit-content;
+		padding: 10px 25px;
 		animation: opacityOn 0.2s ease-out;
+	}
+
+	&__wolf {
+		position: fixed;
+		right: 300px;
+		top: 400px;
+
+		@media (max-width: 1400px) {
+			opacity: 0;
+		}
 	}
 }

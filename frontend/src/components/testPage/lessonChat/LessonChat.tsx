@@ -1,8 +1,7 @@
-import React, { JSX, useEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Links from '../../../config/links.config'
 import useLessons from '../../../hooks/useLessons'
-import IMessage from '../../../models/IMessage'
 import { LessonPageParams } from '../../../pages/lessonPage/lessonPage.types'
 import LessonMessage from './lessonMessage/LessonMessage'
 
@@ -30,10 +29,13 @@ function LessonChat() {
 				btnRef.current.scrollIntoView({ behavior: 'smooth' })
 			}
 		}
-		if (messagesCount < messagesList?.length) {
-			if (messagesList[messagesCount].author === 'admin') {
-				setMessagesCount(prevState => prevState + 1)
-			}
+		if (
+			messagesCount < messagesList?.length &&
+			messagesList[messagesCount].author === 'admin' &&
+			!isPrinting
+		) {
+			setIsPrinting(true)
+			setMessagesCount(prevState => prevState + 1)
 		}
 		if (!isPrinting) {
 			scroll()
@@ -41,7 +43,7 @@ function LessonChat() {
 	}, [messagesCount, isPrinting])
 
 	return (
-		<>
+		<div className='lesson-page__chat'>
 			<ul className='lesson-page__messages'>
 				{messagesList
 					.map(message => {
@@ -63,7 +65,7 @@ function LessonChat() {
 					style={
 						messagesCount < lesson?.chat_text?.list.length
 							? { textAlign: 'left', paddingLeft: 10 }
-							: { textAlign: 'center', paddingLeft: 0 }
+							: { textAlign: 'center', paddingLeft: 0, width: 600 }
 					}
 				>
 					{messagesCount === lesson?.chat_text?.list.length
@@ -71,7 +73,7 @@ function LessonChat() {
 						: messagesList[messagesCount]?.text}
 				</button>
 			)}
-		</>
+		</div>
 	)
 }
 

@@ -3,6 +3,10 @@ import type IQuestion from 'models/IQuestion'
 import QuestionService from 'services/QuestionService'
 import { useEffect, useState } from 'react'
 
+/**
+ * @description
+ * Это хук для получения всех вопросов тестов
+ */
 export const useQuestions = (): IQuestion[] => {
 	const [questions, setQuestions] = useState<IQuestion[]>([])
 
