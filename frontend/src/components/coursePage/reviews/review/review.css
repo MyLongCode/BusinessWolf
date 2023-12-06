@@ -1,0 +1,29 @@
+.review {
+	margin-bottom: 10px;
+	min-width: 260px;
+	border: solid 1px var(--Black);
+	padding: 14px 16px;
+	border-radius: 20px;
+	min-height: 165px;
+	display: flex;
+	flex-direction: column;
+}
+.review__author {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 10px;
+}
+.review__author__avatar {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+}
+.review__author__name {
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+
+/*# sourceMappingURL=review.css.map */

@@ -1,0 +1,31 @@
+.user-avatar {
+	margin-left: 64px;
+	padding: 0;
+	width: 55px;
+	height: 55px;
+	cursor: pointer;
+	border: solid 3px var(--Main);
+	border-radius: 50%;
+	overflow: hidden;
+}
+.user-avatar__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition-duration: 300ms;
+}
+.user-avatar__img:hover {
+	scale: 1.2;
+}
+
+.main-header {
+	padding: 40px 10% 0;
+	margin-bottom: 32px;
+}
+.main-header .header__nav {
+	display: flex;
+	align-items: center;
+	margin-bottom: 48px;
+}
+
+/*# sourceMappingURL=mainHeader.css.map */

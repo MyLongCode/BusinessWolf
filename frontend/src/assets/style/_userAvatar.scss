@@ -1,21 +1,21 @@
 .user-avatar {
-  margin-left: 64px;
-  padding: 0;
-  width: 55px;
-  height: 55px;
-  cursor: pointer;
-  border: solid 3px var(--Main);
-  border-radius: 50%;
-  overflow: hidden;
+	margin-left: 64px;
+	padding: 0;
+	width: 55px;
+	height: 55px;
+	cursor: pointer;
+	border: solid 3px var(--Main);
+	border-radius: 50%;
+	overflow: hidden;
 
-  &__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition-duration: 300ms;
+	&__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition-duration: 300ms;
 
-    &:hover {
-      scale: 1.2;
-    }
-  }
+		&:hover {
+			scale: 1.2;
+		}
+	}
 }

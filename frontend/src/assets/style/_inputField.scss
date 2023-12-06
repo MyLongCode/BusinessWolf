@@ -1,0 +1,35 @@
+.label {
+	&__input {
+		width: 100%;
+		padding: 12px 16px;
+		border-radius: 20px;
+		border: 2px solid var(--Black);
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 160%;
+
+		&:focus {
+			font-family: 'Montserrat', sans-serif;
+		}
+	}
+
+	&__title {
+		font-size: 24px;
+		font-weight: 600;
+		line-height: normal;
+		margin-bottom: 16px;
+	}
+}
+
+.filled {
+	opacity: 1;
+	border-color: var(--Main);
+}
+
+.unfilled {
+	opacity: 0.4;
+}
+
+input.invalid {
+	border-color: red;
+}

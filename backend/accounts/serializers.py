@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'coins', 'education_class', 'address', 'phone', 'full_name',
-                  'is_superuser', 'is_staff', 'role', 'email')
+                  'is_superuser', 'is_staff', 'role', 'email', 'avatar')
         read_only_fields = ('id', 'is_superuser', 'is_staff', 'groups', 'role')
         permission_classes = permissions.IsAuthenticated
 
@@ -18,7 +18,7 @@ class UserSerializerAdmin(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'is_superuser', 'is_staff', 'role',
-                  'coins', 'education_class', 'address', 'phone', 'full_name'
+                  'coins', 'education_class', 'address', 'phone', 'full_name', 'avatar'
                   )
         read_only_fields = ('role', )
         permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
@@ -28,7 +28,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'password', 'is_superuser', 'is_staff', 'role',
-                  'coins', 'education_class', 'address', 'phone', 'full_name'
+                  'coins', 'education_class', 'address', 'phone', 'full_name', 'avatar'
                   )
         read_only_fields = ('role', )
         permission_classes = permissions.IsAuthenticated
@@ -45,6 +45,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
 
 class ChangeUserPasswordSerializer(serializers.ModelSerializer):
     password = serializers.CharField(required=True)
+
     class Meta:
         model = User
         fields = ('id', 'username', 'password')
@@ -68,6 +69,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         user_data['education_class'] = self.user.education_class
         user_data['coins'] = self.user.coins
         user_data['phone'] = self.user.phone
+        user_data['avatar'] = self.user.avatar
         data['user_data'] = user_data
 
         return data

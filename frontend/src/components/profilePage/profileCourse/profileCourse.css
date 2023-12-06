@@ -1,0 +1,64 @@
+.profile-course {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: var(--Main);
+	min-width: 560px;
+	height: 208px;
+	border-radius: 20px;
+	padding: 29px 20px;
+}
+.profile-course .top-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.profile-course .top-container__title {
+	color: var(--White);
+	font-family: 'Enthalpy 298', sans-serif;
+	font-size: 40px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+.profile-course .top-container__modules-count {
+	color: var(--Gray89);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	background-color: white;
+	padding: 6px 21px;
+	border-radius: 33px;
+	max-height: 36px;
+	white-space: nowrap;
+}
+.profile-course .progress-bar {
+	display: flex;
+	flex-direction: column;
+}
+.profile-course .progress-bar__percents {
+	color: var(--White);
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 160%;
+}
+.profile-course .progress-bar__progress {
+	border-radius: 7px;
+	width: 100%;
+	height: 10px;
+}
+.profile-course .progress-bar__progress::-webkit-progress-bar {
+	background-color: var(--White);
+	border-radius: 20px;
+}
+.profile-course .progress-bar__progress::-webkit-progress-value {
+	background: linear-gradient(
+			90deg,
+			rgba(255, 255, 255, 0.2) 0%,
+			rgba(255, 255, 255, 0) 69.1%
+		),
+		#ffc167;
+	border-radius: 20px;
+}
+
+/*# sourceMappingURL=profileCourse.css.map */

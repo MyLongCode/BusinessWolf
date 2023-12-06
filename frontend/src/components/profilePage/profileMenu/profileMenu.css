@@ -1,0 +1,70 @@
+.user-avatar {
+	margin-left: 64px;
+	padding: 0;
+	width: 55px;
+	height: 55px;
+	cursor: pointer;
+	border: solid 3px var(--Main);
+	border-radius: 50%;
+	overflow: hidden;
+}
+.user-avatar__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition-duration: 300ms;
+}
+.user-avatar__img:hover {
+	scale: 1.2;
+}
+
+.burger {
+	position: absolute;
+	right: 10%;
+	top: 140px;
+	background-color: var(--Main);
+	padding: 30px 40px;
+	border-radius: 22px;
+}
+.burger:before {
+	content: '';
+	position: absolute;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 20px solid var(--Main);
+	right: 20px;
+	top: -18px;
+}
+.burger__btns {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+.burger__btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: normal;
+	color: var(--White);
+	outline: none;
+	border: none;
+	padding-left: 41px;
+	height: 31px;
+	cursor: pointer;
+	background: url('../../../assets/images/exit.svg') no-repeat;
+	background-size: 31px;
+	transition-duration: 0.2s;
+}
+.burger__btn:hover {
+	opacity: 0.6;
+}
+.burger__btn:active {
+	opacity: 0.2;
+}
+.burger .btn-1 {
+	background-image: url('../../../assets/images/profile.svg');
+}
+
+/*# sourceMappingURL=profileMenu.css.map */

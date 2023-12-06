@@ -1,82 +1,59 @@
-@import "../../assets/style/colors.css";
+@import '../../assets/style/colors.css';
 @media (min-width: 925px) {
-  .start {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    color: var(--White);
-  }
-  .start__container-left {
-    width: 30%;
-    color: var(--Black);
-  }
-  .start__text {
-    margin-bottom: 48px;
-  }
-  .start__title {
-    font-size: 58px;
-    margin-bottom: 20px;
-    white-space: nowrap;
-  }
-  .start__link {
-    border-radius: 16px;
-    color: var(--White);
-    line-height: 200%;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 100%;
-    border: none;
-    background-color: var(--Main);
-    cursor: pointer;
-    padding: 20px 114px;
-    text-decoration: none;
-  }
-  .start__img {
-    width: 662px;
-    height: auto;
-    position: relative;
-    top: 5%;
-  }
+	.start {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 80%;
+		color: var(--White);
+	}
+	.start__container-left {
+		width: 30%;
+		color: var(--Black);
+	}
+	.start__text {
+		margin-bottom: 48px;
+	}
+	.start__title {
+		font-size: 58px;
+		margin-bottom: 20px;
+		white-space: nowrap;
+	}
+	.start__link {
+		width: 60%;
+	}
+	.start__img {
+		width: 662px;
+		height: auto;
+		position: relative;
+		top: 5%;
+	}
 }
 @media (max-width: 925px) {
-  .start {
-    color: var(--White);
-  }
-  .start__container-left {
-    text-align: center;
-    color: var(--Black);
-  }
-  .start__text {
-    margin-bottom: 28px;
-  }
-  .start_title {
-    font-size: 32px;
-    margin-bottom: 20px;
-    white-space: nowrap;
-  }
-  .start__link {
-    border-radius: 16px;
-    color: var(--White);
-    line-height: 200%;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 100%;
-    border: none;
-    background-color: var(--Main);
-    cursor: pointer;
-    padding: 24px 85px;
-    text-decoration: none;
-  }
-  .start__img {
-    width: 300px;
-    height: auto;
-    position: absolute;
-    top: -350px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
-  }
+	.start {
+		color: var(--White);
+	}
+	.start__container-left {
+		text-align: center;
+		color: var(--Black);
+	}
+	.start__text {
+		margin-bottom: 28px;
+	}
+	.start_title {
+		font-size: 32px;
+		margin-bottom: 20px;
+		white-space: nowrap;
+	}
+	.start__img {
+		width: 300px;
+		height: auto;
+		position: absolute;
+		top: -350px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: -1;
+	}
 }
 
 /*# sourceMappingURL=startPage.css.map */

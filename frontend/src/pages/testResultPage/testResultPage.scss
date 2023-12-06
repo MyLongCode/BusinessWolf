@@ -1,0 +1,16 @@
+.test-result-page {
+	padding: 0 10%;
+	margin-bottom: 40px;
+
+	&__btn {
+		max-width: 500px;
+	}
+
+	&__heading {
+		font-family: 'Enthalpy 298', sans-serif;
+		font-size: 40px;
+		font-weight: 400;
+		line-height: normal;
+		margin: 0 0 48px;
+	}
+}
