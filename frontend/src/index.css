@@ -1,18 +1,15 @@
 :root {
-  --White: #ffffff;
-  --Main: #4b94dd;
+  --White: #FFFFFF;
+  --Main: #4B94DD;
   --DarkMain: #3b7dbd;
   --Black: #111010;
-  --GrayA: #aaa;
-  --GrayF1: #f1f1f1;
-  --Gray89: #898989;
+  --Gray: #AAA ;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 ul {
@@ -33,30 +30,28 @@ body {
   min-width: 720px;
 }
 
-.btn {
+html, body {
+  scrollbar-gutter: stable;
+}
+
+button {
   border-radius: 16px;
   color: var(--White);
   line-height: 200%;
   font-weight: bold;
   text-transform: uppercase;
   padding: 12px 0;
+  width: 100%;
   border: none;
   background-color: var(--Main);
   cursor: pointer;
-  text-decoration: none;
-  transition-duration: 0.2s;
-  display: block;
-  text-align: center;
 }
-.btn:hover {
+button:hover {
   background-color: var(--DarkMain);
 }
-.btn:disabled {
-  background-color: var(--GrayA);
+button:disabled {
+  background-color: var(--LightGray);
   cursor: default;
-}
-.btn:focus {
-  outline: none;
 }
 
 input::-ms-reveal, input::-ms-clear {

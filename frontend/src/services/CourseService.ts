@@ -1,10 +1,11 @@
-import type { AxiosResponse } from 'axios'
-import api from '../api/api'
-import QueriesConfig from '../config/queries.config'
-import type ICourse from '../models/ICourse'
+import {AxiosResponse} from "axios";
+import ICourse from "../models/ICourse";
+import api from "../api/api";
+
+const FetchAPI = '/api/course/'
 
 export default class CourseService {
-	static async fetchCourses(): Promise<AxiosResponse<ICourse[]>> {
-		return api.get<ICourse[]>(QueriesConfig.FETCH_COURSES_URL)
-	}
+    static async fetchCourses(): Promise<AxiosResponse<ICourse[]>> {
+        return api.get<ICourse[]>(FetchAPI);
+    }
 }

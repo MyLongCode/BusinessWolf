@@ -1,21 +1,18 @@
 {
-  "name": "business-wolf",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
-    "@tanstack/react-query": "^5.8.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.57",
     "@types/react": "^18.2.25",
     "@types/react-dom": "^18.2.10",
     "@types/react-redux": "^7.1.28",
     "axios": "^1.6.0",
-    "clsx": "^2.0.0",
     "framer-motion": "^10.16.4",
     "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
@@ -23,6 +20,7 @@
     "react-hook-form": "^7.47.0",
     "react-redux": "^8.1.3",
     "react-router-dom": "^6.16.0",
+    "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "typescript": "^4.9.5",
@@ -53,8 +51,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "prettier": "^3.1.0",
-    "react-scripts": "^5.0.1"
+    "@babel/plugin-transform-private-property-in-object": "^7.23.3"
   }
 }

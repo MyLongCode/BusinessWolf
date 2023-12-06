@@ -7,7 +7,7 @@ class CoursePermission(permissions.BasePermission):
         if request.user.is_superuser:
             return True
         return (request.method in permissions.SAFE_METHODS and
-                obj.course_id in UserCourse.objects.filter(user_id=request.user.id).values_list("course_id", flat=True))
+                obj.id in UserCourse.objects.filter(user_id=request.user.id).values_list("course_id", flat=True))
 
 
 class UserCoursePermission(permissions.BasePermission):
@@ -21,9 +21,9 @@ class ModulesPermission(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.user.is_superuser:
             return True
-        return (request.method in permissions.SAFE_METHODS and obj in
+        return (request.method in permissions.SAFE_METHODS and obj.id in
                 Modules.objects.filter(course_id__in=Courses.objects.filter(
-                    course_id__in=UserCourse.objects.filter(user_id=request.user.id).values_list("course_id", flat=True))))
+                    id__in=UserCourse.objects.filter(user_id=request.user.id).values_list("course_id", flat=True))))
 
 
 class LessonsPermission(permissions.BasePermission):
@@ -33,14 +33,5 @@ class LessonsPermission(permissions.BasePermission):
         return (request.method in permissions.SAFE_METHODS
                 and obj.module_id in Modules.objects.filter(
                         course_id__in=Courses.objects.filter(
-                            course_id__in=UserCourse.objects.filter(user_id=request.user.id)
-                            .values_list("course_id", flat=True))).values_list("module_id", flat=True))
-
-
-class CompletedTestsPermission(permissions.BasePermission):
-    def has_object_permission(self, request, view, obj):
-        if request.user.is_superuser:
-            return True
-        return (request.method in permissions.SAFE_METHODS
-                and obj.user_id == request.user.id)
-
+                            id__in=UserCourse.objects.filter(user_id=request.user.id)
+                            .values_list("course_id", flat=True))).values_list("id", flat=True))

@@ -21,34 +21,40 @@
 .profile {
   margin: 0 10%;
 }
+.profile__back-arrow {
+  rotate: 90deg;
+}
+.profile__back {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--Black);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: normal;
+  transition-duration: 300ms;
+  gap: 5px;
+  width: fit-content;
+  cursor: pointer;
+}
+.profile__back:hover {
+  gap: 16px;
+}
+.profile__back:active {
+  transition-duration: 1s;
+  opacity: 0;
+}
 .profile .user {
+  margin-top: 48px;
   display: flex;
   gap: 32px;
-  position: relative;
 }
 .profile .user__avatar {
-  position: relative;
   margin: 0;
+  cursor: default;
   width: 100px;
   height: 100px;
   grid-area: img;
-  cursor: pointer;
-  transition-duration: 0.2s;
-}
-.profile .user__avatar:hover {
-  opacity: 0.7;
-}
-.profile .user::after {
-  content: url("../../assets/images/avatar-edit.svg");
-  display: flex;
-  position: absolute;
-  border-radius: 50%;
-  left: 60px;
-  bottom: -10px;
-  background-color: var(--Main);
-  padding: 6px 4px 0 5px;
-  pointer-events: none;
-  min-width: 26px;
 }
 .profile .user .info {
   display: flex;
