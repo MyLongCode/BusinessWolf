@@ -69,6 +69,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         user_data['education_class'] = self.user.education_class
         user_data['coins'] = self.user.coins
         user_data['phone'] = self.user.phone
+        user_data['avatar'] = self.user.avatar
         data['user_data'] = user_data
 
         return data
