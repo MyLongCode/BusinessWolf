@@ -1,13 +1,13 @@
+import { clsx } from 'clsx'
 import { motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Links from '../../../config/links.config'
 import { useActions } from '../../../hooks/useActions'
-import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import useUserData from '../../../hooks/useUserData'
-import './profileMenu.css'
+import styles from './profileMenu.module.css'
 
-const ProfileMenu = () => {
+const ProfileMenu = ({ isWhite }: { isWhite?: boolean }) => {
 	const [burgerHidden, setBurgerHidden] = useState(true)
 	const [burgerAnimating, setBurgerAnimating] = useState(true)
 	const { logout } = useActions()
@@ -42,17 +42,17 @@ const ProfileMenu = () => {
 
 	return (
 		<>
-			<button className='user-avatar' onClick={() => menuClickHandler()}>
+			<button className={'user-avatar'} onClick={() => menuClickHandler()}>
 				<img
 					src={avatar?.image}
 					alt=''
-					className='user-avatar__img'
+					className={'user-avatar__img'}
 					ref={profileRef}
 				/>
 			</button>
 			{!burgerHidden && (
 				<motion.div
-					className='burger'
+					className={clsx(styles.burger, isWhite ? styles.white : null)}
 					initial={{ height: 0, padding: 0 }}
 					ref={burgerRef}
 					animate={
@@ -67,10 +67,10 @@ const ProfileMenu = () => {
 					exit={{ height: 0, padding: 0 }}
 					transition={{ duration: 0.3 }}
 				>
-					<ul className='burger__btns'>
-						<li className='burger__item'>
+					<ul className={styles.burger__btns}>
+						<li>
 							<button
-								className='burger__btn btn-1'
+								className={clsx(styles.burger__btn, styles.btn_1)}
 								onClick={() =>
 									navigate(Links.profile, {
 										state: { from: location.pathname }
@@ -80,9 +80,9 @@ const ProfileMenu = () => {
 								Профиль
 							</button>
 						</li>
-						<li className='burger__item'>
+						<li>
 							<button
-								className='burger__btn btn-2'
+								className={clsx(styles.burger__btn, styles.btn2)}
 								onClick={() => {
 									logout()
 									navigate(Links.auth)

@@ -1,19 +1,10 @@
 import { motion } from 'framer-motion'
 import wolf_festive from 'assets/images/Festive_wolf(shadow).png'
-import React, { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import Links from '../../config/links.config'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import './startPage.css'
 
 function StartPage() {
-	const navigate = useNavigate()
-
-	useEffect(() => {
-		if (localStorage.getItem('access_token')) {
-			navigate(Links.main)
-		}
-	}, [navigate])
-
 	return (
 		<motion.div
 			className='start centered'

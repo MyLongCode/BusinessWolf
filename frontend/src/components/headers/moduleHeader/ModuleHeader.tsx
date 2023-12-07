@@ -18,7 +18,7 @@ function ModuleHeader(props: ModuleHeaderProps) {
 		<header className='module-header header'>
 			<div className='header__wrapper'>
 				<Logo />
-				<ProfileMenu />
+				<ProfileMenu isWhite={true} />
 			</div>
 			<div className='header__module hm'>
 				<h2 className='hm__name'>{title}</h2>
