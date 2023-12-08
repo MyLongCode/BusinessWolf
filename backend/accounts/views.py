@@ -27,3 +27,4 @@ class ChangePasswordUserAPIDetail(generics.RetrieveUpdateAPIView):
     queryset = User.objects.all()
     serializer_class = ChangeUserPasswordSerializer
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+

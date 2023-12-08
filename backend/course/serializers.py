@@ -108,7 +108,7 @@ class TestSerializer(serializers.ModelSerializer):
 
 class CompletedLessonsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = CompletedLessons
+        model = Courses
         fields = '__all__'
         permission_classes = (IsAuthenticated,)
 
@@ -216,3 +216,5 @@ class CompletedTestSerializer(WritableNestedModelSerializer):
         model = CompletedTests
         fields = '__all__'
         permission_classes = (IsAuthenticated,)
+
+

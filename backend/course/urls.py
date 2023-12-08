@@ -25,6 +25,10 @@ urlpatterns = [
     path('api/selectedanswers/', SelectedAnswersAPICreateView.as_view()),
     path('api/completedquestscheck/<int:pk>/', CompletedQuestionCheckView.as_view()),
     path('api/completedtest/<int:pk>/', CompletedTestView.as_view()),
+    path('api/progresscourse/<int:pk>/', ProgressCourseAPIDetail.as_view()),
+    path('api/completedlessons/', CompletedLessonsAPICreateView.as_view()),
+    path('api/completedlessons/<int:pk>/', CompletedLessonsAPIDetail.as_view()),
+    path('api/answersrightcount/<int:pk>/', QuestionCountAPIDetail.as_view()),
 
     path('api/admin/course/', AdminCoursesAPICreateView.as_view()),
     path('api/admin/course/<int:pk>/', AdminCoursesAPIDetail.as_view()),

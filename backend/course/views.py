@@ -1,10 +1,13 @@
 import json
 
+from django.core.exceptions import ObjectDoesNotExist
+from django.http import Http404
 from rest_framework import generics, permissions, status
 from rest_framework.generics import get_object_or_404
 
 from .permissions import *
 from .serializers import *
+from rest_framework.views import APIView
 
 
 class GetAfterCreateMixin:
@@ -273,3 +276,74 @@ class CompletedTestView(generics.RetrieveAPIView):
     queryset = CompletedTests.objects.all()
     serializer_class = CompletedTestSerializer
     permission_classes = [permissions.IsAuthenticated, CompletedTestsPermission]
+
+
+class CompletedLessonsAPICreateView(generics.ListCreateAPIView):
+    queryset = CompletedLessons.objects.all()
+    serializer_class = CompletedLessonsSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return CompletedLessons.objects.filter(user_id=self.request.user.id)
+
+
+class CompletedLessonsAPIDetail(generics.RetrieveAPIView):
+    queryset = CompletedLessons.objects.all()
+    serializer_class = CompletedLessonsSerializer
+    permission_classes = [permissions.IsAuthenticated, CompletedLessonsPermission]
+
+
+class ProgressCourseAPIDetail(APIView):
+    queryset = Courses.objects.all()
+    permission_classes = [permissions.IsAuthenticated, CoursePermission]
+
+    def get_object(self, pk):
+        try:
+            obj = Courses.objects.get(pk=pk)
+            self.check_object_permissions(self.request, obj)
+            return obj
+        except ObjectDoesNotExist:
+            raise Http404
+
+    def get(self, request, *args, **kwargs):
+        try:
+            pk = self.kwargs['pk']
+            course = self.get_object(pk)
+            modules = Modules.objects.filter(course_id=course.course_id)
+            lessons = Lessons.objects.filter(module_id__in=modules.values_list("module_id", flat=True))
+            completed_lessons = (CompletedLessons.objects
+                                 .filter(lesson_id__in=lessons.values_list("lesson_id", flat=True))
+                                 .filter(user_id=self.request.user.id))
+            tests = Test.objects.filter(lesson_id__in=lessons.values_list("lesson_id", flat=True))
+            completed_tests = (CompletedTests.objects
+                               .filter(test_id__in=tests.values_list("test_id", flat=True))
+                               .filter(user_id=self.request.user.id))
+            #print(modules)
+            #print(lessons)
+            #print(completed_lessons)
+            #print(tests)
+            #print(completed_tests)
+            progress = (len(completed_lessons) + len(completed_tests)) / (len(tests) + len(lessons))
+            return Response({"progress": progress})
+        except:
+            return Response({"message": "ОШИБКА"})
+
+
+class QuestionCountAPIDetail(APIView):
+    queryset = Questions.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_object(self, pk):
+        try:
+            obj = Questions.objects.get(pk=pk)
+            self.check_object_permissions(self.request, obj)
+            return obj
+        except ObjectDoesNotExist:
+            raise Http404
+
+    def get(self, request, *args, **kwargs):
+        pk = self.kwargs['pk']
+        question = self.get_object(pk)
+        answers_question_right = Answers.objects.filter(question_id=question.question_id).filter(is_right=True)
+        count_right = len(answers_question_right)
+        return Response({"count": count_right})

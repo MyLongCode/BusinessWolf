@@ -1,19 +1,15 @@
 from rest_framework import permissions
-from course.models import UserCourse, Modules, Courses, Lessons
+from course.models import UserCourse, Modules, Courses, CompletedLessons
 
 
 class CoursePermission(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        if request.user.is_superuser:
-            return True
         return (request.method in permissions.SAFE_METHODS and
                 obj.course_id in UserCourse.objects.filter(user_id=request.user.id).values_list("course_id", flat=True))
 
 
 class UserCoursePermission(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        if request.user.is_superuser:
-            return True
         return request.method in permissions.SAFE_METHODS and request.user.id == obj.user_id
 
 
@@ -44,3 +40,10 @@ class CompletedTestsPermission(permissions.BasePermission):
         return (request.method in permissions.SAFE_METHODS
                 and obj.user_id == request.user.id)
 
+
+class CompletedLessonsPermission(permissions.BasePermission):
+    def has_object_permission(self, request, view, obj):
+        if request.user.is_superuser:
+            return True
+        return (request.method in permissions.SAFE_METHODS
+                and obj in CompletedLessons.objects.filter(user_id=request.user.id))
