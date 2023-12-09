@@ -325,7 +325,7 @@ class ProgressCourseAPIDetail(APIView):
             # print(completed_tests)
             progress = (len(completed_lessons) + len(completed_tests)) / (len(tests) + len(lessons))
             return Response({"progress": progress,
-                             "modules": len(lessons), 'completed_lessons': len(completed_lessons),
+                             "lessons": len(lessons), 'completed_lessons': len(completed_lessons),
                              "tests": len(tests), "completed_tests": len(completed_tests)})
         except ObjectDoesNotExist:
             return Response({"message": "ОШИБКА"})
