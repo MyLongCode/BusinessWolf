@@ -318,14 +318,16 @@ class ProgressCourseAPIDetail(APIView):
             completed_tests = (CompletedTests.objects
                                .filter(test_id__in=tests.values_list("test_id", flat=True))
                                .filter(user_id=self.request.user.id))
-            #print(modules)
-            #print(lessons)
-            #print(completed_lessons)
-            #print(tests)
-            #print(completed_tests)
+            # print(modules)
+            # print(lessons)
+            # print(completed_lessons)
+            # print(tests)
+            # print(completed_tests)
             progress = (len(completed_lessons) + len(completed_tests)) / (len(tests) + len(lessons))
-            return Response({"progress": progress})
-        except:
+            return Response({"progress": progress,
+                             "modules": len(lessons), 'completed_lessons': len(completed_lessons),
+                             "tests": len(tests), "completed_tests": len(completed_tests)})
+        except ObjectDoesNotExist:
             return Response({"message": "ОШИБКА"})
 
 
