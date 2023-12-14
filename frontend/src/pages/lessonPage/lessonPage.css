@@ -26,10 +26,10 @@
 }
 .lesson-page__wolf {
   position: fixed;
-  right: 300px;
+  right: 500px;
   top: 400px;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1800px) {
   .lesson-page__wolf {
     opacity: 0;
   }

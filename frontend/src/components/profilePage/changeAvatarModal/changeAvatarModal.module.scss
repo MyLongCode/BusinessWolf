@@ -32,12 +32,13 @@
 	gap: 2em;
 	max-height: 329px;
 	overflow: auto;
+	height: 100%;
 }
 
 .current {
 	width: 137px;
 	align-self: center;
-	margin-top: 70px;
+	margin-top: auto;
 	outline: var(--Main) 4px solid;
 	outline-offset: -4px;
 	border-radius: 50%;

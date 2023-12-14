@@ -1,26 +1,30 @@
 import type IAnswer from 'models/IAnswer'
 import type IQuestion from 'models/IQuestion'
 import React, { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useActions } from 'hooks/useActions'
 import { useTypedSelector } from 'hooks/useTypedSelector'
+import useRightAnswersCount from '../../../../hooks/useRightAnswersCount'
+import AnswerService from '../../../../services/AnswerService'
 import Answer from '../Answer'
 
 const AnswersList = ({
 	testID,
 	answers,
-	questions
+	questions,
+	rightCount
 }: {
 	testID: string
 	answers: IAnswer[]
 	questions: IQuestion[]
+	rightCount: number
 }) => {
 	const navigate = useNavigate()
 	const location = useLocation()
 	const { questions: addedQuestions } = useTypedSelector(state => state.tests)
 	const { pushTest } = useActions()
 	const [selected, setSelected] = useState<number[]>([])
-	const { selectAnswer } = useActions()
+	const { selectAnswer, setSelectedAnswers } = useActions()
 
 	useEffect(() => {
 		if (questions.length > 0 && addedQuestions.length === questions.length) {
@@ -31,12 +35,17 @@ const AnswersList = ({
 	}, [addedQuestions.length, testID, location.pathname, questions.length])
 
 	const clickHandler = (id: number) => {
-		if (!selected.includes(id)) {
-			setSelected(prevState => [...prevState, id])
-			selectAnswer(id)
+		if (rightCount > 1) {
+			if (!selected.includes(id)) {
+				setSelected(prevState => [...prevState, id])
+				selectAnswer(id)
+			} else {
+				setSelected(prevState => prevState.filter(item => item !== id))
+				selectAnswer(id)
+			}
 		} else {
-			setSelected(prevState => prevState.filter(item => item !== id))
-			selectAnswer(id)
+			setSelectedAnswers([id])
+			setSelected([id])
 		}
 	}
 
@@ -49,6 +58,7 @@ const AnswersList = ({
 						answer={answer}
 						isSelected={selected.includes(answer.answer_id)}
 						clickHandler={() => clickHandler(answer.answer_id)}
+						isSolo={rightCount === 1}
 					/>
 				)
 			})}

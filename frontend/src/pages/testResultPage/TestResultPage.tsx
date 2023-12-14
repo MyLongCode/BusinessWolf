@@ -18,10 +18,7 @@ function TestResultPage() {
 	const { areTestsLoading } = useTypedSelector(state => state.tests)
 
 	return (
-		<ModuleLayout
-			headerTitle={`Результат теста ${id}`}
-			pageTitle={`Результат теста ${id}`}
-		>
+		<ModuleLayout headerTitle={`Результат теста ${id}`} pageTitle={`Результат теста ${id}`}>
 			{!areTestsLoading && (
 				<motion.div
 					className='test-result-page'
@@ -30,9 +27,7 @@ function TestResultPage() {
 					exit={{ opacity: 0 }}
 					transition={{ duration: 0.2 }}
 				>
-					<h3 className='test-result-page__heading'>
-						Давайте проверим ваши ответы
-					</h3>
+					<h3 className='test-result-page__heading'>Давайте проверим ваши ответы</h3>
 					<ul className='test-result-page__questions'>
 						{questions &&
 							questions.map(question => {
@@ -51,7 +46,7 @@ function TestResultPage() {
 					</ul>
 					<Link
 						className='test-result-page__btn btn'
-						to={`${Links.module(courseID, moduleID)}/tests`}
+						to={`${Links.module(courseID, moduleID)}/lessons`}
 					>
 						Завершить
 					</Link>

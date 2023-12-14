@@ -23,19 +23,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   border: 2px solid var(--Gray89);
-  border-radius: 50%;
+  border-radius: 2px;
   margin-right: 12px;
+  transition-duration: 0.3s;
 }
 .toggle_selected {
   border-color: var(--Main);
 }
 .toggle__dot {
-  width: 7px;
-  height: 7px;
-  background-color: var(--Main);
+  width: 8px;
+  height: 8px;
+  background-image: url("../../../assets/images/checkbox-on.svg");
+  background-repeat: no-repeat;
+  background-position: -2px 0;
+}
+
+.solo .toggle {
+  border-radius: 50%;
+}
+.solo .toggle__dot {
+  height: 9px;
+  width: 9px;
   border-radius: 50%;
 }
 

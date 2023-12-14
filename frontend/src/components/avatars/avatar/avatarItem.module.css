@@ -1,5 +1,7 @@
 .avatar {
   -webkit-user-drag: none;
+  width: 137px;
+  height: 137px;
 }
 .avatar:hover {
   opacity: 0.8;

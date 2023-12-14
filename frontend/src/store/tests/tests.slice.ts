@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type IFullCompletedTestResponse from 'models/responce/IFullCompletedTestResponse'
-import { addQuestion, pushTest, selectAnswer } from './tests.actions'
+import { addQuestion, pushTest, selectAnswer, setSelectedAnswers } from './tests.actions'
 
 export interface IQuestionIDs {
 	id: number
@@ -40,10 +40,11 @@ export const testsSlice = createSlice({
 				if (!state.selectedAnswers.includes(id)) {
 					state.selectedAnswers.push(id)
 				} else {
-					state.selectedAnswers = state.selectedAnswers.filter(
-						item => item !== id
-					)
+					state.selectedAnswers = state.selectedAnswers.filter(item => item !== id)
 				}
+			})
+			.addCase(setSelectedAnswers.fulfilled, (state, { payload }) => {
+				state.selectedAnswers = payload
 			})
 	}
 })

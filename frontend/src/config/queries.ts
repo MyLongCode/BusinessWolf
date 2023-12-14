@@ -2,7 +2,7 @@
  * @description
  * Этот класс содержит все **ссылки запросов для API**
  */
-export default class QueriesConfig {
+export default class Queries {
 	//API
 	static API_URL = 'http://127.0.0.1:8000'
 
@@ -15,6 +15,7 @@ export default class QueriesConfig {
 
 	//COURSES
 	static FETCH_COURSES_URL = '/api/course/'
+	static FETCH_COURSE_PROGRESS_URL = '/api/progresscourse/'
 
 	//MODULES
 	static FETCH_MODULES_URL = '/api/modules/'
@@ -27,6 +28,7 @@ export default class QueriesConfig {
 	//ANSWERS
 	static FETCH_ANSWERS_URL = '/api/answers/'
 	static POST_ANSWERS_URL = '/api/selectedanswers/'
+	static FETCH_RIGHT_ANSWERS_COUNT = '/api/answersrightcount/'
 
 	//LESSONS
 	static FETCH_LESSONS_URL = '/api/lessons/'

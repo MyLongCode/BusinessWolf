@@ -4,7 +4,7 @@ import eye from 'assets/images/Eye.svg'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTypedSelector } from 'hooks/useTypedSelector'
-import { ErrorConfig } from '../../config/error.config'
+import { ErrorType } from '../../config/errorType'
 import type { IAuthForm } from './authForm.interface'
 
 function AuthForm({ onSubmit }: IAuthForm) {
@@ -22,7 +22,7 @@ function AuthForm({ onSubmit }: IAuthForm) {
 	const showPasswordIcon = passwordShown ? eyeSlash : eye
 
 	useEffect(() => {
-		if (submitError === ErrorConfig.login) {
+		if (submitError === ErrorType.login) {
 			setErrorMessage('Неверный логин или пароль. Попробуйте снова.')
 		}
 	}, [submitError])
@@ -54,9 +54,7 @@ function AuthForm({ onSubmit }: IAuthForm) {
 						/>
 					</label>
 					{errors?.username && (
-						<p className='error-text'>
-							{errors?.username?.message || 'Ошибка!'}
-						</p>
+						<p className='error-text'>{errors?.username?.message || 'Ошибка!'}</p>
 					)}
 				</div>
 				<div className='auth__input-wrapper'>
@@ -89,9 +87,7 @@ function AuthForm({ onSubmit }: IAuthForm) {
 						</div>
 					</label>
 					{errors?.password && (
-						<p className='error-text'>
-							{errors?.password?.message || 'Ошибка!'}
-						</p>
+						<p className='error-text'>{errors?.password?.message || 'Ошибка!'}</p>
 					)}
 				</div>
 				{errorMessage && (
@@ -99,11 +95,7 @@ function AuthForm({ onSubmit }: IAuthForm) {
 						<p className='error-text'>{errorMessage}</p>
 					</div>
 				)}
-				<button
-					disabled={!isValid}
-					className='auth__submit-btn btn'
-					type='submit'
-				>
+				<button disabled={!isValid} className='auth__submit-btn btn' type='submit'>
 					Начать
 				</button>
 			</form>

@@ -4,7 +4,7 @@ import AuthService from 'services/AuthService'
 import TokenService from 'services/TokenService'
 import UserService from 'services/UserService'
 import type { AxiosError } from 'axios'
-import { ErrorConfig } from '../../config/error.config'
+import { ErrorType } from '../../config/errorType'
 import IUser from '../../models/IUser'
 import IUserPatch from '../../models/IUserPatch'
 
@@ -29,21 +29,18 @@ export const logout = createAsyncThunk('auth/logout', async () => {
 	localStorage.clear()
 })
 
-export const checkAuth = createAsyncThunk(
-	'auth/check-auth',
-	async (_, thunkAPI) => {
-		try {
-			const token = localStorage.getItem('access_token') || ''
-			await AuthService.checkAuth(token)
-			const userID = TokenService.decodeToken(token).user_id
-			const response = await UserService.fetchUser(userID)
-			return response.data
-		} catch (e) {
-			thunkAPI.dispatch(logout())
-			return thunkAPI.rejectWithValue(e as AxiosError)
-		}
+export const checkAuth = createAsyncThunk('auth/check-auth', async (_, thunkAPI) => {
+	try {
+		const token = localStorage.getItem('access_token') || ''
+		await AuthService.checkAuth(token)
+		const userID = TokenService.decodeToken(token).user_id
+		const response = await UserService.fetchUser(userID)
+		return response.data
+	} catch (e) {
+		thunkAPI.dispatch(logout())
+		return thunkAPI.rejectWithValue(e as AxiosError)
 	}
-)
+})
 
 export const patchUser = createAsyncThunk<IUser, IUserPatch>(
 	'auth/patch-user',
@@ -58,5 +55,5 @@ export const patchUser = createAsyncThunk<IUser, IUserPatch>(
 )
 
 export const clearError = createAsyncThunk('auth/clear-error', async () => {
-	return ErrorConfig.none
+	return ErrorType.none
 })

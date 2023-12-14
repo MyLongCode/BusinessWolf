@@ -1,7 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import React, { useEffect } from 'react'
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
-import { ErrorConfig } from './config/error.config'
+import { ErrorType } from './config/errorType'
 import Links from './config/links.config'
 import { useActions } from './hooks/useActions'
 import { useTypedSelector } from './hooks/useTypedSelector'
@@ -31,8 +31,7 @@ function App() {
 
 	useEffect(() => {
 		if (
-			((error && error === ErrorConfig.auth) ||
-				!localStorage.getItem('refresh_token')) &&
+			((error && error === ErrorType.auth) || !localStorage.getItem('refresh_token')) &&
 			location.pathname !== Links.auth &&
 			location.pathname !== Links.start
 		) {
@@ -59,10 +58,7 @@ function App() {
 							<Route path=':id/*' element={<ModulePage />} />
 							<Route path=':moduleID/lessons/:id' element={<LessonPage />} />
 							<Route path=':moduleID/tests/:id' element={<TestPage />} />
-							<Route
-								path=':moduleID/tests/:id/result'
-								element={<TestResultPage />}
-							/>
+							<Route path=':moduleID/tests/:id/result' element={<TestResultPage />} />
 						</Route>
 					</Route>
 				</Routes>

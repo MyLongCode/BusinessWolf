@@ -4,6 +4,7 @@ import type IQuestion from 'models/IQuestion'
 import AnswerService from 'services/AnswerService'
 import QuestionService from 'services/QuestionService'
 import { useEffect, useState } from 'react'
+import useRightAnswersCount from './useRightAnswersCount'
 
 /**
  * @description
@@ -24,7 +25,9 @@ const shuffle = <T>(array: T[]): T[] => {
  * Это хук для получения списка id ответов с указанными вопросами
  * и самих ответов
  */
-export const useTestsData = (): {
+export const useTestsData = (
+	testID: number | string
+): {
 	questions: IQuestion[]
 	answers: Map<number, IAnswer[]>
 } => {
@@ -44,7 +47,7 @@ export const useTestsData = (): {
 		},
 		select: ({ questionsResponse, answersResponse }) => {
 			return {
-				questionsData: questionsResponse.data,
+				questionsData: questionsResponse.data.filter(question => question.test == testID),
 				answersData: answersResponse.data
 			}
 		}
@@ -58,9 +61,7 @@ export const useTestsData = (): {
 				setAnswers(prevState =>
 					prevState.set(
 						question.question_id,
-						shuffle(data.answersData).filter(
-							answer => answer.question === question.question_id
-						)
+						shuffle(data.answersData).filter(answer => answer.question === question.question_id)
 					)
 				)
 			})

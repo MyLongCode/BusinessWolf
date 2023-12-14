@@ -6,28 +6,26 @@ import styles from './answer.module.css'
 function Answer({
 	answer,
 	isSelected,
-	clickHandler
+	clickHandler,
+	isSolo
 }: {
 	answer: IAnswer
 	isSelected: boolean
 	clickHandler: (answer_id: number) => void
+	isSolo?: boolean
 }) {
 	return (
 		<li
 			className={clsx(
 				styles.answer,
-				isSelected ? styles.answer_selected : null
+				isSelected ? styles.answer_selected : null,
+				isSolo ? styles.solo : null
 			)}
 			onClick={() => {
 				clickHandler(answer.answer_id)
 			}}
 		>
-			<div
-				className={clsx(
-					styles.toggle,
-					isSelected ? styles.toggle_selected : null
-				)}
-			>
+			<div className={clsx(styles.toggle, isSelected ? styles.toggle_selected : null)}>
 				{isSelected && <div className={styles.toggle__dot} />}
 			</div>
 			<p>{`${answer.text}`}</p>

@@ -1,15 +1,17 @@
 import MainLayout from 'components/layouts/mainLayout/MainLayout'
 import ChangeAvatarModal from 'components/profilePage/changeAvatarModal/ChangeAvatarModal'
-import ProfileCourse from 'components/profilePage/profileCourse/ProfileCourse'
 import ProfileDataForm from 'components/profilePage/profileDataForm/ProfileDataForm'
 import ReturnButton from 'components/returnButton/ReturnButton'
 import React, { useState } from 'react'
 import useUserData from 'hooks/useUserData'
+import ProfileCourseProgress from '../../components/profilePage/profileCourseProgress/ProfileCourseProgress'
+import useCourses from '../../hooks/useCourses'
 import './profilePage.css'
 
 function ProfilePage() {
 	const { address, grade, email, fullName, phone, avatar } = useUserData()
 	const [isAvatarModalVisible, setIsModalVisible] = useState(false)
+	const courses = useCourses()
 
 	const changeAvatarClickHandler = () => {
 		setIsModalVisible(true)
@@ -17,9 +19,7 @@ function ProfilePage() {
 
 	return (
 		<MainLayout pageTitle={'Профиль'}>
-			{isAvatarModalVisible && (
-				<ChangeAvatarModal setIsModalVisible={setIsModalVisible} />
-			)}
+			{isAvatarModalVisible && <ChangeAvatarModal setIsModalVisible={setIsModalVisible} />}
 
 			<div className='profile'>
 				<ReturnButton text={'Вернуться'} />
@@ -36,7 +36,9 @@ function ProfilePage() {
 					</div>
 				</section>
 				<section className='profile__courses courses'>
-					<ProfileCourse />
+					{courses.map(course => {
+						return <ProfileCourseProgress courseID={course?.course_id} />
+					})}
 				</section>
 				<section className='profile__data data'>
 					<h2 className='data__heading'>Ваши данные:</h2>

@@ -68,8 +68,8 @@
   line-height: 150%;
 }
 .profile .courses {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 40px;
   margin-top: 60px;
 }
