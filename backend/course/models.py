@@ -98,6 +98,9 @@ class Questions(models.Model):
         db_table = 'questions'
         verbose_name_plural = 'questions'
 
+    def __str__(self):
+        return self.text
+
 
 class CompletedLessons(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

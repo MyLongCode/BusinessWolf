@@ -272,11 +272,6 @@ class CompletedQuestionCheckView(generics.RetrieveUpdateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class CompletedTestView(generics.RetrieveAPIView):
-    queryset = CompletedTests.objects.all()
-    serializer_class = CompletedTestSerializer
-    permission_classes = [permissions.IsAuthenticated, CompletedTestsPermission]
-
 
 class CompletedLessonsAPICreateView(generics.ListCreateAPIView):
     queryset = CompletedLessons.objects.all()
@@ -349,3 +344,17 @@ class QuestionCountAPIDetail(APIView):
         answers_question_right = Answers.objects.filter(question_id=question.question_id).filter(is_right=True)
         count_right = len(answers_question_right)
         return Response({"count": count_right})
+
+
+class CompletedTestView(APIView):
+    queryset = Questions.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        pk = self.kwargs['pk']
+        try:
+            data = CompletedTests.objects.filter(user_id=self.request.user.id).filter(test_id=pk)
+            serializer = CompletedTestSerializer(data[len(data) - 1])
+            return Response(serializer.data)
+        except Exception as e:
+            return Response({'error': 'wrong pk'})
