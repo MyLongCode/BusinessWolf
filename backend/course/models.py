@@ -45,7 +45,8 @@ class Lessons(models.Model):
                     'type': 'object',
                     'keys': {
                         'author': {
-                            'type': 'string'
+                            'type': 'string',
+                            'choices': ['course', 'user']
                         },
                         'text': {
                             'type': 'string'
@@ -74,6 +75,10 @@ class Lessons(models.Model):
     class Meta:
         db_table = 'lessons'
         verbose_name_plural = 'lessons'
+
+
+    def __str__(self):
+        return f'module:{self.module.name} name:{self.name}'
 
 
 class Test(models.Model):

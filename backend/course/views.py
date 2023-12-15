@@ -358,3 +358,26 @@ class CompletedTestView(APIView):
             return Response(serializer.data)
         except Exception as e:
             return Response({'error': 'wrong pk'})
+
+
+class ProgressModuleAPIDetail(APIView):
+    queryset = Modules.objects.all()
+    permission_classes = [permissions.IsAuthenticated, ModulesPermission]
+
+    def get(self, request, *args, **kwargs):
+        try:
+            pk = self.kwargs['pk']
+            lessons = Lessons.objects.filter(module_id=pk)
+            completed_lessons = (CompletedLessons.objects
+                                 .filter(lesson_id__in=lessons.values_list("lesson_id", flat=True))
+                                 .filter(user_id=self.request.user.id))
+            tests = Test.objects.filter(lesson_id__in=lessons.values_list("lesson_id", flat=True))
+            completed_tests = (CompletedTests.objects
+                               .filter(test_id__in=tests.values_list("test_id", flat=True))
+                               .filter(user_id=self.request.user.id))
+            progress = (len(completed_lessons) + len(completed_tests)) / (len(tests) + len(lessons))
+            return Response({"progress": progress,
+                             "lessons": len(lessons), 'completed_lessons': len(completed_lessons),
+                             "tests": len(tests), "completed_tests": len(completed_tests)})
+        except ObjectDoesNotExist:
+            return Response({"message": "ОШИБКА"})

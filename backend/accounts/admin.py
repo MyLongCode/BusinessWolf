@@ -3,5 +3,11 @@ from django.contrib.auth.admin import UserAdmin
 from .models import User
 
 
-# Register your models here.
-admin.site.register(User, UserAdmin)
+class MyUserAdmin(UserAdmin):
+
+    fieldsets = (
+            (None, {'fields': ('full_name', 'coins', 'education_class',)}),
+    ) + UserAdmin.fieldsets
+
+
+admin.site.register(User, MyUserAdmin)
