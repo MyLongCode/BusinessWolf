@@ -76,9 +76,8 @@ class Lessons(models.Model):
         db_table = 'lessons'
         verbose_name_plural = 'lessons'
 
-
     def __str__(self):
-        return f'module:{self.module.name} name:{self.name}'
+        return f'{self.lesson_id}) module:{self.module.name} name:{self.name}'
 
 
 class Test(models.Model):
@@ -148,7 +147,8 @@ class CompletedQuestions(models.Model):
 
 
 class SelectedAnswers(models.Model):
-    completed_question = models.ForeignKey(CompletedQuestions, on_delete=models.CASCADE, related_name='selected_answers')
+    completed_question = models.ForeignKey(CompletedQuestions, on_delete=models.CASCADE,
+                                           related_name='selected_answers')
     answer = models.ForeignKey(Answers, on_delete=models.CASCADE)
 
     class Meta:
