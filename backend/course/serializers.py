@@ -110,7 +110,13 @@ class CompletedLessonsSerializer(serializers.ModelSerializer):
     class Meta:
         model = CompletedLessons
         fields = '__all__'
+        read_only_fields = ('user',)
         permission_classes = (IsAuthenticated,)
+
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        data['user_id'] = self.context['request'].user.id
+        return data
 
 
 class AnswersSerializer(serializers.ModelSerializer):
