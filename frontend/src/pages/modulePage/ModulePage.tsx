@@ -1,3 +1,4 @@
+import * as module from 'module'
 import ModuleLayout from 'components/layouts/moduleLayout/ModuleLayout'
 import LessonsList from 'components/modulePage/lessons/LessonsList'
 import TestsList from 'components/modulePage/tests/TestsList'
@@ -8,6 +9,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import useLessons from 'hooks/useLessons'
 import { useTests } from 'hooks/useTests'
 import Links from '../../config/links.config'
+import useModules from '../../hooks/useModules'
 import './modulePage.css'
 import { ModuleParams, States } from './modulePage.helper'
 
@@ -15,11 +17,11 @@ function ModulePage() {
 	const { id, courseID } = useParams<ModuleParams>()
 	const location = useLocation()
 	const navigate = useNavigate()
-	const initialState =
-		location.pathname.split('/')[5] === 'tests' ? States.tests : States.lessons
+	const initialState = location.pathname.split('/')[5] === 'tests' ? States.tests : States.lessons
 	const [stateChanged, setStateChanged] = useState(false)
 	const lessons = useLessons()
 	const tests = useTests()
+	const module = useModules().find(module => module.module_id === Number(id))
 
 	useEffect(() => {
 		if (!['tests', 'lessons'].includes(location.pathname.split('/')[5])) {
@@ -29,34 +31,27 @@ function ModulePage() {
 
 	const sliderButtonClickHandler = (state: States) => {
 		setStateChanged(initialState !== state)
-		navigate(
-			`${Links.module(courseID, id)}/${
-				state === States.tests ? 'tests' : 'lessons'
-			}`,
-			{
-				replace: true
-			}
-		)
+		navigate(`${Links.module(courseID, id)}/${state === States.tests ? 'tests' : 'lessons'}`, {
+			replace: true
+		})
 	}
 
 	return (
-		<ModuleLayout headerTitle={`Модуль ${id}`} pageTitle={`Модуль ${id}`}>
+		<ModuleLayout
+			moduleDescription={module?.description}
+			headerTitle={`Модуль ${id}`}
+			pageTitle={`Модуль ${id}`}
+		>
 			<div className='module-page'>
 				<SliderButton
 					className={'module-page__slider-btn'}
 					buttonNames={{ left: 'Конспекты', right: 'Тесты' }}
 					initialState={initialState === States.lessons ? 'left' : 'right'}
 					currentState={
-						stateChanged && initialState === States.lessons
-							? 'right'
-							: stateChanged
-							  ? 'left'
-							  : ''
+						stateChanged && initialState === States.lessons ? 'right' : stateChanged ? 'left' : ''
 					}
 					buttonClickHandler={state =>
-						sliderButtonClickHandler(
-							state === 'left' ? States.lessons : States.tests
-						)
+						sliderButtonClickHandler(state === 'left' ? States.lessons : States.tests)
 					}
 				/>
 				<motion.div

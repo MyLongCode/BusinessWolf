@@ -9,6 +9,7 @@
   overflow: hidden;
 }
 .user-avatar__img {
+  -webkit-user-drag: none;
   width: 100%;
   height: 100%;
   object-fit: cover;

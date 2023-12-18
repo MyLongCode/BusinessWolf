@@ -1,7 +1,7 @@
 import ModuleLayout from 'components/layouts/moduleLayout/ModuleLayout'
 import QuestionResult from 'components/testPage/questionResult/QuestionResult'
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import useCompletedTest from 'hooks/useCompletedTest'
 import Links from '../../config/links.config'
@@ -17,9 +17,11 @@ function TestResultPage() {
 	}>()
 	const questions = useCompletedTest(id!)
 	const { areTestsLoading } = useTypedSelector(state => state.tests)
-	const isTestsCompleted: boolean = useCompletedTests().some(test => Number(id!) === test.test)
-
-	console.log(isTestsCompleted)
+	const completedTests = useCompletedTests()
+	const isTestsCompleted = useMemo(
+		() => completedTests.some(test => Number(id!) === test.test),
+		[completedTests]
+	)
 
 	return (
 		<ModuleLayout headerTitle={`Результат теста ${id}`} pageTitle={`Результат теста ${id}`}>

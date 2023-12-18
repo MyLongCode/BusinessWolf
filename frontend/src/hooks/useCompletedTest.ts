@@ -19,7 +19,7 @@ export const useCompletedTest = (id: string | number) => {
 				setQuestions(response.data.completed_questions)
 			})
 		}
-	}, [completedTest, questions, id])
+	}, [])
 
 	return questions
 }

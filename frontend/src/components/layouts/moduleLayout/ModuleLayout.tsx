@@ -6,11 +6,13 @@ import ModuleHeader from '../../headers/moduleHeader/ModuleHeader'
 function ModuleLayout({
 	children,
 	headerTitle,
-	pageTitle
+	pageTitle,
+	moduleDescription
 }: {
 	children: React.ReactNode
 	headerTitle: string
 	pageTitle: string
+	moduleDescription?: string
 }) {
 	const location = useLocation()
 	const { isLoading } = useTypedSelector(state => state.auth)
@@ -21,7 +23,7 @@ function ModuleLayout({
 
 	return (
 		<>
-			<ModuleHeader title={headerTitle} />
+			<ModuleHeader description={moduleDescription} title={headerTitle} />
 			{children && !isLoading && <main>{children}</main>}
 		</>
 	)

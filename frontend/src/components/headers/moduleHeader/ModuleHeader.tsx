@@ -5,6 +5,7 @@ import './moduleHeader.css'
 
 interface ModuleHeaderProps {
 	title: string
+	description?: string
 }
 
 function ModuleHeader(props: ModuleHeaderProps) {
@@ -22,10 +23,7 @@ function ModuleHeader(props: ModuleHeaderProps) {
 			</div>
 			<div className='header__module hm'>
 				<h2 className='hm__name'>{title}</h2>
-				<p className='hm_desc'>
-					Learn the basics of the language: make new friends, plan a family
-					dinner, go shopping and much more!
-				</p>
+				{props.description && <p className='hm_desc'>{props.description}</p>}
 			</div>
 		</header>
 	)
