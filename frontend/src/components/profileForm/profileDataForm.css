@@ -1,7 +1,0 @@
-.form {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
-  gap: 24px 40px;
-}
-
-/*# sourceMappingURL=profileDataForm.css.map */

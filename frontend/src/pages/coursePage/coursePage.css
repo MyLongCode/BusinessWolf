@@ -1,15 +1,5 @@
-.greeting {
-  margin-bottom: 20px;
-}
-.greeting__heading {
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
 .course-page {
-  margin: 0 10%;
+  margin: 0 10% 60px;
 }
 .course-page .section-heading {
   font-family: "Enthalpy 298", sans-serif;
@@ -24,7 +14,7 @@
 }
 .course-page__modules .modules__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
   gap: 40px;
 }
 .course-page .about {
@@ -36,13 +26,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
-}
-.course-page .reviews__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
 }
 
 /*# sourceMappingURL=coursePage.css.map */

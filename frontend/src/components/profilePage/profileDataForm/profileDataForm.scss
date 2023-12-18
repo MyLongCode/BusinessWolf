@@ -1,0 +1,13 @@
+@import '../../../assets/style/inputField';
+
+.form {
+	&__profile-inputs {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+		gap: 24px 40px;
+	}
+	&__submit-btn {
+		margin-top: 40px;
+		padding: 15px 40px;
+	}
+}

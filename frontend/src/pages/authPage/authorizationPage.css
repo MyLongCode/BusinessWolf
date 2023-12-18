@@ -1,97 +1,101 @@
 .label__input {
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: 20px;
-  border: 2px solid var(--Black);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 160%;
+	width: 100%;
+	padding: 12px 16px;
+	border-radius: 20px;
+	border: 2px solid var(--Black);
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 160%;
 }
 .label__input:focus {
-  font-family: "Montserrat", sans-serif;
-}
-.label .filled {
-  opacity: 1;
-  border-color: var(--Main);
-}
-.label .unfilled {
-  opacity: 0.4;
-}
-.label .invalid {
-  border-color: red;
+	font-family: 'Montserrat', sans-serif;
 }
 .label__title {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: normal;
-  margin-bottom: 16px;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: normal;
+	margin-bottom: 16px;
+}
+
+.filled {
+	opacity: 1;
+	border-color: var(--Main);
+}
+
+.unfilled {
+	opacity: 0.4;
+}
+
+input.invalid {
+	border-color: red;
 }
 
 .password-show {
-  width: 24px;
-  cursor: pointer;
-  position: absolute;
-  right: 15px;
-  top: 30%;
+	width: 24px;
+	cursor: pointer;
+	position: absolute;
+	right: 15px;
+	top: 30%;
 }
 
 .auth {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-  min-width: 375px;
-  max-width: 574px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 30%;
+	min-width: 375px;
+	max-width: 574px;
 }
 .auth__submit-btn {
-  margin-top: 25px;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 36px;
+	margin-top: 25px;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 36px;
+	width: 100%;
 }
 .auth__form {
-  width: 100%;
+	width: 100%;
 }
 .auth__heading {
-  font-size: 39px;
-  margin-bottom: 62px;
-  white-space: nowrap;
+	font-size: 39px;
+	margin-bottom: 62px;
+	white-space: nowrap;
 }
 .auth .restore-password {
-  margin-top: 24px;
-  white-space: nowrap;
-  text-align: center;
+	margin-top: 24px;
+	white-space: nowrap;
+	text-align: center;
 }
 .auth .restore-password a {
-  color: var(--Main);
-  text-decoration: none;
+	color: var(--Main);
+	text-decoration: none;
 }
 .auth__logo {
-  width: 180px;
-  margin-bottom: 25px;
+	width: 180px;
+	margin-bottom: 25px;
 }
 .auth__error {
-  text-align: center;
+	text-align: center;
 }
 .auth__error .error-text {
-  font-size: 18px;
+	font-size: 18px;
 }
 .auth__input-wrapper {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
-  position: relative;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 40px;
+	position: relative;
 }
 .auth__input-wrapper .label__input {
-  padding-right: 40px;
+	padding-right: 40px;
 }
 .auth__input-wrapper:nth-child(2) {
-  margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 .auth__password-wrapper {
-  display: flex;
-  position: relative;
+	display: flex;
+	position: relative;
 }
 
 /*# sourceMappingURL=authorizationPage.css.map */

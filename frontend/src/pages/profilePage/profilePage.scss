@@ -1,89 +1,77 @@
-@import "../../assets/style/userAvatar";
+@import '../../assets/style/userAvatar';
 
 .profile {
-  margin: 0 10%;
+	margin: 0 10%;
 
-  &__back-arrow {
-    rotate: 90deg;
-  }
+	.user {
+		display: flex;
+		gap: 32px;
+		position: relative;
 
-  &__back {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: var(--Black);
-    font-size: 24px;
-    font-weight: 600;
-    line-height: normal;
-    transition-duration: 300ms;
-    gap: 5px;
-    width: fit-content;
-    cursor: pointer;
-    &:hover {
-      gap: 16px;
-    }
+		&__avatar {
+			position: relative;
+			margin: 0;
+			width: 100px;
+			height: 100px;
+			grid-area: img;
+			cursor: pointer;
+			transition-duration: 0.2s;
 
-    &:active {
-      transition-duration: 1s;
-      opacity: 0;
-    }
-  }
+			&:hover {
+				opacity: 0.7;
+			}
+		}
 
-  .user {
-    margin-top: 48px;
-    display: flex;
-    gap: 32px;
+		&::after {
+			content: url('../../assets/images/avatar-edit.svg');
+			display: flex;
+			position: absolute;
+			border-radius: 50%;
+			left: 60px;
+			bottom: -10px;
+			background-color: var(--Main);
+			padding: 6px 4px 0 5px;
+			pointer-events: none;
+			min-width: 26px;
+		}
 
-    &__avatar {
-      margin: 0;
-      cursor: default;
-      width: 100px;
-      height: 100px;
-      grid-area: img;
-    }
+		.info {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 10px;
 
-    .info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 10px;
+			&__name {
+				color: var(--Black, #111010);
+				font-family: 'Enthalpy 298', sans-serif;
+				font-size: 40px;
+				line-height: normal;
+			}
 
-      &__name {
-        color: var(--Black, #111010);
-        font-family: "Enthalpy 298", sans-serif;
-        font-size: 40px;
-        line-height: normal;
-      }
+			&__grade {
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 150%;
+			}
+		}
+	}
 
-      &__grade {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 150%;
-      }
-    }
-  }
+	.courses {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		gap: 40px;
+		margin-top: 60px;
+	}
 
-  .courses {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 60px;
-  }
+	.data {
+		margin: 64px 0;
 
-  .data {
-    margin: 64px 0;
-
-    &__heading {
-      font-family: "Enthalpy 298", sans-serif;
-      font-size: 40px;
-      font-weight: 400;
-      line-height: normal;
-      margin-bottom: 10px;
-    }
-
-    &__desc {
-      margin-bottom: 48px;
-    }
-  }
+		&__heading {
+			font-family: 'Enthalpy 298', sans-serif;
+			font-size: 40px;
+			font-weight: 400;
+			line-height: normal;
+			margin-bottom: 48px;
+		}
+	}
 }
-

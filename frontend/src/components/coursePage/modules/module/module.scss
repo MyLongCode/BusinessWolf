@@ -1,0 +1,51 @@
+.module {
+	border-radius: 20px;
+	background-color: var(--Main);
+	box-shadow: 7px 7px 25px 0 rgba(0, 0, 0, 0.1);
+	transition-duration: 0.2s;
+	max-width: 760px;
+
+	&:hover {
+		background-color: var(--DarkMain);
+	}
+
+	&__link {
+		text-decoration: none;
+	}
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding: 22px 32px;
+	}
+
+	&__title {
+		color: var(--White);
+		font-family: 'Enthalpy 298', sans-serif;
+		font-size: 40px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+
+	&__lessons-count {
+		color: var(--Gray89);
+		padding: 6px 21px;
+
+		&:nth-child(2) {
+			border-left: 3px solid var(--GrayF1);
+		}
+	}
+
+	&__info {
+		display: flex;
+		background-color: var(--White);
+		border-radius: 24px;
+	}
+
+	&_disabled {
+		background-color: var(--GrayA);
+	}
+}

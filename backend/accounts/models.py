@@ -10,7 +10,7 @@ class User(AbstractUser):
     address = models.CharField(max_length=255)
     education_class = models.CharField(max_length=255)
     coins = models.IntegerField(default=0)
-    avatar = models.CharField(max_length=255)
+    avatar = models.IntegerField(default=1)
     role = models.CharField(max_length=255)
 
     class Meta:

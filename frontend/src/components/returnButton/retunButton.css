@@ -1,0 +1,26 @@
+.return-btn {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: var(--Black);
+	font-size: 24px;
+	font-weight: 600;
+	line-height: normal;
+	transition-duration: 300ms;
+	gap: 5px;
+	width: fit-content;
+	cursor: pointer;
+	margin-bottom: 32px;
+}
+.return-btn__arrow {
+	rotate: 90deg;
+}
+.return-btn:hover {
+	gap: 16px;
+}
+.return-btn:active {
+	transition-duration: 1s;
+	opacity: 0;
+}
+
+/*# sourceMappingURL=retunButton.css.map */

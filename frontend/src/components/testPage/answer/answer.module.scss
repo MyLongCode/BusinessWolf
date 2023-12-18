@@ -1,0 +1,60 @@
+.answer {
+	border-radius: 20px;
+	border: 2px solid var(--Black);
+	padding: 12px 16px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	opacity: 0.5;
+
+	&_selected {
+		color: var(--Main);
+		border-color: var(--Main);
+		opacity: 1;
+	}
+
+	&_wrong {
+		color: red;
+		border-color: red;
+		opacity: 1;
+	}
+}
+
+.toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	border: 2px solid var(--Gray89);
+	border-radius: 2px;
+	margin-right: 12px;
+	transition-duration: 0.3s;
+
+	&_selected {
+		border-color: var(--Main);
+	}
+
+	&__dot {
+		width: 8px;
+		height: 8px;
+		background-image: url("../../../assets/images/checkbox-on.svg");
+		background-repeat: no-repeat;
+		background-position: -2px 0;
+	}
+}
+
+.solo {
+	.toggle {
+		border-radius: 50%;
+
+		&__dot {
+			background-image: none;
+			background-color: var(--Main);
+			height: 9px;
+			width: 9px;
+			border-radius: 50%;
+		}
+	}
+}
