@@ -50,6 +50,8 @@
 		border-radius: 50%;
 
 		&__dot {
+			background-image: none;
+			background-color: var(--Main);
 			height: 9px;
 			width: 9px;
 			border-radius: 50%;

@@ -2,9 +2,14 @@
   -webkit-user-drag: none;
   width: 137px;
   height: 137px;
+  border-radius: 50%;
+  outline: transparent 3px solid;
+  outline-offset: -3px;
+  transition-duration: 0.2s;
 }
 .avatar:hover {
   opacity: 0.8;
+  outline-color: var(--Main);
 }
 .avatar:active {
   opacity: 0.5;

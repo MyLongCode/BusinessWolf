@@ -10,6 +10,7 @@ import AnswerService from '../../services/AnswerService'
 import './testPage.css'
 import type { TestParams } from './testPage.types'
 
+
 function TestPage() {
 	const { id } = useParams<TestParams>()
 	const { selectedAnswers } = useTypedSelector(state => state.tests)

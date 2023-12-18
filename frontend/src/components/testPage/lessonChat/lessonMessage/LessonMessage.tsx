@@ -23,7 +23,7 @@ function LessonMessage({
 			setIsPrinting(false)
 			printingHandler(false)
 		}
-		if (message.author === 'admin') {
+		if (message.author === 'course') {
 			setTimeout(() => donePrinting(), printDuration)
 		} else {
 			donePrinting()
@@ -34,7 +34,7 @@ function LessonMessage({
 		<li
 			className={clsx('message', {
 				message_user: message.author === 'user',
-				message_admin: message.author === 'admin'
+				message_admin: message.author === 'course'
 			})}
 		>
 			{message.type !== 'text' && !isPrinting && (
@@ -55,11 +55,7 @@ function LessonMessage({
 			)}
 			<p
 				className='message__text'
-				style={
-					message.type !== 'text'
-						? { paddingBottom: '12px', paddingTop: '5px' }
-						: {}
-				}
+				style={message.type !== 'text' ? { paddingBottom: '12px', paddingTop: '5px' } : {}}
 			>
 				{isPrinting ? '...' : message.text}
 			</p>

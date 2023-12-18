@@ -29,7 +29,11 @@ function TestItem({ test, lessonNames, isCompleted }: ITestProps) {
 
 	return (
 		<Link
-			to={Links.test(courseID, moduleID, test.test_id)}
+			to={
+				isCompleted
+					? Links.testResult(courseID, moduleID, test.test_id)
+					: Links.test(courseID, moduleID, test.test_id)
+			}
 			className='test-link'
 		>
 			{lessonsName !== '' && (

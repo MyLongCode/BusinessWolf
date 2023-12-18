@@ -10,7 +10,7 @@ export interface IQuestionIDs {
 const initialState = {
 	questions: [] as IQuestionIDs[],
 	selectedAnswers: [] as number[],
-	completedTest: {} as IFullCompletedTestResponse,
+	completedTest: null as IFullCompletedTestResponse | null,
 	areTestsLoading: false
 }
 

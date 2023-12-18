@@ -19,17 +19,19 @@ function TestsList({
 		<ul className='tests'>
 			{tests.length > 0 &&
 				tests.map(test => {
-					if (!test.test_id) return null
+					if (
+						lessons
+							.filter(lesson => lesson.module == moduleID)
+							.every(lesson => lesson.lesson_id !== test.lesson)
+					)
+						return null
 
 					return (
 						<TestItem
 							key={test.test_id}
-							isCompleted={completedTests
-								.map(test => test.test)
-								.includes(test.test_id)}
+							isCompleted={completedTests.map(test => test.test).includes(test.test_id)}
 							lessonNames={lessons.map(lesson => {
-								return lesson.module === moduleID &&
-									lesson.lesson_id === test.lesson
+								return lesson.module === moduleID && lesson.lesson_id === test.lesson
 									? lesson.name
 									: ''
 							})}

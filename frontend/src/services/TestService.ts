@@ -17,11 +17,7 @@ export default class TestService {
 			id: number
 			answers: number[]
 		}[]
-	): Promise<AxiosResponse<IFullCompletedTestResponse>> {
-		let result: Promise<AxiosResponse<IFullCompletedTestResponse>> = {} as Promise<
-			AxiosResponse<IFullCompletedTestResponse>
-		>
-
+	) {
 		await api
 			.post<ICompletedTestResponse>(Queries.POST_TEST_URL, {
 				test: testID
@@ -43,13 +39,10 @@ export default class TestService {
 							await api.put(`${Queries.CHECK_QUESTION_URL}${questionResponse.data.id}/`)
 						})
 				}
-				result = this.getLastCompletedTest(testResponse.data.id)
 			})
-
-		return result
 	}
 
-	static async getLastCompletedTest(id: number) {
+	static async getCompletedTestResult(id: number | string) {
 		return api.get<IFullCompletedTestResponse>(`${Queries.FETCH_COMPLETED_TEST_URL}${id}/`)
 	}
 

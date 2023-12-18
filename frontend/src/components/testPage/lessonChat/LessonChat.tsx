@@ -1,8 +1,11 @@
+import { useQueryClient } from '@tanstack/react-query'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Links from '../../../config/links.config'
+import { useCompletedLessons } from '../../../hooks/useCompletedLessons'
 import useLessons from '../../../hooks/useLessons'
 import { LessonPageParams } from '../../../pages/lessonPage/lessonPage.types'
+import LessonService from '../../../services/LessonService'
 import LessonMessage from './lessonMessage/LessonMessage'
 
 function LessonChat() {
@@ -11,7 +14,7 @@ function LessonChat() {
 	const navigate = useNavigate()
 	const [isPrinting, setIsPrinting] = useState(true)
 	const btnRef = useRef<HTMLButtonElement>(null)
-
+	const completedLesson = useCompletedLessons()
 	const [messagesCount, setMessagesCount] = useState(1)
 	const messagesList = useMemo(() => lesson?.chat_text?.list || [], [lesson])
 
@@ -19,6 +22,9 @@ function LessonChat() {
 		if (messagesList.length > messagesCount) {
 			setMessagesCount(prevState => prevState + 1)
 		} else {
+			if (completedLesson.every(lesson => lesson.lesson !== Number(id))) {
+				LessonService.pushCompletedLesson(id!)
+			}
 			navigate(Links.module(courseID, moduleID))
 		}
 	}
@@ -31,7 +37,7 @@ function LessonChat() {
 		}
 		if (
 			messagesCount < messagesList?.length &&
-			messagesList[messagesCount].author === 'admin' &&
+			messagesList[messagesCount].author === 'course' &&
 			!isPrinting
 		) {
 			setIsPrinting(true)
@@ -40,7 +46,7 @@ function LessonChat() {
 		if (!isPrinting) {
 			scroll()
 		}
-	}, [messagesCount, isPrinting])
+	}, [messagesCount, isPrinting, messagesList])
 
 	return (
 		<div className='lesson-page__chat'>

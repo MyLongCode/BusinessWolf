@@ -6,10 +6,11 @@ import type { IQuestionIDs } from './tests.slice'
 
 export const pushTest = createAsyncThunk<IFullCompletedTestResponse, number>(
 	'tests/push-tests',
-	async (data, thunkAPI) => {
+	async (id, thunkAPI) => {
 		try {
 			const state = thunkAPI.getState() as RootState
-			const response = await TestService.postTest(data, state.tests.questions)
+			await TestService.postTest(id, state.tests.questions)
+			const response = await TestService.getCompletedTestResult(id)
 			return response.data
 		} catch (e) {
 			return thunkAPI.rejectWithValue(e)

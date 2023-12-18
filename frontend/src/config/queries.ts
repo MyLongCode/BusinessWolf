@@ -19,6 +19,7 @@ export default class Queries {
 
 	//MODULES
 	static FETCH_MODULES_URL = '/api/modules/'
+	static FETCH_MODULE_PROGRESS_URL = '/api/progressmodule/'
 
 	//QUESTIONS
 	static POST_QUESTION_URL = '/api/completedquestions/'
@@ -33,6 +34,7 @@ export default class Queries {
 	//LESSONS
 	static FETCH_LESSONS_URL = '/api/lessons/'
 	static FETCH_COMPLETED_LESSONS_URL = '/api/completedlessons/'
+	static PUSH_COMPLETED_LESSON_URL = '/api/completedlessons/'
 
 	//TESTS
 	static FETCH_TEST_URL = '/api/test/'

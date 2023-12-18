@@ -28,10 +28,16 @@
   position: fixed;
   right: 500px;
   top: 400px;
+  transition-duration: 0.2s;
 }
-@media (max-width: 1800px) {
+@media (max-width: 1700px) {
   .lesson-page__wolf {
-    opacity: 0;
+    right: 100px;
+  }
+}
+@media (max-width: 1400px) {
+  .lesson-page__wolf {
+    display: none;
   }
 }
 

@@ -14,7 +14,7 @@
 }
 .profile-course .top-container {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-between;
 }
 .profile-course .top-container__title {

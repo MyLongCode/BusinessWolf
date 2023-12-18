@@ -1,38 +1,45 @@
 .module {
-	border-radius: 20px;
-	background-color: var(--Main);
-	box-shadow: 7px 7px 25px 0 rgba(0, 0, 0, 0.1);
-	transition-duration: 0.2s;
+  border-radius: 20px;
+  background-color: var(--Main);
+  box-shadow: 7px 7px 25px 0 rgba(0, 0, 0, 0.1);
+  transition-duration: 0.2s;
+  max-width: 760px;
 }
 .module:hover {
-	opacity: 0.7;
+  background-color: var(--DarkMain);
 }
 .module__link {
-	text-decoration: none;
+  text-decoration: none;
 }
 .module__wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	padding: 22px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 22px 32px;
 }
 .module__title {
-	color: var(--White);
-	font-family: 'Enthalpy 298', sans-serif;
-	font-size: 40px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
+  color: var(--White);
+  font-family: "Enthalpy 298", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 .module__lessons-count {
-	color: var(--Gray89);
-	background-color: var(--White);
-	padding: 6px 21px;
-	border-radius: 33px;
+  color: var(--Gray89);
+  padding: 6px 21px;
+}
+.module__lessons-count:nth-child(2) {
+  border-left: 3px solid var(--GrayF1);
+}
+.module__info {
+  display: flex;
+  background-color: var(--White);
+  border-radius: 24px;
 }
 .module_disabled {
-	background-color: var(--GrayA);
+  background-color: var(--GrayA);
 }
 
 /*# sourceMappingURL=module.css.map */

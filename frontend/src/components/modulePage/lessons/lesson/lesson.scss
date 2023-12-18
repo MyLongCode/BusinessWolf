@@ -22,4 +22,26 @@
 	&__desc {
 		margin-bottom: 24px;
 	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+
+	&__completed-text {
+		background-color: var(--Main);
+		color: var(--White);
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 24px;
+		border-radius: 33px;
+		padding: 6px 21px;
+	}
+
+	&_completed {
+		color: var(--Main);
+		border-color: var(--Main);
+	}
 }

@@ -3,9 +3,10 @@
 	background-color: var(--Main);
 	box-shadow: 7px 7px 25px 0 rgba(0, 0, 0, 0.1);
 	transition-duration: 0.2s;
+	max-width: 760px;
 
 	&:hover {
-		opacity: 0.7;
+		background-color: var(--DarkMain);
 	}
 
 	&__link {
@@ -31,9 +32,17 @@
 
 	&__lessons-count {
 		color: var(--Gray89);
-		background-color: var(--White);
 		padding: 6px 21px;
-		border-radius: 33px;
+
+		&:nth-child(2) {
+			border-left: 3px solid var(--GrayF1);
+		}
+	}
+
+	&__info {
+		display: flex;
+		background-color: var(--White);
+		border-radius: 24px;
 	}
 
 	&_disabled {

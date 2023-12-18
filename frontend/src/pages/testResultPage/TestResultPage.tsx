@@ -5,6 +5,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import useCompletedTest from 'hooks/useCompletedTest'
 import Links from '../../config/links.config'
+import { useCompletedTests } from '../../hooks/useCompletedTests'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import './testResultPage.css'
 
@@ -14,8 +15,11 @@ function TestResultPage() {
 		moduleID: string
 		id: string
 	}>()
-	const questions = useCompletedTest()
+	const questions = useCompletedTest(id!)
 	const { areTestsLoading } = useTypedSelector(state => state.tests)
+	const isTestsCompleted: boolean = useCompletedTests().some(test => Number(id!) === test.test)
+
+	console.log(isTestsCompleted)
 
 	return (
 		<ModuleLayout headerTitle={`Результат теста ${id}`} pageTitle={`Результат теста ${id}`}>
@@ -36,9 +40,6 @@ function TestResultPage() {
 										key={question.id}
 										title={question.question.text}
 										selectedAnswers={question.selected_answers}
-										questionExplanation={`Объяснения ответа и почему он верный и тд
-									 .... ake new friends, plan a family dinner, go shopping and much
-									  more!мLearn the basics of the langLearn the basics of the language`}
 										allAnswers={question.question.answers}
 									/>
 								)

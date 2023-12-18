@@ -4,26 +4,13 @@ import type { IResultProps } from '../../../pages/testResultPage/testResultPage.
 import './questionResult.css'
 import ResultAnswersList from './resultAnswersList/ResultAnswersList'
 
-function QuestionResult({
-	selectedAnswers,
-	allAnswers,
-	title,
-	questionExplanation
-}: IResultProps) {
-	const userAnswers = useMemo(
-		() => selectedAnswers.map(answer => answer.answer),
-		[selectedAnswers]
-	)
-	const rightAnswers = useMemo(
-		() => allAnswers.filter(answer => answer.is_right),
-		[allAnswers]
-	)
+function QuestionResult({ selectedAnswers, allAnswers, title }: IResultProps) {
+	const userAnswers = useMemo(() => selectedAnswers.map(answer => answer.answer), [selectedAnswers])
+	const rightAnswers = useMemo(() => allAnswers.filter(answer => answer.is_right), [allAnswers])
 	const isCorrect = useMemo(
 		() =>
 			selectedAnswers.every(selAnswer =>
-				rightAnswers
-					.map(rAnswer => rAnswer.answer_id)
-					.includes(selAnswer.answer.answer_id)
+				rightAnswers.map(rAnswer => rAnswer.answer_id).includes(selAnswer.answer.answer_id)
 			),
 		[selectedAnswers, rightAnswers]
 	)
@@ -41,7 +28,17 @@ function QuestionResult({
 					<ResultAnswersList answers={rightAnswers} />
 				</>
 			)}
-			<p className='question-result__explanation'>{questionExplanation}</p>
+
+			<div className='question-result__explanation-wrapper'>
+				<h5 className='question-result__explanation-heading'>Пояснение</h5>
+				{allAnswers.map(answer => {
+					return (
+						<p key={answer.answer_id} className={clsx('question-result__explanation')}>
+							{answer.text} - {answer.explanation}
+						</p>
+					)
+				})}
+			</div>
 		</li>
 	)
 }

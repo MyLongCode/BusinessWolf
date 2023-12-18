@@ -42,9 +42,7 @@ function ProfilePage() {
 				</section>
 				<section className='profile__data data'>
 					<h2 className='data__heading'>Ваши данные:</h2>
-					<p className='data__desc'>
-						Заполните данные и получите <b>5 волчих коинов</b>
-					</p>
+
 					<ProfileDataForm
 						name={fullName}
 						phone={phone}

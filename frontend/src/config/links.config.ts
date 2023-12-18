@@ -11,14 +11,13 @@ export default class Links {
 	static course = (id?: string | number) => `/course/${id}`
 	static module = (courseID?: string | number, id?: string | number) =>
 		`${this.course(courseID)}/module/${id}`
-	static test = (
+	static test = (courseID?: string | number, moduleID?: string | number, id?: string | number) =>
+		`${this.module(courseID, moduleID)}/tests/${id}`
+	static lesson = (courseID?: string | number, moduleID?: string | number, id?: string | number) =>
+		`${this.module(courseID, moduleID)}/lessons/${id}`
+	static testResult = (
 		courseID?: string | number,
 		moduleID?: string | number,
 		id?: string | number
-	) => `${this.module(courseID, moduleID)}/tests/${id}`
-	static lesson = (
-		courseID?: string | number,
-		moduleID?: string | number,
-		id?: string | number
-	) => `${this.module(courseID, moduleID)}/lessons/${id}`
+	) => `${this.test(courseID, moduleID, id)}/result`
 }
