@@ -1,25 +1,25 @@
 .logo {
-	text-decoration: none;
-	color: var(--Black);
-	display: flex;
-	align-items: center;
-	gap: 9px;
-	transition-duration: 300ms;
+  text-decoration: none;
+  color: var(--Black);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  transition-duration: 300ms;
 }
 .logo__img {
-	width: 93px;
-	height: 93px;
+  width: 93px;
+  height: 93px;
 }
 .logo__text {
-	font-family: 'Enthalpy 298', sans-serif;
-	margin-right: auto;
-	font-size: 24px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
+  font-family: "Enthalpy 298", sans-serif;
+  margin-right: auto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 .logo:hover {
-	gap: 13px;
+  gap: 13px;
 }
 
 /*# sourceMappingURL=logo.css.map */
