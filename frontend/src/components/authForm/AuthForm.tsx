@@ -69,11 +69,7 @@ function AuthForm({ onSubmit }: IAuthForm) {
 									(errors?.password || errorMessage ? ' invalid' : '')
 								}
 								{...register('password', {
-									required: 'Поле не должно быть пустым',
-									minLength: {
-										value: 6,
-										message: 'Длина пароля должна быть не меньше 6 символов'
-									}
+									required: 'Поле не должно быть пустым'
 								})}
 							/>
 							{dirtyFields.password && (
