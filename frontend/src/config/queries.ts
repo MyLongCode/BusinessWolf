@@ -4,7 +4,7 @@
  */
 export default class Queries {
 	//API
-	static API_URL = 'http://127.0.0.1:8000'
+	static API_URL = 'https://business-volchonok.ru/web'
 
 	//AUTH
 	static LOGIN_URL = '/auth/token/'
