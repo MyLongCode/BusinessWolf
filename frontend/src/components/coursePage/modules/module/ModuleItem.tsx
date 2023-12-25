@@ -1,11 +1,12 @@
 import Links from 'config/links.config'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import ModuleService from '../../../../services/ModuleService'
 import './module.css'
 import { ModuleProps } from './moduleItem.interface'
 
 function ModuleItem({ module }: ModuleProps) {
+	const location = useLocation()
 	const [lessons, setLessons] = useState(0)
 	const [completedLessons, setCompletedLessons] = useState(0)
 	const [tests, setTests] = useState(0)
@@ -24,6 +25,7 @@ function ModuleItem({ module }: ModuleProps) {
 		<li className={'modules__item module'}>
 			<Link
 				to={`${Links.module(module.course, module.module_id)}/lessons`}
+				state={{ from: location.pathname }}
 				className='module__link'
 			>
 				<div className='module__wrapper'>

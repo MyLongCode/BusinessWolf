@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ProfileMenu from '../../profilePage/profileMenu/ProfileMenu'
+import ReturnButton from '../../returnButton/ReturnButton'
 import Logo from '../logo/Logo'
 import './moduleHeader.css'
 
@@ -22,7 +23,10 @@ function ModuleHeader(props: ModuleHeaderProps) {
 				<ProfileMenu isWhite={true} />
 			</div>
 			<div className='header__module hm'>
-				<h2 className='hm__name'>{title}</h2>
+				<div className='hm__container'>
+					<h2 className='hm__name'>{title}</h2>
+					<ReturnButton text={'Назад'} />
+				</div>
 				{props.description && <p className='hm_desc'>{props.description}</p>}
 			</div>
 		</header>

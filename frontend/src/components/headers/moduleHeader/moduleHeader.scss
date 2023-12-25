@@ -7,6 +7,14 @@
 	border-radius: 0 0 50px 50px;
 	margin-bottom: 48px;
 
+	.return-btn {
+		color: white;
+
+		&__arrow {
+			border-color: white;
+		}
+	}
+
 	.header__wrapper {
 		display: flex;
 		align-items: center;
@@ -46,19 +54,26 @@
 	}
 
 	.hm {
-		max-width: 45%;
 		&__name {
 			font-family: 'Enthalpy 298', sans-serif;
 			font-size: 40px;
 			font-weight: 400;
 			line-height: normal;
 			margin-bottom: 20px;
+			max-width: 60%;
 		}
 
 		&__desc {
 			font-size: 18px;
 			font-weight: 400;
 			line-height: 160%;
+			max-width: 60%;
+		}
+
+		&__container {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
 		}
 	}
 }
